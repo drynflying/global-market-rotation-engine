@@ -4,18 +4,6 @@
   "executive_summary": "The dashboard is using deterministic rotation calculations only. AI was not used for this run: AI_PROVIDER is not set to gemini",
   "emerging_rotations": [
     {
-      "ticker": "XME",
-      "title": "Improving: Metals & Mining",
-      "explanation": "Rotation score 70.42; 20-bar change 54.37.",
-      "confidence": "medium"
-    },
-    {
-      "ticker": "ENOR",
-      "title": "Improving: Norway",
-      "explanation": "Rotation score 76.83; 20-bar change 51.95.",
-      "confidence": "medium"
-    },
-    {
       "ticker": "XLB",
       "title": "Improving: Materials",
       "explanation": "Rotation score 80.91; 20-bar change 51.82.",
@@ -26,57 +14,69 @@
       "title": "Improving: Global Materials",
       "explanation": "Rotation score 80.5; 20-bar change 50.0.",
       "confidence": "medium"
+    },
+    {
+      "ticker": "ENOR",
+      "title": "Improving: Norway",
+      "explanation": "Rotation score 74.63; 20-bar change 49.76.",
+      "confidence": "medium"
+    },
+    {
+      "ticker": "XME",
+      "title": "Improving: Metals & Mining",
+      "explanation": "Rotation score 64.91; 20-bar change 49.17.",
+      "confidence": "medium"
     }
   ],
   "persistent_leaders": [
     {
-      "ticker": "XLE",
-      "title": "Leader: Energy",
-      "explanation": "Rotation score 88.64; 20-bar change 18.18.",
+      "ticker": "SKYY",
+      "title": "Leader: Cloud Computing",
+      "explanation": "Rotation score 91.3; 20-bar change 28.15.",
       "confidence": "medium"
     },
     {
-      "ticker": "RSP",
-      "title": "Leader: S&P 500 equal weight",
-      "explanation": "Rotation score 87.5; 20-bar change 21.25.",
+      "ticker": "EPOL",
+      "title": "Leader: Poland",
+      "explanation": "Rotation score 90.12; 20-bar change 40.37.",
       "confidence": "medium"
     },
     {
-      "ticker": "FEZ",
-      "title": "Leader: Eurozone blue chips",
-      "explanation": "Rotation score 85.0; 20-bar change 36.25.",
+      "ticker": "CIBR",
+      "title": "Leader: Cybersecurity",
+      "explanation": "Rotation score 88.89; 20-bar change 7.22.",
       "confidence": "medium"
     },
     {
-      "ticker": "SCZ",
-      "title": "Leader: EAFE small cap",
-      "explanation": "Rotation score 84.29; 20-bar change 26.43.",
+      "ticker": "EWD",
+      "title": "Leader: Sweden",
+      "explanation": "Rotation score 88.54; 20-bar change 47.8.",
       "confidence": "medium"
     }
   ],
   "weakening_rotations": [
     {
-      "ticker": "XLU",
-      "title": "Weakening: Utilities",
-      "explanation": "Rotation score 26.82; 20-bar change -39.55.",
-      "confidence": "medium"
-    },
-    {
       "ticker": "EWY",
       "title": "Weakening: South Korea",
-      "explanation": "Rotation score 20.61; 20-bar change -37.56.",
+      "explanation": "Rotation score 15.73; 20-bar change -42.44.",
       "confidence": "medium"
     },
     {
-      "ticker": "SMH",
-      "title": "Weakening: Semiconductors",
-      "explanation": "Rotation score 16.46; 20-bar change -33.12.",
+      "ticker": "XLU",
+      "title": "Weakening: Utilities",
+      "explanation": "Rotation score 28.64; 20-bar change -37.73.",
       "confidence": "medium"
     },
     {
       "ticker": "REZ",
       "title": "Weakening: Residential & Multisector Real Estate",
-      "explanation": "Rotation score 45.0; 20-bar change -32.08.",
+      "explanation": "Rotation score 42.04; 20-bar change -34.07.",
+      "confidence": "medium"
+    },
+    {
+      "ticker": "SMH",
+      "title": "Weakening: Semiconductors",
+      "explanation": "Rotation score 16.11; 20-bar change -33.15.",
       "confidence": "medium"
     }
   ],
@@ -86,14 +86,14 @@
     "ETF trading volume is not the same as ETF net creations/redemptions."
   ],
   "dashboard_focus_tickers": [
-    "XME",
-    "ENOR",
     "XLB",
     "MXI",
-    "XLE",
-    "RSP",
-    "FEZ",
-    "SCZ"
+    "ENOR",
+    "XME",
+    "SKYY",
+    "EPOL",
+    "CIBR",
+    "EWD"
   ],
   "methodology_note": "Deterministic fallback summary; no AI API call was used.",
   "provider_status": "fallback"
