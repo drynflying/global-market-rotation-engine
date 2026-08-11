@@ -16,6 +16,7 @@ jobs:
     timeout-minutes: 30
 
     env:
+      AI_PROVIDERS: ${{ vars.AI_PROVIDERS }}
       AI_PROVIDER: ${{ vars.AI_PROVIDER }}
       GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
