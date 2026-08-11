@@ -1,0 +1,12 @@
+{
+  ".github/workflows/manual_rotation.yml": {
+    "has_AI_PROVIDERS": true,
+    "has_GEMINI_API_KEY": true,
+    "has_future_provider_slots": true
+  },
+  ".github/workflows/daily_rotation.yml.disabled": {
+    "has_AI_PROVIDERS": true,
+    "has_GEMINI_API_KEY": true,
+    "has_future_provider_slots": true
+  }
+}
