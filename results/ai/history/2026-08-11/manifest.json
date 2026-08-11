@@ -3,11 +3,13 @@
   "requested_providers": [
     "gemini"
   ],
-  "successful_providers": [],
-  "failed_providers": [
+  "successful_providers": [
     "gemini"
   ],
-  "primary_provider": "deterministic_fallback",
-  "provider_status": "fallback",
-  "provider_models": {}
+  "failed_providers": [],
+  "primary_provider": "gemini",
+  "provider_status": "ai",
+  "provider_models": {
+    "gemini": "gemini-3.6-flash"
+  }
 }
