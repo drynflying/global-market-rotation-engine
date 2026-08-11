@@ -8,16 +8,20 @@
   "scored_tickers": 111,
   "cross_sectional_scored": 107,
   "pair_scored": 4,
-  "emerging_count": 15,
-  "accelerating_count": 7,
+  "emerging_count": 18,
+  "accelerating_count": 6,
   "persistent_leader_count": 11,
-  "reaccelerating_count": 8,
-  "neutral_count": 31,
-  "weakening_count": 30,
+  "reaccelerating_count": 5,
+  "neutral_count": 28,
+  "weakening_count": 34,
   "rotation_out_count": 9,
-  "ai_requested_providers": [],
+  "ai_requested_providers": [
+    "gemini"
+  ],
   "ai_successful_providers": [],
-  "ai_failed_providers": [],
+  "ai_failed_providers": [
+    "gemini"
+  ],
   "ai_primary_provider": "deterministic_fallback",
   "ai_provider_status": "fallback",
   "ai_consensus_provider_count": 0

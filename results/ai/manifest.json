@@ -1,8 +1,12 @@
 {
   "as_of": "2026-08-11",
-  "requested_providers": [],
+  "requested_providers": [
+    "gemini"
+  ],
   "successful_providers": [],
-  "failed_providers": [],
+  "failed_providers": [
+    "gemini"
+  ],
   "primary_provider": "deterministic_fallback",
   "provider_status": "fallback",
   "provider_models": {}

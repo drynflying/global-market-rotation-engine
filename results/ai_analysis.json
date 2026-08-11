@@ -1,18 +1,8 @@
 {
   "headline": "Quantitative rotation dashboard",
   "market_regime": "AI interpretation unavailable",
-  "executive_summary": "The dashboard is using deterministic rotation calculations only. AI was not used for this run: no AI providers were enabled",
+  "executive_summary": "The dashboard is using deterministic rotation calculations only. AI was not used for this run: all requested AI providers failed: gemini: ValidationError: 1 validation error for GenerateContentConfig\nresponse_format\n  Extra inputs are not permitted [type=extra_forbidden, input_value={'text': {'mime_type': 'a...is', 'type': 'object'}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
   "emerging_rotations": [
-    {
-      "ticker": "XLB",
-      "title": "Emerging: Materials",
-      "explanation": "Deterministic state EMERGING; rotation score 81.82; 5-bar score change 13.18; 20-bar score change 57.73.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "MXI"
-      ]
-    },
     {
       "ticker": "MXI",
       "title": "Emerging: Global Materials",
@@ -24,19 +14,19 @@
       ]
     },
     {
-      "ticker": "IHI",
-      "title": "Emerging: Medical Devices",
-      "explanation": "Deterministic state EMERGING; rotation score 80.56; 5-bar score change 40.93; 20-bar score change 50.56.",
+      "ticker": "XLB",
+      "title": "Emerging: Materials",
+      "explanation": "Deterministic state EMERGING; rotation score 77.73; 5-bar score change 9.09; 20-bar score change 53.64.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
-        "XLV"
+        "MXI"
       ]
     },
     {
       "ticker": "EZA",
       "title": "Emerging: South Africa",
-      "explanation": "Deterministic state EMERGING; rotation score 60.91; 5-bar score change 27.38; 20-bar score change 49.21.",
+      "explanation": "Deterministic state EMERGING; rotation score 62.87; 5-bar score change 29.33; 20-bar score change 51.16.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -44,37 +34,27 @@
       ]
     },
     {
-      "ticker": "IYZ",
-      "title": "Emerging: Telecommunications",
-      "explanation": "Deterministic state EMERGING; rotation score 63.52; 5-bar score change -12.59; 20-bar score change 38.15.",
+      "ticker": "IHI",
+      "title": "Emerging: Medical Devices",
+      "explanation": "Deterministic state EMERGING; rotation score 79.07; 5-bar score change 39.44; 20-bar score change 49.07.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
-        "XLC"
+        "XLV"
+      ]
+    },
+    {
+      "ticker": "XME",
+      "title": "Emerging: Metals & Mining",
+      "explanation": "Deterministic state EMERGING; rotation score 61.02; 5-bar score change 10.09; 20-bar score change 48.98.",
+      "confidence": "medium",
+      "related_tickers": [
+        "SPY",
+        "XLB"
       ]
     }
   ],
   "accelerating_rotations": [
-    {
-      "ticker": "XLE",
-      "title": "Accelerating: Energy",
-      "explanation": "Deterministic state ACCELERATING; rotation score 81.36; 5-bar score change 14.55; 20-bar score change 14.55.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "IXC"
-      ]
-    },
-    {
-      "ticker": "EIRL",
-      "title": "Accelerating: Ireland",
-      "explanation": "Deterministic state ACCELERATING; rotation score 78.9; 5-bar score change 26.34; 20-bar score change 8.9.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "VGK"
-      ]
-    },
     {
       "ticker": "EXI",
       "title": "Accelerating: Global Industrials",
@@ -86,9 +66,19 @@
       ]
     },
     {
+      "ticker": "EIRL",
+      "title": "Accelerating: Ireland",
+      "explanation": "Deterministic state ACCELERATING; rotation score 77.07; 5-bar score change 24.51; 20-bar score change 7.07.",
+      "confidence": "medium",
+      "related_tickers": [
+        "ACWX",
+        "VGK"
+      ]
+    },
+    {
       "ticker": "XPH",
       "title": "Accelerating: Pharmaceuticals",
-      "explanation": "Deterministic state ACCELERATING; rotation score 82.96; 5-bar score change 10.56; 20-bar score change 6.85.",
+      "explanation": "Deterministic state ACCELERATING; rotation score 82.41; 5-bar score change 10.0; 20-bar score change 6.3.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
@@ -98,7 +88,7 @@
     {
       "ticker": "IXJ",
       "title": "Accelerating: Global Health Care",
-      "explanation": "Deterministic state ACCELERATING; rotation score 83.0; 5-bar score change 28.5; 20-bar score change 5.5.",
+      "explanation": "Deterministic state ACCELERATING; rotation score 81.5; 5-bar score change 27.0; 20-bar score change 4.0.",
       "confidence": "medium",
       "related_tickers": [
         "ACWI",
@@ -110,7 +100,7 @@
     {
       "ticker": "EWS",
       "title": "Persistent leader: Singapore",
-      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 89.15; 5-bar score change 10.0; 20-bar score change 0.61.",
+      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 89.02; 5-bar score change 9.88; 20-bar score change 0.49.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -118,9 +108,29 @@
       ]
     },
     {
+      "ticker": "FEZ",
+      "title": "Persistent leader: Eurozone blue chips",
+      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 86.88; 5-bar score change 11.88; 20-bar score change 31.88.",
+      "confidence": "medium",
+      "related_tickers": [
+        "ACWX",
+        "VEA"
+      ]
+    },
+    {
+      "ticker": "EPOL",
+      "title": "Persistent leader: Poland",
+      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 85.98; 5-bar score change 5.0; 20-bar score change 33.78.",
+      "confidence": "medium",
+      "related_tickers": [
+        "ACWX",
+        "VGK"
+      ]
+    },
+    {
       "ticker": "SKYY",
       "title": "Persistent leader: Cloud Computing",
-      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 87.22; 5-bar score change -9.81; 20-bar score change 11.67.",
+      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 84.26; 5-bar score change -12.78; 20-bar score change 8.7.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
@@ -130,30 +140,11 @@
     {
       "ticker": "EWQ",
       "title": "Persistent leader: France",
-      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 85.12; 5-bar score change 4.88; 20-bar score change 36.22.",
+      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 83.66; 5-bar score change 3.41; 20-bar score change 34.76.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
         "FEZ"
-      ]
-    },
-    {
-      "ticker": "EPOL",
-      "title": "Persistent leader: Poland",
-      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 84.51; 5-bar score change 3.54; 20-bar score change 32.32.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "VGK"
-      ]
-    },
-    {
-      "ticker": "EFA",
-      "title": "Persistent leader: EAFE developed, large/mid",
-      "explanation": "Deterministic state PERSISTENT_LEADER; rotation score 83.57; 5-bar score change 5.0; 20-bar score change 17.14.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX"
       ]
     }
   ],
@@ -179,30 +170,10 @@
     {
       "ticker": "IXG",
       "title": "Reaccelerating: Global Financials",
-      "explanation": "Deterministic state REACCELERATING; rotation score 79.0; 5-bar score change 5.5; 20-bar score change -12.5.",
+      "explanation": "Deterministic state REACCELERATING; rotation score 77.5; 5-bar score change 4.0; 20-bar score change -14.0.",
       "confidence": "medium",
       "related_tickers": [
         "ACWI",
-        "XLF"
-      ]
-    },
-    {
-      "ticker": "XLF",
-      "title": "Reaccelerating: Financials",
-      "explanation": "Deterministic state REACCELERATING; rotation score 75.0; 5-bar score change 0.45; 20-bar score change -18.64.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "IXG"
-      ]
-    },
-    {
-      "ticker": "KIE",
-      "title": "Reaccelerating: Insurance",
-      "explanation": "Deterministic state REACCELERATING; rotation score 56.67; 5-bar score change 0.37; 20-bar score change -25.37.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
         "XLF"
       ]
     }
@@ -219,23 +190,33 @@
       ]
     },
     {
-      "ticker": "EWM",
-      "title": "Weakening: Malaysia",
-      "explanation": "Deterministic state WEAKENING; rotation score 33.17; 5-bar score change -33.78; 20-bar score change -36.22.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "ASEA"
-      ]
-    },
-    {
       "ticker": "REZ",
       "title": "Weakening: Residential & Multisector Real Estate",
-      "explanation": "Deterministic state WEAKENING; rotation score 37.04; 5-bar score change -1.3; 20-bar score change -34.81.",
+      "explanation": "Deterministic state WEAKENING; rotation score 35.37; 5-bar score change -2.96; 20-bar score change -36.48.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
         "XLRE"
+      ]
+    },
+    {
+      "ticker": "REM",
+      "title": "Weakening: Mortgage Real Estate",
+      "explanation": "Deterministic state WEAKENING; rotation score 33.89; 5-bar score change 0.37; 20-bar score change -34.81.",
+      "confidence": "medium",
+      "related_tickers": [
+        "SPY",
+        "XLRE"
+      ]
+    },
+    {
+      "ticker": "EWM",
+      "title": "Weakening: Malaysia",
+      "explanation": "Deterministic state WEAKENING; rotation score 34.88; 5-bar score change -32.07; 20-bar score change -34.51.",
+      "confidence": "medium",
+      "related_tickers": [
+        "ACWX",
+        "ASEA"
       ]
     },
     {
@@ -247,23 +228,13 @@
         "ACWI",
         "XLK"
       ]
-    },
-    {
-      "ticker": "REM",
-      "title": "Weakening: Mortgage Real Estate",
-      "explanation": "Deterministic state WEAKENING; rotation score 34.81; 5-bar score change 1.3; 20-bar score change -33.89.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "XLRE"
-      ]
     }
   ],
   "rotation_out": [
     {
       "ticker": "EWZ",
       "title": "Rotation out: Brazil",
-      "explanation": "Deterministic state ROTATION_OUT; rotation score 24.02; 5-bar score change -22.07; 20-bar score change -39.15.",
+      "explanation": "Deterministic state ROTATION_OUT; rotation score 23.29; 5-bar score change -22.8; 20-bar score change -39.88.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -281,19 +252,9 @@
       ]
     },
     {
-      "ticker": "EWY",
-      "title": "Rotation out: South Korea",
-      "explanation": "Deterministic state ROTATION_OUT; rotation score 18.41; 5-bar score change -11.83; 20-bar score change -38.17.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "AAXJ"
-      ]
-    },
-    {
       "ticker": "SMH",
       "title": "Rotation out: Semiconductors",
-      "explanation": "Deterministic state ROTATION_OUT; rotation score 15.56; 5-bar score change -19.81; 20-bar score change -37.04.",
+      "explanation": "Deterministic state ROTATION_OUT; rotation score 15.19; 5-bar score change -20.19; 20-bar score change -37.41.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
@@ -309,6 +270,16 @@
         "ACWI",
         "XLC"
       ]
+    },
+    {
+      "ticker": "EWY",
+      "title": "Rotation out: South Korea",
+      "explanation": "Deterministic state ROTATION_OUT; rotation score 21.1; 5-bar score change -9.15; 20-bar score change -35.49.",
+      "confidence": "medium",
+      "related_tickers": [
+        "ACWX",
+        "AAXJ"
+      ]
     }
   ],
   "geographic_rotations": [],
@@ -316,7 +287,7 @@
     {
       "ticker": "IWD",
       "title": "Pair relationship: U.S. large-cap value",
-      "explanation": "PAIR_LEADING versus IWF; 20-bar spread 4.52 percentage points; 63-bar spread 10.26 percentage points.",
+      "explanation": "PAIR_LEADING versus IWF; 20-bar spread 4.39 percentage points; 63-bar spread 10.13 percentage points.",
       "confidence": "medium",
       "related_tickers": [
         "IWF"
@@ -325,7 +296,7 @@
     {
       "ticker": "IWF",
       "title": "Pair relationship: U.S. large-cap growth",
-      "explanation": "PAIR_LAGGING versus IWD; 20-bar spread -4.52 percentage points; 63-bar spread -10.26 percentage points.",
+      "explanation": "PAIR_LAGGING versus IWD; 20-bar spread -4.39 percentage points; 63-bar spread -10.13 percentage points.",
       "confidence": "medium",
       "related_tickers": [
         "IWD"
@@ -334,7 +305,7 @@
     {
       "ticker": "REET",
       "title": "Pair relationship: Global REITs",
-      "explanation": "PAIR_MIXED versus XLRE; 20-bar spread -0.12 percentage points; 63-bar spread 1.82 percentage points.",
+      "explanation": "PAIR_LEADING versus XLRE; 20-bar spread 0.06 percentage points; 63-bar spread 1.99 percentage points.",
       "confidence": "medium",
       "related_tickers": [
         "XLRE"
@@ -343,7 +314,7 @@
     {
       "ticker": "RSP",
       "title": "Pair relationship: S&P 500 equal weight",
-      "explanation": "PAIR_LEADING versus SPY; 20-bar spread 0.97 percentage points; 63-bar spread 4.18 percentage points.",
+      "explanation": "PAIR_LEADING versus SPY; 20-bar spread 0.91 percentage points; 63-bar spread 4.11 percentage points.",
       "confidence": "medium",
       "related_tickers": [
         "SPY"
@@ -356,23 +327,35 @@
     "ETF trading volume is not the same as ETF net creations/redemptions."
   ],
   "dashboard_focus_tickers": [
-    "XLB",
     "MXI",
-    "IHI",
+    "XLB",
     "EZA",
-    "IYZ",
-    "XLE",
+    "IHI",
+    "XME",
+    "EXI",
     "EIRL",
-    "EXI"
+    "XPH"
   ],
   "methodology_note": "Deterministic fallback summary; no AI API call was used.",
   "as_of": "2026-08-11",
   "provider_status": "fallback",
   "primary_provider": "deterministic_fallback",
-  "requested_providers": [],
+  "requested_providers": [
+    "gemini"
+  ],
   "successful_providers": [],
-  "failed_providers": [],
-  "provider_results": {},
+  "failed_providers": [
+    "gemini"
+  ],
+  "provider_results": {
+    "gemini": {
+      "provider": "gemini",
+      "status": "error",
+      "model": null,
+      "error": "ValidationError: 1 validation error for GenerateContentConfig\nresponse_format\n  Extra inputs are not permitted [type=extra_forbidden, input_value={'text': {'mime_type': 'a...is', 'type': 'object'}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+      "analysis": null
+    }
+  },
   "consensus": {
     "provider_count": 0,
     "mode": "single_provider",
