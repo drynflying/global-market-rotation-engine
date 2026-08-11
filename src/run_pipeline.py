@@ -5,7 +5,7 @@ import sys
 
 import pandas as pd
 
-from src.analyze_with_gemini import analyze
+from src.ai.run_analysis import run_ai_analysis
 from src.build_ai_input import build_ai_input
 from src.build_dashboard import build_dashboard
 from src.calculate_metrics import (
@@ -152,7 +152,16 @@ def main() -> int:
     validate_required_benchmarks(cfg, latest)
 
     ai_input = build_ai_input(latest, history)
-    ai_analysis = analyze(ai_input)
+    ai_analysis = run_ai_analysis(ai_input)
+    summary.update({
+        "ai_requested_providers": ai_analysis.get("requested_providers", []),
+        "ai_successful_providers": ai_analysis.get("successful_providers", []),
+        "ai_failed_providers": ai_analysis.get("failed_providers", []),
+        "ai_primary_provider": ai_analysis.get("primary_provider"),
+        "ai_provider_status": ai_analysis.get("provider_status"),
+        "ai_consensus_provider_count": ai_analysis.get("consensus", {}).get("provider_count", 0),
+    })
+    RUN_SUMMARY_PATH.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     build_dashboard(latest, history, ai_analysis)
 
     print(json.dumps(summary, indent=2))

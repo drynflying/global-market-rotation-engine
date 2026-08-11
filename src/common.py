@@ -19,6 +19,10 @@ FETCH_FAILURES_PATH = RESULTS_DIR / "fetch_failures.csv"
 RUN_SUMMARY_PATH = RESULTS_DIR / "run_summary.json"
 AI_INPUT_PATH = RESULTS_DIR / "ai_input.json"
 AI_ANALYSIS_PATH = RESULTS_DIR / "ai_analysis.json"
+AI_DIR = RESULTS_DIR / "ai"
+AI_HISTORY_DIR = AI_DIR / "history"
+AI_CONSENSUS_PATH = AI_DIR / "consensus.json"
+AI_MANIFEST_PATH = AI_DIR / "manifest.json"
 
 
 def as_bool(value) -> bool:
@@ -46,7 +50,7 @@ def safe_float(value, default: float) -> float:
 
 
 def ensure_dirs() -> None:
-    for directory in [DATA_DIR, RESULTS_DIR, DOCS_DIR, DOCS_DATA_DIR]:
+    for directory in [DATA_DIR, RESULTS_DIR, AI_DIR, AI_HISTORY_DIR, DOCS_DIR, DOCS_DATA_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
 
 

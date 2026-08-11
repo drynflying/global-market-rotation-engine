@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import html
 import json
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -46,7 +45,6 @@ def build_dashboard(
         latest["rotation_score"].notna()
         & latest["rank_eligible"].astype(bool)
     ].copy()
-
     cross_scored = scored[scored["score_mode"].eq("CROSS_SECTIONAL")].copy()
     pair_scored = scored[scored["score_mode"].eq("PAIR")].copy()
 
@@ -57,20 +55,6 @@ def build_dashboard(
     weakening = cross_scored[
         cross_scored["score_change_20"].notna()
     ].nsmallest(10, "score_change_20")
-
-    groups = []
-    for group, g in cross_scored.groupby("rotation_group"):
-        g = g.sort_values("rotation_score", ascending=False)
-        groups.append(
-            {
-                "group": group,
-                "count": int(len(g)),
-                "leader": g.iloc[0]["ticker"] if len(g) else None,
-                "leader_score": float(g.iloc[0]["rotation_score"]) if len(g) else None,
-                "median_score": float(g["rotation_score"].median()) if len(g) else None,
-            }
-        )
-    groups = sorted(groups, key=lambda x: x["group"])
 
     focus = ai_analysis.get("dashboard_focus_tickers", [])[:8]
     if not focus:
@@ -83,14 +67,10 @@ def build_dashboard(
             & history["rotation_score"].notna()
         ].sort_values("date").tail(63)
         series[ticker] = [
-            {
-                "date": d.strftime("%Y-%m-%d"),
-                "score": round(float(s), 2),
-            }
+            {"date": d.strftime("%Y-%m-%d"), "score": round(float(s), 2)}
             for d, s in zip(g["date"], g["rotation_score"])
         ]
 
-    # Machine-readable copies beside the dashboard.
     latest_json = latest.replace({np.nan: None}).to_dict(orient="records")
     (DOCS_DATA_DIR / "rotation_latest.json").write_text(
         json.dumps(latest_json, default=str, indent=2),
@@ -100,6 +80,13 @@ def build_dashboard(
         json.dumps(ai_analysis, indent=2),
         encoding="utf-8",
     )
+
+    provider_results = ai_analysis.get("provider_results", {})
+    successful = ai_analysis.get("successful_providers", [])
+    requested = ai_analysis.get("requested_providers", [])
+    failed = ai_analysis.get("failed_providers", [])
+    primary_provider = ai_analysis.get("primary_provider", "deterministic_fallback")
+    consensus = ai_analysis.get("consensus", {})
 
     def rows(frame):
         result = []
@@ -122,6 +109,11 @@ def build_dashboard(
         items = ai_analysis.get(key, [])
         cards = []
         for item in items[:5]:
+            related = ", ".join(item.get("related_tickers", [])[:4])
+            related_html = (
+                f"<div class='related'>Related: {html.escape(related)}</div>"
+                if related else ""
+            )
             cards.append(
                 f"""
                 <article class="mini-card">
@@ -131,10 +123,88 @@ def build_dashboard(
                   </div>
                   <div class="mini-title">{html.escape(item.get('title',''))}</div>
                   <p>{html.escape(item.get('explanation',''))}</p>
+                  {related_html}
                 </article>
                 """
             )
-        return f"<section><h2>{html.escape(title)}</h2><div class='mini-grid'>{''.join(cards) or '<p class=\"muted\">No items.</p>'}</div></section>"
+        return (
+            f"<section><h2>{html.escape(title)}</h2>"
+            f"<div class='mini-grid'>{''.join(cards) or '<p class=\"muted\">No items.</p>'}</div>"
+            f"</section>"
+        )
+
+    provider_cards = []
+    for name in requested:
+        result = provider_results.get(name, {})
+        status = result.get("status", "unknown")
+        model = result.get("model") or "—"
+        err = result.get("error")
+        provider_cards.append(
+            f"""
+            <div class="provider-card">
+              <div><strong>{html.escape(name.title())}</strong></div>
+              <div class="provider-status {'good' if status == 'success' else 'warn'}">
+                {html.escape(status)}
+              </div>
+              <div class="muted small">{html.escape(str(model))}</div>
+              {f'<div class="muted small">{html.escape(str(err))}</div>' if err else ''}
+            </div>
+            """
+        )
+    if not provider_cards:
+        provider_cards.append(
+            "<div class='provider-card'><strong>Deterministic fallback</strong>"
+            "<div class='muted small'>No AI provider enabled.</div></div>"
+        )
+
+    consensus_html = ""
+    if consensus.get("provider_count", 0) >= 2:
+        strong = consensus.get("strong_consensus", [])[:8]
+        disagreements = consensus.get("disagreements", [])[:8]
+
+        strong_rows = "".join(
+            f"<tr><td><strong>{html.escape(x['ticker'])}</strong></td>"
+            f"<td>{html.escape(x['dominant_assessment'])}</td>"
+            f"<td>{x['agreement_count']}/{x['provider_count']}</td></tr>"
+            for x in strong
+        ) or "<tr><td colspan='3' class='muted'>No unanimous findings.</td></tr>"
+
+        disagree_rows = "".join(
+            f"<tr><td><strong>{html.escape(x['ticker'])}</strong></td>"
+            f"<td>{html.escape(', '.join(f'{k}: {v}' for k,v in x['assessment_counts'].items()))}</td>"
+            f"<td>{html.escape(', '.join(x['providers_mentioning']))}</td></tr>"
+            for x in disagreements
+        ) or "<tr><td colspan='3' class='muted'>No model disagreements.</td></tr>"
+
+        consensus_html = f"""
+        <section>
+          <h2>AI model consensus</h2>
+          <div class="split">
+            <div>
+              <h3>Strong agreement</h3>
+              <div class="table-wrap"><table>
+                <thead><tr><th>Ticker</th><th>Assessment</th><th>Agreement</th></tr></thead>
+                <tbody>{strong_rows}</tbody>
+              </table></div>
+            </div>
+            <div>
+              <h3>Disagreements</h3>
+              <div class="table-wrap"><table>
+                <thead><tr><th>Ticker</th><th>Assessments</th><th>Models</th></tr></thead>
+                <tbody>{disagree_rows}</tbody>
+              </table></div>
+            </div>
+          </div>
+        </section>
+        """
+    else:
+        consensus_html = """
+        <section class="consensus-note">
+          <strong>AI consensus:</strong>
+          One AI analyst is active. Model agreement/disagreement will appear
+          automatically when a second provider is enabled.
+        </section>
+        """
 
     page = f"""<!doctype html>
 <html lang="en">
@@ -164,22 +234,28 @@ body {{
 main {{ max-width:1200px; margin:0 auto; padding:24px; }}
 h1 {{ margin:0 0 4px; font-size:28px; }}
 h2 {{ margin-top:28px; font-size:18px; }}
+h3 {{ font-size:14px; color:var(--muted); }}
 .sub {{ color:var(--muted); margin-bottom:22px; }}
 .grid {{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }}
-.card, .mini-card {{
+.card, .mini-card, .provider-card {{
   background:var(--panel); border:1px solid var(--line); border-radius:14px;
   padding:16px;
 }}
 .metric {{ font-size:28px; font-weight:700; margin-top:6px; }}
 .muted {{ color:var(--muted); }}
+.small {{ font-size:12px; margin-top:5px; }}
 .ai-summary {{
   background:var(--panel); border:1px solid var(--line); border-radius:14px;
   padding:18px; margin-top:18px;
 }}
+.providers {{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }}
+.provider-card {{ padding:12px; }}
+.provider-status {{ text-transform:uppercase; font-size:12px; margin-top:4px; }}
 .mini-grid {{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }}
 .mini-head {{ display:flex; justify-content:space-between; color:var(--muted); }}
 .mini-title {{ margin-top:8px; font-weight:700; }}
-.mini-card p {{ margin-bottom:0; color:var(--muted); }}
+.mini-card p {{ margin-bottom:6px; color:var(--muted); }}
+.related {{ color:var(--muted); font-size:12px; }}
 table {{
   width:100%; border-collapse:collapse; background:var(--panel);
   border:1px solid var(--line); border-radius:14px; overflow:hidden;
@@ -202,8 +278,13 @@ th {{ color:var(--muted); font-size:13px; }}
 }}
 .spark {{ width:100%; height:120px; }}
 .legend {{ display:flex; justify-content:space-between; color:var(--muted); font-size:12px; }}
+.split {{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }}
+.consensus-note {{
+  margin-top:24px; padding:14px; border:1px solid var(--line);
+  border-radius:14px; background:var(--panel2); color:var(--muted);
+}}
 @media (max-width:800px) {{
-  .grid,.mini-grid,.chart-grid {{ grid-template-columns:1fr; }}
+  .grid,.mini-grid,.chart-grid,.providers,.split {{ grid-template-columns:1fr; }}
   main {{ padding:14px; }}
   .table-wrap {{ overflow-x:auto; }}
 }}
@@ -216,22 +297,27 @@ th {{ color:var(--muted); font-size:13px; }}
 
   <div class="grid">
     <div class="card"><div class="muted">Scored signals</div><div class="metric">{len(scored)}</div></div>
-    <div class="card"><div class="muted">Rotation in</div><div class="metric">{int((scored['rotation_state']=='ROTATION_IN').sum())}</div></div>
-    <div class="card"><div class="muted">Accumulating</div><div class="metric">{int((scored['rotation_state']=='ACCUMULATING').sum())}</div></div>
+    <div class="card"><div class="muted">Emerging / accelerating</div><div class="metric">{int(scored['rotation_state'].isin(['EMERGING','ACCELERATING','REACCELERATING']).sum())}</div></div>
+    <div class="card"><div class="muted">Persistent leaders</div><div class="metric">{int((scored['rotation_state']=='PERSISTENT_LEADER').sum())}</div></div>
     <div class="card"><div class="muted">Weakening / out</div><div class="metric">{int(scored['rotation_state'].isin(['WEAKENING','ROTATION_OUT']).sum())}</div></div>
   </div>
 
   <div class="ai-summary">
-    <div class="muted">AI interpretation</div>
+    <div class="muted">AI interpretation · primary analyst: {html.escape(str(primary_provider))}</div>
     <h2 style="margin-top:6px">{html.escape(ai_analysis.get('headline','Rotation summary'))}</h2>
     <p><strong>{html.escape(ai_analysis.get('market_regime',''))}</strong></p>
     <p>{html.escape(ai_analysis.get('executive_summary',''))}</p>
-    <div class="muted">Provider status: {html.escape(ai_analysis.get('provider_status','unknown'))}</div>
+    <div class="providers">{''.join(provider_cards)}</div>
   </div>
 
   {ai_cards('emerging_rotations','Emerging rotations')}
+  {ai_cards('accelerating_rotations','Accelerating rotations')}
   {ai_cards('persistent_leaders','Persistent leaders')}
+  {ai_cards('reaccelerating_rotations','Reaccelerating rotations')}
   {ai_cards('weakening_rotations','Weakening rotations')}
+  {ai_cards('rotation_out','Rotation out')}
+
+  {consensus_html}
 
   <section>
     <h2>63-bar score trends selected for attention</h2>
@@ -268,7 +354,6 @@ th {{ color:var(--muted); font-size:13px; }}
     </div>
   </section>
 
-
   <section>
     <h2>Pair signals</h2>
     <div class="table-wrap">
@@ -291,8 +376,8 @@ th {{ color:var(--muted); font-size:13px; }}
   </section>
 
   <p class="muted" style="margin-top:30px">
-    The rotation score is a comparative quantitative indicator. It is not a forecast,
-    recommendation, or direct measure of institutional creations/redemptions.
+    Quantitative scores are deterministic comparative indicators. AI commentary
+    interprets those supplied values; it does not calculate or alter them.
   </p>
 </main>
 

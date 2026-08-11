@@ -1,0 +1,39 @@
+{
+  "version": "v1.2",
+  "quantitative_engine_changed": false,
+  "provider_architecture": [
+    "gemini",
+    "claude",
+    "openai"
+  ],
+  "implemented_providers": [
+    "gemini"
+  ],
+  "placeholder_providers": [
+    "claude",
+    "openai"
+  ],
+  "gemini_default_model": "gemini-3.6-flash",
+  "compiled_python_files": [
+    "src/__init__.py",
+    "src/ai/__init__.py",
+    "src/ai/claude_provider.py",
+    "src/ai/consensus.py",
+    "src/ai/fallback.py",
+    "src/ai/gemini_provider.py",
+    "src/ai/openai_provider.py",
+    "src/ai/prompt.py",
+    "src/ai/run_analysis.py",
+    "src/ai/schema.py",
+    "src/analyze_with_gemini.py",
+    "src/build_ai_input.py",
+    "src/build_dashboard.py",
+    "src/calculate_metrics.py",
+    "src/calculate_trends.py",
+    "src/common.py",
+    "src/fetch_market_data.py",
+    "src/run_pipeline.py"
+  ],
+  "fallback_smoke_test": "passed",
+  "two_provider_consensus_smoke_test": "passed"
+}

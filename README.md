@@ -45,3 +45,21 @@ Do not enable it until the manual run is verified.
 
 This project is a market-rotation research dashboard. It is not a trade execution system,
 price-prediction system, or direct measurement of institutional ETF creations/redemptions.
+
+
+## AI architecture (v1.2)
+
+The AI layer is provider-agnostic. Enable providers with the GitHub Actions
+repository variable `AI_PROVIDERS`.
+
+Current implementation:
+
+- `gemini` — active adapter
+- `claude` — reserved adapter
+- `openai` — reserved adapter
+
+The quantitative engine is always authoritative. AI providers receive the same
+curated `results/ai_input.json`, return the same structured schema, and cannot
+change rotation scores or states.
+
+See `AI_INTEGRATION_V1_2.md` for setup.
