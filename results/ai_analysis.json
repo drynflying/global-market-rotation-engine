@@ -1,7 +1,7 @@
 {
   "headline": "Quantitative rotation dashboard",
   "market_regime": "AI interpretation unavailable",
-  "executive_summary": "The dashboard is using deterministic rotation calculations only. AI was not used for this run: all requested AI providers failed: gemini: AIOutputValidationError: AI output failed deterministic validation: pair_relationships[1]: PAIR finding for RSP must describe the exact pair, not a benchmark; unsupported 5-bar relative-strength claim; use 5-bar score change and 20/63-bar RS",
+  "executive_summary": "The dashboard is using deterministic rotation calculations only. AI was not used for this run: all requested AI providers failed: gemini: AIOutputValidationError: AI output failed deterministic validation: unsupported 5-bar relative-strength claim; use 5-bar score change and 20/63-bar RS",
   "emerging_rotations": [
     {
       "ticker": "MXI",
@@ -333,12 +333,13 @@
       "provider": "gemini",
       "status": "validation_error",
       "model": "gemini-3.6-flash",
-      "error": "AIOutputValidationError: AI output failed deterministic validation: pair_relationships[1]: PAIR finding for RSP must describe the exact pair, not a benchmark; unsupported 5-bar relative-strength claim; use 5-bar score change and 20/63-bar RS",
+      "error": "AIOutputValidationError: AI output failed deterministic validation: unsupported 5-bar relative-strength claim; use 5-bar score change and 20/63-bar RS",
       "validation": {
         "status": "failed",
-        "validator_version": "v1.2.4",
+        "validator_version": "v1.2.5",
+        "attempt_count": 2,
+        "retry_used": true,
         "errors": [
-          "pair_relationships[1]: PAIR finding for RSP must describe the exact pair, not a benchmark",
           "unsupported 5-bar relative-strength claim; use 5-bar score change and 20/63-bar RS"
         ]
       },
