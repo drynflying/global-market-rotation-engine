@@ -1,0 +1,37 @@
+{
+  "python_files_compiled": [
+    "__init__.py",
+    "analyze_with_gemini.py",
+    "build_ai_input.py",
+    "build_dashboard.py",
+    "calculate_metrics.py",
+    "calculate_trends.py",
+    "common.py",
+    "fetch_market_data.py",
+    "run_pipeline.py"
+  ],
+  "config_rows_including_header": 163,
+  "config_columns": 46,
+  "package_files": [
+    ".github/workflows/daily_rotation.yml.disabled",
+    ".github/workflows/manual_rotation.yml",
+    ".gitignore",
+    "README.md",
+    "UPLOAD_FIRST.md",
+    "config/rotation_universe.csv",
+    "data/.gitkeep",
+    "docs/data/.gitkeep",
+    "docs/index.html",
+    "requirements.txt",
+    "results/.gitkeep",
+    "src/__init__.py",
+    "src/analyze_with_gemini.py",
+    "src/build_ai_input.py",
+    "src/build_dashboard.py",
+    "src/calculate_metrics.py",
+    "src/calculate_trends.py",
+    "src/common.py",
+    "src/fetch_market_data.py",
+    "src/run_pipeline.py"
+  ]
+}
