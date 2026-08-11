@@ -56,6 +56,106 @@ def build_dashboard(
     cross_scored = scored[scored["score_mode"].eq("CROSS_SECTIONAL")].copy()
     pair_scored = scored[scored["score_mode"].eq("PAIR")].copy()
 
+    # Deterministic attention flags are calculated entirely in Python.
+    # They are intentionally separate from AI-selected commentary so that
+    # extreme or conflicting quantitative conditions cannot be omitted.
+    lowest_scores = cross_scored.nsmallest(5, "rotation_score").copy()
+
+    extreme_cmf = cross_scored[cross_scored["cmf20"].notna()].copy()
+    extreme_cmf = extreme_cmf[extreme_cmf["cmf20"].abs() >= 0.40].copy()
+    if not extreme_cmf.empty:
+        extreme_cmf["_abs_cmf"] = extreme_cmf["cmf20"].abs()
+        extreme_cmf = extreme_cmf.nlargest(5, "_abs_cmf")
+
+    score_extremes_63 = []
+    for ticker, g in history[history["rotation_score"].notna()].groupby("ticker"):
+        g = g.sort_values("date").tail(63)
+        if len(g) < 63:
+            continue
+        current_score = float(g.iloc[-1]["rotation_score"])
+        low_score = float(g["rotation_score"].min())
+        high_score = float(g["rotation_score"].max())
+        if high_score - low_score < 1.0:
+            continue
+        if np.isclose(current_score, high_score, atol=0.01):
+            score_extremes_63.append(
+                {"ticker": ticker, "kind": "HIGH", "score": current_score,
+                 "low": low_score, "high": high_score}
+            )
+        elif np.isclose(current_score, low_score, atol=0.01):
+            score_extremes_63.append(
+                {"ticker": ticker, "kind": "LOW", "score": current_score,
+                 "low": low_score, "high": high_score}
+            )
+
+    highs_63 = sorted(
+        (x for x in score_extremes_63 if x["kind"] == "HIGH"),
+        key=lambda x: x["score"], reverse=True,
+    )[:5]
+    lows_63 = sorted(
+        (x for x in score_extremes_63 if x["kind"] == "LOW"),
+        key=lambda x: x["score"],
+    )[:5]
+
+    sector_divergences = []
+    sector_rows = cross_scored[
+        cross_scored["sector"].notna() & cross_scored["score_change_20"].notna()
+    ].copy()
+    for sector, g in sector_rows.groupby("sector"):
+        sector_name = str(sector).strip()
+        if not sector_name or len(g) < 2:
+            continue
+        improver = g.loc[g["score_change_20"].idxmax()]
+        deteriorator = g.loc[g["score_change_20"].idxmin()]
+        improvement = float(improver["score_change_20"])
+        deterioration = float(deteriorator["score_change_20"])
+        divergence = improvement - deterioration
+        if improvement < 15 or deterioration > -15 or divergence < 40:
+            continue
+
+        other_weak = g[
+            g["ticker"].ne(deteriorator["ticker"])
+            & g["rotation_state"].isin(["ROTATION_OUT", "WEAKENING"])
+        ].sort_values("rotation_score").head(1)
+        other_weak_payload = None
+        if not other_weak.empty:
+            w = other_weak.iloc[0]
+            other_weak_payload = {
+                "ticker": str(w["ticker"]),
+                "state": str(w["rotation_state"]),
+                "score": float(w["rotation_score"]),
+            }
+
+        sector_divergences.append(
+            {
+                "sector": sector_name,
+                "improver": str(improver["ticker"]),
+                "improvement": improvement,
+                "deteriorator": str(deteriorator["ticker"]),
+                "deterioration": deterioration,
+                "divergence": divergence,
+                "other_weak": other_weak_payload,
+            }
+        )
+    sector_divergences.sort(key=lambda x: x["divergence"], reverse=True)
+    sector_divergences = sector_divergences[:6]
+
+    pair_state_tensions = []
+    strong_states = {
+        "EMERGING", "ACCELERATING", "PERSISTENT_LEADER", "REACCELERATING"
+    }
+    weak_states = {"WEAKENING", "ROTATION_OUT"}
+    for _, r in pair_scored.sort_values("ticker").iterrows():
+        pair_signal = str(r.get("pair_signal") or "")
+        rotation_state = str(r.get("rotation_state") or "")
+        conflict = (
+            pair_signal == "PAIR_LEADING" and rotation_state in weak_states
+        ) or (
+            pair_signal == "PAIR_LAGGING" and rotation_state in strong_states
+        )
+        if conflict:
+            pair_state_tensions.append(r)
+
     leaders = cross_scored.nlargest(15, "rotation_score")
     movers = cross_scored[
         cross_scored["score_change_20"].notna()
@@ -140,6 +240,70 @@ def build_dashboard(
             f"<div class='mini-grid'>{''.join(cards) or '<p class=\"muted\">No items.</p>'}</div>"
             f"</section>"
         )
+
+    lowest_scores_html = "".join(
+        f"<li><strong>{html.escape(str(r['ticker']))}</strong> — "
+        f"score {_fmt(r.get('rotation_score'),1)}, "
+        f"{html.escape(str(r.get('rotation_state') or '—'))}; "
+        f"20-bar Δ {_fmt(r.get('score_change_20'),1)}; "
+        f"CMF20 {_fmt(r.get('cmf20'),3)}</li>"
+        for _, r in lowest_scores.iterrows()
+    ) or "<li class='muted'>No scored securities available.</li>"
+
+    extreme_cmf_html = "".join(
+        f"<li><strong>{html.escape(str(r['ticker']))}</strong> — "
+        f"CMF20 {_fmt(r.get('cmf20'),3)}, score {_fmt(r.get('rotation_score'),1)}, "
+        f"{html.escape(str(r.get('rotation_state') or '—'))}</li>"
+        for _, r in extreme_cmf.iterrows()
+    ) or "<li class='muted'>No |CMF20| readings at or above 0.40.</li>"
+
+    highs_63_html = "".join(
+        f"<li><strong>{html.escape(x['ticker'])}</strong> — "
+        f"latest {_fmt(x['score'],1)} equals its 63-bar high "
+        f"(range {_fmt(x['low'],1)}–{_fmt(x['high'],1)})</li>"
+        for x in highs_63
+    ) or "<li class='muted'>No current 63-bar score highs.</li>"
+
+    lows_63_html = "".join(
+        f"<li><strong>{html.escape(x['ticker'])}</strong> — "
+        f"latest {_fmt(x['score'],1)} equals its 63-bar low "
+        f"(range {_fmt(x['low'],1)}–{_fmt(x['high'],1)})</li>"
+        for x in lows_63
+    ) or "<li class='muted'>No current 63-bar score lows.</li>"
+
+    sector_divergence_html_parts = []
+    for item in sector_divergences:
+        extra = ""
+        if item["other_weak"]:
+            w = item["other_weak"]
+            extra = (
+                f"; {html.escape(w['ticker'])} is "
+                f"{html.escape(w['state'])} at score {_fmt(w['score'],1)}"
+            )
+        sector_divergence_html_parts.append(
+            f"<li><strong>{html.escape(item['sector'])}</strong> — "
+            f"{html.escape(item['improver'])} 20-bar Δ "
+            f"{_fmt(item['improvement'],1)} vs "
+            f"{html.escape(item['deteriorator'])} "
+            f"{_fmt(item['deterioration'],1)} "
+            f"({_fmt(item['divergence'],1)}-point divergence){extra}</li>"
+        )
+    sector_divergences_html = "".join(sector_divergence_html_parts) or (
+        "<li class='muted'>No sector has both a ≥15-point improver and "
+        "≤−15-point deteriorator with a ≥40-point divergence.</li>"
+    )
+
+    pair_state_tensions_html = "".join(
+        f"<li><strong>{html.escape(str(r['ticker']))}</strong> — "
+        f"{html.escape(str(r.get('pair_signal') or '—'))} versus "
+        f"{html.escape(str(r.get('paired_ticker') or '—'))}, while its "
+        f"pair-mode rotation state is "
+        f"{html.escape(str(r.get('rotation_state') or '—'))}; "
+        f"20/63-bar pair spreads "
+        f"{_fmt(r.get('pair_spread_20') * 100 if pd.notna(r.get('pair_spread_20')) else None,1,'%')} / "
+        f"{_fmt(r.get('pair_spread_63') * 100 if pd.notna(r.get('pair_spread_63')) else None,1,'%')}</li>"
+        for r in pair_state_tensions
+    ) or "<li class='muted'>No pair-signal / rotation-state tensions.</li>"
 
     confirmations = ai_analysis.get("cross_market_confirmations", []) or []
     risks_or_conflicts = ai_analysis.get("risks_or_conflicts", []) or []
@@ -331,8 +495,11 @@ th {{ color:var(--muted); font-size:13px; }}
 .insight-card h3 {{ margin-top:0; }}
 .insight-list {{ margin:8px 0 0; padding-left:20px; }}
 .insight-list li {{ margin:8px 0; color:var(--muted); line-height:1.45; }}
+.attention-grid {{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }}
+.attention-note {{ color:var(--muted); font-size:12px; margin-top:-6px; margin-bottom:12px; }}
+.attention-subhead {{ margin:12px 0 4px; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }}
 @media (max-width:800px) {{
-  .grid,.mini-grid,.chart-grid,.providers,.split {{ grid-template-columns:1fr; }}
+  .grid,.mini-grid,.chart-grid,.providers,.split,.attention-grid {{ grid-template-columns:1fr; }}
   main {{ padding:14px; }}
   .table-wrap {{ overflow-x:auto; }}
 }}
@@ -364,6 +531,35 @@ th {{ color:var(--muted); font-size:13px; }}
   {ai_cards('reaccelerating_rotations','Reaccelerating rotations')}
   {ai_cards('weakening_rotations','Weakening rotations')}
   {ai_cards('rotation_out','Rotation out')}
+
+  <section>
+    <h2>Deterministic attention flags</h2>
+    <div class="attention-note">Generated directly from the quantitative dataset and 63-bar score history; these items are not AI-selected.</div>
+    <div class="attention-grid">
+      <div class="insight-card">
+        <h3>Absolute weakness and CMF extremes</h3>
+        <div class="attention-subhead">Lowest current cross-sectional scores</div>
+        <ul class="insight-list">{lowest_scores_html}</ul>
+        <div class="attention-subhead">Extreme CMF20 (|CMF20| ≥ 0.40)</div>
+        <ul class="insight-list">{extreme_cmf_html}</ul>
+      </div>
+      <div class="insight-card">
+        <h3>63-bar score extremes</h3>
+        <div class="attention-subhead">At 63-bar highs</div>
+        <ul class="insight-list">{highs_63_html}</ul>
+        <div class="attention-subhead">At 63-bar lows</div>
+        <ul class="insight-list">{lows_63_html}</ul>
+      </div>
+      <div class="insight-card">
+        <h3>Sector divergences</h3>
+        <ul class="insight-list">{sector_divergences_html}</ul>
+      </div>
+      <div class="insight-card">
+        <h3>Pair signal / rotation-state tensions</h3>
+        <ul class="insight-list">{pair_state_tensions_html}</ul>
+      </div>
+    </div>
+  </section>
 
   <section>
     <h2>Cross-market confirmations and risks</h2>
