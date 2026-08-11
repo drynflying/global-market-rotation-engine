@@ -26,6 +26,12 @@ def _state_class(state: str) -> str:
         "ROTATION_OUT": "bad",
     }.get(state, "muted")
 
+def _pair_class(signal: str) -> str:
+    return {
+        "PAIR_LEADING": "good",
+        "PAIR_LAGGING": "bad",
+        "PAIR_MIXED": "warn",
+    }.get(signal, "muted")
 
 def build_dashboard(
     latest: pd.DataFrame,
@@ -378,7 +384,7 @@ th {{ color:var(--muted); font-size:13px; }}
     <h2>Pair signals</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Ticker</th><th>Exposure</th><th>Pair</th><th>Score</th><th>20-bar spread</th><th>63-bar spread</th><th>State</th></tr></thead>
+        <thead><tr><th>Ticker</th><th>Exposure</th><th>Pair</th><th>Score</th><th>20-bar spread</th><th>63-bar spread</th><th>Pair Signal</th><th>Rotation State</th></tr></thead>
         <tbody>
           {''.join(
               f"<tr><td><strong>{html.escape(str(r['ticker']))}</strong></td>"
@@ -387,9 +393,10 @@ th {{ color:var(--muted); font-size:13px; }}
               f"<td>{_fmt(r.get('rotation_score'),1)}</td>"
               f"<td>{_fmt(r.get('pair_spread_20')*100 if pd.notna(r.get('pair_spread_20')) else None,1,'%')}</td>"
               f"<td>{_fmt(r.get('pair_spread_63')*100 if pd.notna(r.get('pair_spread_63')) else None,1,'%')}</td>"
-              f"<td><span class='badge {_state_class(str(r.get('rotation_state')))}'>{html.escape(str(r.get('rotation_state')))}</span></td></tr>"
+              f"<td><span class='badge {_pair_class(str(r.get('pair_signal')))}'>{html.escape(str(r.get('pair_signal') or '—'))}</span></td>"
+              f"<td><span class='badge {_state_class(str(r.get('rotation_state')))}'>{html.escape(str(r.get('rotation_state') or '—'))}</span></td></tr>"
               for _, r in pair_scored.sort_values('ticker').iterrows()
-          ) or '<tr><td colspan="7" class="muted">No pair signals available.</td></tr>'}
+          ) or '<tr><td colspan="8" class="muted">No pair signals available.</td></tr>'}
         </tbody>
       </table>
     </div>
