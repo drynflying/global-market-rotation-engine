@@ -3,13 +3,22 @@
   "requested_providers": [
     "gemini"
   ],
-  "successful_providers": [
+  "successful_providers": [],
+  "failed_providers": [
     "gemini"
   ],
-  "failed_providers": [],
-  "primary_provider": "gemini",
-  "provider_status": "ai",
-  "provider_models": {
-    "gemini": "gemini-3.6-flash"
+  "primary_provider": "deterministic_fallback",
+  "provider_status": "fallback",
+  "provider_models": {},
+  "ai_validator_version": "v1.2.4",
+  "provider_validation": {
+    "gemini": {
+      "status": "failed",
+      "validator_version": "v1.2.4",
+      "errors": [
+        "pair_relationships[1]: PAIR finding for RSP must describe the exact pair, not a benchmark",
+        "unsupported 5-bar relative-strength claim; use 5-bar score change and 20/63-bar RS"
+      ]
+    }
   }
 }
