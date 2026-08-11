@@ -139,6 +139,19 @@ def build_dashboard(
             f"</section>"
         )
 
+    confirmations = ai_analysis.get("cross_market_confirmations", []) or []
+    risks_or_conflicts = ai_analysis.get("risks_or_conflicts", []) or []
+
+    confirmations_html = "".join(
+        f"<li>{html.escape(str(item))}</li>"
+        for item in confirmations[:8]
+    ) or "<li class='muted'>No cross-market confirmations supplied.</li>"
+
+    risks_or_conflicts_html = "".join(
+        f"<li>{html.escape(str(item))}</li>"
+        for item in risks_or_conflicts[:8]
+    ) or "<li class='muted'>No material risks or conflicts supplied.</li>"
+    
     provider_cards = []
     for name in requested:
         result = provider_results.get(name, {})
