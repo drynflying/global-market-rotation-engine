@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "latest_market_date": "2026-08-10",
+  "configured_rows": 162,
+  "enabled_ohlcv_rows": 162,
+  "latest_result_tickers": 162,
+  "failed_symbols": [],
+  "scored_tickers": 108,
+  "rotation_in_count": 8,
+  "accumulating_count": 31,
+  "weakening_count": 31,
+  "rotation_out_count": 6
+}
