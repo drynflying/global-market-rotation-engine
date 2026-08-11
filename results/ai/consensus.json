@@ -3,7 +3,29 @@
   "mode": "single_provider",
   "items": [
     {
-      "ticker": "XLF",
+      "ticker": "XPH",
+      "dominant_assessment": "ACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ACCELERATING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ACCELERATING",
+          "title": "U.S. Pharmaceuticals Strengthens Near-Term Momentum",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "XLK",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -19,7 +41,7 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "U.S. Financials Deteriorate from Peak",
+          "title": "Information Technology Relative Leadership Softens",
           "confidence": "high"
         }
       ]
@@ -41,30 +63,8 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "U.S. Materials Gaining Momentum",
+          "title": "U.S. Materials Exhibits Broad Improvement",
           "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "VEA",
-      "dominant_assessment": "REACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "REACCELERATING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "REACCELERATING",
-          "title": "Developed ex-US Rebounds",
-          "confidence": "medium"
         }
       ]
     },
@@ -85,29 +85,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Semiconductors Enter Rotation Out",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "SKYY",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Cloud Computing Retains High Scores",
+          "title": "Semiconductors Enter Rotation Out Condition",
           "confidence": "high"
         }
       ]
@@ -129,7 +107,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal Weight Leading Cap Weight Pair",
+          "title": "Equal Weight Leading Cap Weight S&P 500",
           "confidence": "high"
         }
       ]
@@ -151,8 +129,30 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "Global Health Care Accelerates",
+          "title": "Global Health Care Accelerates Relative Leadership",
           "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IXG",
+      "dominant_assessment": "REACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "REACCELERATING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "REACCELERATING",
+          "title": "Global Financials Turns Upward After Pullback",
+          "confidence": "medium"
         }
       ]
     },
@@ -173,7 +173,7 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Small Caps Turning Upward",
+          "title": "U.S. Small Caps Show Short-Horizon Reacceleration",
           "confidence": "medium"
         }
       ]
@@ -195,7 +195,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Large-Cap Value Leading Growth Pair",
+          "title": "U.S. Large Value Leading Growth",
           "confidence": "high"
         }
       ]
@@ -217,8 +217,52 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Medical Devices Rebounds Strongly",
+          "title": "Medical Devices Demonstrates Sharp Momentum Surge",
           "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "FEZ",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Eurozone Blue Chips Lead Developed European Region",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EZA",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "South Africa Short-Term Relative Improvement",
+          "confidence": "medium"
         }
       ]
     },
@@ -239,29 +283,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Brazil Weakens Across Horizons",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EWY",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "South Korea Relative Strength Drops",
+          "title": "Brazil Equity Displays Broader Rotation Out",
           "confidence": "high"
         }
       ]
@@ -283,35 +305,13 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Singapore Maintains Longest Streak",
+          "title": "Singapore Sustains Country Leadership",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EIRL",
-      "dominant_assessment": "ACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ACCELERATING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ACCELERATING",
-          "title": "Ireland Equities Gain Velocity",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "CIBR",
+      "ticker": "EMXC",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -327,13 +327,13 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Cybersecurity Shows Short-Term Fatigue",
-          "confidence": "medium"
+          "title": "Emerging Markets Ex-China Deteriorates",
+          "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "FEZ",
+      "ticker": "EFA",
       "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
@@ -342,51 +342,15 @@
         "gemini"
       ],
       "assessment_counts": {
-        "PERSISTENT_LEADER": 1,
-        "GEOGRAPHIC": 1
+        "PERSISTENT_LEADER": 1
       },
-      "conflict": true,
+      "conflict": false,
       "votes": [
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Eurozone Blue Chips Lead Developed Region",
+          "title": "Developed Markets Equity Maintains Leadership",
           "confidence": "high"
-        },
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "Eurozone Leadership Strengthens",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EZA",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1,
-        "GEOGRAPHIC": 1
-      },
-      "conflict": true,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "South Africa Leadership Rebounds",
-          "confidence": "medium"
-        },
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "African Equities Rebound Relative to Broad EM",
-          "confidence": "medium"
         }
       ]
     }
