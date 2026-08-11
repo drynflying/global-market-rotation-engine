@@ -19,14 +19,14 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "U.S. Pharmaceuticals Strengthens Near-Term Momentum",
+          "title": "Pharmaceuticals Accelerates Relative Momentum",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "XLK",
-      "dominant_assessment": "WEAKENING",
+      "ticker": "XLE",
+      "dominant_assessment": "EMERGING",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -34,14 +34,14 @@
         "gemini"
       ],
       "assessment_counts": {
-        "WEAKENING": 1
+        "EMERGING": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Information Technology Relative Leadership Softens",
+          "assessment": "EMERGING",
+          "title": "U.S. Energy Relative Strength Gains Momentum",
           "confidence": "high"
         }
       ]
@@ -63,7 +63,7 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "U.S. Materials Exhibits Broad Improvement",
+          "title": "U.S. Materials Shows Short-Horizon Improvement",
           "confidence": "high"
         }
       ]
@@ -85,7 +85,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Semiconductors Enter Rotation Out Condition",
+          "title": "Semiconductors Drops to 63-Bar Score Low",
           "confidence": "high"
         }
       ]
@@ -107,7 +107,51 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal Weight Leading Cap Weight S&P 500",
+          "title": "S&P 500 Equal Weight Outperforms Cap-Weighted SPY",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "PBJ",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Food & Beverage Reaches 63-Bar Score Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "JXI",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Global Utilities Suffers Severe Score Deterioration",
           "confidence": "high"
         }
       ]
@@ -129,7 +173,7 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "Global Health Care Accelerates Relative Leadership",
+          "title": "Global Health Care Gains Momentum Across Horizons",
           "confidence": "high"
         }
       ]
@@ -151,7 +195,7 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Global Financials Turns Upward After Pullback",
+          "title": "Global Financials Reaccelerates Following Score Pullback",
           "confidence": "medium"
         }
       ]
@@ -173,7 +217,7 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "U.S. Small Caps Show Short-Horizon Reacceleration",
+          "title": "U.S. Small Caps Shows Short-Term Momentum Reacceleration",
           "confidence": "medium"
         }
       ]
@@ -195,7 +239,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "U.S. Large Value Leading Growth",
+          "title": "U.S. Large Value Leads Large Growth in Direct Pair Signal",
           "confidence": "high"
         }
       ]
@@ -217,14 +261,14 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Medical Devices Demonstrates Sharp Momentum Surge",
+          "title": "Medical Devices Achieves 63-Bar Score High",
           "confidence": "high"
         }
       ]
     },
     {
       "ticker": "FEZ",
-      "dominant_assessment": "GEOGRAPHIC",
+      "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -232,20 +276,20 @@
         "gemini"
       ],
       "assessment_counts": {
-        "GEOGRAPHIC": 1
+        "PERSISTENT_LEADER": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "Eurozone Blue Chips Lead Developed European Region",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Eurozone Blue Chips Reaches 63-Bar Score High",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EZA",
+      "ticker": "EWZ",
       "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
@@ -261,29 +305,7 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "South Africa Short-Term Relative Improvement",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "EWZ",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Brazil Equity Displays Broader Rotation Out",
+          "title": "Brazil Suffers Broad Relative Deterioration",
           "confidence": "high"
         }
       ]
@@ -305,13 +327,35 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Singapore Sustains Country Leadership",
+          "title": "Singapore Sustains Highest Global Rotation Score",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EMXC",
+      "ticker": "EWQ",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "France Reaches 63-Bar Score High in European Rotation",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "CIBR",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -327,29 +371,7 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Emerging Markets Ex-China Deteriorates",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EFA",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Developed Markets Equity Maintains Leadership",
+          "title": "Cybersecurity Shows Score Decay From High Levels",
           "confidence": "high"
         }
       ]

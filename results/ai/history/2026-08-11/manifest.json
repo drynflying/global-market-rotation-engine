@@ -12,18 +12,20 @@
   "provider_models": {
     "gemini": "gemini-3.6-flash"
   },
-  "ai_validator_version": "v1.2.5",
+  "ai_validator_version": "v1.2.7",
   "provider_validation": {
     "gemini": {
       "status": "passed",
-      "validator_version": "v1.2.5",
+      "validator_version": "v1.2.7",
       "checks": {
         "ticker_grounding": true,
         "state_category_consistency": true,
         "pair_semantics": true,
         "language_guardrails": true,
         "numeric_evidence": true,
-        "horizon_precision": true
+        "horizon_precision": true,
+        "mixed_horizon_disclosure": true,
+        "deterministic_conflict_coverage": true
       },
       "attempt_count": 1,
       "retry_used": false
