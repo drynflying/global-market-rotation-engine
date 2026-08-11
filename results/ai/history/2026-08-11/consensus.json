@@ -3,50 +3,6 @@
   "mode": "single_provider",
   "items": [
     {
-      "ticker": "XPH",
-      "dominant_assessment": "ACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ACCELERATING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ACCELERATING",
-          "title": "US Pharmaceuticals Strengthen Leadership Profile",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "XLU",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Utilities Leadership Lags Market Benchmarks",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
       "ticker": "XLK",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
@@ -63,30 +19,8 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "US Information Technology Score Drops Sharpest in Group",
+          "title": "US Information Technology Score Drops Sharply",
           "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "XLE",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "US Energy Displays Emerging Short-Horizon Strength",
-          "confidence": "medium"
         }
       ]
     },
@@ -107,29 +41,7 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "US Materials Sector Rotation Gains Traction",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "VGK",
-      "dominant_assessment": "GEOGRAPHIC",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "GEOGRAPHIC": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "Developed Europe Leadership Strengthens Relative to Emerging Markets",
+          "title": "US Materials Demonstrates Rebound in Relative Score",
           "confidence": "high"
         }
       ]
@@ -151,7 +63,7 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Broad Developed Markets Ex-US Turn Upward",
+          "title": "Developed Markets ex-US Shows Recent Upward Score Turn",
           "confidence": "medium"
         }
       ]
@@ -173,29 +85,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Semiconductors Suffer Broad Score and Relative Strength Deterioration",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "SKYY",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Cloud Computing Retains Long-Horizon Leadership Despite Short-Term Pullback",
+          "title": "Semiconductors Experience Severe Short and Long-Horizon Softness",
           "confidence": "high"
         }
       ]
@@ -217,8 +107,8 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted Benchmark",
-          "confidence": "high"
+          "title": "S&P 500 Equal Weight Outperforming Cap-Weighted Benchmark",
+          "confidence": "medium"
         }
       ]
     },
@@ -239,29 +129,7 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "Global Health Care Accelerates Across Horizons",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IXG",
-      "dominant_assessment": "REACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "REACCELERATING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "REACCELERATING",
-          "title": "Global Financials Resume Positive Score Trajectory",
+          "title": "Global Health Care Relative Leadership Accelerates",
           "confidence": "high"
         }
       ]
@@ -283,30 +151,8 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Small Caps Reaccelerate After Recent Consolidation",
+          "title": "US Small Caps Turn Upward Following Score Pullback",
           "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "IWF",
-      "dominant_assessment": "PAIR",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PAIR": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "Large-Cap Growth Lags Value Across Both Horizontals",
-          "confidence": "high"
         }
       ]
     },
@@ -327,7 +173,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Large-Cap Value Consistently Outperforms Large-Cap Growth",
+          "title": "US Large Value Leading US Large Growth",
           "confidence": "high"
         }
       ]
@@ -349,7 +195,7 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Medical Devices Surge in Short-Term Leadership",
+          "title": "US Medical Devices Gains Strong Short-Horizon Momentum",
           "confidence": "high"
         }
       ]
@@ -371,30 +217,8 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Eurozone Blue Chips Maintain High Rank and Score",
+          "title": "Eurozone Blue Chips Sustaining Long-Horizon Leadership",
           "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EZA",
-      "dominant_assessment": "GEOGRAPHIC",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "GEOGRAPHIC": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "South Africa Displays Strong Short-Horizon Rebound",
-          "confidence": "medium"
         }
       ]
     },
@@ -415,7 +239,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Brazil Shows Steep Relative Leadership Deterioration",
+          "title": "Brazil Scores Lags Broad Foreign Benchmarks",
           "confidence": "high"
         }
       ]
@@ -437,7 +261,7 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "South Korea Relative Strength Contracts Sharply",
+          "title": "South Korea Relative Strength Weakens Across Horizons",
           "confidence": "high"
         }
       ]
@@ -459,14 +283,14 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Singapore Leads All Non-US Countries",
+          "title": "Singapore Holds Top Cross-Sectional Rank in Country Group",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EMXC",
-      "dominant_assessment": "WEAKENING",
+      "ticker": "EPOL",
+      "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -474,14 +298,14 @@
         "gemini"
       ],
       "assessment_counts": {
-        "WEAKENING": 1
+        "GEOGRAPHIC": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Emerging Markets Ex-China Leadership Weakens",
+          "assessment": "GEOGRAPHIC",
+          "title": "Poland Demonstrates Sustained Strength Within Developed Europe Sector",
           "confidence": "high"
         }
       ]
@@ -503,13 +327,13 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "Ireland Equities Accelerate within Developed Europe",
+          "title": "Ireland Equities Exhibit Positive Dual-Horizon Momentum",
           "confidence": "medium"
         }
       ]
     },
     {
-      "ticker": "CIBR",
+      "ticker": "ASEA",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -525,7 +349,7 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Cybersecurity High Score Masked by Short-Term Deterioration",
+          "title": "Southeast Asia Regional Leadership Softens",
           "confidence": "medium"
         }
       ]
