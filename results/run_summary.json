@@ -8,21 +8,21 @@
   "scored_tickers": 111,
   "cross_sectional_scored": 107,
   "pair_scored": 4,
-  "emerging_count": 18,
-  "accelerating_count": 6,
-  "persistent_leader_count": 11,
-  "reaccelerating_count": 5,
-  "neutral_count": 28,
-  "weakening_count": 34,
+  "emerging_count": 19,
+  "accelerating_count": 5,
+  "persistent_leader_count": 10,
+  "reaccelerating_count": 4,
+  "neutral_count": 31,
+  "weakening_count": 33,
   "rotation_out_count": 9,
   "ai_requested_providers": [
     "gemini"
   ],
-  "ai_successful_providers": [
+  "ai_successful_providers": [],
+  "ai_failed_providers": [
     "gemini"
   ],
-  "ai_failed_providers": [],
-  "ai_primary_provider": "gemini",
-  "ai_provider_status": "ai",
-  "ai_consensus_provider_count": 1
+  "ai_primary_provider": "deterministic_fallback",
+  "ai_provider_status": "fallback",
+  "ai_consensus_provider_count": 0
 }
