@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import json
+import math
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
-VALIDATOR_VERSION = "v1.2.5"
+VALIDATOR_VERSION = "v1.2.7"
 
 CATEGORY_TO_STATE = {
     "emerging_rotations": "EMERGING",
@@ -43,12 +44,14 @@ PROHIBITED_LANGUAGE = [
     )),
 ]
 
-NUMERIC_RE = re.compile(r"[-+]?\d+(?:\.\d+)?")
+NUMERIC_RE = re.compile(r"[-+−]?\d+(?:\.\d+)?")
 EVIDENCE_TERM_RE = re.compile(
     r"\b(?:score|bar|relative strength|rs20|rs63|spread|cmf|streak|rank|"
     r"percent|percentage|leader zone|pair)\b",
     re.I,
 )
+RS_TERM_RE = re.compile(r"\b(?:relative strength|rs20|rs63|signal_rs20|signal_rs63)\b", re.I)
+MIXED_WORD_RE = re.compile(r"\b(?:mixed|divergent|divergence|conflict(?:ing)?|split)\b", re.I)
 
 
 class AIOutputValidationError(ValueError):
@@ -68,20 +71,32 @@ class PayloadIndex:
     paired_tickers: dict[str, str]
     pair_types: dict[str, str]
     benchmark_tickers: set[str]
-    supplied_text: str
+    metrics: dict[str, dict[str, float | None]] = field(default_factory=dict)
+    supplied_text: str = ""
 
 
 def _norm_ticker(value) -> str:
     return str(value or "").strip().upper()
 
 
+def _as_float(value):
+    try:
+        if value is None:
+            return None
+        result = float(value)
+        return result if math.isfinite(result) else None
+    except (TypeError, ValueError):
+        return None
+
+
 def _index_payload(payload: dict) -> PayloadIndex:
     known: set[str] = set()
     states: dict[str, str] = {}
     score_modes: dict[str, str] = {}
-    paired: dict[str, str] = {}
+    paired_tickers: dict[str, str] = {}
     pair_types: dict[str, str] = {}
     benchmark_tickers: set[str] = set()
+    metrics: dict[str, dict[str, float | None]] = {}
 
     for item in payload.get("benchmark_context", []) or []:
         ticker = _norm_ticker(item.get("ticker"))
@@ -95,9 +110,9 @@ def _index_payload(payload: dict) -> PayloadIndex:
             if ticker:
                 known.add(ticker)
 
-                state = str(node.get("state") or "").strip().upper()
-                if state:
-                    states[ticker] = state
+                state_value = str(node.get("state") or "").strip().upper()
+                if state_value:
+                    states[ticker] = state_value
 
                 mode = str(node.get("score_mode") or "").strip().upper()
                 if mode:
@@ -112,6 +127,21 @@ def _index_payload(payload: dict) -> PayloadIndex:
                 if pair_type:
                     pair_types[ticker] = pair_type
 
+                ticker_metrics = metrics.setdefault(ticker, {})
+                for key in (
+                    "score",
+                    "score_change_5",
+                    "score_change_20",
+                    "signal_rs20_pct_points",
+                    "signal_rs63_pct_points",
+                    "pair_spread_20_pct_points",
+                    "pair_spread_63_pct_points",
+                    "cmf20",
+                ):
+                    value = _as_float(node.get(key))
+                    if value is not None:
+                        ticker_metrics[key] = value
+
             for key in ("primary_benchmark", "parent_benchmark", "paired_ticker"):
                 value = _norm_ticker(node.get(key))
                 if value:
@@ -124,7 +154,6 @@ def _index_payload(payload: dict) -> PayloadIndex:
             for value in node:
                 visit(value)
 
-    paired_tickers = paired
     visit(payload)
 
     return PayloadIndex(
@@ -134,8 +163,70 @@ def _index_payload(payload: dict) -> PayloadIndex:
         paired_tickers=paired_tickers,
         pair_types=pair_types,
         benchmark_tickers=benchmark_tickers,
+        metrics=metrics,
         supplied_text=json.dumps(payload, ensure_ascii=False).lower(),
     )
+
+
+def _numeric_values(text: str) -> list[float]:
+    normalized = str(text).replace("−", "-")
+    values = []
+    for match in NUMERIC_RE.findall(normalized):
+        try:
+            values.append(float(match))
+        except ValueError:
+            pass
+    return values
+
+
+def _contains_value(text: str, expected: float, tolerance: float = 0.021) -> bool:
+    return any(abs(value - expected) <= tolerance for value in _numeric_values(text))
+
+
+def _mixed_horizon(metrics: dict[str, float | None]) -> bool:
+    rs20 = metrics.get("signal_rs20_pct_points")
+    rs63 = metrics.get("signal_rs63_pct_points")
+    if rs20 is None or rs63 is None:
+        return False
+    return (rs20 > 0 > rs63) or (rs63 > 0 > rs20)
+
+
+def _validate_mixed_horizon_text(
+    field_path: str,
+    ticker: str,
+    text: str,
+    idx: PayloadIndex,
+    errors: list[str],
+) -> None:
+    metrics = idx.metrics.get(ticker, {})
+    if not _mixed_horizon(metrics):
+        return
+    if not RS_TERM_RE.search(text):
+        return
+
+    rs20 = metrics["signal_rs20_pct_points"]
+    rs63 = metrics["signal_rs63_pct_points"]
+    lower = text.lower()
+
+    if "20" not in lower or "63" not in lower:
+        errors.append(
+            f"mixed-horizon disclosure: {field_path} for {ticker} must name both 20-bar and 63-bar relative-strength horizons"
+        )
+        return
+
+    if not _contains_value(text, rs20) or not _contains_value(text, rs63):
+        errors.append(
+            f"mixed-horizon disclosure: {field_path} for {ticker} must cite both supplied relative-strength values ({rs20:.2f} and {rs63:.2f} percentage points)"
+        )
+
+    if not MIXED_WORD_RE.search(text):
+        errors.append(
+            f"mixed-horizon disclosure: {field_path} for {ticker} must describe opposite-sign relative-strength horizons as mixed/divergent/conflicting"
+        )
+
+
+def _contains_ticker(text: str, ticker: str) -> bool:
+    return bool(re.search(rf"(?<![A-Z0-9]){re.escape(ticker)}(?![A-Z0-9])", text, re.I))
 
 
 def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
@@ -198,6 +289,8 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
                     f"{prefix}: explanation does not name a quantitative metric/horizon"
                 )
 
+            _validate_mixed_horizon_text(prefix, ticker, text, idx, errors)
+
             mode = idx.score_modes.get(ticker)
             if category == "pair_relationships" and mode != "PAIR":
                 errors.append(f"{prefix}: {ticker} is not a PAIR signal")
@@ -238,7 +331,6 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
                 f"dashboard_focus_tickers[{pos}]: {ticker} was not supplied"
             )
 
-
     # Horizon-language validation is applied to analytical model-authored fields.
     # methodology_note is canonicalized by Python before validation.
     horizon_fields = [
@@ -273,8 +365,67 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
                 "relative-strength evidence is limited to 20/63 bars"
             )
 
+    # Apply mixed-horizon disclosure to the free-form confirmation/risk lines,
+    # which are normally ticker-specific. Avoid applying this to broad summary
+    # paragraphs where one ticker mention and an unrelated RS phrase could
+    # otherwise create a false positive. Finding explanations were already
+    # checked above against their primary ticker.
+    freeform_mixed_fields = []
+    for pos, value in enumerate(analysis.get("cross_market_confirmations", []) or []):
+        freeform_mixed_fields.append((f"cross_market_confirmations[{pos}]", str(value)))
+    for pos, value in enumerate(analysis.get("risks_or_conflicts", []) or []):
+        freeform_mixed_fields.append((f"risks_or_conflicts[{pos}]", str(value)))
+
+    for field_path, field_text in freeform_mixed_fields:
+        for ticker, ticker_metrics in idx.metrics.items():
+            if not _mixed_horizon(ticker_metrics):
+                continue
+            if _contains_ticker(field_text, ticker) and RS_TERM_RE.search(field_text):
+                _validate_mixed_horizon_text(
+                    field_path, ticker, field_text, idx, errors
+                )
+
+    # Deterministic conflict coverage: the AI may add more risks, but it may
+    # not omit the material conflicts Python has already identified.
+    risks = [str(x) for x in analysis.get("risks_or_conflicts", []) or []]
+    attention = payload.get("deterministic_attention", {}) or {}
+
+    for pos, conflict in enumerate(attention.get("sector_divergences", []) or []):
+        improver = _norm_ticker(conflict.get("improver"))
+        deteriorator = _norm_ticker(conflict.get("deteriorator"))
+        if improver and deteriorator:
+            covered = any(
+                _contains_ticker(text, improver)
+                and _contains_ticker(text, deteriorator)
+                for text in risks
+            )
+            if not covered:
+                errors.append(
+                    "deterministic conflict coverage: "
+                    f"risks_or_conflicts must acknowledge sector divergence "
+                    f"{improver} vs {deteriorator}"
+                )
+
+    for pos, tension in enumerate(attention.get("pair_state_tensions", []) or []):
+        ticker = _norm_ticker(tension.get("ticker"))
+        paired = _norm_ticker(tension.get("paired_ticker"))
+        if ticker and paired:
+            covered = any(
+                _contains_ticker(text, ticker)
+                and _contains_ticker(text, paired)
+                for text in risks
+            )
+            if not covered:
+                errors.append(
+                    "deterministic conflict coverage: "
+                    f"risks_or_conflicts must acknowledge pair/state tension "
+                    f"{ticker} vs {paired}"
+                )
 
     if errors:
+        # Preserve order while removing duplicate messages caused by a finding
+        # appearing in both the finding-level and free-form horizon passes.
+        errors = list(dict.fromkeys(errors))
         raise AIOutputValidationError(errors)
 
     return {
@@ -287,5 +438,7 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
             "language_guardrails": True,
             "numeric_evidence": True,
             "horizon_precision": True,
+            "mixed_horizon_disclosure": True,
+            "deterministic_conflict_coverage": True,
         },
     }
