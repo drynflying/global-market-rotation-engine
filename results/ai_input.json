@@ -892,16 +892,16 @@
           "score_change_20": -31.22,
           "rank_change_5": 1.0,
           "rank_change_20": -22.0,
-          "signal_rs20_pct_points": -3.73,
-          "signal_rs63_pct_points": -0.05,
-          "relative_dollar_volume": 0.29,
+          "signal_rs20_pct_points": -3.75,
+          "signal_rs63_pct_points": -0.07,
+          "relative_dollar_volume": 0.31,
           "cmf20": -0.327,
           "trend_score": 1.0,
           "leader_zone_streak": 0,
           "days_leader_zone_20": 3,
           "primary_benchmark": "ACWX",
           "parent_benchmark": "VGK",
-          "parent_rs20_pct_points": -5.61,
+          "parent_rs20_pct_points": -5.63,
           "paired_ticker": null,
           "pair_type": null,
           "pair_signal": null,
@@ -1459,10 +1459,10 @@
           "score_change_20": 56.0,
           "rank_change_5": 1.0,
           "rank_change_20": 7.0,
-          "signal_rs20_pct_points": 3.81,
-          "signal_rs63_pct_points": -4.37,
-          "relative_dollar_volume": 1.01,
-          "cmf20": 0.3,
+          "signal_rs20_pct_points": 3.85,
+          "signal_rs63_pct_points": -4.33,
+          "relative_dollar_volume": 0.98,
+          "cmf20": 0.307,
           "trend_score": 1.0,
           "leader_zone_streak": 5,
           "days_leader_zone_20": 5,
@@ -1472,8 +1472,8 @@
           "paired_ticker": "XLB",
           "pair_type": "GLOBAL_VS_US_SECTOR",
           "pair_signal": null,
-          "pair_spread_20_pct_points": 1.23,
-          "pair_spread_63_pct_points": -2.48
+          "pair_spread_20_pct_points": 1.26,
+          "pair_spread_63_pct_points": -2.44
         },
         {
           "ticker": "IXC",
@@ -1548,10 +1548,10 @@
           "score_change_20": 56.0,
           "rank_change_5": 1.0,
           "rank_change_20": 7.0,
-          "signal_rs20_pct_points": 3.81,
-          "signal_rs63_pct_points": -4.37,
-          "relative_dollar_volume": 1.01,
-          "cmf20": 0.3,
+          "signal_rs20_pct_points": 3.85,
+          "signal_rs63_pct_points": -4.33,
+          "relative_dollar_volume": 0.98,
+          "cmf20": 0.307,
           "trend_score": 1.0,
           "leader_zone_streak": 5,
           "days_leader_zone_20": 5,
@@ -1561,8 +1561,8 @@
           "paired_ticker": "XLB",
           "pair_type": "GLOBAL_VS_US_SECTOR",
           "pair_signal": null,
-          "pair_spread_20_pct_points": 1.23,
-          "pair_spread_63_pct_points": -2.48
+          "pair_spread_20_pct_points": 1.26,
+          "pair_spread_63_pct_points": -2.44
         },
         {
           "ticker": "IXC",
@@ -1664,10 +1664,10 @@
           "score_change_20": 7.5,
           "rank_change_5": -1.0,
           "rank_change_20": 0.0,
-          "signal_rs20_pct_points": 2.24,
-          "signal_rs63_pct_points": 0.55,
-          "relative_dollar_volume": 0.46,
-          "cmf20": -0.004,
+          "signal_rs20_pct_points": 2.21,
+          "signal_rs63_pct_points": 0.53,
+          "relative_dollar_volume": 0.44,
+          "cmf20": -0.005,
           "trend_score": 1.0,
           "leader_zone_streak": 0,
           "days_leader_zone_20": 2,
@@ -1677,8 +1677,8 @@
           "paired_ticker": "XLI",
           "pair_type": "GLOBAL_VS_US_SECTOR",
           "pair_signal": null,
-          "pair_spread_20_pct_points": 1.83,
-          "pair_spread_63_pct_points": -1.69
+          "pair_spread_20_pct_points": 1.81,
+          "pair_spread_63_pct_points": -1.72
         }
       ],
       "biggest_20d_weakeners": [
@@ -2633,8 +2633,8 @@
           "paired_ticker": "MXI",
           "pair_type": "US_VS_GLOBAL_SECTOR",
           "pair_signal": null,
-          "pair_spread_20_pct_points": -1.23,
-          "pair_spread_63_pct_points": 2.48
+          "pair_spread_20_pct_points": -1.26,
+          "pair_spread_63_pct_points": 2.44
         },
         {
           "ticker": "XLI",
@@ -2662,8 +2662,8 @@
           "paired_ticker": "EXI",
           "pair_type": "US_VS_GLOBAL_SECTOR",
           "pair_signal": null,
-          "pair_spread_20_pct_points": -1.83,
-          "pair_spread_63_pct_points": 1.69
+          "pair_spread_20_pct_points": -1.81,
+          "pair_spread_63_pct_points": 1.72
         },
         {
           "ticker": "XLF",
@@ -2722,8 +2722,8 @@
           "paired_ticker": "MXI",
           "pair_type": "US_VS_GLOBAL_SECTOR",
           "pair_signal": null,
-          "pair_spread_20_pct_points": -1.23,
-          "pair_spread_63_pct_points": 2.48
+          "pair_spread_20_pct_points": -1.26,
+          "pair_spread_63_pct_points": 2.44
         },
         {
           "ticker": "XLP",
@@ -2809,8 +2809,8 @@
           "paired_ticker": "EXI",
           "pair_type": "US_VS_GLOBAL_SECTOR",
           "pair_signal": null,
-          "pair_spread_20_pct_points": -1.83,
-          "pair_spread_63_pct_points": 1.69
+          "pair_spread_20_pct_points": -1.81,
+          "pair_spread_63_pct_points": 1.72
         },
         {
           "ticker": "XLY",
@@ -3396,16 +3396,16 @@
         "score_change_20": -31.22,
         "rank_change_5": 1.0,
         "rank_change_20": -22.0,
-        "signal_rs20_pct_points": -3.73,
-        "signal_rs63_pct_points": -0.05,
-        "relative_dollar_volume": 0.29,
+        "signal_rs20_pct_points": -3.75,
+        "signal_rs63_pct_points": -0.07,
+        "relative_dollar_volume": 0.31,
         "cmf20": -0.327,
         "trend_score": 1.0,
         "leader_zone_streak": 0,
         "days_leader_zone_20": 3,
         "primary_benchmark": "ACWX",
         "parent_benchmark": "VGK",
-        "parent_rs20_pct_points": -5.61,
+        "parent_rs20_pct_points": -5.63,
         "paired_ticker": null,
         "pair_type": null,
         "pair_signal": null,
@@ -3417,8 +3417,8 @@
           "date": "2026-08-11",
           "score": 29.39,
           "rank": 37.0,
-          "signal_rs20_pct_points": -3.73,
-          "signal_rs63_pct_points": -0.05
+          "signal_rs20_pct_points": -3.75,
+          "signal_rs63_pct_points": -0.07
         },
         "5": {
           "date": "2026-08-04",
@@ -4416,10 +4416,10 @@
         "score_change_20": 7.5,
         "rank_change_5": -1.0,
         "rank_change_20": 0.0,
-        "signal_rs20_pct_points": 2.24,
-        "signal_rs63_pct_points": 0.55,
-        "relative_dollar_volume": 0.46,
-        "cmf20": -0.004,
+        "signal_rs20_pct_points": 2.21,
+        "signal_rs63_pct_points": 0.53,
+        "relative_dollar_volume": 0.44,
+        "cmf20": -0.005,
         "trend_score": 1.0,
         "leader_zone_streak": 0,
         "days_leader_zone_20": 2,
@@ -4429,16 +4429,16 @@
         "paired_ticker": "XLI",
         "pair_type": "GLOBAL_VS_US_SECTOR",
         "pair_signal": null,
-        "pair_spread_20_pct_points": 1.83,
-        "pair_spread_63_pct_points": -1.69
+        "pair_spread_20_pct_points": 1.81,
+        "pair_spread_63_pct_points": -1.72
       },
       "snapshots_bars_ago": {
         "0": {
           "date": "2026-08-11",
           "score": 62.5,
           "rank": 6.0,
-          "signal_rs20_pct_points": 2.24,
-          "signal_rs63_pct_points": 0.55
+          "signal_rs20_pct_points": 2.21,
+          "signal_rs63_pct_points": 0.53
         },
         "5": {
           "date": "2026-08-04",
@@ -5844,10 +5844,10 @@
         "score_change_20": 56.0,
         "rank_change_5": 1.0,
         "rank_change_20": 7.0,
-        "signal_rs20_pct_points": 3.81,
-        "signal_rs63_pct_points": -4.37,
-        "relative_dollar_volume": 1.01,
-        "cmf20": 0.3,
+        "signal_rs20_pct_points": 3.85,
+        "signal_rs63_pct_points": -4.33,
+        "relative_dollar_volume": 0.98,
+        "cmf20": 0.307,
         "trend_score": 1.0,
         "leader_zone_streak": 5,
         "days_leader_zone_20": 5,
@@ -5857,16 +5857,16 @@
         "paired_ticker": "XLB",
         "pair_type": "GLOBAL_VS_US_SECTOR",
         "pair_signal": null,
-        "pair_spread_20_pct_points": 1.23,
-        "pair_spread_63_pct_points": -2.48
+        "pair_spread_20_pct_points": 1.26,
+        "pair_spread_63_pct_points": -2.44
       },
       "snapshots_bars_ago": {
         "0": {
           "date": "2026-08-11",
           "score": 76.5,
           "rank": 3.0,
-          "signal_rs20_pct_points": 3.81,
-          "signal_rs63_pct_points": -4.37
+          "signal_rs20_pct_points": 3.85,
+          "signal_rs63_pct_points": -4.33
         },
         "5": {
           "date": "2026-08-04",
@@ -6945,8 +6945,8 @@
         "paired_ticker": "MXI",
         "pair_type": "US_VS_GLOBAL_SECTOR",
         "pair_signal": null,
-        "pair_spread_20_pct_points": -1.23,
-        "pair_spread_63_pct_points": 2.48
+        "pair_spread_20_pct_points": -1.26,
+        "pair_spread_63_pct_points": 2.44
       },
       "snapshots_bars_ago": {
         "0": {
@@ -7217,8 +7217,8 @@
         "paired_ticker": "EXI",
         "pair_type": "US_VS_GLOBAL_SECTOR",
         "pair_signal": null,
-        "pair_spread_20_pct_points": -1.83,
-        "pair_spread_63_pct_points": 1.69
+        "pair_spread_20_pct_points": -1.81,
+        "pair_spread_63_pct_points": 1.72
       },
       "snapshots_bars_ago": {
         "0": {

@@ -18,11 +18,11 @@
   "ai_requested_providers": [
     "gemini"
   ],
-  "ai_successful_providers": [],
-  "ai_failed_providers": [
+  "ai_successful_providers": [
     "gemini"
   ],
-  "ai_primary_provider": "deterministic_fallback",
-  "ai_provider_status": "fallback",
-  "ai_consensus_provider_count": 0
+  "ai_failed_providers": [],
+  "ai_primary_provider": "gemini",
+  "ai_provider_status": "ai",
+  "ai_consensus_provider_count": 1
 }
