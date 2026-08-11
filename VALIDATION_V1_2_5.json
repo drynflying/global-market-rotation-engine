@@ -1,0 +1,9 @@
+{
+  "patch_version": "v1.2.5",
+  "quantitative_engine_changed": false,
+  "python_compile": "passed",
+  "rsp_spy_benchmark_semantics_test": "passed",
+  "five_bar_rs_guard_test": "passed",
+  "automatic_validation_retry": true,
+  "validator_version": "v1.2.5"
+}

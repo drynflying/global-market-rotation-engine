@@ -73,7 +73,26 @@ def run_ai_analysis(payload: dict) -> dict:
             module = importlib.import_module(module_name)
             analysis, model = module.analyze(payload)
             analysis = AIAnalysis.model_validate(analysis).model_dump()
-            validation = validate_analysis_against_payload(analysis, payload)
+
+            try:
+                validation = validate_analysis_against_payload(analysis, payload)
+                validation["attempt_count"] = 1
+                validation["retry_used"] = False
+            except AIOutputValidationError as first_exc:
+                correction = (
+                    "Fix every validation issue below exactly:\n- "
+                    + "\n- ".join(first_exc.errors)
+                )
+                analysis, model = module.analyze(
+                    payload,
+                    correction_instructions=correction,
+                )
+                analysis = AIAnalysis.model_validate(analysis).model_dump()
+                validation = validate_analysis_against_payload(analysis, payload)
+                validation["attempt_count"] = 2
+                validation["retry_used"] = True
+                validation["first_attempt_errors"] = first_exc.errors
+
             provider_results[provider] = {
                 "provider": provider,
                 "status": "success",
@@ -91,6 +110,8 @@ def run_ai_analysis(payload: dict) -> dict:
                 "validation": {
                     "status": "failed",
                     "validator_version": VALIDATOR_VERSION,
+                    "attempt_count": 2,
+                    "retry_used": True,
                     "errors": exc.errors,
                 },
                 "analysis": None,

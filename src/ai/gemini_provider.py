@@ -10,7 +10,10 @@ PROVIDER_NAME = "gemini"
 DEFAULT_MODEL = "gemini-3.6-flash"
 
 
-def analyze(payload: dict) -> tuple[dict, str]:
+def analyze(
+    payload: dict,
+    correction_instructions: str | None = None,
+) -> tuple[dict, str]:
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     model = os.getenv("GEMINI_MODEL", "").strip() or DEFAULT_MODEL
 
@@ -22,7 +25,7 @@ def analyze(payload: dict) -> tuple[dict, str]:
     client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
         model=model,
-        contents=build_prompt(payload),
+        contents=build_prompt(payload, correction_instructions),
         config={
             "response_mime_type": "application/json",
             "response_schema": AIAnalysis,

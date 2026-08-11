@@ -81,9 +81,19 @@ The output must follow the supplied structured schema exactly.
 """.strip()
 
 
-def build_prompt(payload: dict) -> str:
+def build_prompt(payload: dict, correction_instructions: str | None = None) -> str:
+    correction = ""
+    if correction_instructions:
+        correction = (
+            "\n\nCORRECTION REQUIRED:\n"
+            "A prior structured response failed deterministic validation. "
+            "Correct the listed issues while preserving valid quantitative evidence.\n"
+            + correction_instructions.strip()
+        )
+
     return (
         SYSTEM_INSTRUCTION
+        + correction
         + "\n\nToday's deterministic rotation dataset follows:\n"
         + json.dumps(payload, separators=(",", ":"), ensure_ascii=False)
     )

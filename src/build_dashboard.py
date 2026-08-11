@@ -144,10 +144,18 @@ def build_dashboard(
         validation_version = validation.get("validator_version")
         validation_line = ""
         if validation_status:
+            attempt_count = validation.get("attempt_count")
+            retry_used = validation.get("retry_used", False)
+            retry_text = ""
+            if attempt_count:
+                retry_text = f" · attempt {html.escape(str(attempt_count))}"
+            if retry_used and validation_status == "passed":
+                retry_text += " · corrected on retry"
             validation_line = (
                 f"<div class='muted small'>validation: "
                 f"{html.escape(str(validation_status))}"
                 f"{' · ' + html.escape(str(validation_version)) if validation_version else ''}"
+                f"{retry_text}"
                 f"</div>"
             )
         provider_cards.append(

@@ -5,7 +5,7 @@ import re
 from dataclasses import dataclass
 
 
-VALIDATOR_VERSION = "v1.2.4"
+VALIDATOR_VERSION = "v1.2.5"
 
 CATEGORY_TO_STATE = {
     "emerging_rotations": "EMERGING",
@@ -67,6 +67,7 @@ class PayloadIndex:
     score_modes: dict[str, str]
     paired_tickers: dict[str, str]
     pair_types: dict[str, str]
+    benchmark_tickers: set[str]
     supplied_text: str
 
 
@@ -80,31 +81,38 @@ def _index_payload(payload: dict) -> PayloadIndex:
     score_modes: dict[str, str] = {}
     paired: dict[str, str] = {}
     pair_types: dict[str, str] = {}
+    benchmark_tickers: set[str] = set()
+
+    for item in payload.get("benchmark_context", []) or []:
+        ticker = _norm_ticker(item.get("ticker"))
+        if ticker:
+            benchmark_tickers.add(ticker)
+            known.add(ticker)
 
     def visit(node):
         if isinstance(node, dict):
             ticker = _norm_ticker(node.get("ticker"))
             if ticker:
                 known.add(ticker)
+
                 state = str(node.get("state") or "").strip().upper()
                 if state:
                     states[ticker] = state
+
                 mode = str(node.get("score_mode") or "").strip().upper()
                 if mode:
                     score_modes[ticker] = mode
-                p = _norm_ticker(node.get("paired_ticker"))
-                if p:
-                    paired[ticker] = p
-                    known.add(p)
+
+                paired = _norm_ticker(node.get("paired_ticker"))
+                if paired:
+                    paired_tickers[ticker] = paired
+                    known.add(paired)
+
                 pair_type = str(node.get("pair_type") or "").strip().upper()
                 if pair_type:
                     pair_types[ticker] = pair_type
 
-            for key in (
-                "primary_benchmark",
-                "parent_benchmark",
-                "paired_ticker",
-            ):
+            for key in ("primary_benchmark", "parent_benchmark", "paired_ticker"):
                 value = _norm_ticker(node.get(key))
                 if value:
                     known.add(value)
@@ -116,37 +124,30 @@ def _index_payload(payload: dict) -> PayloadIndex:
             for value in node:
                 visit(value)
 
+    paired_tickers = paired
     visit(payload)
 
     return PayloadIndex(
         known_tickers=known,
         states=states,
         score_modes=score_modes,
-        paired_tickers=paired,
+        paired_tickers=paired_tickers,
         pair_types=pair_types,
+        benchmark_tickers=benchmark_tickers,
         supplied_text=json.dumps(payload, ensure_ascii=False).lower(),
     )
 
 
 def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
-    """
-    Reject an AI response before it reaches the dashboard/consensus engine when
-    it contradicts deterministic state data, references unsupplied tickers, or
-    uses language that overstates the available market-flow evidence.
-    """
     idx = _index_payload(payload)
     errors: list[str] = []
-
-    # Validate all prose for claims that our OHLCV/CMF dataset cannot support.
     prose = json.dumps(analysis, ensure_ascii=False)
+
     for label, pattern in PROHIBITED_LANGUAGE:
         match = pattern.search(prose)
         if match:
-            errors.append(
-                f"{label}: prohibited phrase '{match.group(0)}'"
-            )
+            errors.append(f"{label}: prohibited phrase '{match.group(0)}'")
 
-    # "Mega-cap" is allowed only if the supplied payload explicitly uses it.
     if re.search(r"\bmega[- ]?cap\b", prose, re.I):
         if not re.search(r"\bmega[- ]?cap\b", idx.supplied_text, re.I):
             errors.append(
@@ -186,19 +187,12 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
                         f"{prefix}: {ticker} is {actual_state}, not {required_state}"
                     )
 
-            text = " ".join(
-                [
-                    str(finding.get("title") or ""),
-                    str(finding.get("explanation") or ""),
-                ]
-            )
+            title = str(finding.get("title") or "")
             explanation = str(finding.get("explanation") or "")
+            text = f"{title} {explanation}"
 
-            # Every finding needs explicit numeric grounding.
             if not NUMERIC_RE.search(explanation):
-                errors.append(
-                    f"{prefix}: explanation lacks numeric evidence"
-                )
+                errors.append(f"{prefix}: explanation lacks numeric evidence")
             if not EVIDENCE_TERM_RE.search(explanation):
                 errors.append(
                     f"{prefix}: explanation does not name a quantitative metric/horizon"
@@ -206,12 +200,11 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
 
             mode = idx.score_modes.get(ticker)
             if category == "pair_relationships" and mode != "PAIR":
-                errors.append(
-                    f"{prefix}: {ticker} is not a PAIR signal"
-                )
+                errors.append(f"{prefix}: {ticker} is not a PAIR signal")
 
             if mode == "PAIR":
                 paired = idx.paired_tickers.get(ticker)
+
                 if paired and not re.search(
                     rf"\b{re.escape(paired)}\b", text, re.I
                 ):
@@ -224,12 +217,16 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
                         f"{prefix}: PAIR finding for {ticker} must not use peer-group rank language"
                     )
 
+                paired_is_benchmark = paired in idx.benchmark_tickers if paired else False
                 pair_type = idx.pair_types.get(ticker, "")
-                if "BENCHMARK" not in pair_type and re.search(
-                    r"\bbenchmark\b", text, re.I
+                if (
+                    "BENCHMARK" not in pair_type
+                    and not paired_is_benchmark
+                    and re.search(r"\bbenchmark\b", text, re.I)
                 ):
                     errors.append(
-                        f"{prefix}: PAIR finding for {ticker} must describe the exact pair, not a benchmark"
+                        f"{prefix}: PAIR finding for {ticker} uses generic benchmark language "
+                        f"but paired ticker is {paired}"
                     )
 
     for pos, ticker_value in enumerate(
@@ -241,9 +238,8 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
                 f"dashboard_focus_tickers[{pos}]: {ticker} was not supplied"
             )
 
-    # Guard against conflating 5-bar score change with 5-bar relative strength.
     if re.search(
-        r"\b5[- ]?(?:bar|day|trading[- ]?bar)?\s+relative strength\b",
+        r"\b5[- ]?(?:bar|day|trading[- ]?bar)?\s+relative[- ]?strength\b",
         prose,
         re.I,
     ):

@@ -10,7 +10,7 @@ AIAnalysis schema and input payload used by Gemini.
 PROVIDER_NAME = "claude"
 
 
-def analyze(payload: dict):
+def analyze(payload: dict, correction_instructions: str | None = None):
     raise NotImplementedError(
         "Claude adapter is reserved for the next provider integration patch."
     )

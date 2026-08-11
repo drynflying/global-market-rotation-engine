@@ -10,7 +10,7 @@ the other providers.
 PROVIDER_NAME = "openai"
 
 
-def analyze(payload: dict):
+def analyze(payload: dict, correction_instructions: str | None = None):
     raise NotImplementedError(
         "OpenAI adapter is reserved for a future provider integration patch."
     )
