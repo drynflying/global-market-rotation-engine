@@ -356,6 +356,20 @@ th {{ color:var(--muted); font-size:13px; }}
   {ai_cards('weakening_rotations','Weakening rotations')}
   {ai_cards('rotation_out','Rotation out')}
 
+  <section>
+    <h2>Cross-market confirmations and risks</h2>
+    <div class="split">
+      <div class="insight-card">
+        <h3>Cross-market confirmations</h3>
+        <ul class="insight-list">{confirmations_html}</ul>
+      </div>
+      <div class="insight-card">
+        <h3>Risks / conflicts</h3>
+        <ul class="insight-list">{risks_or_conflicts_html}</ul>
+      </div>
+    </div>
+  </section>
+
   {consensus_html}
 
   <section>
