@@ -322,6 +322,14 @@ th {{ color:var(--muted); font-size:13px; }}
   margin-top:24px; padding:14px; border:1px solid var(--line);
   border-radius:14px; background:var(--panel2); color:var(--muted);
 }}
+.insight-card {
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:16px;
+}
+.insight-card h3 { margin-top:0; }
+.insight-list { margin:8px 0 0; padding-left:20px; }
+.insight-list li { margin:8px 0; color:var(--muted); line-height:1.45; }
+
 @media (max-width:800px) {{
   .grid,.mini-grid,.chart-grid,.providers,.split {{ grid-template-columns:1fr; }}
   main {{ padding:14px; }}
