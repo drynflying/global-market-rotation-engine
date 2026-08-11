@@ -1,0 +1,53 @@
+{
+  "rows": 162,
+  "columns": 47,
+  "rank_eligible": 111,
+  "score_mode_counts": {
+    "CROSS_SECTIONAL": 107,
+    "REFERENCE": 51,
+    "PAIR": 4
+  },
+  "pair_tickers": [
+    "RSP",
+    "IWD",
+    "IWF",
+    "REET"
+  ],
+  "cross_group_sizes": {
+    "EXUS_BROAD": 7,
+    "EXUS_COUNTRY": 41,
+    "EXUS_REGION": 8,
+    "GLOBAL_SECTOR": 10,
+    "US_INDUSTRY_THEME": 27,
+    "US_MARKET_BREADTH": 3,
+    "US_SECTOR": 11
+  },
+  "moved_group": [
+    {
+      "ticker": "CIBR",
+      "rotation_group": "US_INDUSTRY_THEME"
+    },
+    {
+      "ticker": "OIH",
+      "rotation_group": "US_INDUSTRY_THEME"
+    },
+    {
+      "ticker": "SKYY",
+      "rotation_group": "US_INDUSTRY_THEME"
+    }
+  ],
+  "formula_versions": [
+    "v1.1"
+  ],
+  "compiled_python_files": [
+    "__init__.py",
+    "analyze_with_gemini.py",
+    "build_ai_input.py",
+    "build_dashboard.py",
+    "calculate_metrics.py",
+    "calculate_trends.py",
+    "common.py",
+    "fetch_market_data.py",
+    "run_pipeline.py"
+  ]
+}

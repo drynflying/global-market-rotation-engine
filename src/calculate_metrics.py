@@ -92,7 +92,7 @@ def attach_config_and_relative_strength(
     cfg: pd.DataFrame,
 ) -> pd.DataFrame:
     meta_cols = [
-        "ticker", "priority", "signal_role", "rank_eligible", "universe",
+        "ticker", "priority", "signal_role", "rank_eligible", "score_mode", "universe",
         "rotation_group", "level", "exposure", "name", "geography", "sector",
         "industry_theme", "primary_benchmark", "parent_benchmark",
         "paired_ticker", "pair_type", "min_history_bars", "persistence_bars",
@@ -144,73 +144,160 @@ def attach_config_and_relative_strength(
     return out
 
 
-def calculate_rotation_scores(df: pd.DataFrame) -> pd.DataFrame:
-    out = df.copy()
+def _clip01(series: pd.Series) -> pd.Series:
+    return series.clip(lower=0.0, upper=1.0)
 
-    eligible_base = (
+
+def calculate_rotation_scores(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Version 1.1 supports two deterministic scoring modes.
+
+    CROSS_SECTIONAL
+        Components are percentile-ranked against true peers in the same
+        rotation_group. A group requires at least 3 eligible members.
+
+    PAIR
+        Used for direct relationships such as Growth vs Value, Equal Weight vs
+        Cap Weight, and Global vs U.S. real estate. Relative-strength components
+        use the paired ETF rather than a peer-group percentile.
+
+    REFERENCE
+        Benchmarks/confirmation rows are calculated but not assigned a
+        rotation score.
+    """
+    out = df.copy()
+    out["score_mode"] = out["score_mode"].fillna("REFERENCE").astype(str).str.upper()
+
+    base_ready = (
         out["rank_eligible"].map(as_bool)
         & (out["data_status"] == "READY")
-        & out["rs20"].notna()
-        & out["rs63"].notna()
         & out["relative_dollar_volume"].notna()
         & out["cmf20"].notna()
         & out["trend_score"].notna()
     )
 
-    # Avoid meaningless percentile ranks in groups with only 1–2 members.
+    cross_base = (
+        base_ready
+        & (out["score_mode"] == "CROSS_SECTIONAL")
+        & out["rs20"].notna()
+        & out["rs63"].notna()
+    )
+
+    # Cross-sectional peer groups require at least three eligible securities.
     group_counts = (
-        out.loc[eligible_base]
+        out.loc[cross_base]
         .groupby(["date", "rotation_group"])["ticker"]
         .transform("count")
     )
-    eligible = eligible_base.copy()
-    eligible.loc[eligible_base] = group_counts >= 3
+    cross = cross_base.copy()
+    cross.loc[cross_base] = group_counts >= 3
 
-    component_map = {
-        "rs20": "rs20_pct",
-        "rs63": "rs63_pct",
-        "relative_dollar_volume": "rel_dollar_volume_pct",
-        "cmf20": "cmf20_pct",
+    pair = (
+        base_ready
+        & (out["score_mode"] == "PAIR")
+        & out["pair_spread_20"].notna()
+        & out["pair_spread_63"].notna()
+    )
+
+    # Generic 0..1 scoring components.
+    component_cols = [
+        "score_component_rs20",
+        "score_component_rs63",
+        "score_component_rel_dollar_volume",
+        "score_component_cmf20",
+    ]
+    for col in component_cols:
+        out[col] = np.nan
+
+    # CROSS_SECTIONAL: percentile rank within the true peer group.
+    cross_component_map = {
+        "rs20": "score_component_rs20",
+        "rs63": "score_component_rs63",
+        "relative_dollar_volume": "score_component_rel_dollar_volume",
+        "cmf20": "score_component_cmf20",
     }
-
-    for source, target in component_map.items():
-        out[target] = np.nan
-        out.loc[eligible, target] = (
-            out.loc[eligible]
+    for source, target in cross_component_map.items():
+        out.loc[cross, target] = (
+            out.loc[cross]
             .groupby(["date", "rotation_group"])[source]
             .rank(method="average", pct=True)
         )
 
-    out["rotation_score"] = np.nan
-    out.loc[eligible, "rotation_score"] = 100 * (
-        out.loc[eligible, "score_w_rs20"] * out.loc[eligible, "rs20_pct"]
-        + out.loc[eligible, "score_w_rs63"] * out.loc[eligible, "rs63_pct"]
-        + out.loc[eligible, "score_w_rel_dollar_volume"]
-          * out.loc[eligible, "rel_dollar_volume_pct"]
-        + out.loc[eligible, "score_w_cmf20"] * out.loc[eligible, "cmf20_pct"]
-        + out.loc[eligible, "score_w_trend"] * out.loc[eligible, "trend_score"]
+    # PAIR: fixed transforms centered on "no relative advantage".
+    #
+    # 20-bar pair spread: -5% => 0, 0% => 0.5, +5% => 1
+    # 63-bar pair spread: -10% => 0, 0% => 0.5, +10% => 1
+    # Relative dollar volume: 0.5x => 0, 1.0x => 0.5, 1.5x => 1
+    # CMF20: -0.20 => 0, 0 => 0.5, +0.20 => 1
+    out.loc[pair, "score_component_rs20"] = _clip01(
+        0.5 + out.loc[pair, "pair_spread_20"] / 0.10
+    )
+    out.loc[pair, "score_component_rs63"] = _clip01(
+        0.5 + out.loc[pair, "pair_spread_63"] / 0.20
+    )
+    out.loc[pair, "score_component_rel_dollar_volume"] = _clip01(
+        (out.loc[pair, "relative_dollar_volume"] - 0.5) / 1.0
+    )
+    out.loc[pair, "score_component_cmf20"] = _clip01(
+        0.5 + out.loc[pair, "cmf20"] / 0.40
     )
 
+    scored = cross | pair
+    out["rotation_score"] = np.nan
+    out.loc[scored, "rotation_score"] = 100 * (
+        out.loc[scored, "score_w_rs20"] * out.loc[scored, "score_component_rs20"]
+        + out.loc[scored, "score_w_rs63"] * out.loc[scored, "score_component_rs63"]
+        + out.loc[scored, "score_w_rel_dollar_volume"]
+          * out.loc[scored, "score_component_rel_dollar_volume"]
+        + out.loc[scored, "score_w_cmf20"] * out.loc[scored, "score_component_cmf20"]
+        + out.loc[scored, "score_w_trend"] * out.loc[scored, "trend_score"]
+    )
+
+    # Cross-sectional ranks are intentionally blank for pair signals.
     out["group_rank"] = np.nan
-    out.loc[eligible, "group_rank"] = (
-        out.loc[eligible]
+    out.loc[cross, "group_rank"] = (
+        out.loc[cross]
         .groupby(["date", "rotation_group"])["rotation_score"]
         .rank(method="min", ascending=False)
     )
 
     out["group_size"] = np.nan
-    out.loc[eligible, "group_size"] = (
-        out.loc[eligible]
+    out.loc[cross, "group_size"] = (
+        out.loc[cross]
         .groupby(["date", "rotation_group"])["rotation_score"]
         .transform("count")
     )
 
     out["group_percentile"] = np.nan
-    out.loc[eligible, "group_percentile"] = (
+    out.loc[cross, "group_percentile"] = (
         100
-        * out.loc[eligible]
+        * out.loc[cross]
         .groupby(["date", "rotation_group"])["rotation_score"]
         .rank(method="average", pct=True)
     )
+
+    # The state engine uses pair-relative strength for PAIR signals and
+    # primary-benchmark relative strength for CROSS_SECTIONAL signals.
+    out["signal_rs20"] = np.where(
+        out["score_mode"] == "PAIR",
+        out["pair_spread_20"],
+        out["rs20"],
+    )
+    out["signal_rs63"] = np.where(
+        out["score_mode"] == "PAIR",
+        out["pair_spread_63"],
+        out["rs63"],
+    )
+
+    out["pair_signal"] = ""
+    out.loc[
+        pair & (out["pair_spread_20"] > 0) & (out["pair_spread_63"] > 0),
+        "pair_signal",
+    ] = "PAIR_LEADING"
+    out.loc[
+        pair & (out["pair_spread_20"] < 0) & (out["pair_spread_63"] < 0),
+        "pair_signal",
+    ] = "PAIR_LAGGING"
+    out.loc[pair & (out["pair_signal"] == ""), "pair_signal"] = "PAIR_MIXED"
 
     return out

@@ -53,7 +53,7 @@ def ensure_dirs() -> None:
 def load_config() -> pd.DataFrame:
     required = {
         "enabled", "query_symbol", "ticker", "priority", "signal_role",
-        "rank_eligible", "universe", "rotation_group", "primary_benchmark",
+        "rank_eligible", "score_mode", "universe", "rotation_group", "primary_benchmark",
         "parent_benchmark", "paired_ticker", "query_ohlcv",
         "history_bars", "min_history_bars", "rs_short_bars", "rs_long_bars",
         "volume_window_bars", "cmf_window_bars", "sma_fast_bars",
@@ -107,7 +107,22 @@ def load_config() -> pd.DataFrame:
 
     cfg["ticker"] = cfg["ticker"].str.strip().str.upper()
     cfg["query_symbol"] = cfg["query_symbol"].str.strip().str.upper()
+    cfg["score_mode"] = cfg["score_mode"].str.strip().str.upper()
     cfg = cfg.drop_duplicates(subset=["ticker"], keep="first").copy()
+
+    valid_modes = {"CROSS_SECTIONAL", "PAIR", "REFERENCE"}
+    bad_modes = sorted(set(cfg["score_mode"]) - valid_modes)
+    if bad_modes:
+        raise ValueError(f"Invalid score_mode values: {bad_modes}")
+
+    pair_without_reference = cfg[
+        (cfg["score_mode"] == "PAIR") & cfg["paired_ticker"].astype(str).str.strip().eq("")
+    ]
+    if not pair_without_reference.empty:
+        raise ValueError(
+            "PAIR rows require paired_ticker. Missing for: "
+            + ", ".join(pair_without_reference["ticker"].tolist())
+        )
 
     active = cfg[cfg["enabled"] & cfg["query_ohlcv"]]
     if active.empty:

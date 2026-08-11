@@ -18,8 +18,10 @@ def _fmt(value, digits=1, suffix=""):
 
 def _state_class(state: str) -> str:
     return {
-        "ROTATION_IN": "good",
-        "ACCUMULATING": "good2",
+        "EMERGING": "good2",
+        "ACCELERATING": "good",
+        "PERSISTENT_LEADER": "good",
+        "REACCELERATING": "good2",
         "NEUTRAL": "neutral",
         "WEAKENING": "warn",
         "ROTATION_OUT": "bad",
@@ -45,12 +47,19 @@ def build_dashboard(
         & latest["rank_eligible"].astype(bool)
     ].copy()
 
-    leaders = scored.nlargest(15, "rotation_score")
-    movers = scored[scored["score_change_20"].notna()].nlargest(15, "score_change_20")
-    weakening = scored[scored["score_change_20"].notna()].nsmallest(10, "score_change_20")
+    cross_scored = scored[scored["score_mode"].eq("CROSS_SECTIONAL")].copy()
+    pair_scored = scored[scored["score_mode"].eq("PAIR")].copy()
+
+    leaders = cross_scored.nlargest(15, "rotation_score")
+    movers = cross_scored[
+        cross_scored["score_change_20"].notna()
+    ].nlargest(15, "score_change_20")
+    weakening = cross_scored[
+        cross_scored["score_change_20"].notna()
+    ].nsmallest(10, "score_change_20")
 
     groups = []
-    for group, g in scored.groupby("rotation_group"):
+    for group, g in cross_scored.groupby("rotation_group"):
         g = g.sort_values("rotation_score", ascending=False)
         groups.append(
             {
@@ -255,6 +264,28 @@ th {{ color:var(--muted); font-size:13px; }}
       <table>
         <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>State</th></tr></thead>
         <tbody>{rows(weakening)}</tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>Pair signals</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Ticker</th><th>Exposure</th><th>Pair</th><th>Score</th><th>20-bar spread</th><th>63-bar spread</th><th>State</th></tr></thead>
+        <tbody>
+          {''.join(
+              f"<tr><td><strong>{html.escape(str(r['ticker']))}</strong></td>"
+              f"<td>{html.escape(str(r.get('exposure') or ''))}</td>"
+              f"<td>{html.escape(str(r.get('paired_ticker') or ''))}</td>"
+              f"<td>{_fmt(r.get('rotation_score'),1)}</td>"
+              f"<td>{_fmt(r.get('pair_spread_20')*100 if pd.notna(r.get('pair_spread_20')) else None,1,'%')}</td>"
+              f"<td>{_fmt(r.get('pair_spread_63')*100 if pd.notna(r.get('pair_spread_63')) else None,1,'%')}</td>"
+              f"<td><span class='badge {_state_class(str(r.get('rotation_state')))}'>{html.escape(str(r.get('rotation_state')))}</span></td></tr>"
+              for _, r in pair_scored.sort_values('ticker').iterrows()
+          ) or '<tr><td colspan="7" class="muted">No pair signals available.</td></tr>'}
+        </tbody>
       </table>
     </div>
   </section>

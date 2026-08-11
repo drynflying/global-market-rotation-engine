@@ -26,18 +26,20 @@ from src.fetch_market_data import fetch_market_data, update_ohlcv_history
 
 
 RESULT_COLUMNS = [
-    "date", "ticker", "priority", "signal_role", "rank_eligible", "universe",
+    "date", "ticker", "priority", "signal_role", "rank_eligible", "score_mode", "universe",
     "rotation_group", "level", "exposure", "sector", "industry_theme",
     "primary_benchmark", "parent_benchmark", "paired_ticker", "pair_type",
     "data_status", "bars_available", "close", "volume", "dollar_volume",
     "relative_dollar_volume", "return_20", "return_63", "rs20", "rs63",
     "parent_rs20", "parent_rs63", "pair_spread_20", "pair_spread_63",
+    "signal_rs20", "signal_rs63", "pair_signal",
     "cmf20", "obv_change_20", "sma50", "sma200", "position_52w",
     "trend_score", "rotation_score", "group_rank", "group_size",
     "group_percentile", "score_change_5", "score_change_10",
     "score_change_20", "score_change_63", "rank_change_5", "rank_change_20",
-    "rs20_change_5", "rs63_change_20", "days_top_quartile_20",
-    "top_quartile_streak", "consecutive_improving_days",
+    "rs20_change_5", "rs63_change_20", "days_leader_zone_20",
+    "leader_zone_streak", "days_top_quartile_20", "top_quartile_streak",
+    "consecutive_improving_days",
     "rotation_state", "score_formula_version",
 ]
 
@@ -87,8 +89,21 @@ def save_results(df: pd.DataFrame, cfg: pd.DataFrame, failures: pd.DataFrame):
         "latest_result_tickers": int(latest["ticker"].nunique()),
         "failed_symbols": failures["ticker"].tolist() if not failures.empty else [],
         "scored_tickers": int(latest["rotation_score"].notna().sum()),
-        "rotation_in_count": int((latest["rotation_state"] == "ROTATION_IN").sum()),
-        "accumulating_count": int((latest["rotation_state"] == "ACCUMULATING").sum()),
+        "cross_sectional_scored": int(
+            ((latest["score_mode"] == "CROSS_SECTIONAL") & latest["rotation_score"].notna()).sum()
+        ),
+        "pair_scored": int(
+            ((latest["score_mode"] == "PAIR") & latest["rotation_score"].notna()).sum()
+        ),
+        "emerging_count": int((latest["rotation_state"] == "EMERGING").sum()),
+        "accelerating_count": int((latest["rotation_state"] == "ACCELERATING").sum()),
+        "persistent_leader_count": int(
+            (latest["rotation_state"] == "PERSISTENT_LEADER").sum()
+        ),
+        "reaccelerating_count": int(
+            (latest["rotation_state"] == "REACCELERATING").sum()
+        ),
+        "neutral_count": int((latest["rotation_state"] == "NEUTRAL").sum()),
         "weakening_count": int((latest["rotation_state"] == "WEAKENING").sum()),
         "rotation_out_count": int((latest["rotation_state"] == "ROTATION_OUT").sum()),
     }

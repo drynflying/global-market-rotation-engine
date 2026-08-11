@@ -38,14 +38,18 @@ price targets, or trade instructions.
 
 Your job is to identify observed rotation patterns over time:
 - emerging leadership
+- accelerating leadership
 - persistent leadership
+- reaccelerating leadership
 - weakening leadership
 - geographic shifts
 - breadth or confirmation/conflict across parent sectors and paired markets
 
 Use only the data supplied in the JSON. Treat ETF OHLCV as market participation
 evidence, not proof of institutional net fund flow. Emphasize 5-, 20-, and
-63-trading-bar trends rather than one-day moves.
+63-trading-bar trends rather than one-day moves. CROSS_SECTIONAL scores are
+peer-group ranks; PAIR scores are direct relationship signals and must not be
+ranked against cross-sectional groups.
 """.strip()
 
 

@@ -3,7 +3,6 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
 from src.common import AI_INPUT_PATH
@@ -18,7 +17,8 @@ def _clean_number(value, digits=4):
 def _row_payload(r: pd.Series) -> dict:
     return {
         "ticker": r["ticker"],
-        "rotation_group": r["rotation_group"],
+        "score_mode": r.get("score_mode"),
+        "rotation_group": r.get("rotation_group"),
         "exposure": r.get("exposure"),
         "state": r.get("rotation_state"),
         "score": _clean_number(r.get("rotation_score"), 2),
@@ -28,22 +28,36 @@ def _row_payload(r: pd.Series) -> dict:
         "score_change_20": _clean_number(r.get("score_change_20"), 2),
         "rank_change_5": _clean_number(r.get("rank_change_5"), 0),
         "rank_change_20": _clean_number(r.get("rank_change_20"), 0),
-        "rs20_pct_points": _clean_number(100 * r.get("rs20"), 2)
-        if pd.notna(r.get("rs20")) else None,
-        "rs63_pct_points": _clean_number(100 * r.get("rs63"), 2)
-        if pd.notna(r.get("rs63")) else None,
+        "signal_rs20_pct_points": (
+            _clean_number(100 * r.get("signal_rs20"), 2)
+            if pd.notna(r.get("signal_rs20")) else None
+        ),
+        "signal_rs63_pct_points": (
+            _clean_number(100 * r.get("signal_rs63"), 2)
+            if pd.notna(r.get("signal_rs63")) else None
+        ),
         "relative_dollar_volume": _clean_number(r.get("relative_dollar_volume"), 2),
         "cmf20": _clean_number(r.get("cmf20"), 3),
         "trend_score": _clean_number(r.get("trend_score"), 2),
-        "top_quartile_streak": int(r.get("top_quartile_streak", 0) or 0),
-        "days_top_quartile_20": int(r.get("days_top_quartile_20", 0) or 0),
+        "leader_zone_streak": int(r.get("leader_zone_streak", 0) or 0),
+        "days_leader_zone_20": int(r.get("days_leader_zone_20", 0) or 0),
         "primary_benchmark": r.get("primary_benchmark") or None,
         "parent_benchmark": r.get("parent_benchmark") or None,
-        "parent_rs20_pct_points": _clean_number(100 * r.get("parent_rs20"), 2)
-        if pd.notna(r.get("parent_rs20")) else None,
+        "parent_rs20_pct_points": (
+            _clean_number(100 * r.get("parent_rs20"), 2)
+            if pd.notna(r.get("parent_rs20")) else None
+        ),
         "paired_ticker": r.get("paired_ticker") or None,
-        "pair_spread_20_pct_points": _clean_number(100 * r.get("pair_spread_20"), 2)
-        if pd.notna(r.get("pair_spread_20")) else None,
+        "pair_type": r.get("pair_type") or None,
+        "pair_signal": r.get("pair_signal") or None,
+        "pair_spread_20_pct_points": (
+            _clean_number(100 * r.get("pair_spread_20"), 2)
+            if pd.notna(r.get("pair_spread_20")) else None
+        ),
+        "pair_spread_63_pct_points": (
+            _clean_number(100 * r.get("pair_spread_63"), 2)
+            if pd.notna(r.get("pair_spread_63")) else None
+        ),
     }
 
 
@@ -63,10 +77,13 @@ def build_ai_input(
         & latest["rank_eligible"].astype(bool)
     ].copy()
 
+    cross = scored[scored["score_mode"].eq("CROSS_SECTIONAL")].copy()
+    pairs = scored[scored["score_mode"].eq("PAIR")].copy()
+
     group_summaries = []
     focus_tickers: set[str] = set()
 
-    for group, g in scored.groupby("rotation_group"):
+    for group, g in cross.groupby("rotation_group"):
         leaders = g.nlargest(5, "rotation_score")
         improvers = g[g["score_change_20"].notna()].nlargest(5, "score_change_20")
         weakeners = g[g["score_change_20"].notna()].nsmallest(5, "score_change_20")
@@ -84,8 +101,11 @@ def build_ai_input(
             }
         )
 
-    # Limit AI context while preserving the most decision-useful securities.
-    focus_tickers = set(list(sorted(focus_tickers))[:80])
+    pair_signals = [_row_payload(r) for _, r in pairs.sort_values("ticker").iterrows()]
+    focus_tickers.update(pairs["ticker"].tolist())
+
+    # Limit AI context while preserving decision-useful securities.
+    focus_tickers = set(list(sorted(focus_tickers))[:90])
 
     snapshots = {}
     for ticker in sorted(focus_tickers):
@@ -93,6 +113,7 @@ def build_ai_input(
             (history["ticker"] == ticker)
             & history["rotation_score"].notna()
         ].sort_values("date")
+
         if g.empty:
             continue
 
@@ -105,10 +126,14 @@ def build_ai_input(
                     "date": row["date"].strftime("%Y-%m-%d"),
                     "score": _clean_number(row.get("rotation_score"), 2),
                     "rank": _clean_number(row.get("group_rank"), 0),
-                    "rs20_pct_points": _clean_number(100 * row.get("rs20"), 2)
-                    if pd.notna(row.get("rs20")) else None,
-                    "rs63_pct_points": _clean_number(100 * row.get("rs63"), 2)
-                    if pd.notna(row.get("rs63")) else None,
+                    "signal_rs20_pct_points": (
+                        _clean_number(100 * row.get("signal_rs20"), 2)
+                        if pd.notna(row.get("signal_rs20")) else None
+                    ),
+                    "signal_rs63_pct_points": (
+                        _clean_number(100 * row.get("signal_rs63"), 2)
+                        if pd.notna(row.get("signal_rs63")) else None
+                    ),
                 }
 
         snapshots[ticker] = {
@@ -123,10 +148,14 @@ def build_ai_input(
             {
                 "ticker": r["ticker"],
                 "exposure": r.get("exposure"),
-                "return_20_pct": _clean_number(100 * r.get("return_20"), 2)
-                if pd.notna(r.get("return_20")) else None,
-                "return_63_pct": _clean_number(100 * r.get("return_63"), 2)
-                if pd.notna(r.get("return_63")) else None,
+                "return_20_pct": (
+                    _clean_number(100 * r.get("return_20"), 2)
+                    if pd.notna(r.get("return_20")) else None
+                ),
+                "return_63_pct": (
+                    _clean_number(100 * r.get("return_63"), 2)
+                    if pd.notna(r.get("return_63")) else None
+                ),
                 "trend_score": _clean_number(r.get("trend_score"), 2),
             }
         )
@@ -143,15 +172,25 @@ def build_ai_input(
             and not latest["score_formula_version"].dropna().empty
             else "unknown"
         ),
+        "state_definitions": {
+            "EMERGING": "Strong recent improvement before full long-horizon confirmation.",
+            "ACCELERATING": "Positive relative strength on both horizons with rising score.",
+            "PERSISTENT_LEADER": "Sustained high relative leadership with persistence.",
+            "REACCELERATING": "Longer-term strength remains and recent deterioration is turning upward.",
+            "WEAKENING": "Leadership or relative strength is deteriorating.",
+            "ROTATION_OUT": "Low score with negative relative strength on both horizons.",
+            "NEUTRAL": "Mixed evidence or no clear directional rotation.",
+        },
         "interpretation_rules": [
             "Focus on direction and persistence, not only today's score.",
             "A high but falling score is different from a high and rising score.",
             "Prefer rotations confirmed by the parent sector or geographic pair.",
-            "Distinguish emerging rotation, persistent leadership, weakening, and rotation out.",
+            "PAIR scores are direct relationship signals and should not be ranked against cross-sectional groups.",
             "Do not make price targets or claim that ETF volume proves institutional net flows.",
         ],
         "benchmark_context": benchmark_context,
         "group_summaries": group_summaries,
+        "pair_signals": pair_signals,
         "focus_securities": snapshots,
     }
 
