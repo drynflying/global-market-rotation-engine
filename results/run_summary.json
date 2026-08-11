@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "latest_market_date": "2026-08-10",
+  "latest_market_date": "2026-08-11",
   "configured_rows": 162,
   "enabled_ohlcv_rows": 162,
   "latest_result_tickers": 162,
@@ -9,10 +9,16 @@
   "cross_sectional_scored": 107,
   "pair_scored": 4,
   "emerging_count": 15,
-  "accelerating_count": 9,
-  "persistent_leader_count": 9,
-  "reaccelerating_count": 4,
-  "neutral_count": 33,
-  "weakening_count": 34,
-  "rotation_out_count": 7
+  "accelerating_count": 7,
+  "persistent_leader_count": 11,
+  "reaccelerating_count": 8,
+  "neutral_count": 31,
+  "weakening_count": 30,
+  "rotation_out_count": 9,
+  "ai_requested_providers": [],
+  "ai_successful_providers": [],
+  "ai_failed_providers": [],
+  "ai_primary_provider": "deterministic_fallback",
+  "ai_provider_status": "fallback",
+  "ai_consensus_provider_count": 0
 }

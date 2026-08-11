@@ -26,22 +26,28 @@ body {
 main { max-width:1200px; margin:0 auto; padding:24px; }
 h1 { margin:0 0 4px; font-size:28px; }
 h2 { margin-top:28px; font-size:18px; }
+h3 { font-size:14px; color:var(--muted); }
 .sub { color:var(--muted); margin-bottom:22px; }
 .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.card, .mini-card {
+.card, .mini-card, .provider-card {
   background:var(--panel); border:1px solid var(--line); border-radius:14px;
   padding:16px;
 }
 .metric { font-size:28px; font-weight:700; margin-top:6px; }
 .muted { color:var(--muted); }
+.small { font-size:12px; margin-top:5px; }
 .ai-summary {
   background:var(--panel); border:1px solid var(--line); border-radius:14px;
   padding:18px; margin-top:18px;
 }
+.providers { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }
+.provider-card { padding:12px; }
+.provider-status { text-transform:uppercase; font-size:12px; margin-top:4px; }
 .mini-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
 .mini-head { display:flex; justify-content:space-between; color:var(--muted); }
 .mini-title { margin-top:8px; font-weight:700; }
-.mini-card p { margin-bottom:0; color:var(--muted); }
+.mini-card p { margin-bottom:6px; color:var(--muted); }
+.related { color:var(--muted); font-size:12px; }
 table {
   width:100%; border-collapse:collapse; background:var(--panel);
   border:1px solid var(--line); border-radius:14px; overflow:hidden;
@@ -64,8 +70,13 @@ th { color:var(--muted); font-size:13px; }
 }
 .spark { width:100%; height:120px; }
 .legend { display:flex; justify-content:space-between; color:var(--muted); font-size:12px; }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.consensus-note {
+  margin-top:24px; padding:14px; border:1px solid var(--line);
+  border-radius:14px; background:var(--panel2); color:var(--muted);
+}
 @media (max-width:800px) {
-  .grid,.mini-grid,.chart-grid { grid-template-columns:1fr; }
+  .grid,.mini-grid,.chart-grid,.providers,.split { grid-template-columns:1fr; }
   main { padding:14px; }
   .table-wrap { overflow-x:auto; }
 }
@@ -74,21 +85,21 @@ th { color:var(--muted); font-size:13px; }
 <body>
 <main>
   <h1>Market Rotation Dashboard</h1>
-  <div class="sub">As of 2026-08-10 · Longer-horizon rotation monitoring, not a daily trading signal</div>
+  <div class="sub">As of 2026-08-11 · Longer-horizon rotation monitoring, not a daily trading signal</div>
 
   <div class="grid">
     <div class="card"><div class="muted">Scored signals</div><div class="metric">111</div></div>
-    <div class="card"><div class="muted">Rotation in</div><div class="metric">0</div></div>
-    <div class="card"><div class="muted">Accumulating</div><div class="metric">0</div></div>
-    <div class="card"><div class="muted">Weakening / out</div><div class="metric">41</div></div>
+    <div class="card"><div class="muted">Emerging / accelerating</div><div class="metric">30</div></div>
+    <div class="card"><div class="muted">Persistent leaders</div><div class="metric">11</div></div>
+    <div class="card"><div class="muted">Weakening / out</div><div class="metric">39</div></div>
   </div>
 
   <div class="ai-summary">
-    <div class="muted">AI interpretation</div>
+    <div class="muted">AI interpretation · primary analyst: deterministic_fallback</div>
     <h2 style="margin-top:6px">Quantitative rotation dashboard</h2>
     <p><strong>AI interpretation unavailable</strong></p>
-    <p>The dashboard is using deterministic rotation calculations only. AI was not used for this run: AI_PROVIDER is not set to gemini</p>
-    <div class="muted">Provider status: fallback</div>
+    <p>The dashboard is using deterministic rotation calculations only. AI was not used for this run: no AI providers were enabled</p>
+    <div class="providers"><div class='provider-card'><strong>Deterministic fallback</strong><div class='muted small'>No AI provider enabled.</div></div></div>
   </div>
 
   <section><h2>Emerging rotations</h2><div class='mini-grid'>
@@ -97,8 +108,9 @@ th { color:var(--muted); font-size:13px; }
                     <strong>XLB</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Improving: Materials</div>
-                  <p>Rotation score 80.91; 20-bar change 51.82.</p>
+                  <div class="mini-title">Emerging: Materials</div>
+                  <p>Deterministic state EMERGING; rotation score 81.82; 5-bar score change 13.18; 20-bar score change 57.73.</p>
+                  <div class='related'>Related: SPY, MXI</div>
                 </article>
                 
                 <article class="mini-card">
@@ -106,36 +118,121 @@ th { color:var(--muted); font-size:13px; }
                     <strong>MXI</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Improving: Global Materials</div>
-                  <p>Rotation score 80.5; 20-bar change 50.0.</p>
+                  <div class="mini-title">Emerging: Global Materials</div>
+                  <p>Deterministic state EMERGING; rotation score 76.5; 5-bar score change 10.0; 20-bar score change 56.0.</p>
+                  <div class='related'>Related: ACWI, XLB</div>
                 </article>
                 
                 <article class="mini-card">
                   <div class="mini-head">
-                    <strong>ENOR</strong>
+                    <strong>IHI</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Improving: Norway</div>
-                  <p>Rotation score 74.63; 20-bar change 49.76.</p>
+                  <div class="mini-title">Emerging: Medical Devices</div>
+                  <p>Deterministic state EMERGING; rotation score 80.56; 5-bar score change 40.93; 20-bar score change 50.56.</p>
+                  <div class='related'>Related: SPY, XLV</div>
                 </article>
                 
                 <article class="mini-card">
                   <div class="mini-head">
-                    <strong>XME</strong>
+                    <strong>EZA</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Improving: Metals &amp; Mining</div>
-                  <p>Rotation score 64.91; 20-bar change 49.17.</p>
+                  <div class="mini-title">Emerging: South Africa</div>
+                  <p>Deterministic state EMERGING; rotation score 60.91; 5-bar score change 27.38; 20-bar score change 49.21.</p>
+                  <div class='related'>Related: ACWX, AFK</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>IYZ</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Emerging: Telecommunications</div>
+                  <p>Deterministic state EMERGING; rotation score 63.52; 5-bar score change -12.59; 20-bar score change 38.15.</p>
+                  <div class='related'>Related: SPY, XLC</div>
+                </article>
+                </div></section>
+  <section><h2>Accelerating rotations</h2><div class='mini-grid'>
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>XLE</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Accelerating: Energy</div>
+                  <p>Deterministic state ACCELERATING; rotation score 81.36; 5-bar score change 14.55; 20-bar score change 14.55.</p>
+                  <div class='related'>Related: SPY, IXC</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>EIRL</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Accelerating: Ireland</div>
+                  <p>Deterministic state ACCELERATING; rotation score 78.9; 5-bar score change 26.34; 20-bar score change 8.9.</p>
+                  <div class='related'>Related: ACWX, VGK</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>EXI</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Accelerating: Global Industrials</div>
+                  <p>Deterministic state ACCELERATING; rotation score 62.5; 5-bar score change 1.0; 20-bar score change 7.5.</p>
+                  <div class='related'>Related: ACWI, XLI</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>XPH</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Accelerating: Pharmaceuticals</div>
+                  <p>Deterministic state ACCELERATING; rotation score 82.96; 5-bar score change 10.56; 20-bar score change 6.85.</p>
+                  <div class='related'>Related: SPY, XLV</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>IXJ</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Accelerating: Global Health Care</div>
+                  <p>Deterministic state ACCELERATING; rotation score 83.0; 5-bar score change 28.5; 20-bar score change 5.5.</p>
+                  <div class='related'>Related: ACWI, XLV</div>
                 </article>
                 </div></section>
   <section><h2>Persistent leaders</h2><div class='mini-grid'>
                 <article class="mini-card">
                   <div class="mini-head">
+                    <strong>EWS</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Persistent leader: Singapore</div>
+                  <p>Deterministic state PERSISTENT_LEADER; rotation score 89.15; 5-bar score change 10.0; 20-bar score change 0.61.</p>
+                  <div class='related'>Related: ACWX, VPL</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
                     <strong>SKYY</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Leader: Cloud Computing</div>
-                  <p>Rotation score 91.3; 20-bar change 28.15.</p>
+                  <div class="mini-title">Persistent leader: Cloud Computing</div>
+                  <p>Deterministic state PERSISTENT_LEADER; rotation score 87.22; 5-bar score change -9.81; 20-bar score change 11.67.</p>
+                  <div class='related'>Related: SPY, XLK</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>EWQ</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Persistent leader: France</div>
+                  <p>Deterministic state PERSISTENT_LEADER; rotation score 85.12; 5-bar score change 4.88; 20-bar score change 36.22.</p>
+                  <div class='related'>Related: ACWX, FEZ</div>
                 </article>
                 
                 <article class="mini-card">
@@ -143,45 +240,91 @@ th { color:var(--muted); font-size:13px; }
                     <strong>EPOL</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Leader: Poland</div>
-                  <p>Rotation score 90.12; 20-bar change 40.37.</p>
+                  <div class="mini-title">Persistent leader: Poland</div>
+                  <p>Deterministic state PERSISTENT_LEADER; rotation score 84.51; 5-bar score change 3.54; 20-bar score change 32.32.</p>
+                  <div class='related'>Related: ACWX, VGK</div>
                 </article>
                 
                 <article class="mini-card">
                   <div class="mini-head">
-                    <strong>CIBR</strong>
+                    <strong>EFA</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Leader: Cybersecurity</div>
-                  <p>Rotation score 88.89; 20-bar change 7.22.</p>
+                  <div class="mini-title">Persistent leader: EAFE developed, large/mid</div>
+                  <p>Deterministic state PERSISTENT_LEADER; rotation score 83.57; 5-bar score change 5.0; 20-bar score change 17.14.</p>
+                  <div class='related'>Related: ACWX</div>
+                </article>
+                </div></section>
+  <section><h2>Reaccelerating rotations</h2><div class='mini-grid'>
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>VEA</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Reaccelerating: Developed markets ex-US</div>
+                  <p>Deterministic state REACCELERATING; rotation score 70.71; 5-bar score change 3.57; 20-bar score change -10.71.</p>
+                  <div class='related'>Related: ACWX</div>
                 </article>
                 
                 <article class="mini-card">
                   <div class="mini-head">
-                    <strong>EWD</strong>
+                    <strong>IWM</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Leader: Sweden</div>
-                  <p>Rotation score 88.54; 20-bar change 47.8.</p>
+                  <div class="mini-title">Reaccelerating: Russell 2000 small caps</div>
+                  <p>Deterministic state REACCELERATING; rotation score 73.33; 5-bar score change 16.67; 20-bar score change -11.67.</p>
+                  <div class='related'>Related: ITOT</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>IXG</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Reaccelerating: Global Financials</div>
+                  <p>Deterministic state REACCELERATING; rotation score 79.0; 5-bar score change 5.5; 20-bar score change -12.5.</p>
+                  <div class='related'>Related: ACWI, XLF</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>XLF</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Reaccelerating: Financials</div>
+                  <p>Deterministic state REACCELERATING; rotation score 75.0; 5-bar score change 0.45; 20-bar score change -18.64.</p>
+                  <div class='related'>Related: SPY, IXG</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>KIE</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Reaccelerating: Insurance</div>
+                  <p>Deterministic state REACCELERATING; rotation score 56.67; 5-bar score change 0.37; 20-bar score change -25.37.</p>
+                  <div class='related'>Related: SPY, XLF</div>
                 </article>
                 </div></section>
   <section><h2>Weakening rotations</h2><div class='mini-grid'>
                 <article class="mini-card">
                   <div class="mini-head">
-                    <strong>EWY</strong>
+                    <strong>JXI</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Weakening: South Korea</div>
-                  <p>Rotation score 15.73; 20-bar change -42.44.</p>
+                  <div class="mini-title">Weakening: Global Utilities</div>
+                  <p>Deterministic state WEAKENING; rotation score 30.5; 5-bar score change 2.5; 20-bar score change -39.5.</p>
+                  <div class='related'>Related: ACWI, XLU</div>
                 </article>
                 
                 <article class="mini-card">
                   <div class="mini-head">
-                    <strong>XLU</strong>
+                    <strong>EWM</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Weakening: Utilities</div>
-                  <p>Rotation score 28.64; 20-bar change -37.73.</p>
+                  <div class="mini-title">Weakening: Malaysia</div>
+                  <p>Deterministic state WEAKENING; rotation score 33.17; 5-bar score change -33.78; 20-bar score change -36.22.</p>
+                  <div class='related'>Related: ACWX, ASEA</div>
                 </article>
                 
                 <article class="mini-card">
@@ -190,7 +333,59 @@ th { color:var(--muted); font-size:13px; }
                     <span>medium</span>
                   </div>
                   <div class="mini-title">Weakening: Residential &amp; Multisector Real Estate</div>
-                  <p>Rotation score 42.04; 20-bar change -34.07.</p>
+                  <p>Deterministic state WEAKENING; rotation score 37.04; 5-bar score change -1.3; 20-bar score change -34.81.</p>
+                  <div class='related'>Related: SPY, XLRE</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>IXN</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Weakening: Global Technology</div>
+                  <p>Deterministic state WEAKENING; rotation score 44.0; 5-bar score change -30.5; 20-bar score change -34.0.</p>
+                  <div class='related'>Related: ACWI, XLK</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>REM</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Weakening: Mortgage Real Estate</div>
+                  <p>Deterministic state WEAKENING; rotation score 34.81; 5-bar score change 1.3; 20-bar score change -33.89.</p>
+                  <div class='related'>Related: SPY, XLRE</div>
+                </article>
+                </div></section>
+  <section><h2>Rotation out</h2><div class='mini-grid'>
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>EWZ</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Rotation out: Brazil</div>
+                  <p>Deterministic state ROTATION_OUT; rotation score 24.02; 5-bar score change -22.07; 20-bar score change -39.15.</p>
+                  <div class='related'>Related: ACWX, ILF</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>XLU</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Rotation out: Utilities</div>
+                  <p>Deterministic state ROTATION_OUT; rotation score 25.0; 5-bar score change 5.91; 20-bar score change -38.64.</p>
+                  <div class='related'>Related: SPY, JXI</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>EWY</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Rotation out: South Korea</div>
+                  <p>Deterministic state ROTATION_OUT; rotation score 18.41; 5-bar score change -11.83; 20-bar score change -38.17.</p>
+                  <div class='related'>Related: ACWX, AAXJ</div>
                 </article>
                 
                 <article class="mini-card">
@@ -198,10 +393,29 @@ th { color:var(--muted); font-size:13px; }
                     <strong>SMH</strong>
                     <span>medium</span>
                   </div>
-                  <div class="mini-title">Weakening: Semiconductors</div>
-                  <p>Rotation score 16.11; 20-bar change -33.15.</p>
+                  <div class="mini-title">Rotation out: Semiconductors</div>
+                  <p>Deterministic state ROTATION_OUT; rotation score 15.56; 5-bar score change -19.81; 20-bar score change -37.04.</p>
+                  <div class='related'>Related: SPY, XLK</div>
+                </article>
+                
+                <article class="mini-card">
+                  <div class="mini-head">
+                    <strong>IXP</strong>
+                    <span>medium</span>
+                  </div>
+                  <div class="mini-title">Rotation out: Global Communication Services</div>
+                  <p>Deterministic state ROTATION_OUT; rotation score 17.5; 5-bar score change -22.0; 20-bar score change -35.5.</p>
+                  <div class='related'>Related: ACWI, XLC</div>
                 </article>
                 </div></section>
+
+  
+        <section class="consensus-note">
+          <strong>AI consensus:</strong>
+          One AI analyst is active. Model agreement/disagreement will appear
+          automatically when a second provider is enabled.
+        </section>
+        
 
   <section>
     <h2>63-bar score trends selected for attention</h2>
@@ -215,11 +429,41 @@ th { color:var(--muted); font-size:13px; }
         <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>State</th></tr></thead>
         <tbody>
                 <tr>
+                  <td><strong>EWS</strong></td>
+                  <td>Singapore</td>
+                  <td>89.1</td>
+                  <td>0.6</td>
+                  <td>4.6%</td>
+                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
+                </tr>
+                
+
+                <tr>
                   <td><strong>SKYY</strong></td>
                   <td>Cloud Computing</td>
-                  <td>91.3</td>
-                  <td>28.1</td>
-                  <td>11.7%</td>
+                  <td>87.2</td>
+                  <td>11.7</td>
+                  <td>13.1%</td>
+                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>XLV</strong></td>
+                  <td>Health Care</td>
+                  <td>85.5</td>
+                  <td>-4.1</td>
+                  <td>3.8%</td>
+                  <td><span class="badge neutral">NEUTRAL</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>EWQ</strong></td>
+                  <td>France</td>
+                  <td>85.1</td>
+                  <td>36.2</td>
+                  <td>3.3%</td>
                   <td><span class="badge good">PERSISTENT_LEADER</span></td>
                 </tr>
                 
@@ -227,29 +471,49 @@ th { color:var(--muted); font-size:13px; }
                 <tr>
                   <td><strong>EPOL</strong></td>
                   <td>Poland</td>
-                  <td>90.1</td>
-                  <td>40.4</td>
-                  <td>6.3%</td>
+                  <td>84.5</td>
+                  <td>32.3</td>
+                  <td>6.2%</td>
                   <td><span class="badge good">PERSISTENT_LEADER</span></td>
                 </tr>
                 
 
                 <tr>
-                  <td><strong>CIBR</strong></td>
-                  <td>Cybersecurity</td>
-                  <td>88.9</td>
-                  <td>7.2</td>
-                  <td>6.4%</td>
+                  <td><strong>EFA</strong></td>
+                  <td>EAFE developed, large/mid</td>
+                  <td>83.6</td>
+                  <td>17.1</td>
+                  <td>1.4%</td>
+                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>IXJ</strong></td>
+                  <td>Global Health Care</td>
+                  <td>83.0</td>
+                  <td>5.5</td>
+                  <td>3.5%</td>
                   <td><span class="badge good">ACCELERATING</span></td>
                 </tr>
                 
 
                 <tr>
-                  <td><strong>EWD</strong></td>
-                  <td>Sweden</td>
-                  <td>88.5</td>
-                  <td>47.8</td>
-                  <td>4.0%</td>
+                  <td><strong>XPH</strong></td>
+                  <td>Pharmaceuticals</td>
+                  <td>83.0</td>
+                  <td>6.9</td>
+                  <td>1.5%</td>
+                  <td><span class="badge good">ACCELERATING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>XLB</strong></td>
+                  <td>Materials</td>
+                  <td>81.8</td>
+                  <td>57.7</td>
+                  <td>2.7%</td>
                   <td><span class="badge good2">EMERGING</span></td>
                 </tr>
                 
@@ -257,9 +521,39 @@ th { color:var(--muted); font-size:13px; }
                 <tr>
                   <td><strong>XLE</strong></td>
                   <td>Energy</td>
-                  <td>86.8</td>
-                  <td>16.4</td>
+                  <td>81.4</td>
+                  <td>14.5</td>
+                  <td>4.4%</td>
+                  <td><span class="badge good">ACCELERATING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>EPP</strong></td>
+                  <td>Pacific ex-Japan</td>
+                  <td>81.2</td>
+                  <td>18.8</td>
+                  <td>2.3%</td>
+                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>CIBR</strong></td>
+                  <td>Cybersecurity</td>
+                  <td>80.9</td>
+                  <td>-10.4</td>
                   <td>2.9%</td>
+                  <td><span class="badge warn">WEAKENING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>IHI</strong></td>
+                  <td>Medical Devices</td>
+                  <td>80.6</td>
+                  <td>50.6</td>
+                  <td>11.3%</td>
                   <td><span class="badge good2">EMERGING</span></td>
                 </tr>
                 
@@ -267,99 +561,19 @@ th { color:var(--muted); font-size:13px; }
                 <tr>
                   <td><strong>FEZ</strong></td>
                   <td>Eurozone blue chips</td>
-                  <td>85.0</td>
-                  <td>36.2</td>
-                  <td>2.7%</td>
+                  <td>79.4</td>
+                  <td>24.4</td>
+                  <td>3.2%</td>
                   <td><span class="badge good">PERSISTENT_LEADER</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>SCZ</strong></td>
-                  <td>EAFE small cap</td>
-                  <td>84.3</td>
-                  <td>26.4</td>
-                  <td>0.8%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
                 </tr>
                 
 
                 <tr>
                   <td><strong>IXG</strong></td>
                   <td>Global Financials</td>
-                  <td>81.0</td>
-                  <td>-12.0</td>
+                  <td>79.0</td>
+                  <td>-12.5</td>
                   <td>0.3%</td>
-                  <td><span class="badge good2">REACCELERATING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>XLB</strong></td>
-                  <td>Materials</td>
-                  <td>80.9</td>
-                  <td>51.8</td>
-                  <td>2.0%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>XLV</strong></td>
-                  <td>Health Care</td>
-                  <td>80.9</td>
-                  <td>7.7</td>
-                  <td>1.2%</td>
-                  <td><span class="badge good">ACCELERATING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>MXI</strong></td>
-                  <td>Global Materials</td>
-                  <td>80.5</td>
-                  <td>50.0</td>
-                  <td>5.1%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>IWM</strong></td>
-                  <td>Russell 2000 small caps</td>
-                  <td>80.0</td>
-                  <td>-5.0</td>
-                  <td>-1.0%</td>
-                  <td><span class="badge neutral">NEUTRAL</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>MDY</strong></td>
-                  <td>S&amp;P MidCap 400</td>
-                  <td>80.0</td>
-                  <td>30.0</td>
-                  <td>-0.1%</td>
-                  <td><span class="badge neutral">NEUTRAL</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>EIRL</strong></td>
-                  <td>Ireland</td>
-                  <td>79.6</td>
-                  <td>8.5</td>
-                  <td>1.0%</td>
-                  <td><span class="badge good">ACCELERATING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>XLF</strong></td>
-                  <td>Financials</td>
-                  <td>79.5</td>
-                  <td>-10.9</td>
-                  <td>-0.1%</td>
                   <td><span class="badge good2">REACCELERATING</span></td>
                 </tr>
                 </tbody>
@@ -376,9 +590,9 @@ th { color:var(--muted); font-size:13px; }
                 <tr>
                   <td><strong>XLB</strong></td>
                   <td>Materials</td>
-                  <td>80.9</td>
-                  <td>51.8</td>
-                  <td>2.0%</td>
+                  <td>81.8</td>
+                  <td>57.7</td>
+                  <td>2.7%</td>
                   <td><span class="badge good2">EMERGING</span></td>
                 </tr>
                 
@@ -386,39 +600,9 @@ th { color:var(--muted); font-size:13px; }
                 <tr>
                   <td><strong>MXI</strong></td>
                   <td>Global Materials</td>
-                  <td>80.5</td>
-                  <td>50.0</td>
-                  <td>5.1%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>ENOR</strong></td>
-                  <td>Norway</td>
-                  <td>74.6</td>
-                  <td>49.8</td>
-                  <td>4.4%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>XME</strong></td>
-                  <td>Metals &amp; Mining</td>
-                  <td>64.9</td>
-                  <td>49.2</td>
-                  <td>11.9%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>EWD</strong></td>
-                  <td>Sweden</td>
-                  <td>88.5</td>
-                  <td>47.8</td>
-                  <td>4.0%</td>
+                  <td>76.5</td>
+                  <td>56.0</td>
+                  <td>3.8%</td>
                   <td><span class="badge good2">EMERGING</span></td>
                 </tr>
                 
@@ -426,79 +610,9 @@ th { color:var(--muted); font-size:13px; }
                 <tr>
                   <td><strong>IHI</strong></td>
                   <td>Medical Devices</td>
-                  <td>68.9</td>
-                  <td>40.7</td>
-                  <td>4.8%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>EPOL</strong></td>
-                  <td>Poland</td>
-                  <td>90.1</td>
-                  <td>40.4</td>
-                  <td>6.3%</td>
-                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>VSS</strong></td>
-                  <td>International small cap</td>
-                  <td>65.0</td>
-                  <td>38.6</td>
-                  <td>0.5%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>FEZ</strong></td>
-                  <td>Eurozone blue chips</td>
-                  <td>85.0</td>
-                  <td>36.2</td>
-                  <td>2.7%</td>
-                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>EWA</strong></td>
-                  <td>Australia</td>
-                  <td>71.5</td>
-                  <td>32.4</td>
-                  <td>2.4%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>IGV</strong></td>
-                  <td>Software</td>
-                  <td>76.4</td>
-                  <td>32.3</td>
-                  <td>10.1%</td>
-                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>OIH</strong></td>
-                  <td>Oil Services</td>
-                  <td>60.2</td>
-                  <td>31.7</td>
-                  <td>4.2%</td>
-                  <td><span class="badge good2">EMERGING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>AFK</strong></td>
-                  <td>Africa</td>
-                  <td>67.5</td>
-                  <td>31.2</td>
-                  <td>7.8%</td>
+                  <td>80.6</td>
+                  <td>50.6</td>
+                  <td>11.3%</td>
                   <td><span class="badge good2">EMERGING</span></td>
                 </tr>
                 
@@ -506,20 +620,120 @@ th { color:var(--muted); font-size:13px; }
                 <tr>
                   <td><strong>EZA</strong></td>
                   <td>South Africa</td>
-                  <td>54.8</td>
-                  <td>30.3</td>
-                  <td>7.5%</td>
+                  <td>60.9</td>
+                  <td>49.2</td>
+                  <td>5.4%</td>
+                  <td><span class="badge good2">EMERGING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>XME</strong></td>
+                  <td>Metals &amp; Mining</td>
+                  <td>55.8</td>
+                  <td>43.8</td>
+                  <td>10.1%</td>
                   <td><span class="badge neutral">NEUTRAL</span></td>
                 </tr>
                 
 
                 <tr>
-                  <td><strong>MDY</strong></td>
-                  <td>S&amp;P MidCap 400</td>
-                  <td>80.0</td>
-                  <td>30.0</td>
-                  <td>-0.1%</td>
+                  <td><strong>ENOR</strong></td>
+                  <td>Norway</td>
+                  <td>57.7</td>
+                  <td>41.5</td>
+                  <td>3.7%</td>
                   <td><span class="badge neutral">NEUTRAL</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>IYZ</strong></td>
+                  <td>Telecommunications</td>
+                  <td>63.5</td>
+                  <td>38.1</td>
+                  <td>2.2%</td>
+                  <td><span class="badge good2">EMERGING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>SCZ</strong></td>
+                  <td>EAFE small cap</td>
+                  <td>75.0</td>
+                  <td>36.4</td>
+                  <td>1.1%</td>
+                  <td><span class="badge good2">EMERGING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>EWQ</strong></td>
+                  <td>France</td>
+                  <td>85.1</td>
+                  <td>36.2</td>
+                  <td>3.3%</td>
+                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>EPOL</strong></td>
+                  <td>Poland</td>
+                  <td>84.5</td>
+                  <td>32.3</td>
+                  <td>6.2%</td>
+                  <td><span class="badge good">PERSISTENT_LEADER</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>AFK</strong></td>
+                  <td>Africa</td>
+                  <td>64.4</td>
+                  <td>31.2</td>
+                  <td>6.5%</td>
+                  <td><span class="badge good2">EMERGING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>VSS</strong></td>
+                  <td>International small cap</td>
+                  <td>62.1</td>
+                  <td>30.0</td>
+                  <td>1.1%</td>
+                  <td><span class="badge good2">EMERGING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>OIH</strong></td>
+                  <td>Oil Services</td>
+                  <td>55.7</td>
+                  <td>29.3</td>
+                  <td>5.3%</td>
+                  <td><span class="badge neutral">NEUTRAL</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>IXC</strong></td>
+                  <td>Global Energy</td>
+                  <td>73.0</td>
+                  <td>29.0</td>
+                  <td>3.8%</td>
+                  <td><span class="badge good2">EMERGING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>VGK</strong></td>
+                  <td>Developed Europe</td>
+                  <td>69.4</td>
+                  <td>25.6</td>
+                  <td>1.9%</td>
+                  <td><span class="badge good2">EMERGING</span></td>
                 </tr>
                 </tbody>
       </table>
@@ -533,71 +747,11 @@ th { color:var(--muted); font-size:13px; }
         <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>State</th></tr></thead>
         <tbody>
                 <tr>
-                  <td><strong>EWY</strong></td>
-                  <td>South Korea</td>
-                  <td>15.7</td>
-                  <td>-42.4</td>
-                  <td>-6.5%</td>
-                  <td><span class="badge bad">ROTATION_OUT</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>XLU</strong></td>
-                  <td>Utilities</td>
-                  <td>28.6</td>
-                  <td>-37.7</td>
-                  <td>-8.8%</td>
-                  <td><span class="badge warn">WEAKENING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>REZ</strong></td>
-                  <td>Residential &amp; Multisector Real Estate</td>
-                  <td>42.0</td>
-                  <td>-34.1</td>
-                  <td>-4.2%</td>
-                  <td><span class="badge warn">WEAKENING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>SMH</strong></td>
-                  <td>Semiconductors</td>
-                  <td>16.1</td>
-                  <td>-33.1</td>
-                  <td>-6.0%</td>
-                  <td><span class="badge bad">ROTATION_OUT</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>IYT</strong></td>
-                  <td>Transportation</td>
-                  <td>31.3</td>
-                  <td>-32.0</td>
-                  <td>-4.5%</td>
-                  <td><span class="badge warn">WEAKENING</span></td>
-                </tr>
-                
-
-                <tr>
                   <td><strong>JXI</strong></td>
                   <td>Global Utilities</td>
-                  <td>25.5</td>
-                  <td>-31.0</td>
-                  <td>-7.1%</td>
-                  <td><span class="badge warn">WEAKENING</span></td>
-                </tr>
-                
-
-                <tr>
-                  <td><strong>KIE</strong></td>
-                  <td>Insurance</td>
-                  <td>56.7</td>
-                  <td>-30.9</td>
-                  <td>-4.1%</td>
+                  <td>30.5</td>
+                  <td>-39.5</td>
+                  <td>-5.8%</td>
                   <td><span class="badge warn">WEAKENING</span></td>
                 </tr>
                 
@@ -605,29 +759,89 @@ th { color:var(--muted); font-size:13px; }
                 <tr>
                   <td><strong>EWZ</strong></td>
                   <td>Brazil</td>
-                  <td>29.5</td>
-                  <td>-30.4</td>
-                  <td>-4.2%</td>
+                  <td>24.0</td>
+                  <td>-39.1</td>
+                  <td>-8.2%</td>
+                  <td><span class="badge bad">ROTATION_OUT</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>XLU</strong></td>
+                  <td>Utilities</td>
+                  <td>25.0</td>
+                  <td>-38.6</td>
+                  <td>-6.9%</td>
+                  <td><span class="badge bad">ROTATION_OUT</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>EWY</strong></td>
+                  <td>South Korea</td>
+                  <td>18.4</td>
+                  <td>-38.2</td>
+                  <td>-8.5%</td>
+                  <td><span class="badge bad">ROTATION_OUT</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>SMH</strong></td>
+                  <td>Semiconductors</td>
+                  <td>15.6</td>
+                  <td>-37.0</td>
+                  <td>-7.4%</td>
+                  <td><span class="badge bad">ROTATION_OUT</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>EWM</strong></td>
+                  <td>Malaysia</td>
+                  <td>33.2</td>
+                  <td>-36.2</td>
+                  <td>-2.7%</td>
                   <td><span class="badge warn">WEAKENING</span></td>
                 </tr>
                 
 
                 <tr>
-                  <td><strong>EWT</strong></td>
-                  <td>Taiwan</td>
-                  <td>47.9</td>
-                  <td>-30.4</td>
+                  <td><strong>IXP</strong></td>
+                  <td>Global Communication Services</td>
+                  <td>17.5</td>
+                  <td>-35.5</td>
                   <td>-3.3%</td>
+                  <td><span class="badge bad">ROTATION_OUT</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>REZ</strong></td>
+                  <td>Residential &amp; Multisector Real Estate</td>
+                  <td>37.0</td>
+                  <td>-34.8</td>
+                  <td>-4.9%</td>
                   <td><span class="badge warn">WEAKENING</span></td>
                 </tr>
                 
 
                 <tr>
-                  <td><strong>AAXJ</strong></td>
-                  <td>Asia ex-Japan</td>
-                  <td>33.8</td>
-                  <td>-28.8</td>
-                  <td>-2.8%</td>
+                  <td><strong>IXN</strong></td>
+                  <td>Global Technology</td>
+                  <td>44.0</td>
+                  <td>-34.0</td>
+                  <td>-2.0%</td>
+                  <td><span class="badge warn">WEAKENING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>REM</strong></td>
+                  <td>Mortgage Real Estate</td>
+                  <td>34.8</td>
+                  <td>-33.9</td>
+                  <td>-3.3%</td>
                   <td><span class="badge warn">WEAKENING</span></td>
                 </tr>
                 </tbody>
@@ -635,27 +849,26 @@ th { color:var(--muted); font-size:13px; }
     </div>
   </section>
 
-
   <section>
     <h2>Pair signals</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Ticker</th><th>Exposure</th><th>Pair</th><th>Score</th><th>20-bar spread</th><th>63-bar spread</th><th>State</th></tr></thead>
         <tbody>
-          <tr><td><strong>IWD</strong></td><td>U.S. large-cap value</td><td>IWF</td><td>64.9</td><td>2.2%</td><td>10.2%</td><td><span class='badge neutral'>NEUTRAL</span></td></tr><tr><td><strong>IWF</strong></td><td>U.S. large-cap growth</td><td>IWD</td><td>31.3</td><td>-2.2%</td><td>-10.2%</td><td><span class='badge neutral'>NEUTRAL</span></td></tr><tr><td><strong>REET</strong></td><td>Global REITs</td><td>XLRE</td><td>52.2</td><td>0.4%</td><td>1.4%</td><td><span class='badge neutral'>NEUTRAL</span></td></tr><tr><td><strong>RSP</strong></td><td>S&amp;P 500 equal weight</td><td>SPY</td><td>55.1</td><td>-0.4%</td><td>3.2%</td><td><span class='badge neutral'>NEUTRAL</span></td></tr>
+          <tr><td><strong>IWD</strong></td><td>U.S. large-cap value</td><td>IWF</td><td>68.3</td><td>4.5%</td><td>10.3%</td><td><span class='badge good2'>EMERGING</span></td></tr><tr><td><strong>IWF</strong></td><td>U.S. large-cap growth</td><td>IWD</td><td>15.1</td><td>-4.5%</td><td>-10.3%</td><td><span class='badge bad'>ROTATION_OUT</span></td></tr><tr><td><strong>REET</strong></td><td>Global REITs</td><td>XLRE</td><td>41.3</td><td>-0.1%</td><td>1.8%</td><td><span class='badge warn'>WEAKENING</span></td></tr><tr><td><strong>RSP</strong></td><td>S&amp;P 500 equal weight</td><td>SPY</td><td>58.6</td><td>1.0%</td><td>4.2%</td><td><span class='badge neutral'>NEUTRAL</span></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <p class="muted" style="margin-top:30px">
-    The rotation score is a comparative quantitative indicator. It is not a forecast,
-    recommendation, or direct measure of institutional creations/redemptions.
+    Quantitative scores are deterministic comparative indicators. AI commentary
+    interprets those supplied values; it does not calculate or alter them.
   </p>
 </main>
 
 <script>
-const series = {"XLB": [{"date": "2026-05-11", "score": 46.36}, {"date": "2026-05-12", "score": 49.55}, {"date": "2026-05-13", "score": 48.18}, {"date": "2026-05-14", "score": 46.82}, {"date": "2026-05-15", "score": 36.36}, {"date": "2026-05-18", "score": 27.27}, {"date": "2026-05-19", "score": 29.09}, {"date": "2026-05-20", "score": 35.0}, {"date": "2026-05-21", "score": 24.09}, {"date": "2026-05-22", "score": 15.45}, {"date": "2026-05-26", "score": 34.09}, {"date": "2026-05-27", "score": 38.18}, {"date": "2026-05-28", "score": 45.0}, {"date": "2026-05-29", "score": 57.73}, {"date": "2026-06-01", "score": 66.36}, {"date": "2026-06-02", "score": 80.45}, {"date": "2026-06-03", "score": 69.55}, {"date": "2026-06-04", "score": 54.09}, {"date": "2026-06-05", "score": 47.73}, {"date": "2026-06-08", "score": 43.18}, {"date": "2026-06-09", "score": 45.0}, {"date": "2026-06-10", "score": 30.91}, {"date": "2026-06-11", "score": 49.55}, {"date": "2026-06-12", "score": 70.91}, {"date": "2026-06-15", "score": 82.27}, {"date": "2026-06-16", "score": 67.27}, {"date": "2026-06-17", "score": 77.27}, {"date": "2026-06-18", "score": 72.27}, {"date": "2026-06-22", "score": 66.36}, {"date": "2026-06-23", "score": 54.55}, {"date": "2026-06-24", "score": 62.27}, {"date": "2026-06-25", "score": 57.73}, {"date": "2026-06-26", "score": 50.91}, {"date": "2026-06-29", "score": 55.91}, {"date": "2026-06-30", "score": 39.55}, {"date": "2026-07-01", "score": 39.55}, {"date": "2026-07-02", "score": 46.36}, {"date": "2026-07-06", "score": 65.91}, {"date": "2026-07-07", "score": 55.0}, {"date": "2026-07-08", "score": 51.82}, {"date": "2026-07-09", "score": 40.45}, {"date": "2026-07-10", "score": 38.18}, {"date": "2026-07-13", "score": 29.09}, {"date": "2026-07-14", "score": 24.09}, {"date": "2026-07-15", "score": 34.55}, {"date": "2026-07-16", "score": 25.0}, {"date": "2026-07-17", "score": 25.0}, {"date": "2026-07-20", "score": 43.64}, {"date": "2026-07-21", "score": 43.64}, {"date": "2026-07-22", "score": 43.18}, {"date": "2026-07-23", "score": 42.27}, {"date": "2026-07-24", "score": 54.09}, {"date": "2026-07-27", "score": 43.64}, {"date": "2026-07-28", "score": 67.73}, {"date": "2026-07-29", "score": 55.45}, {"date": "2026-07-30", "score": 57.27}, {"date": "2026-07-31", "score": 47.73}, {"date": "2026-08-03", "score": 36.82}, {"date": "2026-08-04", "score": 68.64}, {"date": "2026-08-05", "score": 76.36}, {"date": "2026-08-06", "score": 64.09}, {"date": "2026-08-07", "score": 80.45}, {"date": "2026-08-10", "score": 80.91}], "MXI": [{"date": "2026-05-11", "score": 65.0}, {"date": "2026-05-12", "score": 74.5}, {"date": "2026-05-13", "score": 64.0}, {"date": "2026-05-14", "score": 72.5}, {"date": "2026-05-15", "score": 58.5}, {"date": "2026-05-18", "score": 61.0}, {"date": "2026-05-19", "score": 37.0}, {"date": "2026-05-20", "score": 41.0}, {"date": "2026-05-21", "score": 60.5}, {"date": "2026-05-22", "score": 37.5}, {"date": "2026-05-26", "score": 52.0}, {"date": "2026-05-27", "score": 67.5}, {"date": "2026-05-28", "score": 62.5}, {"date": "2026-05-29", "score": 62.5}, {"date": "2026-06-01", "score": 65.0}, {"date": "2026-06-02", "score": 70.0}, {"date": "2026-06-03", "score": 70.0}, {"date": "2026-06-04", "score": 64.0}, {"date": "2026-06-05", "score": 48.5}, {"date": "2026-06-08", "score": 43.0}, {"date": "2026-06-09", "score": 38.5}, {"date": "2026-06-10", "score": 33.5}, {"date": "2026-06-11", "score": 44.0}, {"date": "2026-06-12", "score": 56.0}, {"date": "2026-06-15", "score": 81.5}, {"date": "2026-06-16", "score": 83.0}, {"date": "2026-06-17", "score": 71.0}, {"date": "2026-06-18", "score": 75.0}, {"date": "2026-06-22", "score": 62.5}, {"date": "2026-06-23", "score": 53.0}, {"date": "2026-06-24", "score": 46.5}, {"date": "2026-06-25", "score": 59.0}, {"date": "2026-06-26", "score": 46.5}, {"date": "2026-06-29", "score": 38.5}, {"date": "2026-06-30", "score": 43.0}, {"date": "2026-07-01", "score": 32.5}, {"date": "2026-07-02", "score": 52.5}, {"date": "2026-07-06", "score": 52.0}, {"date": "2026-07-07", "score": 45.5}, {"date": "2026-07-08", "score": 38.0}, {"date": "2026-07-09", "score": 24.0}, {"date": "2026-07-10", "score": 35.5}, {"date": "2026-07-13", "score": 30.5}, {"date": "2026-07-14", "score": 20.5}, {"date": "2026-07-15", "score": 24.0}, {"date": "2026-07-16", "score": 25.0}, {"date": "2026-07-17", "score": 18.5}, {"date": "2026-07-20", "score": 31.0}, {"date": "2026-07-21", "score": 37.0}, {"date": "2026-07-22", "score": 43.5}, {"date": "2026-07-23", "score": 48.5}, {"date": "2026-07-24", "score": 43.0}, {"date": "2026-07-27", "score": 28.5}, {"date": "2026-07-28", "score": 41.0}, {"date": "2026-07-29", "score": 38.5}, {"date": "2026-07-30", "score": 74.0}, {"date": "2026-07-31", "score": 50.5}, {"date": "2026-08-03", "score": 43.5}, {"date": "2026-08-04", "score": 66.5}, {"date": "2026-08-05", "score": 87.5}, {"date": "2026-08-06", "score": 71.5}, {"date": "2026-08-07", "score": 79.5}, {"date": "2026-08-10", "score": 80.5}], "ENOR": [{"date": "2026-05-11", "score": 61.83}, {"date": "2026-05-12", "score": 53.9}, {"date": "2026-05-13", "score": 73.54}, {"date": "2026-05-14", "score": 59.63}, {"date": "2026-05-15", "score": 74.15}, {"date": "2026-05-18", "score": 71.1}, {"date": "2026-05-19", "score": 70.12}, {"date": "2026-05-20", "score": 74.76}, {"date": "2026-05-21", "score": 73.29}, {"date": "2026-05-22", "score": 88.54}, {"date": "2026-05-26", "score": 62.8}, {"date": "2026-05-27", "score": 59.15}, {"date": "2026-05-28", "score": 56.83}, {"date": "2026-05-29", "score": 51.1}, {"date": "2026-06-01", "score": 55.73}, {"date": "2026-06-02", "score": 47.07}, {"date": "2026-06-03", "score": 45.24}, {"date": "2026-06-04", "score": 51.59}, {"date": "2026-06-05", "score": 49.51}, {"date": "2026-06-08", "score": 59.51}, {"date": "2026-06-09", "score": 39.63}, {"date": "2026-06-10", "score": 37.44}, {"date": "2026-06-11", "score": 25.0}, {"date": "2026-06-12", "score": 22.07}, {"date": "2026-06-15", "score": 24.76}, {"date": "2026-06-16", "score": 15.98}, {"date": "2026-06-17", "score": 13.54}, {"date": "2026-06-18", "score": 15.12}, {"date": "2026-06-22", "score": 27.56}, {"date": "2026-06-23", "score": 14.51}, {"date": "2026-06-24", "score": 17.68}, {"date": "2026-06-25", "score": 14.76}, {"date": "2026-06-26", "score": 13.9}, {"date": "2026-06-29", "score": 28.05}, {"date": "2026-06-30", "score": 13.54}, {"date": "2026-07-01", "score": 10.49}, {"date": "2026-07-02", "score": 21.95}, {"date": "2026-07-06", "score": 16.22}, {"date": "2026-07-07", "score": 18.05}, {"date": "2026-07-08", "score": 24.39}, {"date": "2026-07-09", "score": 28.05}, {"date": "2026-07-10", "score": 16.22}, {"date": "2026-07-13", "score": 24.88}, {"date": "2026-07-14", "score": 16.22}, {"date": "2026-07-15", "score": 26.22}, {"date": "2026-07-16", "score": 25.12}, {"date": "2026-07-17", "score": 35.61}, {"date": "2026-07-20", "score": 42.56}, {"date": "2026-07-21", "score": 35.73}, {"date": "2026-07-22", "score": 46.95}, {"date": "2026-07-23", "score": 63.29}, {"date": "2026-07-24", "score": 51.34}, {"date": "2026-07-27", "score": 52.68}, {"date": "2026-07-28", "score": 40.85}, {"date": "2026-07-29", "score": 54.39}, {"date": "2026-07-30", "score": 49.27}, {"date": "2026-07-31", "score": 54.27}, {"date": "2026-08-03", "score": 65.85}, {"date": "2026-08-04", "score": 42.07}, {"date": "2026-08-05", "score": 37.8}, {"date": "2026-08-06", "score": 54.02}, {"date": "2026-08-07", "score": 61.95}, {"date": "2026-08-10", "score": 74.63}], "XME": [{"date": "2026-05-11", "score": 66.48}, {"date": "2026-05-12", "score": 64.81}, {"date": "2026-05-13", "score": 64.81}, {"date": "2026-05-14", "score": 72.59}, {"date": "2026-05-15", "score": 55.74}, {"date": "2026-05-18", "score": 50.19}, {"date": "2026-05-19", "score": 37.04}, {"date": "2026-05-20", "score": 37.04}, {"date": "2026-05-21", "score": 45.56}, {"date": "2026-05-22", "score": 45.56}, {"date": "2026-05-26", "score": 65.37}, {"date": "2026-05-27", "score": 61.67}, {"date": "2026-05-28", "score": 74.44}, {"date": "2026-05-29", "score": 69.07}, {"date": "2026-06-01", "score": 70.74}, {"date": "2026-06-02", "score": 80.19}, {"date": "2026-06-03", "score": 80.0}, {"date": "2026-06-04", "score": 64.63}, {"date": "2026-06-05", "score": 57.59}, {"date": "2026-06-08", "score": 57.41}, {"date": "2026-06-09", "score": 21.48}, {"date": "2026-06-10", "score": 22.59}, {"date": "2026-06-11", "score": 24.26}, {"date": "2026-06-12", "score": 40.19}, {"date": "2026-06-15", "score": 51.48}, {"date": "2026-06-16", "score": 51.3}, {"date": "2026-06-17", "score": 53.52}, {"date": "2026-06-18", "score": 50.0}, {"date": "2026-06-22", "score": 46.11}, {"date": "2026-06-23", "score": 38.33}, {"date": "2026-06-24", "score": 18.7}, {"date": "2026-06-25", "score": 9.07}, {"date": "2026-06-26", "score": 7.78}, {"date": "2026-06-29", "score": 13.7}, {"date": "2026-06-30", "score": 10.56}, {"date": "2026-07-01", "score": 24.63}, {"date": "2026-07-02", "score": 14.81}, {"date": "2026-07-06", "score": 15.19}, {"date": "2026-07-07", "score": 18.52}, {"date": "2026-07-08", "score": 19.81}, {"date": "2026-07-09", "score": 12.78}, {"date": "2026-07-10", "score": 16.85}, {"date": "2026-07-13", "score": 15.74}, {"date": "2026-07-14", "score": 12.04}, {"date": "2026-07-15", "score": 5.37}, {"date": "2026-07-16", "score": 13.52}, {"date": "2026-07-17", "score": 18.7}, {"date": "2026-07-20", "score": 10.37}, {"date": "2026-07-21", "score": 19.63}, {"date": "2026-07-22", "score": 24.07}, {"date": "2026-07-23", "score": 25.37}, {"date": "2026-07-24", "score": 10.74}, {"date": "2026-07-27", "score": 19.07}, {"date": "2026-07-28", "score": 22.59}, {"date": "2026-07-29", "score": 24.07}, {"date": "2026-07-30", "score": 37.59}, {"date": "2026-07-31", "score": 25.74}, {"date": "2026-08-03", "score": 28.7}, {"date": "2026-08-04", "score": 50.93}, {"date": "2026-08-05", "score": 74.81}, {"date": "2026-08-06", "score": 70.65}, {"date": "2026-08-07", "score": 70.65}, {"date": "2026-08-10", "score": 64.91}], "SKYY": [{"date": "2026-05-11", "score": 77.13}, {"date": "2026-05-12", "score": 88.98}, {"date": "2026-05-13", "score": 81.39}, {"date": "2026-05-14", "score": 71.2}, {"date": "2026-05-15", "score": 81.39}, {"date": "2026-05-18", "score": 84.17}, {"date": "2026-05-19", "score": 73.24}, {"date": "2026-05-20", "score": 70.28}, {"date": "2026-05-21", "score": 74.17}, {"date": "2026-05-22", "score": 91.76}, {"date": "2026-05-26", "score": 75.28}, {"date": "2026-05-27", "score": 73.24}, {"date": "2026-05-28", "score": 76.2}, {"date": "2026-05-29", "score": 93.98}, {"date": "2026-06-01", "score": 92.5}, {"date": "2026-06-02", "score": 91.39}, {"date": "2026-06-03", "score": 90.09}, {"date": "2026-06-04", "score": 73.98}, {"date": "2026-06-05", "score": 76.2}, {"date": "2026-06-08", "score": 78.8}, {"date": "2026-06-09", "score": 86.76}, {"date": "2026-06-10", "score": 71.39}, {"date": "2026-06-11", "score": 65.83}, {"date": "2026-06-12", "score": 67.59}, {"date": "2026-06-15", "score": 63.52}, {"date": "2026-06-16", "score": 59.44}, {"date": "2026-06-17", "score": 72.41}, {"date": "2026-06-18", "score": 64.81}, {"date": "2026-06-22", "score": 59.07}, {"date": "2026-06-23", "score": 65.74}, {"date": "2026-06-24", "score": 44.07}, {"date": "2026-06-25", "score": 38.15}, {"date": "2026-06-26", "score": 42.04}, {"date": "2026-06-29", "score": 38.33}, {"date": "2026-06-30", "score": 37.96}, {"date": "2026-07-01", "score": 53.15}, {"date": "2026-07-02", "score": 39.63}, {"date": "2026-07-06", "score": 39.44}, {"date": "2026-07-07", "score": 58.33}, {"date": "2026-07-08", "score": 48.15}, {"date": "2026-07-09", "score": 58.52}, {"date": "2026-07-10", "score": 68.89}, {"date": "2026-07-13", "score": 63.15}, {"date": "2026-07-14", "score": 75.56}, {"date": "2026-07-15", "score": 58.7}, {"date": "2026-07-16", "score": 53.89}, {"date": "2026-07-17", "score": 72.22}, {"date": "2026-07-20", "score": 74.44}, {"date": "2026-07-21", "score": 64.07}, {"date": "2026-07-22", "score": 60.56}, {"date": "2026-07-23", "score": 46.48}, {"date": "2026-07-24", "score": 70.19}, {"date": "2026-07-27", "score": 76.85}, {"date": "2026-07-28", "score": 69.26}, {"date": "2026-07-29", "score": 68.7}, {"date": "2026-07-30", "score": 70.37}, {"date": "2026-07-31", "score": 93.52}, {"date": "2026-08-03", "score": 93.7}, {"date": "2026-08-04", "score": 97.04}, {"date": "2026-08-05", "score": 86.11}, {"date": "2026-08-06", "score": 81.67}, {"date": "2026-08-07", "score": 99.07}, {"date": "2026-08-10", "score": 91.3}], "EPOL": [{"date": "2026-05-11", "score": 68.41}, {"date": "2026-05-12", "score": 58.66}, {"date": "2026-05-13", "score": 51.22}, {"date": "2026-05-14", "score": 55.49}, {"date": "2026-05-15", "score": 60.98}, {"date": "2026-05-18", "score": 71.71}, {"date": "2026-05-19", "score": 60.0}, {"date": "2026-05-20", "score": 61.83}, {"date": "2026-05-21", "score": 58.41}, {"date": "2026-05-22", "score": 65.61}, {"date": "2026-05-26", "score": 77.32}, {"date": "2026-05-27", "score": 64.15}, {"date": "2026-05-28", "score": 66.34}, {"date": "2026-05-29", "score": 69.27}, {"date": "2026-06-01", "score": 68.54}, {"date": "2026-06-02", "score": 67.56}, {"date": "2026-06-03", "score": 65.12}, {"date": "2026-06-04", "score": 75.85}, {"date": "2026-06-05", "score": 62.68}, {"date": "2026-06-08", "score": 84.39}, {"date": "2026-06-09", "score": 63.9}, {"date": "2026-06-10", "score": 74.15}, {"date": "2026-06-11", "score": 82.32}, {"date": "2026-06-12", "score": 79.02}, {"date": "2026-06-15", "score": 73.66}, {"date": "2026-06-16", "score": 73.78}, {"date": "2026-06-17", "score": 71.59}, {"date": "2026-06-18", "score": 64.88}, {"date": "2026-06-22", "score": 67.32}, {"date": "2026-06-23", "score": 55.24}, {"date": "2026-06-24", "score": 53.05}, {"date": "2026-06-25", "score": 55.61}, {"date": "2026-06-26", "score": 44.02}, {"date": "2026-06-29", "score": 48.05}, {"date": "2026-06-30", "score": 58.05}, {"date": "2026-07-01", "score": 55.37}, {"date": "2026-07-02", "score": 70.24}, {"date": "2026-07-06", "score": 57.07}, {"date": "2026-07-07", "score": 52.93}, {"date": "2026-07-08", "score": 50.49}, {"date": "2026-07-09", "score": 53.29}, {"date": "2026-07-10", "score": 56.34}, {"date": "2026-07-13", "score": 49.76}, {"date": "2026-07-14", "score": 52.2}, {"date": "2026-07-15", "score": 58.9}, {"date": "2026-07-16", "score": 58.17}, {"date": "2026-07-17", "score": 59.15}, {"date": "2026-07-20", "score": 61.1}, {"date": "2026-07-21", "score": 70.98}, {"date": "2026-07-22", "score": 64.27}, {"date": "2026-07-23", "score": 77.07}, {"date": "2026-07-24", "score": 75.12}, {"date": "2026-07-27", "score": 62.93}, {"date": "2026-07-28", "score": 76.95}, {"date": "2026-07-29", "score": 73.78}, {"date": "2026-07-30", "score": 85.12}, {"date": "2026-07-31", "score": 87.68}, {"date": "2026-08-03", "score": 87.2}, {"date": "2026-08-04", "score": 80.98}, {"date": "2026-08-05", "score": 88.54}, {"date": "2026-08-06", "score": 89.27}, {"date": "2026-08-07", "score": 89.39}, {"date": "2026-08-10", "score": 90.12}], "CIBR": [{"date": "2026-05-11", "score": 81.57}, {"date": "2026-05-12", "score": 81.76}, {"date": "2026-05-13", "score": 80.28}, {"date": "2026-05-14", "score": 94.17}, {"date": "2026-05-15", "score": 93.24}, {"date": "2026-05-18", "score": 90.65}, {"date": "2026-05-19", "score": 92.13}, {"date": "2026-05-20", "score": 93.61}, {"date": "2026-05-21", "score": 82.5}, {"date": "2026-05-22", "score": 94.35}, {"date": "2026-05-26", "score": 95.83}, {"date": "2026-05-27", "score": 92.87}, {"date": "2026-05-28", "score": 92.13}, {"date": "2026-05-29", "score": 93.61}, {"date": "2026-06-01", "score": 94.35}, {"date": "2026-06-02", "score": 93.61}, {"date": "2026-06-03", "score": 87.69}, {"date": "2026-06-04", "score": 99.07}, {"date": "2026-06-05", "score": 97.59}, {"date": "2026-06-08", "score": 89.44}, {"date": "2026-06-09", "score": 92.41}, {"date": "2026-06-10", "score": 82.78}, {"date": "2026-06-11", "score": 85.74}, {"date": "2026-06-12", "score": 83.52}, {"date": "2026-06-15", "score": 77.96}, {"date": "2026-06-16", "score": 67.59}, {"date": "2026-06-17", "score": 68.33}, {"date": "2026-06-18", "score": 68.7}, {"date": "2026-06-22", "score": 80.19}, {"date": "2026-06-23", "score": 61.67}, {"date": "2026-06-24", "score": 60.37}, {"date": "2026-06-25", "score": 69.44}, {"date": "2026-06-26", "score": 81.67}, {"date": "2026-06-29", "score": 69.07}, {"date": "2026-06-30", "score": 66.48}, {"date": "2026-07-01", "score": 62.04}, {"date": "2026-07-02", "score": 63.15}, {"date": "2026-07-06", "score": 74.26}, {"date": "2026-07-07", "score": 85.19}, {"date": "2026-07-08", "score": 82.04}, {"date": "2026-07-09", "score": 95.56}, {"date": "2026-07-10", "score": 95.0}, {"date": "2026-07-13", "score": 81.67}, {"date": "2026-07-14", "score": 91.3}, {"date": "2026-07-15", "score": 94.63}, {"date": "2026-07-16", "score": 81.85}, {"date": "2026-07-17", "score": 82.41}, {"date": "2026-07-20", "score": 85.19}, {"date": "2026-07-21", "score": 92.04}, {"date": "2026-07-22", "score": 92.78}, {"date": "2026-07-23", "score": 77.96}, {"date": "2026-07-24", "score": 75.0}, {"date": "2026-07-27", "score": 73.7}, {"date": "2026-07-28", "score": 62.96}, {"date": "2026-07-29", "score": 61.67}, {"date": "2026-07-30", "score": 56.85}, {"date": "2026-07-31", "score": 75.37}, {"date": "2026-08-03", "score": 71.11}, {"date": "2026-08-04", "score": 83.7}, {"date": "2026-08-05", "score": 82.22}, {"date": "2026-08-06", "score": 62.78}, {"date": "2026-08-07", "score": 80.56}, {"date": "2026-08-10", "score": 88.89}], "EWD": [{"date": "2026-05-11", "score": 32.44}, {"date": "2026-05-12", "score": 31.34}, {"date": "2026-05-13", "score": 32.32}, {"date": "2026-05-14", "score": 24.76}, {"date": "2026-05-15", "score": 29.63}, {"date": "2026-05-18", "score": 33.29}, {"date": "2026-05-19", "score": 39.27}, {"date": "2026-05-20", "score": 46.1}, {"date": "2026-05-21", "score": 51.59}, {"date": "2026-05-22", "score": 51.95}, {"date": "2026-05-26", "score": 54.02}, {"date": "2026-05-27", "score": 61.1}, {"date": "2026-05-28", "score": 62.07}, {"date": "2026-05-29", "score": 54.39}, {"date": "2026-06-01", "score": 54.02}, {"date": "2026-06-02", "score": 55.98}, {"date": "2026-06-03", "score": 52.32}, {"date": "2026-06-04", "score": 47.07}, {"date": "2026-06-05", "score": 52.44}, {"date": "2026-06-08", "score": 61.59}, {"date": "2026-06-09", "score": 46.59}, {"date": "2026-06-10", "score": 42.44}, {"date": "2026-06-11", "score": 58.29}, {"date": "2026-06-12", "score": 52.68}, {"date": "2026-06-15", "score": 51.22}, {"date": "2026-06-16", "score": 60.0}, {"date": "2026-06-17", "score": 46.83}, {"date": "2026-06-18", "score": 40.12}, {"date": "2026-06-22", "score": 43.66}, {"date": "2026-06-23", "score": 31.59}, {"date": "2026-06-24", "score": 32.93}, {"date": "2026-06-25", "score": 35.49}, {"date": "2026-06-26", "score": 39.02}, {"date": "2026-06-29", "score": 37.8}, {"date": "2026-06-30", "score": 47.56}, {"date": "2026-07-01", "score": 37.32}, {"date": "2026-07-02", "score": 60.73}, {"date": "2026-07-06", "score": 55.98}, {"date": "2026-07-07", "score": 44.02}, {"date": "2026-07-08", "score": 53.54}, {"date": "2026-07-09", "score": 69.15}, {"date": "2026-07-10", "score": 50.24}, {"date": "2026-07-13", "score": 40.73}, {"date": "2026-07-14", "score": 52.07}, {"date": "2026-07-15", "score": 55.49}, {"date": "2026-07-16", "score": 47.93}, {"date": "2026-07-17", "score": 49.88}, {"date": "2026-07-20", "score": 42.44}, {"date": "2026-07-21", "score": 47.93}, {"date": "2026-07-22", "score": 52.8}, {"date": "2026-07-23", "score": 49.76}, {"date": "2026-07-24", "score": 53.17}, {"date": "2026-07-27", "score": 77.07}, {"date": "2026-07-28", "score": 63.05}, {"date": "2026-07-29", "score": 61.59}, {"date": "2026-07-30", "score": 61.95}, {"date": "2026-07-31", "score": 59.51}, {"date": "2026-08-03", "score": 60.73}, {"date": "2026-08-04", "score": 68.66}, {"date": "2026-08-05", "score": 70.61}, {"date": "2026-08-06", "score": 63.17}, {"date": "2026-08-07", "score": 61.1}, {"date": "2026-08-10", "score": 88.54}]};
+const series = {"XLB": [{"date": "2026-05-12", "score": 49.55}, {"date": "2026-05-13", "score": 48.18}, {"date": "2026-05-14", "score": 46.82}, {"date": "2026-05-15", "score": 36.36}, {"date": "2026-05-18", "score": 27.27}, {"date": "2026-05-19", "score": 29.09}, {"date": "2026-05-20", "score": 35.0}, {"date": "2026-05-21", "score": 24.09}, {"date": "2026-05-22", "score": 15.45}, {"date": "2026-05-26", "score": 34.09}, {"date": "2026-05-27", "score": 38.18}, {"date": "2026-05-28", "score": 45.0}, {"date": "2026-05-29", "score": 57.73}, {"date": "2026-06-01", "score": 66.36}, {"date": "2026-06-02", "score": 80.45}, {"date": "2026-06-03", "score": 69.55}, {"date": "2026-06-04", "score": 54.09}, {"date": "2026-06-05", "score": 47.73}, {"date": "2026-06-08", "score": 43.18}, {"date": "2026-06-09", "score": 45.0}, {"date": "2026-06-10", "score": 30.91}, {"date": "2026-06-11", "score": 49.55}, {"date": "2026-06-12", "score": 70.91}, {"date": "2026-06-15", "score": 82.27}, {"date": "2026-06-16", "score": 67.27}, {"date": "2026-06-17", "score": 77.27}, {"date": "2026-06-18", "score": 72.27}, {"date": "2026-06-22", "score": 66.36}, {"date": "2026-06-23", "score": 54.55}, {"date": "2026-06-24", "score": 62.27}, {"date": "2026-06-25", "score": 57.73}, {"date": "2026-06-26", "score": 50.91}, {"date": "2026-06-29", "score": 55.91}, {"date": "2026-06-30", "score": 39.55}, {"date": "2026-07-01", "score": 39.55}, {"date": "2026-07-02", "score": 46.36}, {"date": "2026-07-06", "score": 65.91}, {"date": "2026-07-07", "score": 55.0}, {"date": "2026-07-08", "score": 51.82}, {"date": "2026-07-09", "score": 40.45}, {"date": "2026-07-10", "score": 38.18}, {"date": "2026-07-13", "score": 29.09}, {"date": "2026-07-14", "score": 24.09}, {"date": "2026-07-15", "score": 34.55}, {"date": "2026-07-16", "score": 25.0}, {"date": "2026-07-17", "score": 25.0}, {"date": "2026-07-20", "score": 43.64}, {"date": "2026-07-21", "score": 43.64}, {"date": "2026-07-22", "score": 43.18}, {"date": "2026-07-23", "score": 42.27}, {"date": "2026-07-24", "score": 54.09}, {"date": "2026-07-27", "score": 43.64}, {"date": "2026-07-28", "score": 67.73}, {"date": "2026-07-29", "score": 55.45}, {"date": "2026-07-30", "score": 57.27}, {"date": "2026-07-31", "score": 47.73}, {"date": "2026-08-03", "score": 36.82}, {"date": "2026-08-04", "score": 68.64}, {"date": "2026-08-05", "score": 76.36}, {"date": "2026-08-06", "score": 64.09}, {"date": "2026-08-07", "score": 80.45}, {"date": "2026-08-10", "score": 80.91}, {"date": "2026-08-11", "score": 81.82}], "MXI": [{"date": "2026-05-12", "score": 74.5}, {"date": "2026-05-13", "score": 64.0}, {"date": "2026-05-14", "score": 72.5}, {"date": "2026-05-15", "score": 58.5}, {"date": "2026-05-18", "score": 61.0}, {"date": "2026-05-19", "score": 37.0}, {"date": "2026-05-20", "score": 41.0}, {"date": "2026-05-21", "score": 60.5}, {"date": "2026-05-22", "score": 37.5}, {"date": "2026-05-26", "score": 52.0}, {"date": "2026-05-27", "score": 67.5}, {"date": "2026-05-28", "score": 62.5}, {"date": "2026-05-29", "score": 62.5}, {"date": "2026-06-01", "score": 65.0}, {"date": "2026-06-02", "score": 70.0}, {"date": "2026-06-03", "score": 70.0}, {"date": "2026-06-04", "score": 64.0}, {"date": "2026-06-05", "score": 48.5}, {"date": "2026-06-08", "score": 43.0}, {"date": "2026-06-09", "score": 38.5}, {"date": "2026-06-10", "score": 33.5}, {"date": "2026-06-11", "score": 44.0}, {"date": "2026-06-12", "score": 56.0}, {"date": "2026-06-15", "score": 81.5}, {"date": "2026-06-16", "score": 83.0}, {"date": "2026-06-17", "score": 71.0}, {"date": "2026-06-18", "score": 75.0}, {"date": "2026-06-22", "score": 62.5}, {"date": "2026-06-23", "score": 53.0}, {"date": "2026-06-24", "score": 46.5}, {"date": "2026-06-25", "score": 59.0}, {"date": "2026-06-26", "score": 46.5}, {"date": "2026-06-29", "score": 38.5}, {"date": "2026-06-30", "score": 43.0}, {"date": "2026-07-01", "score": 32.5}, {"date": "2026-07-02", "score": 52.5}, {"date": "2026-07-06", "score": 52.0}, {"date": "2026-07-07", "score": 45.5}, {"date": "2026-07-08", "score": 38.0}, {"date": "2026-07-09", "score": 24.0}, {"date": "2026-07-10", "score": 35.5}, {"date": "2026-07-13", "score": 30.5}, {"date": "2026-07-14", "score": 20.5}, {"date": "2026-07-15", "score": 24.0}, {"date": "2026-07-16", "score": 25.0}, {"date": "2026-07-17", "score": 18.5}, {"date": "2026-07-20", "score": 31.0}, {"date": "2026-07-21", "score": 37.0}, {"date": "2026-07-22", "score": 43.5}, {"date": "2026-07-23", "score": 48.5}, {"date": "2026-07-24", "score": 43.0}, {"date": "2026-07-27", "score": 28.5}, {"date": "2026-07-28", "score": 41.0}, {"date": "2026-07-29", "score": 38.5}, {"date": "2026-07-30", "score": 74.0}, {"date": "2026-07-31", "score": 50.5}, {"date": "2026-08-03", "score": 43.5}, {"date": "2026-08-04", "score": 66.5}, {"date": "2026-08-05", "score": 87.5}, {"date": "2026-08-06", "score": 71.5}, {"date": "2026-08-07", "score": 79.5}, {"date": "2026-08-10", "score": 80.5}, {"date": "2026-08-11", "score": 76.5}], "IHI": [{"date": "2026-05-12", "score": 20.74}, {"date": "2026-05-13", "score": 21.3}, {"date": "2026-05-14", "score": 15.93}, {"date": "2026-05-15", "score": 10.74}, {"date": "2026-05-18", "score": 25.19}, {"date": "2026-05-19", "score": 31.11}, {"date": "2026-05-20", "score": 24.44}, {"date": "2026-05-21", "score": 20.93}, {"date": "2026-05-22", "score": 14.07}, {"date": "2026-05-26", "score": 16.3}, {"date": "2026-05-27", "score": 21.48}, {"date": "2026-05-28", "score": 26.11}, {"date": "2026-05-29", "score": 15.37}, {"date": "2026-06-01", "score": 24.44}, {"date": "2026-06-02", "score": 15.56}, {"date": "2026-06-03", "score": 29.44}, {"date": "2026-06-04", "score": 25.93}, {"date": "2026-06-05", "score": 34.26}, {"date": "2026-06-08", "score": 42.59}, {"date": "2026-06-09", "score": 49.44}, {"date": "2026-06-10", "score": 34.26}, {"date": "2026-06-11", "score": 31.85}, {"date": "2026-06-12", "score": 32.78}, {"date": "2026-06-15", "score": 23.52}, {"date": "2026-06-16", "score": 26.48}, {"date": "2026-06-17", "score": 22.41}, {"date": "2026-06-18", "score": 31.11}, {"date": "2026-06-22", "score": 33.52}, {"date": "2026-06-23", "score": 32.41}, {"date": "2026-06-24", "score": 25.19}, {"date": "2026-06-25", "score": 39.63}, {"date": "2026-06-26", "score": 36.85}, {"date": "2026-06-29", "score": 38.15}, {"date": "2026-06-30", "score": 33.15}, {"date": "2026-07-01", "score": 33.52}, {"date": "2026-07-02", "score": 43.15}, {"date": "2026-07-06", "score": 42.41}, {"date": "2026-07-07", "score": 43.33}, {"date": "2026-07-08", "score": 38.89}, {"date": "2026-07-09", "score": 29.44}, {"date": "2026-07-10", "score": 20.74}, {"date": "2026-07-13", "score": 28.15}, {"date": "2026-07-14", "score": 30.0}, {"date": "2026-07-15", "score": 22.96}, {"date": "2026-07-16", "score": 41.3}, {"date": "2026-07-17", "score": 40.0}, {"date": "2026-07-20", "score": 28.7}, {"date": "2026-07-21", "score": 30.37}, {"date": "2026-07-22", "score": 18.52}, {"date": "2026-07-23", "score": 17.22}, {"date": "2026-07-24", "score": 24.07}, {"date": "2026-07-27", "score": 31.3}, {"date": "2026-07-28", "score": 52.22}, {"date": "2026-07-29", "score": 48.15}, {"date": "2026-07-30", "score": 52.78}, {"date": "2026-07-31", "score": 43.33}, {"date": "2026-08-03", "score": 60.19}, {"date": "2026-08-04", "score": 39.63}, {"date": "2026-08-05", "score": 47.22}, {"date": "2026-08-06", "score": 57.78}, {"date": "2026-08-07", "score": 67.41}, {"date": "2026-08-10", "score": 68.89}, {"date": "2026-08-11", "score": 80.56}], "EZA": [{"date": "2026-05-12", "score": 34.27}, {"date": "2026-05-13", "score": 29.15}, {"date": "2026-05-14", "score": 33.17}, {"date": "2026-05-15", "score": 27.07}, {"date": "2026-05-18", "score": 26.59}, {"date": "2026-05-19", "score": 33.78}, {"date": "2026-05-20", "score": 20.37}, {"date": "2026-05-21", "score": 21.46}, {"date": "2026-05-22", "score": 26.95}, {"date": "2026-05-26", "score": 41.1}, {"date": "2026-05-27", "score": 25.0}, {"date": "2026-05-28", "score": 37.68}, {"date": "2026-05-29", "score": 44.02}, {"date": "2026-06-01", "score": 32.56}, {"date": "2026-06-02", "score": 43.9}, {"date": "2026-06-03", "score": 30.0}, {"date": "2026-06-04", "score": 26.59}, {"date": "2026-06-05", "score": 22.56}, {"date": "2026-06-08", "score": 18.9}, {"date": "2026-06-09", "score": 14.15}, {"date": "2026-06-10", "score": 20.12}, {"date": "2026-06-11", "score": 17.56}, {"date": "2026-06-12", "score": 34.02}, {"date": "2026-06-15", "score": 46.83}, {"date": "2026-06-16", "score": 47.8}, {"date": "2026-06-17", "score": 51.59}, {"date": "2026-06-18", "score": 35.37}, {"date": "2026-06-22", "score": 27.2}, {"date": "2026-06-23", "score": 38.66}, {"date": "2026-06-24", "score": 18.9}, {"date": "2026-06-25", "score": 16.71}, {"date": "2026-06-26", "score": 32.44}, {"date": "2026-06-29", "score": 17.68}, {"date": "2026-06-30", "score": 15.37}, {"date": "2026-07-01", "score": 15.73}, {"date": "2026-07-02", "score": 18.17}, {"date": "2026-07-06", "score": 23.9}, {"date": "2026-07-07", "score": 14.51}, {"date": "2026-07-08", "score": 27.07}, {"date": "2026-07-09", "score": 11.71}, {"date": "2026-07-10", "score": 27.32}, {"date": "2026-07-13", "score": 24.51}, {"date": "2026-07-14", "score": 11.71}, {"date": "2026-07-15", "score": 16.34}, {"date": "2026-07-16", "score": 8.29}, {"date": "2026-07-17", "score": 13.05}, {"date": "2026-07-20", "score": 20.0}, {"date": "2026-07-21", "score": 24.39}, {"date": "2026-07-22", "score": 25.98}, {"date": "2026-07-23", "score": 29.15}, {"date": "2026-07-24", "score": 25.61}, {"date": "2026-07-27", "score": 14.51}, {"date": "2026-07-28", "score": 14.02}, {"date": "2026-07-29", "score": 29.63}, {"date": "2026-07-30", "score": 28.05}, {"date": "2026-07-31", "score": 18.41}, {"date": "2026-08-03", "score": 30.37}, {"date": "2026-08-04", "score": 33.54}, {"date": "2026-08-05", "score": 50.43}, {"date": "2026-08-06", "score": 44.45}, {"date": "2026-08-07", "score": 61.28}, {"date": "2026-08-10", "score": 54.82}, {"date": "2026-08-11", "score": 60.91}], "IYZ": [{"date": "2026-05-12", "score": 57.41}, {"date": "2026-05-13", "score": 55.0}, {"date": "2026-05-14", "score": 67.78}, {"date": "2026-05-15", "score": 69.26}, {"date": "2026-05-18", "score": 60.74}, {"date": "2026-05-19", "score": 58.7}, {"date": "2026-05-20", "score": 52.59}, {"date": "2026-05-21", "score": 60.37}, {"date": "2026-05-22", "score": 82.04}, {"date": "2026-05-26", "score": 68.52}, {"date": "2026-05-27", "score": 72.59}, {"date": "2026-05-28", "score": 65.56}, {"date": "2026-05-29", "score": 72.22}, {"date": "2026-06-01", "score": 74.44}, {"date": "2026-06-02", "score": 74.44}, {"date": "2026-06-03", "score": 71.67}, {"date": "2026-06-04", "score": 81.67}, {"date": "2026-06-05", "score": 69.44}, {"date": "2026-06-08", "score": 80.0}, {"date": "2026-06-09", "score": 52.96}, {"date": "2026-06-10", "score": 62.04}, {"date": "2026-06-11", "score": 65.37}, {"date": "2026-06-12", "score": 68.15}, {"date": "2026-06-15", "score": 55.19}, {"date": "2026-06-16", "score": 35.74}, {"date": "2026-06-17", "score": 37.04}, {"date": "2026-06-18", "score": 35.19}, {"date": "2026-06-22", "score": 41.11}, {"date": "2026-06-23", "score": 35.0}, {"date": "2026-06-24", "score": 36.67}, {"date": "2026-06-25", "score": 48.15}, {"date": "2026-06-26", "score": 38.52}, {"date": "2026-06-29", "score": 40.56}, {"date": "2026-06-30", "score": 47.04}, {"date": "2026-07-01", "score": 42.41}, {"date": "2026-07-02", "score": 35.93}, {"date": "2026-07-06", "score": 33.15}, {"date": "2026-07-07", "score": 26.48}, {"date": "2026-07-08", "score": 29.07}, {"date": "2026-07-09", "score": 34.81}, {"date": "2026-07-10", "score": 43.15}, {"date": "2026-07-13", "score": 35.93}, {"date": "2026-07-14", "score": 25.37}, {"date": "2026-07-15", "score": 33.15}, {"date": "2026-07-16", "score": 29.07}, {"date": "2026-07-17", "score": 25.56}, {"date": "2026-07-20", "score": 22.41}, {"date": "2026-07-21", "score": 22.22}, {"date": "2026-07-22", "score": 19.07}, {"date": "2026-07-23", "score": 26.48}, {"date": "2026-07-24", "score": 25.93}, {"date": "2026-07-27", "score": 24.07}, {"date": "2026-07-28", "score": 25.93}, {"date": "2026-07-29", "score": 24.26}, {"date": "2026-07-30", "score": 32.22}, {"date": "2026-07-31", "score": 49.07}, {"date": "2026-08-03", "score": 56.85}, {"date": "2026-08-04", "score": 76.11}, {"date": "2026-08-05", "score": 65.19}, {"date": "2026-08-06", "score": 66.11}, {"date": "2026-08-07", "score": 64.63}, {"date": "2026-08-10", "score": 54.63}, {"date": "2026-08-11", "score": 63.52}], "XLE": [{"date": "2026-05-12", "score": 71.36}, {"date": "2026-05-13", "score": 67.73}, {"date": "2026-05-14", "score": 74.55}, {"date": "2026-05-15", "score": 82.73}, {"date": "2026-05-18", "score": 88.18}, {"date": "2026-05-19", "score": 79.09}, {"date": "2026-05-20", "score": 91.82}, {"date": "2026-05-21", "score": 93.64}, {"date": "2026-05-22", "score": 93.64}, {"date": "2026-05-26", "score": 81.36}, {"date": "2026-05-27", "score": 63.18}, {"date": "2026-05-28", "score": 60.45}, {"date": "2026-05-29", "score": 43.64}, {"date": "2026-06-01", "score": 55.91}, {"date": "2026-06-02", "score": 45.91}, {"date": "2026-06-03", "score": 75.91}, {"date": "2026-06-04", "score": 71.36}, {"date": "2026-06-05", "score": 56.82}, {"date": "2026-06-08", "score": 70.0}, {"date": "2026-06-09", "score": 59.55}, {"date": "2026-06-10", "score": 68.18}, {"date": "2026-06-11", "score": 36.82}, {"date": "2026-06-12", "score": 25.0}, {"date": "2026-06-15", "score": 28.18}, {"date": "2026-06-16", "score": 25.91}, {"date": "2026-06-17", "score": 13.18}, {"date": "2026-06-18", "score": 20.91}, {"date": "2026-06-22", "score": 25.0}, {"date": "2026-06-23", "score": 29.09}, {"date": "2026-06-24", "score": 44.55}, {"date": "2026-06-25", "score": 34.09}, {"date": "2026-06-26", "score": 32.27}, {"date": "2026-06-29", "score": 29.55}, {"date": "2026-06-30", "score": 37.27}, {"date": "2026-07-01", "score": 29.09}, {"date": "2026-07-02", "score": 24.55}, {"date": "2026-07-06", "score": 20.45}, {"date": "2026-07-07", "score": 43.64}, {"date": "2026-07-08", "score": 38.64}, {"date": "2026-07-09", "score": 27.73}, {"date": "2026-07-10", "score": 38.64}, {"date": "2026-07-13", "score": 70.45}, {"date": "2026-07-14", "score": 66.82}, {"date": "2026-07-15", "score": 75.45}, {"date": "2026-07-16", "score": 77.27}, {"date": "2026-07-17", "score": 74.55}, {"date": "2026-07-20", "score": 89.55}, {"date": "2026-07-21", "score": 86.36}, {"date": "2026-07-22", "score": 93.18}, {"date": "2026-07-23", "score": 83.18}, {"date": "2026-07-24", "score": 85.45}, {"date": "2026-07-27", "score": 80.0}, {"date": "2026-07-28", "score": 68.64}, {"date": "2026-07-29", "score": 69.09}, {"date": "2026-07-30", "score": 61.82}, {"date": "2026-07-31", "score": 67.27}, {"date": "2026-08-03", "score": 65.45}, {"date": "2026-08-04", "score": 66.82}, {"date": "2026-08-05", "score": 60.91}, {"date": "2026-08-06", "score": 79.55}, {"date": "2026-08-07", "score": 73.18}, {"date": "2026-08-10", "score": 86.82}, {"date": "2026-08-11", "score": 81.36}], "EIRL": [{"date": "2026-05-12", "score": 57.93}, {"date": "2026-05-13", "score": 55.12}, {"date": "2026-05-14", "score": 67.2}, {"date": "2026-05-15", "score": 50.24}, {"date": "2026-05-18", "score": 53.78}, {"date": "2026-05-19", "score": 50.0}, {"date": "2026-05-20", "score": 73.05}, {"date": "2026-05-21", "score": 75.0}, {"date": "2026-05-22", "score": 75.37}, {"date": "2026-05-26", "score": 79.15}, {"date": "2026-05-27", "score": 77.68}, {"date": "2026-05-28", "score": 59.51}, {"date": "2026-05-29", "score": 66.46}, {"date": "2026-06-01", "score": 69.27}, {"date": "2026-06-02", "score": 53.78}, {"date": "2026-06-03", "score": 52.07}, {"date": "2026-06-04", "score": 71.95}, {"date": "2026-06-05", "score": 59.88}, {"date": "2026-06-08", "score": 70.49}, {"date": "2026-06-09", "score": 59.76}, {"date": "2026-06-10", "score": 62.44}, {"date": "2026-06-11", "score": 60.61}, {"date": "2026-06-12", "score": 61.34}, {"date": "2026-06-15", "score": 56.22}, {"date": "2026-06-16", "score": 57.8}, {"date": "2026-06-17", "score": 57.8}, {"date": "2026-06-18", "score": 55.24}, {"date": "2026-06-22", "score": 55.61}, {"date": "2026-06-23", "score": 89.02}, {"date": "2026-06-24", "score": 73.66}, {"date": "2026-06-25", "score": 75.73}, {"date": "2026-06-26", "score": 75.61}, {"date": "2026-06-29", "score": 77.07}, {"date": "2026-06-30", "score": 75.73}, {"date": "2026-07-01", "score": 95.49}, {"date": "2026-07-02", "score": 84.15}, {"date": "2026-07-06", "score": 78.41}, {"date": "2026-07-07", "score": 71.71}, {"date": "2026-07-08", "score": 74.27}, {"date": "2026-07-09", "score": 72.56}, {"date": "2026-07-10", "score": 68.17}, {"date": "2026-07-13", "score": 71.1}, {"date": "2026-07-14", "score": 70.0}, {"date": "2026-07-15", "score": 76.1}, {"date": "2026-07-16", "score": 76.1}, {"date": "2026-07-17", "score": 71.46}, {"date": "2026-07-20", "score": 66.1}, {"date": "2026-07-21", "score": 66.1}, {"date": "2026-07-22", "score": 76.71}, {"date": "2026-07-23", "score": 59.39}, {"date": "2026-07-24", "score": 63.78}, {"date": "2026-07-27", "score": 71.22}, {"date": "2026-07-28", "score": 66.34}, {"date": "2026-07-29", "score": 65.37}, {"date": "2026-07-30", "score": 78.66}, {"date": "2026-07-31", "score": 66.83}, {"date": "2026-08-03", "score": 73.78}, {"date": "2026-08-04", "score": 52.56}, {"date": "2026-08-05", "score": 62.32}, {"date": "2026-08-06", "score": 60.61}, {"date": "2026-08-07", "score": 72.93}, {"date": "2026-08-10", "score": 79.63}, {"date": "2026-08-11", "score": 78.9}], "EXI": [{"date": "2026-05-12", "score": 50.0}, {"date": "2026-05-13", "score": 45.5}, {"date": "2026-05-14", "score": 65.0}, {"date": "2026-05-15", "score": 60.5}, {"date": "2026-05-18", "score": 47.5}, {"date": "2026-05-19", "score": 45.5}, {"date": "2026-05-20", "score": 65.5}, {"date": "2026-05-21", "score": 50.5}, {"date": "2026-05-22", "score": 59.0}, {"date": "2026-05-26", "score": 63.0}, {"date": "2026-05-27", "score": 64.0}, {"date": "2026-05-28", "score": 57.5}, {"date": "2026-05-29", "score": 59.0}, {"date": "2026-06-01", "score": 46.5}, {"date": "2026-06-02", "score": 56.5}, {"date": "2026-06-03", "score": 62.0}, {"date": "2026-06-04", "score": 57.0}, {"date": "2026-06-05", "score": 48.5}, {"date": "2026-06-08", "score": 65.5}, {"date": "2026-06-09", "score": 64.0}, {"date": "2026-06-10", "score": 42.0}, {"date": "2026-06-11", "score": 48.0}, {"date": "2026-06-12", "score": 52.5}, {"date": "2026-06-15", "score": 52.5}, {"date": "2026-06-16", "score": 64.5}, {"date": "2026-06-17", "score": 57.5}, {"date": "2026-06-18", "score": 60.0}, {"date": "2026-06-22", "score": 70.0}, {"date": "2026-06-23", "score": 69.5}, {"date": "2026-06-24", "score": 72.5}, {"date": "2026-06-25", "score": 75.5}, {"date": "2026-06-26", "score": 53.5}, {"date": "2026-06-29", "score": 60.5}, {"date": "2026-06-30", "score": 70.5}, {"date": "2026-07-01", "score": 66.0}, {"date": "2026-07-02", "score": 56.5}, {"date": "2026-07-06", "score": 60.5}, {"date": "2026-07-07", "score": 60.5}, {"date": "2026-07-08", "score": 56.5}, {"date": "2026-07-09", "score": 56.5}, {"date": "2026-07-10", "score": 56.5}, {"date": "2026-07-13", "score": 57.5}, {"date": "2026-07-14", "score": 55.0}, {"date": "2026-07-15", "score": 55.0}, {"date": "2026-07-16", "score": 46.0}, {"date": "2026-07-17", "score": 39.5}, {"date": "2026-07-20", "score": 39.0}, {"date": "2026-07-21", "score": 39.5}, {"date": "2026-07-22", "score": 45.0}, {"date": "2026-07-23", "score": 54.0}, {"date": "2026-07-24", "score": 54.5}, {"date": "2026-07-27", "score": 58.0}, {"date": "2026-07-28", "score": 61.5}, {"date": "2026-07-29", "score": 42.5}, {"date": "2026-07-30", "score": 50.5}, {"date": "2026-07-31", "score": 50.5}, {"date": "2026-08-03", "score": 55.5}, {"date": "2026-08-04", "score": 61.5}, {"date": "2026-08-05", "score": 67.5}, {"date": "2026-08-06", "score": 70.0}, {"date": "2026-08-07", "score": 68.0}, {"date": "2026-08-10", "score": 60.5}, {"date": "2026-08-11", "score": 62.5}]};
 
 function makeSparkline(points) {
   const width = 520, height = 120, pad = 8;
