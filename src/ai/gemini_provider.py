@@ -24,12 +24,8 @@ def analyze(payload: dict) -> tuple[dict, str]:
         model=model,
         contents=build_prompt(payload),
         config={
-            "response_format": {
-                "text": {
-                    "mime_type": "application/json",
-                    "schema": AIAnalysis.model_json_schema(),
-                }
-            }
+            "response_mime_type": "application/json",
+            "response_schema": AIAnalysis,
         },
     )
 
