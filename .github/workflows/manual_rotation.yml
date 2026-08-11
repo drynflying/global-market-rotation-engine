@@ -1,0 +1,61 @@
+name: Manual Market Rotation Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-rotation
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run rotation pipeline
+        run: python -m src.run_pipeline
+
+      - name: Upload dashboard preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-rotation-dashboard
+          path: |
+            docs/
+            results/run_summary.json
+            results/fetch_failures.csv
+          retention-days: 7
+
+      - name: Commit generated history, results, and dashboard
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ results/ docs/
+          if git diff --cached --quiet; then
+            echo "No generated file changes to commit."
+          else
+            git commit -m "Update market rotation data"
+            git push
+          fi
