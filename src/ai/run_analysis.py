@@ -9,6 +9,7 @@ from pathlib import Path
 from src.ai.consensus import build_consensus
 from src.ai.fallback import build_fallback_analysis
 from src.ai.schema import AIAnalysis
+from src.ai.normalizer import normalize_analysis
 from src.ai.validator import (
     AIOutputValidationError,
     VALIDATOR_VERSION,
@@ -72,7 +73,7 @@ def run_ai_analysis(payload: dict) -> dict:
         try:
             module = importlib.import_module(module_name)
             analysis, model = module.analyze(payload)
-            analysis = AIAnalysis.model_validate(analysis).model_dump()
+            analysis = normalize_analysis(AIAnalysis.model_validate(analysis).model_dump())
 
             try:
                 validation = validate_analysis_against_payload(analysis, payload)
@@ -80,14 +81,18 @@ def run_ai_analysis(payload: dict) -> dict:
                 validation["retry_used"] = False
             except AIOutputValidationError as first_exc:
                 correction = (
-                    "Fix every validation issue below exactly:\n- "
-                    + "\n- ".join(first_exc.errors)
+                    "Revise the response so it passes these categories of checks:\n"
+                    + "\n".join(
+                        f"- {error.split(':', 1)[0]}"
+                        if ":" in error else "- metric horizon precision"
+                        for error in first_exc.errors
+                    )
                 )
                 analysis, model = module.analyze(
                     payload,
                     correction_instructions=correction,
                 )
-                analysis = AIAnalysis.model_validate(analysis).model_dump()
+                analysis = normalize_analysis(AIAnalysis.model_validate(analysis).model_dump())
                 validation = validate_analysis_against_payload(analysis, payload)
                 validation["attempt_count"] = 2
                 validation["retry_used"] = True

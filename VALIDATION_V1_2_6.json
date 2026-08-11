@@ -1,0 +1,9 @@
+{
+  "patch_version": "v1.2.6",
+  "quantitative_engine_changed": false,
+  "python_compile": "passed",
+  "canonical_methodology_test": "passed",
+  "analytical_5bar_rs_rejection_test": "passed",
+  "retry_feedback_echo_risk": "removed",
+  "validator_version": "v1.2.5 (logic stabilized by v1.2.6 patch)"
+}

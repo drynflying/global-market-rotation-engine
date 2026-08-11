@@ -238,14 +238,41 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
                 f"dashboard_focus_tickers[{pos}]: {ticker} was not supplied"
             )
 
-    if re.search(
+
+    # Horizon-language validation is applied to analytical model-authored fields.
+    # methodology_note is canonicalized by Python before validation.
+    horizon_fields = [
+        ("headline", str(analysis.get("headline") or "")),
+        ("market_regime", str(analysis.get("market_regime") or "")),
+        ("executive_summary", str(analysis.get("executive_summary") or "")),
+    ]
+    for category in FINDING_CATEGORIES:
+        for pos, finding in enumerate(analysis.get(category, []) or []):
+            horizon_fields.append(
+                (f"{category}[{pos}].title", str(finding.get("title") or ""))
+            )
+            horizon_fields.append(
+                (
+                    f"{category}[{pos}].explanation",
+                    str(finding.get("explanation") or ""),
+                )
+            )
+    for pos, value in enumerate(analysis.get("cross_market_confirmations", []) or []):
+        horizon_fields.append((f"cross_market_confirmations[{pos}]", str(value)))
+    for pos, value in enumerate(analysis.get("risks_or_conflicts", []) or []):
+        horizon_fields.append((f"risks_or_conflicts[{pos}]", str(value)))
+
+    bad_horizon = re.compile(
         r"\b5[- ]?(?:bar|day|trading[- ]?bar)?\s+relative[- ]?strength\b",
-        prose,
         re.I,
-    ):
-        errors.append(
-            "unsupported 5-bar relative-strength claim; use 5-bar score change and 20/63-bar RS"
-        )
+    )
+    for field_path, field_text in horizon_fields:
+        if bad_horizon.search(field_text):
+            errors.append(
+                f"{field_path}: 5-bar observations must be described as score changes; "
+                "relative-strength evidence is limited to 20/63 bars"
+            )
+
 
     if errors:
         raise AIOutputValidationError(errors)

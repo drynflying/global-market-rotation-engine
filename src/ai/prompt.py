@@ -87,7 +87,11 @@ def build_prompt(payload: dict, correction_instructions: str | None = None) -> s
         correction = (
             "\n\nCORRECTION REQUIRED:\n"
             "A prior structured response failed deterministic validation. "
-            "Correct the listed issues while preserving valid quantitative evidence.\n"
+            "Rewrite the affected sentences using only supported metrics. "
+            "For any 5-bar observation, use score_change_5 only. "
+            "For direct relative-strength evidence, use only the 20-bar or "
+            "63-bar horizons supplied in the dataset. "
+            "Do not repeat validator wording verbatim.\n"
             + correction_instructions.strip()
         )
 
