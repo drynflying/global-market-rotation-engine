@@ -139,6 +139,17 @@ def build_dashboard(
         status = result.get("status", "unknown")
         model = result.get("model") or "—"
         err = result.get("error")
+        validation = result.get("validation") or {}
+        validation_status = validation.get("status")
+        validation_version = validation.get("validator_version")
+        validation_line = ""
+        if validation_status:
+            validation_line = (
+                f"<div class='muted small'>validation: "
+                f"{html.escape(str(validation_status))}"
+                f"{' · ' + html.escape(str(validation_version)) if validation_version else ''}"
+                f"</div>"
+            )
         provider_cards.append(
             f"""
             <div class="provider-card">
@@ -147,6 +158,7 @@ def build_dashboard(
                 {html.escape(status)}
               </div>
               <div class="muted small">{html.escape(str(model))}</div>
+              {validation_line}
               {f'<div class="muted small">{html.escape(str(err))}</div>' if err else ''}
             </div>
             """

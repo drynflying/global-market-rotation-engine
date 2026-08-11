@@ -1,0 +1,18 @@
+{
+  "patch_version": "v1.2.4",
+  "quantitative_engine_changed": false,
+  "changed_files": [
+    "src/ai/prompt.py",
+    "src/ai/validator.py",
+    "src/ai/run_analysis.py",
+    "src/build_dashboard.py"
+  ],
+  "python_compile": "passed",
+  "valid_output_smoke_test": "passed",
+  "invalid_language_smoke_test": "passed",
+  "audited_gemini_sample_check": "correctly_rejected",
+  "audited_gemini_sample_errors": [
+    "capital-flow language: prohibited phrase 'Capital Rotates'",
+    "unsupported mega-cap characterization: source payload does not use that label"
+  ]
+}

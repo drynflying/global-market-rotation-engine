@@ -9,6 +9,11 @@ from pathlib import Path
 from src.ai.consensus import build_consensus
 from src.ai.fallback import build_fallback_analysis
 from src.ai.schema import AIAnalysis
+from src.ai.validator import (
+    AIOutputValidationError,
+    VALIDATOR_VERSION,
+    validate_analysis_against_payload,
+)
 from src.common import (
     AI_ANALYSIS_PATH,
     AI_CONSENSUS_PATH,
@@ -68,12 +73,27 @@ def run_ai_analysis(payload: dict) -> dict:
             module = importlib.import_module(module_name)
             analysis, model = module.analyze(payload)
             analysis = AIAnalysis.model_validate(analysis).model_dump()
+            validation = validate_analysis_against_payload(analysis, payload)
             provider_results[provider] = {
                 "provider": provider,
                 "status": "success",
                 "model": model,
                 "error": None,
+                "validation": validation,
                 "analysis": analysis,
+            }
+        except AIOutputValidationError as exc:
+            provider_results[provider] = {
+                "provider": provider,
+                "status": "validation_error",
+                "model": locals().get("model"),
+                "error": f"{type(exc).__name__}: {exc}",
+                "validation": {
+                    "status": "failed",
+                    "validator_version": VALIDATOR_VERSION,
+                    "errors": exc.errors,
+                },
+                "analysis": None,
             }
         except Exception as exc:
             provider_results[provider] = {
@@ -81,6 +101,10 @@ def run_ai_analysis(payload: dict) -> dict:
                 "status": "error",
                 "model": None,
                 "error": f"{type(exc).__name__}: {exc}",
+                "validation": {
+                    "status": "not_run",
+                    "validator_version": VALIDATOR_VERSION,
+                },
                 "analysis": None,
             }
 
@@ -131,6 +155,11 @@ def run_ai_analysis(payload: dict) -> dict:
         "provider_models": {
             p: provider_results[p].get("model")
             for p in successful
+        },
+        "ai_validator_version": VALIDATOR_VERSION,
+        "provider_validation": {
+            p: provider_results.get(p, {}).get("validation")
+            for p in requested
         },
     }
     _write_json(AI_MANIFEST_PATH, manifest)
