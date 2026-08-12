@@ -1,0 +1,32 @@
+{
+  "patch": "9",
+  "purpose": "Schedule the existing rotation pipeline daily after market close and deploy docs/ directly to GitHub Pages.",
+  "files_replaced": [
+    ".github/workflows/manual_rotation.yml"
+  ],
+  "model_logic_changes": false,
+  "dashboard_logic_changes": false,
+  "schedule": {
+    "cron": "30 17 * * 1-5",
+    "timezone": "America/New_York",
+    "human": "5:30 PM Eastern, Monday-Friday"
+  },
+  "pages": {
+    "artifact_path": "docs/",
+    "deploy_environment": "github-pages",
+    "deploy_branch": "main",
+    "configure_pages_action": "actions/configure-pages@v5",
+    "upload_pages_artifact_action": "actions/upload-pages-artifact@v4",
+    "deploy_pages_action": "actions/deploy-pages@v5"
+  },
+  "validation": {
+    "yaml_parse": "passed",
+    "manual_workflow_dispatch_retained": "passed",
+    "timezone_aware_schedule": "passed",
+    "pipeline_command_preserved": "passed",
+    "generated_file_commit_preserved": "passed",
+    "pages_artifact_points_to_docs": "passed",
+    "main_branch_deploy_guard": "passed",
+    "patch7_patch8_status_files_added_to_preview_artifact": "passed"
+  }
+}
