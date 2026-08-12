@@ -3,7 +3,7 @@
   "mode": "single_provider",
   "items": [
     {
-      "ticker": "XLV",
+      "ticker": "XLU",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -19,29 +19,7 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "US Health Care Near-Term Pullback",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "XLE",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "US Energy Sector Strengthening",
+          "title": "Utilities Sector Score Contraction",
           "confidence": "high"
         }
       ]
@@ -63,8 +41,8 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Materials Sector Short-Term Improvement",
-          "confidence": "medium"
+          "title": "Materials Sector Emerging Leadership",
+          "confidence": "high"
         }
       ]
     },
@@ -85,14 +63,14 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Biotechnology Intermediate Turnaround",
+          "title": "Biotechnology Turnaround Reacceleration",
           "confidence": "medium"
         }
       ]
     },
     {
-      "ticker": "VNM",
-      "dominant_assessment": "ROTATION_OUT",
+      "ticker": "SMH",
+      "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -100,14 +78,14 @@
         "gemini"
       ],
       "assessment_counts": {
-        "ROTATION_OUT": 1
+        "WEAKENING": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Vietnam Sustained Relative Lag",
+          "assessment": "WEAKENING",
+          "title": "Semiconductors Severe Momentum Deterioration",
           "confidence": "high"
         }
       ]
@@ -129,7 +107,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Cloud Computing Multi-Horizon Leadership",
+          "title": "Cloud Computing High Score Leadership",
           "confidence": "high"
         }
       ]
@@ -151,8 +129,8 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal-Weight vs Cap-Weight S&P 500 Leadership",
-          "confidence": "high"
+          "title": "Equal Weight Leading Cap Weight",
+          "confidence": "medium"
         }
       ]
     },
@@ -173,7 +151,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Food & Beverage Severe Relative Breakdown",
+          "title": "Food & Beverage Broad Weakness",
           "confidence": "high"
         }
       ]
@@ -195,7 +173,29 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Global Communication Services Underperformance",
+          "title": "Global Communication Services Lag",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IWD",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Large-Cap Value Leading Large-Cap Growth",
           "confidence": "high"
         }
       ]
@@ -217,14 +217,14 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Medical Devices Short-Term Rebound",
+          "title": "Medical Devices Rapid Score Acceleration",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EWZ",
-      "dominant_assessment": "WEAKENING",
+      "ticker": "FEZ",
+      "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -232,21 +232,21 @@
         "gemini"
       ],
       "assessment_counts": {
-        "WEAKENING": 1
+        "GEOGRAPHIC": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Brazil Steep Deterioration Towards Pending Exit",
+          "assessment": "GEOGRAPHIC",
+          "title": "Eurozone Leadership vs Asia Lag",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EWY",
-      "dominant_assessment": "ROTATION_OUT",
+      "ticker": "ENOR",
+      "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -254,81 +254,15 @@
         "gemini"
       ],
       "assessment_counts": {
-        "ROTATION_OUT": 1
+        "GEOGRAPHIC": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "South Korea Deep Relative Weakness",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EWS",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Singapore High Score Deterioration Warning",
+          "assessment": "GEOGRAPHIC",
+          "title": "Norway Emerging Nordic Strength",
           "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "EWO",
-      "dominant_assessment": "REACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "REACCELERATING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "REACCELERATING",
-          "title": "Austria Confirmed Reacceleration with Pending Early Warning",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "EPOL",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Poland High Relative Strength Persistence",
-          "confidence": "high"
         }
       ]
     },
@@ -349,7 +283,7 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "Ireland Equity Acceleration",
+          "title": "Ireland European Regional Acceleration",
           "confidence": "high"
         }
       ]
@@ -371,87 +305,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "EAFE Developed Equities Sustained Trend",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "CIBR",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Cybersecurity Relative Leadership Erosion",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IWD",
-      "dominant_assessment": "ACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ACCELERATING": 1,
-        "PAIR": 1
-      },
-      "conflict": true,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ACCELERATING",
-          "title": "US Large-Cap Value Pair Leadership",
-          "confidence": "high"
-        },
-        {
-          "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "US Value vs Growth Pair Divergence",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "FEZ",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1,
-        "GEOGRAPHIC": 1
-      },
-      "conflict": true,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Eurozone Blue Chips Persistent Leadership",
-          "confidence": "high"
-        },
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "European Regional Outperformance over Emerging Markets",
+          "title": "Developed Markets Sustained Leadership",
           "confidence": "high"
         }
       ]
