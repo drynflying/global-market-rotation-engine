@@ -30,6 +30,11 @@ def _row_payload(r: pd.Series) -> dict:
         "exposure": _clean_text(r.get("exposure")),
         "sector": _clean_text(r.get("sector")),
         "state": _clean_text(r.get("rotation_state")),
+        "raw_state": _clean_text(r.get("rotation_state_raw")),
+        "confirmed_state_age": int(r.get("confirmed_state_age", 0) or 0),
+        "pending_state": _clean_text(r.get("pending_rotation_state")),
+        "pending_state_days": int(r.get("pending_state_days", 0) or 0),
+        "state_confirmation_bars": int(r.get("state_confirmation_bars", 3) or 3),
         "score": _clean_number(r.get("rotation_score"), 2),
         "rank": _clean_number(r.get("group_rank"), 0),
         "group_size": _clean_number(r.get("group_size"), 0),
@@ -59,6 +64,11 @@ def _row_payload(r: pd.Series) -> dict:
         "paired_ticker": _clean_text(r.get("paired_ticker")),
         "pair_type": _clean_text(r.get("pair_type")),
         "pair_signal": _clean_text(r.get("pair_signal")),
+        "pair_signal_raw": _clean_text(r.get("pair_signal_raw")),
+        "confirmed_pair_signal_age": int(r.get("confirmed_pair_signal_age", 0) or 0),
+        "pending_pair_signal": _clean_text(r.get("pending_pair_signal")),
+        "pending_pair_signal_days": int(r.get("pending_pair_signal_days", 0) or 0),
+        "pair_confirmation_bars": int(r.get("pair_confirmation_bars", 3) or 3),
         "pair_spread_20_pct_points": (
             _clean_number(100 * r.get("pair_spread_20"), 2)
             if pd.notna(r.get("pair_spread_20")) else None
@@ -77,6 +87,11 @@ def _evidence_payload(r: pd.Series) -> dict:
         "exposure": _clean_text(r.get("exposure")),
         "sector": _clean_text(r.get("sector")),
         "state": _clean_text(r.get("rotation_state")),
+        "raw_state": _clean_text(r.get("rotation_state_raw")),
+        "confirmed_state_age": int(r.get("confirmed_state_age", 0) or 0),
+        "pending_state": _clean_text(r.get("pending_rotation_state")),
+        "pending_state_days": int(r.get("pending_state_days", 0) or 0),
+        "state_confirmation_bars": int(r.get("state_confirmation_bars", 3) or 3),
         "score": _clean_number(r.get("rotation_score"), 2),
         "rank": _clean_number(r.get("group_rank"), 0),
         "group_size": _clean_number(r.get("group_size"), 0),
@@ -102,6 +117,11 @@ def _pair_attention_payload(r: pd.Series) -> dict:
             "paired_ticker": _clean_text(r.get("paired_ticker")),
             "pair_type": _clean_text(r.get("pair_type")),
             "pair_signal": _clean_text(r.get("pair_signal")),
+            "pair_signal_raw": _clean_text(r.get("pair_signal_raw")),
+            "confirmed_pair_signal_age": int(r.get("confirmed_pair_signal_age", 0) or 0),
+            "pending_pair_signal": _clean_text(r.get("pending_pair_signal")),
+            "pending_pair_signal_days": int(r.get("pending_pair_signal_days", 0) or 0),
+            "pair_confirmation_bars": int(r.get("pair_confirmation_bars", 3) or 3),
             "pair_spread_20_pct_points": (
                 _clean_number(100 * r.get("pair_spread_20"), 2)
                 if pd.notna(r.get("pair_spread_20")) else None
@@ -261,6 +281,56 @@ def _build_deterministic_attention(
             _evidence_payload(r) for _, r in mixed.iterrows()
         ]
 
+    pending_trend_changes = []
+    if "pending_state_days" in scored.columns:
+        pending = scored[scored["pending_state_days"].fillna(0) > 0].copy()
+        if not pending.empty:
+            pending["_urgency"] = pending["pending_state_days"].fillna(0)
+            pending["_move"] = pending["score_change_5"].abs().fillna(0)
+            pending = pending.sort_values(
+                ["_urgency", "_move", "rotation_score"],
+                ascending=[False, False, False],
+            ).head(12)
+            for _, r in pending.iterrows():
+                pending_trend_changes.append({
+                    "ticker": _clean_text(r.get("ticker")),
+                    "confirmed_state": _clean_text(r.get("rotation_state")),
+                    "raw_state": _clean_text(r.get("rotation_state_raw")),
+                    "pending_state": _clean_text(r.get("pending_rotation_state")),
+                    "pending_days": int(r.get("pending_state_days", 0) or 0),
+                    "confirmation_bars": int(r.get("state_confirmation_bars", 3) or 3),
+                    "score": _clean_number(r.get("rotation_score"), 2),
+                    "score_change_5": _clean_number(r.get("score_change_5"), 2),
+                    "score_change_20": _clean_number(r.get("score_change_20"), 2),
+                })
+
+    pending_pair_changes = []
+    if "pending_pair_signal_days" in pairs.columns:
+        pending_pairs = pairs[pairs["pending_pair_signal_days"].fillna(0) > 0].copy()
+        if not pending_pairs.empty:
+            pending_pairs = pending_pairs.sort_values(
+                ["pending_pair_signal_days", "ticker"],
+                ascending=[False, True],
+            )
+            for _, r in pending_pairs.iterrows():
+                pending_pair_changes.append({
+                    "ticker": _clean_text(r.get("ticker")),
+                    "paired_ticker": _clean_text(r.get("paired_ticker")),
+                    "confirmed_pair_signal": _clean_text(r.get("pair_signal")),
+                    "raw_pair_signal": _clean_text(r.get("pair_signal_raw")),
+                    "pending_pair_signal": _clean_text(r.get("pending_pair_signal")),
+                    "pending_days": int(r.get("pending_pair_signal_days", 0) or 0),
+                    "confirmation_bars": int(r.get("pair_confirmation_bars", 3) or 3),
+                    "pair_spread_20_pct_points": (
+                        _clean_number(100 * r.get("pair_spread_20"), 2)
+                        if pd.notna(r.get("pair_spread_20")) else None
+                    ),
+                    "pair_spread_63_pct_points": (
+                        _clean_number(100 * r.get("pair_spread_63"), 2)
+                        if pd.notna(r.get("pair_spread_63")) else None
+                    ),
+                })
+
     return {
         "lowest_current_scores": lowest_scores,
         "extreme_cmf20": extreme_cmf_rows,
@@ -269,6 +339,8 @@ def _build_deterministic_attention(
         "sector_divergences": sector_divergences,
         "pair_state_tensions": pair_state_tensions,
         "mixed_horizon_relative_strength": mixed_horizon_rs,
+        "pending_trend_changes": pending_trend_changes,
+        "pending_pair_changes": pending_pair_changes,
     }
 
 
@@ -370,6 +442,10 @@ def build_ai_input(
             attention_tickers.append(item["other_weak"].get("ticker"))
     for item in deterministic_attention["pair_state_tensions"]:
         attention_tickers.extend([item.get("ticker"), item.get("paired_ticker")])
+    for item in deterministic_attention["pending_trend_changes"]:
+        attention_tickers.append(item.get("ticker"))
+    for item in deterministic_attention["pending_pair_changes"]:
+        attention_tickers.extend([item.get("ticker"), item.get("paired_ticker")])
 
     _ordered_add(focus_tickers, focus_seen, attention_tickers)
     _ordered_add(focus_tickers, focus_seen, top_scores["ticker"].tolist())
@@ -435,8 +511,9 @@ def build_ai_input(
     payload = {
         "as_of": as_of,
         "purpose": (
-            "Longer-horizon capital-rotation monitoring. "
-            "This is not a daily trading signal."
+            "Longer-horizon rotation monitoring. Daily measurements remain responsive, "
+            "but the canonical state is a confirmed trend requiring three consecutive "
+            "daily observations before a new raw condition becomes the displayed state."
         ),
         "score_formula_version": (
             str(latest["score_formula_version"].dropna().iloc[0])
@@ -444,6 +521,13 @@ def build_ai_input(
             and not latest["score_formula_version"].dropna().empty
             else "unknown"
         ),
+        "state_confirmation": {
+            "confirmation_bars": 3,
+            "canonical_state_field": "state",
+            "raw_condition_field": "raw_state",
+            "rule": "A new raw rotation state must persist for 3 consecutive observations before it becomes the confirmed canonical trend state.",
+            "interpretation": "Pending raw conditions are early warnings, not confirmed recommendations.",
+        },
         "state_definitions": {
             "EMERGING": "Strong recent improvement before full long-horizon confirmation.",
             "ACCELERATING": "Positive relative strength on both horizons with rising score.",
@@ -454,12 +538,14 @@ def build_ai_input(
             "NEUTRAL": "Mixed evidence or no clear directional rotation.",
         },
         "interpretation_rules": [
+            "Treat state as the confirmed trend recommendation; raw_state is today's reactive condition and must not be presented as confirmed until the pending counter reaches 3/3.",
             "Focus on direction and persistence, not only today's score.",
             "A high but falling score is different from a high and rising score.",
             "Prefer rotations confirmed by the parent sector or geographic pair.",
             "PAIR scores are direct relationship signals and should not be ranked against cross-sectional groups.",
             "If 20-bar and 63-bar signal relative strength have opposite signs, disclose both horizons and describe the evidence as mixed rather than citing only the favorable horizon.",
             "Use deterministic_attention sector divergences and pair-state tensions as mandatory conflicts to acknowledge in risks_or_conflicts.",
+            "Pending trend or pair changes are early-warning context. If mentioned, state the confirmed trend first and identify the raw/pending condition with its confirmation count.",
             "63-bar score extrema describe the rotation SCORE history, not a price high or low.",
             "For broad sector or regional theses, prefer the strongest supplied quantitative examples first; broad benchmarks can be used as confirmation rather than replacing stronger leaders.",
             "Do not make price targets or claim that ETF volume proves institutional net flows.",

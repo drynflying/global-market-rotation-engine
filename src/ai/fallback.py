@@ -39,14 +39,23 @@ def build_fallback_analysis(payload: dict, reason: str) -> dict:
             value = item.get(key)
             if value and value not in related:
                 related.append(value)
+        pending_text = ""
+        raw_state = item.get("raw_state")
+        confirmed_state = item.get("state")
+        if raw_state and raw_state != confirmed_state:
+            pending_text = (
+                f" Current raw condition {raw_state} is pending "
+                f"{item.get('pending_state_days', 0)}/{item.get('state_confirmation_bars', 3)} observations."
+            )
         return {
             "ticker": item["ticker"],
             "title": f"{label}: {item.get('exposure') or item['ticker']}",
             "explanation": (
-                f"Deterministic state {item.get('state')}; "
+                f"Confirmed deterministic trend {confirmed_state}; "
                 f"rotation score {item.get('score')}; "
                 f"5-bar score change {item.get('score_change_5')}; "
                 f"20-bar score change {item.get('score_change_20')}."
+                f"{pending_text}"
             ),
             "confidence": "medium",
             "related_tickers": related[:4],
@@ -59,10 +68,16 @@ def build_fallback_analysis(payload: dict, reason: str) -> dict:
                 "ticker": p.get("ticker", ""),
                 "title": f"Pair relationship: {p.get('exposure') or p.get('ticker','')}",
                 "explanation": (
-                    f"{p.get('pair_signal') or 'PAIR_MIXED'} versus "
+                    f"Confirmed pair signal {p.get('pair_signal') or 'PAIR_MIXED'} versus "
                     f"{p.get('paired_ticker') or 'paired market'}; "
                     f"20-bar spread {p.get('pair_spread_20_pct_points')} percentage points; "
                     f"63-bar spread {p.get('pair_spread_63_pct_points')} percentage points."
+                    + (
+                        f" Raw pair condition {p.get('pair_signal_raw')} is pending "
+                        f"{p.get('pending_pair_signal_days', 0)}/{p.get('pair_confirmation_bars', 3)} observations."
+                        if p.get('pair_signal_raw') and p.get('pair_signal_raw') != p.get('pair_signal')
+                        else ""
+                    )
                 ),
                 "confidence": "medium",
                 "related_tickers": [p.get("paired_ticker")]

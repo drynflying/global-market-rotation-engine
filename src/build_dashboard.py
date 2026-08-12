@@ -156,6 +156,22 @@ def build_dashboard(
         if conflict:
             pair_state_tensions.append(r)
 
+    pending_state_rows = scored[scored.get("pending_state_days", 0).fillna(0) > 0].copy()
+    if not pending_state_rows.empty:
+        pending_state_rows["_pending_move"] = pending_state_rows["score_change_5"].abs().fillna(0)
+        pending_state_rows = pending_state_rows.sort_values(
+            ["pending_state_days", "_pending_move", "rotation_score"],
+            ascending=[False, False, False],
+        ).head(12)
+
+    pending_pair_rows = pair_scored[
+        pair_scored.get("pending_pair_signal_days", 0).fillna(0) > 0
+    ].copy()
+    if not pending_pair_rows.empty:
+        pending_pair_rows = pending_pair_rows.sort_values(
+            ["pending_pair_signal_days", "ticker"], ascending=[False, True]
+        )
+
     leaders = cross_scored.nlargest(15, "rotation_score")
     movers = cross_scored[
         cross_scored["score_change_20"].notna()
@@ -196,6 +212,40 @@ def build_dashboard(
     primary_provider = ai_analysis.get("primary_provider", "deterministic_fallback")
     consensus = ai_analysis.get("consensus", {})
 
+    def state_cell(r) -> str:
+        confirmed = str(r.get("rotation_state") or "—")
+        raw = str(r.get("rotation_state_raw") or confirmed)
+        pending_days = int(r.get("pending_state_days", 0) or 0)
+        confirmation_bars = int(r.get("state_confirmation_bars", 3) or 3)
+        pending_html = ""
+        if raw != confirmed and pending_days > 0:
+            pending_html = (
+                f"<div class='pending-line'>Current: "
+                f"<span class='{_state_class(raw)}'>{html.escape(raw)}</span> · "
+                f"{pending_days}/{confirmation_bars}</div>"
+            )
+        return (
+            f"<span class='badge {_state_class(confirmed)}'>{html.escape(confirmed)}</span>"
+            f"{pending_html}"
+        )
+
+    def pair_signal_cell(r) -> str:
+        confirmed = str(r.get("pair_signal") or "—")
+        raw = str(r.get("pair_signal_raw") or confirmed)
+        pending_days = int(r.get("pending_pair_signal_days", 0) or 0)
+        confirmation_bars = int(r.get("pair_confirmation_bars", 3) or 3)
+        pending_html = ""
+        if raw != confirmed and pending_days > 0:
+            pending_html = (
+                f"<div class='pending-line'>Current: "
+                f"<span class='{_pair_class(raw)}'>{html.escape(raw)}</span> · "
+                f"{pending_days}/{confirmation_bars}</div>"
+            )
+        return (
+            f"<span class='badge {_pair_class(confirmed)}'>{html.escape(confirmed)}</span>"
+            f"{pending_html}"
+        )
+
     def rows(frame):
         result = []
         for _, r in frame.iterrows():
@@ -207,7 +257,7 @@ def build_dashboard(
                   <td>{_fmt(r.get('rotation_score'), 1)}</td>
                   <td>{_fmt(r.get('score_change_20'), 1)}</td>
                   <td>{_fmt(r.get('rs20') * 100 if pd.notna(r.get('rs20')) else None, 1, '%')}</td>
-                  <td><span class="badge {_state_class(str(r.get('rotation_state')))}">{html.escape(str(r.get('rotation_state')))}</span></td>
+                  <td>{state_cell(r)}</td>
                 </tr>
                 """
             )
@@ -304,6 +354,24 @@ def build_dashboard(
         f"{_fmt(r.get('pair_spread_63') * 100 if pd.notna(r.get('pair_spread_63')) else None,1,'%')}</li>"
         for r in pair_state_tensions
     ) or "<li class='muted'>No pair-signal / rotation-state tensions.</li>"
+
+    pending_state_html = "".join(
+        f"<li><strong>{html.escape(str(r['ticker']))}</strong> — confirmed "
+        f"{html.escape(str(r.get('rotation_state') or '—'))}; current raw condition "
+        f"{html.escape(str(r.get('rotation_state_raw') or '—'))} is pending "
+        f"{int(r.get('pending_state_days',0) or 0)}/{int(r.get('state_confirmation_bars',3) or 3)}; "
+        f"score {_fmt(r.get('rotation_score'),1)}, 5-bar Δ {_fmt(r.get('score_change_5'),1)}</li>"
+        for _, r in pending_state_rows.iterrows()
+    ) or "<li class='muted'>No raw rotation-state changes awaiting confirmation.</li>"
+
+    pending_pair_html = "".join(
+        f"<li><strong>{html.escape(str(r['ticker']))}</strong> vs "
+        f"{html.escape(str(r.get('paired_ticker') or '—'))} — confirmed "
+        f"{html.escape(str(r.get('pair_signal') or '—'))}; current raw pair condition "
+        f"{html.escape(str(r.get('pair_signal_raw') or '—'))} is pending "
+        f"{int(r.get('pending_pair_signal_days',0) or 0)}/{int(r.get('pair_confirmation_bars',3) or 3)}</li>"
+        for _, r in pending_pair_rows.iterrows()
+    ) or "<li class='muted'>No raw pair-signal changes awaiting confirmation.</li>"
 
     confirmations = ai_analysis.get("cross_market_confirmations", []) or []
     risks_or_conflicts = ai_analysis.get("risks_or_conflicts", []) or []
@@ -498,6 +566,8 @@ th {{ color:var(--muted); font-size:13px; }}
 .attention-grid {{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }}
 .attention-note {{ color:var(--muted); font-size:12px; margin-top:-6px; margin-bottom:12px; }}
 .attention-subhead {{ margin:12px 0 4px; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }}
+.pending-line {{ margin-top:5px; color:var(--muted); font-size:11px; line-height:1.25; }}
+.trend-rule {{ margin:10px 0 18px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:var(--panel2); color:var(--muted); font-size:12px; }}
 @media (max-width:800px) {{
   .grid,.mini-grid,.chart-grid,.providers,.split,.attention-grid {{ grid-template-columns:1fr; }}
   main {{ padding:14px; }}
@@ -509,6 +579,7 @@ th {{ color:var(--muted); font-size:13px; }}
 <main>
   <h1>Market Rotation Dashboard</h1>
   <div class="sub">As of {as_of} · Longer-horizon rotation monitoring, not a daily trading signal</div>
+  <div class="trend-rule"><strong>Trend confirmation:</strong> scores and raw conditions update daily, but a new rotation state or pair signal must persist for 3 consecutive observations before it becomes the confirmed dashboard trend. Pending raw changes remain visible as early warnings.</div>
 
   <div class="grid">
     <div class="card"><div class="muted">Scored signals</div><div class="metric">{len(scored)}</div></div>
@@ -558,6 +629,14 @@ th {{ color:var(--muted); font-size:13px; }}
         <h3>Pair signal / rotation-state tensions</h3>
         <ul class="insight-list">{pair_state_tensions_html}</ul>
       </div>
+      <div class="insight-card">
+        <h3>Pending trend confirmations</h3>
+        <ul class="insight-list">{pending_state_html}</ul>
+      </div>
+      <div class="insight-card">
+        <h3>Pending pair confirmations</h3>
+        <ul class="insight-list">{pending_pair_html}</ul>
+      </div>
     </div>
   </section>
 
@@ -586,7 +665,7 @@ th {{ color:var(--muted); font-size:13px; }}
     <h2>Highest current rotation scores</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>State</th></tr></thead>
+        <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>Confirmed Trend</th></tr></thead>
         <tbody>{rows(leaders)}</tbody>
       </table>
     </div>
@@ -596,7 +675,7 @@ th {{ color:var(--muted); font-size:13px; }}
     <h2>Biggest 20-bar improvements</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>State</th></tr></thead>
+        <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>Confirmed Trend</th></tr></thead>
         <tbody>{rows(movers)}</tbody>
       </table>
     </div>
@@ -606,7 +685,7 @@ th {{ color:var(--muted); font-size:13px; }}
     <h2>Biggest 20-bar deterioration</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>State</th></tr></thead>
+        <thead><tr><th>Ticker</th><th>Exposure</th><th>Score</th><th>20-bar Δ</th><th>RS20</th><th>Confirmed Trend</th></tr></thead>
         <tbody>{rows(weakening)}</tbody>
       </table>
     </div>
@@ -616,7 +695,7 @@ th {{ color:var(--muted); font-size:13px; }}
     <h2>Pair signals</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Ticker</th><th>Exposure</th><th>Pair</th><th>Score</th><th>20-bar spread</th><th>63-bar spread</th><th>Pair Signal</th><th>Rotation State</th></tr></thead>
+        <thead><tr><th>Ticker</th><th>Exposure</th><th>Pair</th><th>Score</th><th>20-bar spread</th><th>63-bar spread</th><th>Confirmed Pair Signal</th><th>Confirmed Trend</th></tr></thead>
         <tbody>
           {''.join(
               f"<tr><td><strong>{html.escape(str(r['ticker']))}</strong></td>"
@@ -625,8 +704,8 @@ th {{ color:var(--muted); font-size:13px; }}
               f"<td>{_fmt(r.get('rotation_score'),1)}</td>"
               f"<td>{_fmt(r.get('pair_spread_20')*100 if pd.notna(r.get('pair_spread_20')) else None,1,'%')}</td>"
               f"<td>{_fmt(r.get('pair_spread_63')*100 if pd.notna(r.get('pair_spread_63')) else None,1,'%')}</td>"
-              f"<td><span class='badge {_pair_class(str(r.get('pair_signal')))}'>{html.escape(str(r.get('pair_signal') or '—'))}</span></td>"
-              f"<td><span class='badge {_state_class(str(r.get('rotation_state')))}'>{html.escape(str(r.get('rotation_state') or '—'))}</span></td></tr>"
+              f"<td>{pair_signal_cell(r)}</td>"
+              f"<td>{state_cell(r)}</td></tr>"
               for _, r in pair_scored.sort_values('ticker').iterrows()
           ) or '<tr><td colspan="8" class="muted">No pair signals available.</td></tr>'}
         </tbody>
@@ -635,8 +714,7 @@ th {{ color:var(--muted); font-size:13px; }}
   </section>
 
   <p class="muted" style="margin-top:30px">
-    Quantitative scores are deterministic comparative indicators. AI commentary
-    interprets those supplied values; it does not calculate or alter them.
+    Quantitative scores are deterministic comparative indicators. Confirmed trend states use a 3-observation persistence rule; raw conditions remain available as early warnings. AI commentary interprets supplied values and confirmed states; it does not calculate or alter them.
   </p>
 </main>
 

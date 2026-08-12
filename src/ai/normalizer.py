@@ -4,11 +4,13 @@ import copy
 
 
 CANONICAL_METHODOLOGY_NOTE = (
-    "Interpretation uses deterministic 5-bar score changes, 20- and 63-bar "
-    "relative strength or pair spreads, persistence metrics, and Python-"
-    "calculated attention flags including 63-bar rotation-score extrema and "
-    "material cross-market conflicts. ETF volume and CMF are treated as "
-    "market-participation indicators, not fund-flow data."
+    "Interpretation uses Python-confirmed trend states that require 3 consecutive "
+    "daily observations before a new raw condition becomes canonical. Raw conditions "
+    "remain available as pending early warnings. Evidence also uses deterministic "
+    "5-bar score changes, 20- and 63-bar relative strength or pair spreads, "
+    "persistence metrics, and Python-calculated attention flags including 63-bar "
+    "rotation-score extrema and material cross-market conflicts. ETF volume and CMF "
+    "are treated as market-participation indicators, not fund-flow data."
 )
 
 

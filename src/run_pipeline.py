@@ -32,7 +32,7 @@ RESULT_COLUMNS = [
     "data_status", "bars_available", "close", "volume", "dollar_volume",
     "relative_dollar_volume", "return_20", "return_63", "rs20", "rs63",
     "parent_rs20", "parent_rs63", "pair_spread_20", "pair_spread_63",
-    "signal_rs20", "signal_rs63", "pair_signal",
+    "signal_rs20", "signal_rs63", "pair_signal_raw", "pair_signal_confirmed", "pair_signal",
     "cmf20", "obv_change_20", "sma50", "sma200", "position_52w",
     "trend_score", "rotation_score", "group_rank", "group_size",
     "group_percentile", "score_change_5", "score_change_10",
@@ -40,7 +40,11 @@ RESULT_COLUMNS = [
     "rs20_change_5", "rs63_change_20", "days_leader_zone_20",
     "leader_zone_streak", "days_top_quartile_20", "top_quartile_streak",
     "consecutive_improving_days",
-    "rotation_state", "score_formula_version",
+    "rotation_state_raw", "rotation_state_confirmed", "rotation_state",
+    "confirmed_state_age", "pending_rotation_state", "pending_state_days",
+    "state_confirmation_bars", "confirmed_pair_signal_age",
+    "pending_pair_signal", "pending_pair_signal_days", "pair_confirmation_bars",
+    "score_formula_version",
 ]
 
 
@@ -106,6 +110,13 @@ def save_results(df: pd.DataFrame, cfg: pd.DataFrame, failures: pd.DataFrame):
         "neutral_count": int((latest["rotation_state"] == "NEUTRAL").sum()),
         "weakening_count": int((latest["rotation_state"] == "WEAKENING").sum()),
         "rotation_out_count": int((latest["rotation_state"] == "ROTATION_OUT").sum()),
+        "state_confirmation_bars": int(latest["state_confirmation_bars"].dropna().iloc[0])
+        if "state_confirmation_bars" in latest.columns and not latest["state_confirmation_bars"].dropna().empty
+        else 3,
+        "pending_state_changes": int((latest.get("pending_state_days", 0) > 0).sum())
+        if "pending_state_days" in latest.columns else 0,
+        "pending_pair_signal_changes": int((latest.get("pending_pair_signal_days", 0) > 0).sum())
+        if "pending_pair_signal_days" in latest.columns else 0,
     }
     RUN_SUMMARY_PATH.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     return history, latest, summary

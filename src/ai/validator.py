@@ -6,7 +6,7 @@ import re
 from dataclasses import dataclass, field
 
 
-VALIDATOR_VERSION = "v1.2.7"
+VALIDATOR_VERSION = "v1.2.8"
 
 CATEGORY_TO_STATE = {
     "emerging_rotations": "EMERGING",
@@ -433,7 +433,7 @@ def validate_analysis_against_payload(analysis: dict, payload: dict) -> dict:
         "validator_version": VALIDATOR_VERSION,
         "checks": {
             "ticker_grounding": True,
-            "state_category_consistency": True,
+            "confirmed_state_category_consistency": True,
             "pair_semantics": True,
             "language_guardrails": True,
             "numeric_evidence": True,
