@@ -3,7 +3,7 @@
   "mode": "single_provider",
   "items": [
     {
-      "ticker": "XLV",
+      "ticker": "XLU",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -19,8 +19,8 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Health Care Maintains High Score Despite Confirmed Weakening State",
-          "confidence": "medium"
+          "title": "Utilities Leadership Deteriorates",
+          "confidence": "high"
         }
       ]
     },
@@ -41,14 +41,14 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Communication Services Confirmed in Rotation Out at 63-Bar Score Low",
+          "title": "Communication Services Reaches 63-Bar Score Low",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "XLB",
-      "dominant_assessment": "EMERGING",
+      "ticker": "XBI",
+      "dominant_assessment": "REACCELERATING",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -56,14 +56,14 @@
         "gemini"
       ],
       "assessment_counts": {
-        "EMERGING": 1
+        "REACCELERATING": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "U.S. Materials Displays Short-Term Relative Strength Improvement",
+          "assessment": "REACCELERATING",
+          "title": "Biotechnology Reaccelerates Despite Mixed Horizons",
           "confidence": "medium"
         }
       ]
@@ -85,7 +85,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Cloud Computing Holds Top Cross-Sectional Ranking",
+          "title": "Cloud Computing Maintains Top Cross-Sectional Score",
           "confidence": "high"
         }
       ]
@@ -107,29 +107,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted SPY Across Horizons",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "REZ",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Residential Real Estate Scores Hit 63-Bar Low",
+          "title": "Equal Weight Outperforms Cap-Weighted S&P 500",
           "confidence": "high"
         }
       ]
@@ -151,14 +129,14 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Food & Beverage Reaches 63-Bar Score Low and CMF Extreme",
+          "title": "Food & Beverage Hits 63-Bar Score Low",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "IXJ",
-      "dominant_assessment": "ACCELERATING",
+      "ticker": "IYZ",
+      "dominant_assessment": "EMERGING",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -166,58 +144,14 @@
         "gemini"
       ],
       "assessment_counts": {
-        "ACCELERATING": 1
+        "EMERGING": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "ACCELERATING",
-          "title": "Global Health Care Gains Momentum",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IWF",
-      "dominant_assessment": "PAIR",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PAIR": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "Large-Cap Growth Lags Value Pair",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IWD",
-      "dominant_assessment": "ACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ACCELERATING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ACCELERATING",
-          "title": "Large-Cap Value Shows Relative Strength Advantage Over Growth",
+          "assessment": "EMERGING",
+          "title": "Telecommunications Demonstrates Emerging Leadership",
           "confidence": "high"
         }
       ]
@@ -239,35 +173,13 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Medical Devices Leadership Emerging in Health Care",
+          "title": "Medical Devices Leads Emerging Rotations",
           "confidence": "high"
         }
       ]
     },
     {
       "ticker": "FEZ",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Eurozone Blue Chips Reach 63-Bar Score High",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EWZ",
       "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
@@ -283,7 +195,29 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "Brazil Deteriorates Within Emerging Markets",
+          "title": "Eurozone Blue Chips Lead Regional Equities",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWZ",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Brazil Weakens With Downward Score Momentum",
           "confidence": "high"
         }
       ]
@@ -305,7 +239,58 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "Sweden Leads European Short-Term Improvement",
+          "title": "Sweden Emerging Leadership in European Region",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EPOL",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Poland Sustains European Single-Country Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IWD",
+      "dominant_assessment": "ACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ACCELERATING": 1,
+        "PAIR": 1
+      },
+      "conflict": true,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ACCELERATING",
+          "title": "U.S. Large-Cap Value Displays Accelerating Relative Performance",
+          "confidence": "high"
+        },
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Value Outperforms Growth in Direct Pair Comparison",
           "confidence": "high"
         }
       ]

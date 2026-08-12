@@ -27,8 +27,11 @@
         "mixed_horizon_disclosure": true,
         "deterministic_conflict_coverage": true
       },
-      "attempt_count": 1,
-      "retry_used": false
+      "attempt_count": 2,
+      "retry_used": true,
+      "first_attempt_errors": [
+        "mixed-horizon disclosure: cross_market_confirmations[1] for IXC must name both 20-bar and 63-bar relative-strength horizons"
+      ]
     }
   }
 }
