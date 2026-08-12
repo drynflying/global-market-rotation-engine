@@ -1,10 +1,10 @@
-name: Manual Market Rotation Test
+name: Market Rotation Daily + Pages
 
 on:
   workflow_dispatch:
-
-permissions:
-  contents: write
+  schedule:
+    - cron: "30 17 * * 1-5"
+      timezone: "America/New_York"
 
 concurrency:
   group: market-rotation
@@ -14,6 +14,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
     env:
       AI_PROVIDERS: ${{ vars.AI_PROVIDERS }}
@@ -47,6 +52,10 @@ jobs:
             docs/
             results/run_summary.json
             results/fetch_failures.csv
+            results/research_shadow_status.json
+            results/weekly_recommendation_shadow_status.json
+            results/weekly_recommendation_shadow_latest.json
+          if-no-files-found: warn
           retention-days: 7
 
       - name: Commit generated history, results, and dashboard
@@ -60,3 +69,30 @@ jobs:
             git commit -m "Update market rotation data"
             git push
           fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy dashboard to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
