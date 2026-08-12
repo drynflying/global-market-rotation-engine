@@ -23,6 +23,7 @@ from src.common import (
     load_config,
 )
 from src.fetch_market_data import fetch_market_data, update_ohlcv_history
+from src.research_shadow import run_shadow_research
 
 
 RESULT_COLUMNS = [
@@ -161,6 +162,38 @@ def main() -> int:
 
     history, latest, summary = save_results(metrics, cfg, failures)
     validate_required_benchmarks(cfg, latest)
+
+    # Patch 7: prospective research shadow test.
+    # This is deliberately non-blocking and does not alter any production
+    # score, state, AI input, or dashboard output.
+    try:
+        shadow_status = run_shadow_research(ohlcv, cfg, latest)
+        prediction_status = shadow_status.get("prediction", {})
+        outcome_status = shadow_status.get("outcomes", {})
+        summary.update({
+            "shadow_research_status": shadow_status.get("status", "ok"),
+            "shadow_model_version": prediction_status.get("model_version"),
+            "shadow_market_date": prediction_status.get("market_date"),
+            "shadow_appended_rows": prediction_status.get("appended_rows", 0),
+            "shadow_skipped_existing_rows": prediction_status.get("skipped_existing_rows", 0),
+            "shadow_universal_veto_rows": prediction_status.get("universal_veto_rows", 0),
+            "shadow_challenger_veto_rows": prediction_status.get("challenger_veto_rows", 0),
+            "shadow_matured_21": outcome_status.get("matured_21", 0),
+            "shadow_matured_63": outcome_status.get("matured_63", 0),
+            "shadow_matured_84": outcome_status.get("matured_84", 0),
+            "shadow_matured_126": outcome_status.get("matured_126", 0),
+        })
+        print(
+            "Shadow research: "
+            f"{prediction_status.get('appended_rows', 0)} new predictions, "
+            f"{outcome_status.get('matured_126', 0)} fully matured outcomes."
+        )
+    except Exception as exc:
+        summary.update({
+            "shadow_research_status": "error",
+            "shadow_research_error": f"{type(exc).__name__}: {exc}",
+        })
+        print(f"WARNING: Shadow research logger failed: {type(exc).__name__}: {exc}")
 
     ai_input = build_ai_input(latest, history)
     ai_analysis = run_ai_analysis(ai_input)

@@ -24,6 +24,12 @@ AI_HISTORY_DIR = AI_DIR / "history"
 AI_CONSENSUS_PATH = AI_DIR / "consensus.json"
 AI_MANIFEST_PATH = AI_DIR / "manifest.json"
 
+RESEARCH_DIR = ROOT / "research"
+PATH_RISK_MODEL_SPEC_PATH = RESEARCH_DIR / "path_risk_v1" / "model_spec.json"
+RESEARCH_SHADOW_HISTORY_PATH = RESULTS_DIR / "research_shadow_history.csv"
+RESEARCH_SHADOW_OUTCOMES_PATH = RESULTS_DIR / "research_shadow_outcomes.csv"
+RESEARCH_SHADOW_STATUS_PATH = RESULTS_DIR / "research_shadow_status.json"
+
 
 def as_bool(value) -> bool:
     if isinstance(value, bool):
