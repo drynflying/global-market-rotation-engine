@@ -7,11 +7,11 @@
     "feature_complete_rows": 107,
     "appended_rows": 0,
     "skipped_existing_rows": 107,
-    "patch6_top20_rows": 27,
+    "patch6_top20_rows": 26,
     "universal_low_trust_rows": 19,
-    "universal_veto_rows": 4,
+    "universal_veto_rows": 3,
     "challenger_low_trust_rows": 19,
-    "challenger_veto_rows": 4
+    "challenger_veto_rows": 3
   },
   "outcomes": {
     "prediction_rows": 214,
