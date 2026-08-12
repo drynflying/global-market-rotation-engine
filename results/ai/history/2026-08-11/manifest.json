@@ -12,14 +12,14 @@
   "provider_models": {
     "gemini": "gemini-3.6-flash"
   },
-  "ai_validator_version": "v1.2.7",
+  "ai_validator_version": "v1.2.8",
   "provider_validation": {
     "gemini": {
       "status": "passed",
-      "validator_version": "v1.2.7",
+      "validator_version": "v1.2.8",
       "checks": {
         "ticker_grounding": true,
-        "state_category_consistency": true,
+        "confirmed_state_category_consistency": true,
         "pair_semantics": true,
         "language_guardrails": true,
         "numeric_evidence": true,
