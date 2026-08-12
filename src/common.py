@@ -30,6 +30,13 @@ RESEARCH_SHADOW_HISTORY_PATH = RESULTS_DIR / "research_shadow_history.csv"
 RESEARCH_SHADOW_OUTCOMES_PATH = RESULTS_DIR / "research_shadow_outcomes.csv"
 RESEARCH_SHADOW_STATUS_PATH = RESULTS_DIR / "research_shadow_status.json"
 
+WEEKLY_RECOMMENDATION_SPEC_PATH = RESEARCH_DIR / "weekly_recommendation_v1" / "spec.json"
+WEEKLY_RECOMMENDATION_HISTORY_PATH = RESULTS_DIR / "weekly_recommendation_shadow_history.csv"
+WEEKLY_RECOMMENDATION_OUTCOMES_PATH = RESULTS_DIR / "weekly_recommendation_shadow_outcomes.csv"
+WEEKLY_RECOMMENDATION_STATUS_PATH = RESULTS_DIR / "weekly_recommendation_shadow_status.json"
+WEEKLY_RECOMMENDATION_LATEST_PATH = RESULTS_DIR / "weekly_recommendation_shadow_latest.json"
+WEEKLY_RECOMMENDATION_AI_DIR = RESULTS_DIR / "weekly_recommendation_ai"
+
 
 def as_bool(value) -> bool:
     if isinstance(value, bool):
@@ -56,7 +63,7 @@ def safe_float(value, default: float) -> float:
 
 
 def ensure_dirs() -> None:
-    for directory in [DATA_DIR, RESULTS_DIR, AI_DIR, AI_HISTORY_DIR, DOCS_DIR, DOCS_DATA_DIR]:
+    for directory in [DATA_DIR, RESULTS_DIR, AI_DIR, AI_HISTORY_DIR, WEEKLY_RECOMMENDATION_AI_DIR, DOCS_DIR, DOCS_DATA_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
 
 

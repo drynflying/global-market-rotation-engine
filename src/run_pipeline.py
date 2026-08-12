@@ -24,6 +24,7 @@ from src.common import (
 )
 from src.fetch_market_data import fetch_market_data, update_ohlcv_history
 from src.research_shadow import run_shadow_research
+from src.weekly_recommendation_shadow import run_weekly_recommendation_shadow
 
 
 RESULT_COLUMNS = [
@@ -205,6 +206,49 @@ def main() -> int:
         "ai_provider_status": ai_analysis.get("provider_status"),
         "ai_consensus_provider_count": ai_analysis.get("consensus", {}).get("provider_count", 0),
     })
+
+    # Patch 8: Friday weekly recommendation shadow layer.
+    # Runs only in the post-close weekly capture window (or a safe weekend recovery),
+    # logs at most two immutable AI-synthesized actions, and never changes the
+    # production dashboard, Patch 6 ranking, or Patch 7 path-risk shadow model.
+    try:
+        weekly_status = run_weekly_recommendation_shadow(
+            ohlcv=ohlcv,
+            latest=latest,
+            history=history,
+            deterministic_attention=ai_input.get("deterministic_attention", {}),
+        )
+        weekly_capture = weekly_status.get("capture", {})
+        weekly_outcomes = weekly_status.get("outcomes", {})
+        summary.update({
+            "weekly_shadow_status": weekly_status.get("status"),
+            "weekly_shadow_model_version": weekly_status.get("model_version"),
+            "weekly_shadow_capture_status": weekly_capture.get("status"),
+            "weekly_shadow_recommendation_date": weekly_capture.get("recommendation_date"),
+            "weekly_shadow_gate_reason": weekly_capture.get("gate_reason"),
+            "weekly_shadow_action_count": weekly_capture.get("action_count", 0),
+            "weekly_shadow_appended_rows": weekly_capture.get("appended_rows", 0),
+            "weekly_shadow_selectable_finalists": weekly_capture.get("selectable_finalists", 0),
+            "weekly_shadow_matured_21": weekly_outcomes.get("matured_21", 0),
+            "weekly_shadow_matured_63": weekly_outcomes.get("matured_63", 0),
+            "weekly_shadow_matured_84": weekly_outcomes.get("matured_84", 0),
+            "weekly_shadow_matured_126": weekly_outcomes.get("matured_126", 0),
+        })
+        print(
+            "Weekly recommendation shadow: "
+            f"{weekly_capture.get('status', 'unknown')}, "
+            f"{weekly_capture.get('action_count', 0)} action(s)."
+        )
+    except Exception as exc:
+        summary.update({
+            "weekly_shadow_status": "error",
+            "weekly_shadow_error": f"{type(exc).__name__}: {exc}",
+        })
+        print(
+            "WARNING: Weekly recommendation shadow failed: "
+            f"{type(exc).__name__}: {exc}"
+        )
+
     RUN_SUMMARY_PATH.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     build_dashboard(latest, history, ai_analysis)
 

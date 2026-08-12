@@ -1,0 +1,56 @@
+{
+  "patch": "Patch 8 — Friday Weekly Recommendation Shadow Layer",
+  "model_version": "WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12",
+  "validated_against": "Latest Patch 6 repository snapshot with Patch 7 prospective shadow files applied",
+  "validation_date_utc": "2026-08-12",
+  "checks": {
+    "python_compile": "pass",
+    "weekly_spec_json_parse": "pass",
+    "patch7_coexistence": {
+      "status": "pass",
+      "eligible_rows": 107,
+      "feature_complete_rows": 107,
+      "first_run_appended_rows": 107
+    },
+    "non_friday_gate": {
+      "status": "pass",
+      "capture_status": "not_due",
+      "dashboard_effect": "none"
+    },
+    "capture_window_cases": {
+      "regular_friday_after_close": "pass",
+      "friday_before_close_buffer": "pass",
+      "friday_market_holiday_prior_thursday": "pass",
+      "weekend_recovery": "pass",
+      "midweek_skip": "pass"
+    },
+    "historical_friday_finalist_test_2026_08_07": {
+      "status": "pass",
+      "eligible_candidates": 20,
+      "finalists": 6,
+      "selectable_high_evidence_finalists": 4
+    },
+    "mock_ai_capture": {
+      "status": "pass",
+      "recorded_actions": 2,
+      "max_one_per_direction": true,
+      "evidence_ids_grounded": true,
+      "conflict_acknowledgement_validated": true,
+      "same_date_rerun_appended_rows": 0
+    },
+    "automatic_outcome_maturity": {
+      "status": "pass",
+      "synthetic_old_action_matured_21": 1,
+      "synthetic_old_action_matured_63": 1,
+      "synthetic_old_action_matured_84": 1,
+      "synthetic_old_action_matured_126": 1
+    },
+    "production_isolation": {
+      "status": "pass",
+      "build_dashboard_signature_unchanged": true,
+      "weekly_outputs_not_passed_to_dashboard": true,
+      "patch6_scores_states_unchanged": true,
+      "patch7_shadow_logic_unchanged": true
+    }
+  }
+}
