@@ -1,0 +1,21 @@
+{
+  "patch": "8.1",
+  "purpose": "Render the existing Patch 8 weekly recommendation shadow result on the visible dashboard.",
+  "production_model_changes": false,
+  "workflow_changes": false,
+  "files_replaced": [
+    "src/build_dashboard.py"
+  ],
+  "validation": {
+    "python_syntax": "passed",
+    "current_pre_friday_placeholder": "passed",
+    "placeholder_next_evaluation_date_2026_08_14": "passed",
+    "two_action_favor_avoid_render": "passed",
+    "recommendation_date_render": "passed",
+    "evidence_confidence_render": "passed",
+    "next_week_evaluation_render": "passed",
+    "zero_action_week_render": "passed",
+    "latest_recommendation_persists_by_reading_shadow_latest": "passed",
+    "mobile_css": "included"
+  }
+}

@@ -6,7 +6,11 @@ import json
 import numpy as np
 import pandas as pd
 
-from src.common import DOCS_DATA_DIR, DOCS_DIR
+from src.common import (
+    DOCS_DATA_DIR,
+    DOCS_DIR,
+    WEEKLY_RECOMMENDATION_LATEST_PATH,
+)
 
 
 def _fmt(value, digits=1, suffix=""):
@@ -48,7 +52,125 @@ def build_dashboard(
     history = history.copy()
     history["date"] = pd.to_datetime(history["date"])
 
-    as_of = latest["date"].max().strftime("%Y-%m-%d")
+    as_of_date = pd.Timestamp(latest["date"].max()).normalize()
+    as_of = as_of_date.strftime("%Y-%m-%d")
+
+    def _format_date(value) -> str:
+        try:
+            ts = pd.Timestamp(value)
+            if pd.isna(ts):
+                raise ValueError
+            return ts.strftime("%b %d, %Y").replace(" 0", " ")
+        except Exception:
+            return "—"
+
+    def _upcoming_weekly_evaluation(reference_date: pd.Timestamp, last_week_ending=None) -> pd.Timestamp:
+        reference_date = pd.Timestamp(reference_date).normalize()
+        if last_week_ending:
+            try:
+                candidate = pd.Timestamp(last_week_ending).normalize() + pd.Timedelta(days=7)
+                while candidate < reference_date:
+                    candidate += pd.Timedelta(days=7)
+                return candidate
+            except Exception:
+                pass
+        days_to_friday = (4 - reference_date.weekday()) % 7
+        return reference_date + pd.Timedelta(days=days_to_friday)
+
+    weekly_latest = None
+    try:
+        if WEEKLY_RECOMMENDATION_LATEST_PATH.exists():
+            weekly_latest = json.loads(
+                WEEKLY_RECOMMENDATION_LATEST_PATH.read_text(encoding="utf-8")
+            )
+    except Exception:
+        weekly_latest = None
+
+    weekly_recommendation_html = ""
+    if weekly_latest and weekly_latest.get("status") == "ok":
+        decision = weekly_latest.get("decision") or {}
+        actions = (decision.get("actions") or [])[:2]
+        finalist_bundle = weekly_latest.get("finalist_bundle") or {}
+        finalists = finalist_bundle.get("finalists") or []
+        finalist_lookup = {
+            (str(item.get("ticker") or "").upper(), str(item.get("direction") or "").upper()): item
+            for item in finalists
+        }
+        recommendation_date = weekly_latest.get("recommendation_date")
+        week_ending_date = weekly_latest.get("week_ending_date")
+        next_eval = _upcoming_weekly_evaluation(as_of_date, week_ending_date)
+
+        action_cards = []
+        for action in actions:
+            ticker = str(action.get("ticker") or "").upper()
+            direction = str(action.get("direction") or "").upper()
+            candidate = finalist_lookup.get((ticker, direction), {})
+            exposure = str(candidate.get("exposure") or ticker)
+            confidence = str(candidate.get("evidence_confidence") or "HIGH").upper()
+            rationale = str(action.get("rationale") or "")
+            direction_class = "weekly-favor" if direction == "FAVOR" else "weekly-avoid"
+            action_cards.append(
+                f"""
+                <article class='weekly-action'>
+                  <div class='weekly-action-head'>
+                    <div>
+                      <span class='weekly-direction {direction_class}'>{html.escape(direction)}</span>
+                      <strong class='weekly-ticker'>{html.escape(ticker)}</strong>
+                    </div>
+                    <span class='weekly-confidence'>Evidence Confidence: {html.escape(confidence)}</span>
+                  </div>
+                  <div class='weekly-exposure'>{html.escape(exposure)}</div>
+                  <p>{html.escape(rationale)}</p>
+                </article>
+                """
+            )
+
+        if action_cards:
+            body = f"<div class='weekly-actions'>{''.join(action_cards)}</div>"
+        else:
+            reason = str(
+                decision.get("no_action_reason")
+                or "No high-confidence action met the frozen weekly selection rules."
+            )
+            body = (
+                "<div class='weekly-empty'><strong>No high-confidence action this week.</strong>"
+                f"<div>{html.escape(reason)}</div></div>"
+            )
+
+        committee_summary = str(decision.get("committee_summary") or "")
+        summary_html = (
+            f"<div class='weekly-committee'>{html.escape(committee_summary)}</div>"
+            if committee_summary else ""
+        )
+        weekly_recommendation_html = f"""
+        <section class='weekly-panel'>
+          <div class='weekly-panel-head'>
+            <div>
+              <div class='weekly-eyebrow'>Weekly High-Conviction Actions · Prospective Shadow</div>
+              <h2>Recommendation date: {_format_date(recommendation_date)}</h2>
+            </div>
+            <div class='weekly-next'>Next evaluation: {_format_date(next_eval)} after close</div>
+          </div>
+          {body}
+          {summary_html}
+          <div class='weekly-disclaimer'>Evidence Confidence reflects agreement among the frozen quantitative evidence and AI committee review; it is not a probability of investment success.</div>
+        </section>
+        """
+    else:
+        next_eval = _upcoming_weekly_evaluation(as_of_date)
+        weekly_recommendation_html = f"""
+        <section class='weekly-panel weekly-panel-pending'>
+          <div class='weekly-panel-head'>
+            <div>
+              <div class='weekly-eyebrow'>Weekly High-Conviction Actions · Prospective Shadow</div>
+              <h2>No weekly recommendation has been generated yet.</h2>
+            </div>
+            <div class='weekly-next'>Next scheduled evaluation: {_format_date(next_eval)} after close</div>
+          </div>
+          <div class='weekly-empty'>The weekly layer evaluates the completed week's evidence after the Friday close and can return zero, one, or two actions. The latest dated recommendation will remain visible here throughout the following week.</div>
+          <div class='weekly-disclaimer'>Evidence Confidence will describe evidence agreement, not a probability of investment success.</div>
+        </section>
+        """
     scored = latest[
         latest["rotation_score"].notna()
         & latest["rank_eligible"].astype(bool)
@@ -517,6 +639,42 @@ h3 {{ font-size:14px; color:var(--muted); }}
 .metric {{ font-size:28px; font-weight:700; margin-top:6px; }}
 .muted {{ color:var(--muted); }}
 .small {{ font-size:12px; margin-top:5px; }}
+.weekly-panel {{
+  margin:18px 0 24px; padding:18px; border:1px solid var(--line);
+  border-radius:14px; background:linear-gradient(180deg,var(--panel),var(--panel2));
+}}
+.weekly-panel-pending {{ border-style:dashed; }}
+.weekly-panel-head {{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+}}
+.weekly-panel h2 {{ margin:4px 0 0; font-size:20px; }}
+.weekly-eyebrow {{
+  color:var(--accent); font-size:12px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em;
+}}
+.weekly-next {{ color:var(--muted); font-size:12px; text-align:right; padding-top:4px; }}
+.weekly-actions {{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px; }}
+.weekly-action {{
+  background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:14px;
+}}
+.weekly-action-head {{ display:flex; justify-content:space-between; gap:12px; align-items:center; }}
+.weekly-direction {{
+  display:inline-block; padding:3px 7px; margin-right:7px; border-radius:999px;
+  font-size:11px; font-weight:800; letter-spacing:.04em;
+}}
+.weekly-favor {{ color:var(--good); border:1px solid var(--good); }}
+.weekly-avoid {{ color:var(--bad); border:1px solid var(--bad); }}
+.weekly-ticker {{ font-size:17px; }}
+.weekly-confidence {{ color:var(--good2); font-size:12px; white-space:nowrap; }}
+.weekly-exposure {{ color:var(--muted); font-size:12px; margin-top:8px; }}
+.weekly-action p {{ margin:8px 0 0; line-height:1.45; }}
+.weekly-empty {{
+  margin-top:14px; padding:14px; border:1px solid var(--line); border-radius:12px;
+  background:var(--bg); color:var(--muted); line-height:1.45;
+}}
+.weekly-empty strong {{ color:var(--text); display:block; margin-bottom:4px; }}
+.weekly-committee {{ margin-top:12px; color:var(--muted); line-height:1.45; }}
+.weekly-disclaimer {{ margin-top:12px; color:var(--muted); font-size:11px; line-height:1.4; }}
 .ai-summary {{
   background:var(--panel); border:1px solid var(--line); border-radius:14px;
   padding:18px; margin-top:18px;
@@ -569,7 +727,9 @@ th {{ color:var(--muted); font-size:13px; }}
 .pending-line {{ margin-top:5px; color:var(--muted); font-size:11px; line-height:1.25; }}
 .trend-rule {{ margin:10px 0 18px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:var(--panel2); color:var(--muted); font-size:12px; }}
 @media (max-width:800px) {{
-  .grid,.mini-grid,.chart-grid,.providers,.split,.attention-grid {{ grid-template-columns:1fr; }}
+  .grid,.mini-grid,.chart-grid,.providers,.split,.attention-grid,.weekly-actions {{ grid-template-columns:1fr; }}
+  .weekly-panel-head,.weekly-action-head {{ flex-direction:column; align-items:flex-start; }}
+  .weekly-next {{ text-align:left; }}
   main {{ padding:14px; }}
   .table-wrap {{ overflow-x:auto; }}
 }}
@@ -595,6 +755,8 @@ th {{ color:var(--muted); font-size:13px; }}
     <p>{html.escape(ai_analysis.get('executive_summary',''))}</p>
     <div class="providers">{''.join(provider_cards)}</div>
   </div>
+
+  {weekly_recommendation_html}
 
   {ai_cards('emerging_rotations','Emerging rotations')}
   {ai_cards('accelerating_rotations','Accelerating rotations')}
@@ -714,7 +876,7 @@ th {{ color:var(--muted); font-size:13px; }}
   </section>
 
   <p class="muted" style="margin-top:30px">
-    Quantitative scores are deterministic comparative indicators. Confirmed trend states use a 3-observation persistence rule; raw conditions remain available as early warnings. AI commentary interprets supplied values and confirmed states; it does not calculate or alter them.
+    Quantitative scores are deterministic comparative indicators. Confirmed trend states use a 3-observation persistence rule; raw conditions remain available as early warnings. AI commentary interprets supplied values and confirmed states; it does not calculate or alter them. Weekly high-conviction actions are a prospective shadow layer and Evidence Confidence is not a calibrated probability of success.
   </p>
 </main>
 
