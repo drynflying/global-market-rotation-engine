@@ -1,0 +1,213 @@
+{
+  "provider": "gemini",
+  "status": "success",
+  "model": "gemini-3.6-flash",
+  "error": null,
+  "validation": {
+    "status": "passed",
+    "validator_version": "v1.2.8",
+    "checks": {
+      "ticker_grounding": true,
+      "confirmed_state_category_consistency": true,
+      "pair_semantics": true,
+      "language_guardrails": true,
+      "numeric_evidence": true,
+      "horizon_precision": true,
+      "mixed_horizon_disclosure": true,
+      "deterministic_conflict_coverage": true
+    },
+    "attempt_count": 1,
+    "retry_used": false
+  },
+  "analysis": {
+    "headline": "ETF Rotation Analysis: Tech Sub-Sectors and Eurozone Lead, While Defensive and Real Estate Groups Weakened",
+    "market_regime": "Broad market relative leadership is shifting toward select thematic software and European regional equities, while utilities, real estate, and retail reflect relative weakness, accompanied by value outperformance over growth.",
+    "executive_summary": "Relative strength across the ETF landscape shows pronounced rotation into Cloud Computing (SKYY, score 95.37) and Eurozone equities (FEZ, score 87.5 at a 63-bar score high), alongside emerging momentum in Medical Devices (IHI, 20-bar score change 57.22). Conversely, persistent relative strength deterioration is confirmed in Utilities (XLU, score 12.27), Food & Beverage (PBJ, score 5.93 at a 63-bar score low), and Residential Real Estate (REZ, score 20.56 at a 63-bar score low). In style pairs, Large Value (IWD) maintains a PAIR_LEADING signal over Large Growth (IWF) with a 20-bar spread of 3.35 percentage points. Pending raw state changes in Financials (XLF) and Energy (XLE) serve as early warnings awaiting 3-bar confirmation.",
+    "emerging_rotations": [
+      {
+        "ticker": "IHI",
+        "title": "Medical Devices Leadership Emerging in Health Care",
+        "explanation": "IHI holds a confirmed EMERGING trend state with a rotation score of 80.19, reflecting a 5-bar score change of 33.52 and a 20-bar score change of 57.22. Relative strength is positive across horizons at 9.53 percentage points over 20 bars and 9.79 percentage points over 63 bars, reaching a 63-bar score high of 80.19.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLV",
+          "IHF"
+        ]
+      },
+      {
+        "ticker": "XLB",
+        "title": "U.S. Materials Displays Short-Term Relative Strength Improvement",
+        "explanation": "XLB is confirmed in an EMERGING state with a score of 76.36 and a 20-bar score change of 41.82 (5-bar score change of -0.0). Its relative strength evidence is divergent across horizons, with positive 20-bar relative strength of 1.92 percentage points conflicting with negative 63-bar relative strength of -3.56 percentage points.",
+        "confidence": "medium",
+        "related_tickers": [
+          "MXI",
+          "XME"
+        ]
+      }
+    ],
+    "accelerating_rotations": [
+      {
+        "ticker": "IXJ",
+        "title": "Global Health Care Gains Momentum",
+        "explanation": "IXJ is confirmed in an ACCELERATING trend state with a score of 86.5, backed by a 5-bar score change of 26.5 and a 20-bar score change of 6.0. Relative strength is aligned across horizons with 2.8 percentage points over 20 bars and 7.18 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLV",
+          "IHI"
+        ]
+      },
+      {
+        "ticker": "IWD",
+        "title": "Large-Cap Value Shows Relative Strength Advantage Over Growth",
+        "explanation": "IWD holds a confirmed ACCELERATING state with a score of 63.64 and a 20-bar score change of 16.27 (5-bar score change of -0.46). In its direct PAIR relationship against paired ticker IWF, IWD exhibits a confirmed PAIR_LEADING signal with a 20-bar pair spread of 3.35 percentage points and a 63-bar pair spread of 9.23 percentage points, while carrying a pending early-warning raw state of EMERGING (2/3 observations).",
+        "confidence": "high",
+        "related_tickers": [
+          "IWF"
+        ]
+      }
+    ],
+    "persistent_leaders": [
+      {
+        "ticker": "SKYY",
+        "title": "Cloud Computing Holds Top Cross-Sectional Ranking",
+        "explanation": "SKYY maintains its confirmed PERSISTENT_LEADER state with the highest current rotation score of 95.37, driven by a 5-bar score change of 9.26 and a 20-bar score change of 36.67. Relative strength remains strong across horizons at 15.54 percentage points over 20 bars and 23.69 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "IGV",
+          "XLK"
+        ]
+      },
+      {
+        "ticker": "FEZ",
+        "title": "Eurozone Blue Chips Reach 63-Bar Score High",
+        "explanation": "FEZ holds a confirmed PERSISTENT_LEADER state with a score of 87.5, marking a 63-bar score high. It displays a 5-bar score change of 8.75, a 20-bar score change of 40.62, and consistent relative strength of 2.07 percentage points over 20 bars and 5.54 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "EWP",
+          "EWI",
+          "EWQ"
+        ]
+      }
+    ],
+    "reaccelerating_rotations": [],
+    "weakening_rotations": [
+      {
+        "ticker": "XLV",
+        "title": "Health Care Maintains High Score Despite Confirmed Weakening State",
+        "explanation": "XLV is confirmed in a WEAKENING state despite holding a high score of 93.64 with a 5-bar score change of 22.27 and 20-bar score change of 11.36. While 20-bar relative strength is 4.14 percentage points and 63-bar relative strength is 11.16 percentage points, its raw state shows a pending early warning of PERSISTENT_LEADER at 1/3 observations.",
+        "confidence": "medium",
+        "related_tickers": [
+          "IHI",
+          "IHF",
+          "IXJ"
+        ]
+      },
+      {
+        "ticker": "REZ",
+        "title": "Residential Real Estate Scores Hit 63-Bar Low",
+        "explanation": "REZ is in a confirmed WEAKENING state with a rotation score of 20.56, reaching a 63-bar score low. It exhibits a 5-bar score change of -31.11, a 20-bar score change of -50.19, and negative relative strength across horizons (-3.67 percentage points over 20 bars and -2.18 percentage points over 63 bars), with a pending raw state of ROTATION_OUT (1/3 observations).",
+        "confidence": "high",
+        "related_tickers": [
+          "XLRE",
+          "VNQ"
+        ]
+      }
+    ],
+    "rotation_out": [
+      {
+        "ticker": "PBJ",
+        "title": "Food & Beverage Reaches 63-Bar Score Low and CMF Extreme",
+        "explanation": "PBJ is confirmed in a ROTATION_OUT state with a score of 5.93, marking a 63-bar score low alongside a 20-bar CMF extreme of -0.738. It exhibits a 5-bar score change of -12.96, a 20-bar score change of -21.3, and uniform negative relative strength of -4.07 percentage points over 20 bars and -7.45 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLP",
+          "KXI"
+        ]
+      },
+      {
+        "ticker": "XLC",
+        "title": "Communication Services Confirmed in Rotation Out at 63-Bar Score Low",
+        "explanation": "XLC carries a confirmed ROTATION_OUT trend state with a rotation score of 12.27, representing a 63-bar score low. The decline is evidenced by a 5-bar score change of -17.73, a 20-bar score change of -28.18, and negative relative strength of -5.15 percentage points over 20 bars and -9.55 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "IYZ",
+          "IXP"
+        ]
+      }
+    ],
+    "geographic_rotations": [
+      {
+        "ticker": "EWD",
+        "title": "Sweden Leads European Short-Term Improvement",
+        "explanation": "EWD exhibits a confirmed EMERGING state with a score of 79.51, supported by a 5-bar score change of 8.9 and a 20-bar score change of 24.02. Relative strength is positive across horizons at 1.41 percentage points over 20 bars and 1.08 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "FEZ",
+          "EDEN"
+        ]
+      },
+      {
+        "ticker": "EWZ",
+        "title": "Brazil Deteriorates Within Emerging Markets",
+        "explanation": "EWZ is confirmed in a WEAKENING state with a rotation score of 20.24, experiencing a 5-bar score change of -26.1 and a 20-bar score change of -49.02. Relative strength is negative on both horizons (-8.38 percentage points over 20 bars and -15.56 percentage points over 63 bars), with a pending raw state of ROTATION_OUT at 2/3 observations.",
+        "confidence": "high",
+        "related_tickers": [
+          "ILF",
+          "EEM"
+        ]
+      }
+    ],
+    "pair_relationships": [
+      {
+        "ticker": "RSP",
+        "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted SPY Across Horizons",
+        "explanation": "RSP is confirmed in a NEUTRAL trend state with a score of 58.47 and a 20-bar score change of 15.41 (5-bar score change of -0.3). In its direct PAIR evaluation against paired ticker SPY, RSP shows a confirmed PAIR_LEADING signal with a positive 20-bar pair spread of 1.33 percentage points and a positive 63-bar pair spread of 3.83 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "SPY"
+        ]
+      },
+      {
+        "ticker": "IWF",
+        "title": "Large-Cap Growth Lags Value Pair",
+        "explanation": "IWF holds a confirmed NEUTRAL trend state with a score of 17.47, a 5-bar score change of -11.87, and a 20-bar score change of -24.72. In its PAIR relationship against paired ticker IWD, IWF displays a confirmed PAIR_LAGGING signal with a -3.35 percentage point 20-bar pair spread and a -9.23 percentage point 63-bar pair spread, alongside a pending raw state of ROTATION_OUT (2/3 observations).",
+        "confidence": "high",
+        "related_tickers": [
+          "IWD"
+        ]
+      }
+    ],
+    "cross_market_confirmations": [
+      "In Information Technology, software thematic leadership (SKYY with score 95.37, IGV with score 85.65) aligns with broader sector score improvement in XLK (20-bar score change of 25.45).",
+      "European regional strength in FEZ (score 87.5) is confirmed by persistent single-country leadership in Poland (EPOL score 86.1) and Italy (EWI score 79.02).",
+      "Breadth participation is supported by equal-weight outperformance, as RSP maintains a PAIR_LEADING signal against SPY with a 20-bar spread of 1.33 percentage points and 63-bar spread of 3.83 percentage points."
+    ],
+    "risks_or_conflicts": [
+      "Health Care sector divergence: Medical Devices (IHI) improved with a 20-bar score change of 57.22, while Health Care Providers (IHF) deteriorated with a 20-bar score change of -38.15.",
+      "Communication Services sector divergence: Telecom (IYZ) improved with a 20-bar score change of 45.37, whereas Global Communication Services (IXP) deteriorated with a 20-bar score change of -43.0.",
+      "Information Technology sector divergence: Software (IGV) improved with a 20-bar score change of 37.87, while Semiconductors (SMH) deteriorated with a 20-bar score change of -20.37.",
+      "Industrials sector divergence: Aerospace & Defense (ITA) improved with a 20-bar score change of 24.81, while Transportation (IYT) deteriorated with a 20-bar score change of -24.63.",
+      "Consumer Staples sector divergence: U.S. Consumer Staples (XLP) improved with a 20-bar score change of 21.36, whereas Food & Beverage (PBJ) deteriorated with a 20-bar score change of -21.3.",
+      "Consumer Discretionary sector divergence: Global Consumer Discretionary (RXI) improved with a 20-bar score change of 22.5, while Retail (XRT) deteriorated with a 20-bar score change of -19.26.",
+      "Pair-state tension for REET vs XLRE: Global REITs (REET) carries a confirmed WEAKENING state with a 20-bar score change of -28.66, yet maintains a confirmed PAIR_LEADING signal versus paired ticker XLRE due to a positive 63-bar pair spread of 1.79 percentage points despite lagging over 20 bars by -0.1 percentage points."
+    ],
+    "dashboard_focus_tickers": [
+      "SKYY",
+      "FEZ",
+      "IHI",
+      "XLV",
+      "PBJ",
+      "XLC",
+      "REZ",
+      "EDEN",
+      "IWD",
+      "IWF",
+      "RSP",
+      "IXJ",
+      "XLB",
+      "EWD",
+      "EWZ"
+    ],
+    "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
+  }
+}

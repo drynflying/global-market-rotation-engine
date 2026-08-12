@@ -1,0 +1,24 @@
+{
+  "status": "ok",
+  "model_version": "WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12",
+  "shadow_only": true,
+  "dashboard_effect": "none",
+  "capture": {
+    "status": "not_due",
+    "recommendation_date": "2026-08-12",
+    "week_ending_date": "2026-08-14",
+    "gate_reason": "not_weekly_capture_window",
+    "action_count": 0,
+    "appended_rows": 0
+  },
+  "outcomes": {
+    "action_rows": 0,
+    "matured_21": 0,
+    "matured_63": 0,
+    "matured_84": 0,
+    "matured_126": 0
+  },
+  "history_file": "weekly_recommendation_shadow_history.csv",
+  "outcomes_file": "weekly_recommendation_shadow_outcomes.csv",
+  "latest_file": "weekly_recommendation_shadow_latest.json"
+}
