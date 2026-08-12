@@ -1,0 +1,75 @@
+name: 10-Year Market Data Backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      backtest_years:
+        description: "Years reserved for the actual backtest"
+        required: true
+        default: "10"
+      warmup_years:
+        description: "Extra calendar years downloaded before the backtest for indicator warm-up"
+        required: true
+        default: "1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: market-rotation-10y-backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    env:
+      BACKFILL_YEARS: ${{ inputs.backtest_years }}
+      BACKFILL_WARMUP_YEARS: ${{ inputs.warmup_years }}
+      BACKFILL_BATCH_SIZE: "25"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download historical OHLCV
+        run: python -m src.backfill_10y
+
+      - name: Show backfill summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path("backtest_data/backfill_summary.json")
+          summary = json.loads(p.read_text())
+          print(json.dumps({
+              "requested_start_date": summary["requested_start_date"],
+              "overall_earliest_date": summary["overall_earliest_date"],
+              "overall_latest_date": summary["overall_latest_date"],
+              "configured_symbols": summary["configured_symbols"],
+              "symbols_with_data": summary["symbols_with_data"],
+              "failed_symbols": summary["failed_symbols"],
+              "total_rows": summary["total_rows"],
+          }, indent=2))
+          PY
+
+      - name: Upload 10-year OHLCV artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-rotation-10y-ohlcv-${{ github.run_id }}
+          path: backtest_data/
+          if-no-files-found: error
+          retention-days: 30
