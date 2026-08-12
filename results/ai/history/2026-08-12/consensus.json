@@ -19,7 +19,51 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Health Care Sector Score Moderates Despite Top Rank",
+          "title": "US Health Care Sector In Confirmed Weakening Trend",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "XLE",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "US Energy Sector Emerging Signal",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "XLB",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "Materials Sector Displays Emerging Improvement",
           "confidence": "medium"
         }
       ]
@@ -41,7 +85,7 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Biotechnology Shows Reaccelerating Improvement",
+          "title": "Biotechnology Reaccelerates Following Recent Pullback",
           "confidence": "medium"
         }
       ]
@@ -63,7 +107,29 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Cloud Computing Retains Strong Persistent Leadership",
+          "title": "Cloud Computing Maintains Top Group Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "RSP",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted SPY",
           "confidence": "high"
         }
       ]
@@ -85,7 +151,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Global REITs Leading Signal Shows Horizon Tension vs US REITs",
+          "title": "Global REITs Retain Long-Horizon Spread Lead over XLRE",
           "confidence": "medium"
         }
       ]
@@ -107,29 +173,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Food & Beverage Shows Severe Sub-Group Lag",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IYZ",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "Telecommunications Rotation Gains Momentum",
+          "title": "Food & Beverage Enters Rotation Out Zone",
           "confidence": "high"
         }
       ]
@@ -151,7 +195,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Global Communication Services Reaches Score Low",
+          "title": "Global Communication Services In Severe Rotation Out State",
           "confidence": "high"
         }
       ]
@@ -173,13 +217,13 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Medical Devices Shows Rapid Emerging Leadership",
+          "title": "Medical Devices Shows Strong Emerging Momentum",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "IGV",
+      "ticker": "FEZ",
       "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
@@ -195,13 +239,13 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Software Sustains Top-Tier Industry Rank",
+          "title": "Eurozone Blue Chips Sustain Regional Leadership",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "GREK",
+      "ticker": "EWZ",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -217,29 +261,7 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Greece Industry Lead Softens to Confirmed Weakening State",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "FEZ",
-      "dominant_assessment": "GEOGRAPHIC",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "GEOGRAPHIC": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "Eurozone Blue Chips Lead Regional Grouping",
+          "title": "Brazil Equity Relative Leadership Weakens",
           "confidence": "high"
         }
       ]
@@ -261,8 +283,30 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "Poland Maintains Country-Level Relative Leadership",
+          "title": "Poland Sustains Strong Single-Country Leadership",
           "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "AFK",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Africa Emerging Trend Displays Split RS Horizons",
+          "confidence": "medium"
         }
       ]
     },
@@ -284,13 +328,13 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "U.S. Large-Cap Value Accelerates vs Growth",
+          "title": "US Large Cap Value Accelerates Relative Leadership",
           "confidence": "high"
         },
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Large-Cap Value Extends Lead Over Large-Cap Growth",
+          "title": "US Large Cap Value Leads Growth Pair",
           "confidence": "high"
         }
       ]

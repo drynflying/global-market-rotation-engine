@@ -30,8 +30,7 @@
       "attempt_count": 2,
       "retry_used": true,
       "first_attempt_errors": [
-        "accelerating_rotations[0]: PAIR finding for IWD must name paired ticker IWF",
-        "accelerating_rotations[0]: PAIR finding for IWD uses generic benchmark language but paired ticker is IWF"
+        "mixed-horizon disclosure: cross_market_confirmations[1] for IXC must name both 20-bar and 63-bar relative-strength horizons"
       ]
     }
   }
