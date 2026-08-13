@@ -2,7 +2,7 @@
   "provider": "gemini",
   "status": "validation_error",
   "model": "gemini-3.6-flash",
-  "error": "AIOutputValidationError: AI output failed deterministic validation: accelerating_rotations[1]: PAIR finding for IWD must name paired ticker IWF; accelerating_rotations[1]: PAIR finding for IWD uses generic benchmark language but paired ticker is IWF",
+  "error": "AIOutputValidationError: AI output failed deterministic validation: accelerating_rotations[1]: PAIR finding for IWD must name paired ticker IWF; mixed-horizon disclosure: risks_or_conflicts[4] for IYT must name both 20-bar and 63-bar relative-strength horizons",
   "validation": {
     "status": "failed",
     "validator_version": "v1.2.8",
@@ -10,7 +10,7 @@
     "retry_used": true,
     "errors": [
       "accelerating_rotations[1]: PAIR finding for IWD must name paired ticker IWF",
-      "accelerating_rotations[1]: PAIR finding for IWD uses generic benchmark language but paired ticker is IWF"
+      "mixed-horizon disclosure: risks_or_conflicts[4] for IYT must name both 20-bar and 63-bar relative-strength horizons"
     ]
   },
   "analysis": null
