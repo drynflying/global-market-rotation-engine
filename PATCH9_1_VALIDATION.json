@@ -1,0 +1,24 @@
+{
+  "patch": "9.1",
+  "purpose": "Harden AI retry grounding for PAIR findings and clean public fallback diagnostics.",
+  "files_replaced": [
+    "src/ai/prompt.py",
+    "src/ai/run_analysis.py",
+    "src/ai/fallback.py",
+    "src/build_dashboard.py"
+  ],
+  "validator_changed": false,
+  "scoring_changed": false,
+  "patch7_changed": false,
+  "patch8_changed": false,
+  "patch9_schedule_changed": false,
+  "checks": {
+    "python_syntax": "passed",
+    "exact_validator_errors_forwarded_to_retry": "passed",
+    "pair_retry_rules_explicit": "passed",
+    "raw_exception_removed_from_fallback_summary": "passed",
+    "raw_exception_removed_from_public_provider_card": "passed",
+    "fallback_does_not_leak_test_exception": "passed",
+    "patch8_1_dashboard_baseline_preserved": "passed"
+  }
+}

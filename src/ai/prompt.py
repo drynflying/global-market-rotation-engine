@@ -132,9 +132,21 @@ def build_prompt(payload: dict, correction_instructions: str | None = None) -> s
             "cite BOTH exact supplied values and describe the evidence as mixed. "
             "Treat state as confirmed and raw_state only as a pending condition; "
             "never promote a pending raw state into a confirmed category. "
+            "PAIR RETRY RULES ARE MANDATORY: for every finding whose ticker has "
+            "score_mode=PAIR, read that ticker's exact paired_ticker from the supplied "
+            "dataset and explicitly name it in the explanation. Describe the relationship "
+            "as the finding ticker versus that paired_ticker (leading, lagging, or mixed). "
+            "Never substitute generic phrases such as 'the benchmark', 'its benchmark', "
+            "or 'the broader benchmark' for the paired_ticker. Do not call the paired "
+            "security a benchmark unless the supplied pair definition explicitly identifies "
+            "the relationship as a benchmark comparison. Re-check PAIR grounding in EVERY "
+            "finding category, not only pair_relationships. "
             "Ensure risks_or_conflicts covers every supplied sector_divergence "
             "and pair_state_tension. "
-            "Do not repeat validator wording verbatim.\n"
+            "The validator errors below are precise grounding requirements; fix every one "
+            "without changing deterministic values. Do not merely delete the affected "
+            "finding when it can be corrected from supplied data. "
+            "Do not repeat validator wording verbatim in the final response.\n"
             + correction_instructions.strip()
         )
 

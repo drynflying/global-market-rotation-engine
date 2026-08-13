@@ -515,6 +515,16 @@ def build_dashboard(
         model = result.get("model") or "—"
         err = result.get("error")
         validation = result.get("validation") or {}
+        if status == "validation_error":
+            public_provider_message = (
+                "AI response did not pass deterministic grounding checks and was withheld."
+            )
+        elif status == "error":
+            public_provider_message = (
+                "Provider did not return a usable response for this run."
+            )
+        else:
+            public_provider_message = ""
         validation_status = validation.get("status")
         validation_version = validation.get("validator_version")
         validation_line = ""
@@ -542,7 +552,7 @@ def build_dashboard(
               </div>
               <div class="muted small">{html.escape(str(model))}</div>
               {validation_line}
-              {f'<div class="muted small">{html.escape(str(err))}</div>' if err else ''}
+              {f'<div class="muted small">{html.escape(public_provider_message)}</div>' if public_provider_message else ''}
             </div>
             """
         )

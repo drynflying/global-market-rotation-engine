@@ -80,13 +80,16 @@ def run_ai_analysis(payload: dict) -> dict:
                 validation["attempt_count"] = 1
                 validation["retry_used"] = False
             except AIOutputValidationError as first_exc:
+                # Give the retry the exact deterministic failures.  The previous
+                # implementation reduced each error to only its field/category prefix
+                # (for example "accelerating_rotations[1]"), which removed the actual
+                # grounding requirement such as the required paired ticker.
+                exact_errors = list(dict.fromkeys(first_exc.errors))
                 correction = (
-                    "Revise the response so it passes these categories of checks:\n"
-                    + "\n".join(
-                        f"- {error.split(':', 1)[0]}"
-                        if ":" in error else "- metric horizon precision"
-                        for error in first_exc.errors
-                    )
+                    "The prior response failed deterministic grounding validation. "
+                    "Correct every item below using only the supplied payload. "
+                    "Preserve all deterministic values and confirmed states.\n"
+                    + "\n".join(f"- {error}" for error in exact_errors[:30])
                 )
                 analysis, model = module.analyze(
                     payload,

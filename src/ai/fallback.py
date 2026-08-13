@@ -102,8 +102,16 @@ def build_fallback_analysis(payload: dict, reason: str) -> dict:
         "headline": "Quantitative rotation dashboard",
         "market_regime": "AI interpretation unavailable",
         "executive_summary": (
-            "The dashboard is using deterministic rotation calculations only. "
-            f"AI was not used for this run: {reason}"
+            "The quantitative dashboard remains available using deterministic rotation "
+            "calculations. "
+            + (
+                "No AI provider was enabled for this run."
+                if str(reason).startswith("no AI providers were enabled")
+                else
+                "AI interpretation was withheld because no requested provider produced "
+                "output that passed the required grounding checks. The underlying "
+                "quantitative calculations are unaffected."
+            )
         ),
         "emerging_rotations": emerging,
         "accelerating_rotations": accelerating,
