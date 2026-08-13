@@ -19,7 +19,7 @@
       "retry_used": true,
       "errors": [
         "accelerating_rotations[1]: PAIR finding for IWD must name paired ticker IWF",
-        "accelerating_rotations[1]: PAIR finding for IWD uses generic benchmark language but paired ticker is IWF"
+        "mixed-horizon disclosure: risks_or_conflicts[4] for IYT must name both 20-bar and 63-bar relative-strength horizons"
       ]
     }
   }
