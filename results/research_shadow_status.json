@@ -9,9 +9,9 @@
     "skipped_existing_rows": 107,
     "patch6_top20_rows": 26,
     "universal_low_trust_rows": 19,
-    "universal_veto_rows": 2,
+    "universal_veto_rows": 4,
     "challenger_low_trust_rows": 19,
-    "challenger_veto_rows": 2
+    "challenger_veto_rows": 4
   },
   "outcomes": {
     "prediction_rows": 214,
