@@ -3,24 +3,32 @@
   "requested_providers": [
     "gemini"
   ],
-  "successful_providers": [],
-  "failed_providers": [
+  "successful_providers": [
     "gemini"
   ],
-  "primary_provider": "deterministic_fallback",
-  "provider_status": "fallback",
-  "provider_models": {},
+  "failed_providers": [],
+  "primary_provider": "gemini",
+  "provider_status": "ai",
+  "provider_models": {
+    "gemini": "gemini-3.6-flash"
+  },
   "ai_validator_version": "v1.2.8",
   "provider_validation": {
     "gemini": {
-      "status": "failed",
+      "status": "passed",
       "validator_version": "v1.2.8",
-      "attempt_count": 2,
-      "retry_used": true,
-      "errors": [
-        "accelerating_rotations[1]: PAIR finding for IWD must name paired ticker IWF",
-        "mixed-horizon disclosure: risks_or_conflicts[4] for IYT must name both 20-bar and 63-bar relative-strength horizons"
-      ]
+      "checks": {
+        "ticker_grounding": true,
+        "confirmed_state_category_consistency": true,
+        "pair_semantics": true,
+        "language_guardrails": true,
+        "numeric_evidence": true,
+        "horizon_precision": true,
+        "mixed_horizon_disclosure": true,
+        "deterministic_conflict_coverage": true
+      },
+      "attempt_count": 1,
+      "retry_used": false
     }
   }
 }

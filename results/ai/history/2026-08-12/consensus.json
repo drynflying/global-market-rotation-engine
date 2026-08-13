@@ -1,7 +1,308 @@
 {
-  "provider_count": 0,
+  "provider_count": 1,
   "mode": "single_provider",
-  "items": [],
+  "items": [
+    {
+      "ticker": "XLV",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Health Care Sector Trend Remains Confirmed Weakening",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "XLB",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "U.S. Materials Displays Short-Term Strength Across Divergent Horizons",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "XBI",
+      "dominant_assessment": "REACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "REACCELERATING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "REACCELERATING",
+          "title": "Biotechnology Reaccelerates Following Recent Pullback",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "SKYY",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Cloud Computing Retains Top Cross-Sectional Score Rank",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "RSP",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Equal Weight Leads Cap Weight in U.S. Broad Market",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "PBJ",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Food & Beverage Remains Suppressed in Bottom Score Decile",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IXP",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Global Communications Reaches 63-Bar Score Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IXJ",
+      "dominant_assessment": "ACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ACCELERATING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ACCELERATING",
+          "title": "Global Health Care Accelerates Across Both Horizons",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IHI",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "Medical Devices Surge to 63-Bar Score High",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWZ",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Brazil Deteriorates Toward Potential Exit Condition",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "AFK",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Africa Exhibits Emerging Regional Improvement at Score Extreme",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "IWD",
+      "dominant_assessment": "ACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ACCELERATING": 1,
+        "PAIR": 1
+      },
+      "conflict": true,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ACCELERATING",
+          "title": "U.S. Large-Cap Value Accelerates Relative Leadership",
+          "confidence": "high"
+        },
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Value Maintains Pair Leadership Over Growth",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "FEZ",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1,
+        "GEOGRAPHIC": 1
+      },
+      "conflict": true,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Eurozone Blue Chips Maintain Regional Dominance",
+          "confidence": "high"
+        },
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Eurozone Outperforms Broad Developed Markets",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
   "strong_consensus": [],
   "disagreements": []
 }
