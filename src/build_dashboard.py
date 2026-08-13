@@ -178,6 +178,30 @@ def build_dashboard(
     cross_scored = scored[scored["score_mode"].eq("CROSS_SECTIONAL")].copy()
     pair_scored = scored[scored["score_mode"].eq("PAIR")].copy()
 
+    # Cross-asset watch rows are deliberately REFERENCE / non-ranked instruments.
+    # They are evaluated independently versus their configured primary benchmark
+    # (currently SPY) and never enter the 0-100 peer score or recommendation models.
+    cross_asset_watch = latest[
+        latest["score_mode"].eq("REFERENCE")
+        & latest["universe"].astype(str).str.upper().eq("CROSS_ASSET")
+    ].copy()
+    preferred_cross_asset_order = {
+        "GLD": 0,
+        "SLV": 1,
+        "URA": 2,
+        "CPER": 3,
+        "REMX": 4,
+    }
+    if not cross_asset_watch.empty:
+        cross_asset_watch["_display_order"] = (
+            cross_asset_watch["ticker"].astype(str).str.upper()
+            .map(preferred_cross_asset_order)
+            .fillna(1000)
+        )
+        cross_asset_watch = cross_asset_watch.sort_values(
+            ["_display_order", "ticker"]
+        )
+
     # Deterministic attention flags are calculated entirely in Python.
     # They are intentionally separate from AI-selected commentary so that
     # extreme or conflicting quantitative conditions cannot be omitted.
@@ -317,6 +341,19 @@ def build_dashboard(
             for d, s in zip(g["date"], g["rotation_score"])
         ]
 
+    # For cross-asset watch rows, chart 63-bar relative strength versus the
+    # configured primary benchmark rather than a rotation score.
+    cross_asset_series = {}
+    for ticker in cross_asset_watch["ticker"].astype(str).tolist():
+        g = history[
+            (history["ticker"] == ticker)
+            & history["rs63"].notna()
+        ].sort_values("date").tail(63)
+        cross_asset_series[ticker] = [
+            {"date": d.strftime("%Y-%m-%d"), "rs63": round(float(v) * 100.0, 2)}
+            for d, v in zip(g["date"], g["rs63"])
+        ]
+
     latest_json = latest.replace({np.nan: None}).to_dict(orient="records")
     (DOCS_DATA_DIR / "rotation_latest.json").write_text(
         json.dumps(latest_json, default=str, indent=2),
@@ -367,6 +404,119 @@ def build_dashboard(
             f"<span class='badge {_pair_class(confirmed)}'>{html.escape(confirmed)}</span>"
             f"{pending_html}"
         )
+
+    def _relative_posture(rs20, rs63):
+        if pd.isna(rs20) or pd.isna(rs63):
+            return "MIXED", "neutral"
+        if rs20 > 0 and rs63 > 0:
+            return "LEADING", "good"
+        if rs20 > 0 and rs63 <= 0:
+            return "IMPROVING", "good2"
+        if rs20 < 0 and rs63 >= 0:
+            return "WEAKENING", "warn"
+        if rs20 < 0 and rs63 < 0:
+            return "LAGGING", "bad"
+        return "MIXED", "neutral"
+
+    def _price_trend(r):
+        close = r.get("close")
+        sma50 = r.get("sma50")
+        sma200 = r.get("sma200")
+        if any(pd.isna(v) for v in [close, sma50, sma200]):
+            return "—", "neutral"
+        if close > sma50 > sma200:
+            return "BULLISH", "good"
+        if close < sma50 < sma200:
+            return "BEARISH", "bad"
+        if close > sma50 and sma50 <= sma200:
+            return "IMPROVING", "good2"
+        if close < sma50 and sma50 >= sma200:
+            return "WEAKENING", "warn"
+        return "MIXED", "neutral"
+
+    def _cross_asset_type(r):
+        ticker = str(r.get("ticker") or "").upper()
+        explicit = {
+            "GLD": "Bullion",
+            "SLV": "Bullion",
+            "CPER": "Futures",
+            "URA": "Producer / industry equities",
+            "REMX": "Producer / strategic-metals equities",
+        }
+        return explicit.get(ticker, str(r.get("level") or "Reference asset").replace("_", " ").title())
+
+    def cross_asset_cards(frame):
+        cards = []
+        for _, r in frame.iterrows():
+            ticker = str(r.get("ticker") or "").upper()
+            exposure = str(r.get("exposure") or ticker)
+            benchmark = str(r.get("primary_benchmark") or "SPY").upper()
+            posture, posture_class = _relative_posture(r.get("rs20"), r.get("rs63"))
+            price_trend, price_class = _price_trend(r)
+            data_status = str(r.get("data_status") or "")
+            status_html = ""
+            if data_status and data_status.upper() not in {"OK", "READY"}:
+                status_html = (
+                    f"<div class='cross-asset-status warn'>Data: "
+                    f"{html.escape(data_status)}</div>"
+                )
+            cards.append(
+                f"""
+                <article class="cross-asset-card">
+                  <div class="cross-asset-head">
+                    <div>
+                      <div class="cross-asset-ticker">{html.escape(ticker)}</div>
+                      <div class="cross-asset-name">{html.escape(exposure)}</div>
+                    </div>
+                    <span class="badge {posture_class}">{html.escape(posture)}</span>
+                  </div>
+                  <div class="cross-asset-meta">
+                    {html.escape(_cross_asset_type(r))} · vs {html.escape(benchmark)}
+                  </div>
+                  {status_html}
+                  <div class="cross-asset-metrics">
+                    <div><span>20-bar RS</span><strong>{_fmt(r.get('rs20') * 100 if pd.notna(r.get('rs20')) else None, 1, '%')}</strong></div>
+                    <div><span>63-bar RS</span><strong>{_fmt(r.get('rs63') * 100 if pd.notna(r.get('rs63')) else None, 1, '%')}</strong></div>
+                    <div><span>CMF20</span><strong>{_fmt(r.get('cmf20'), 3)}</strong></div>
+                    <div><span>Price trend</span><strong class="{price_class}">{html.escape(price_trend)}</strong></div>
+                  </div>
+                  <div class="cross-asset-chart" data-cross-asset="{html.escape(ticker)}"></div>
+                </article>
+                """
+            )
+        return "".join(cards)
+
+    if cross_asset_watch.empty:
+        cross_asset_section_html = """
+        <section class="cross-asset-section">
+          <div class="cross-asset-section-head">
+            <div>
+              <div class="cross-asset-eyebrow">Reference watchlist · not peer ranked</div>
+              <h2>Cross-Asset Signals vs SPY</h2>
+            </div>
+          </div>
+          <div class="cross-asset-empty">No CROSS_ASSET reference rows are available in the latest dataset.</div>
+        </section>
+        """
+    else:
+        cross_asset_section_html = f"""
+        <section class="cross-asset-section">
+          <div class="cross-asset-section-head">
+            <div>
+              <div class="cross-asset-eyebrow">Reference watchlist · not peer ranked</div>
+              <h2>Cross-Asset Signals vs SPY</h2>
+            </div>
+            <div class="cross-asset-count">{len(cross_asset_watch)} tracked</div>
+          </div>
+          <div class="cross-asset-note">
+            Each asset is evaluated independently against its configured SPY benchmark.
+            These rows do not receive a 0–100 peer rotation score, do not affect the
+            111 scored-signal universe, and are excluded from Path Risk and weekly
+            FAVOR/AVOID selection.
+          </div>
+          <div class="cross-asset-grid">{cross_asset_cards(cross_asset_watch)}</div>
+        </section>
+        """
 
     def rows(frame):
         result = []
@@ -685,6 +835,51 @@ h3 {{ font-size:14px; color:var(--muted); }}
 .weekly-empty strong {{ color:var(--text); display:block; margin-bottom:4px; }}
 .weekly-committee {{ margin-top:12px; color:var(--muted); line-height:1.45; }}
 .weekly-disclaimer {{ margin-top:12px; color:var(--muted); font-size:11px; line-height:1.4; }}
+.cross-asset-section {{
+  margin:22px 0 26px;
+}}
+.cross-asset-section-head {{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+}}
+.cross-asset-section h2 {{ margin:4px 0 0; font-size:20px; }}
+.cross-asset-eyebrow {{
+  color:var(--accent); font-size:12px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em;
+}}
+.cross-asset-count {{ color:var(--muted); font-size:12px; padding-top:5px; }}
+.cross-asset-note {{
+  color:var(--muted); font-size:12px; line-height:1.45; margin:10px 0 12px;
+}}
+.cross-asset-grid {{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;
+}}
+.cross-asset-card {{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:14px; min-width:0;
+}}
+.cross-asset-head {{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }}
+.cross-asset-ticker {{ font-size:18px; font-weight:800; }}
+.cross-asset-name {{ color:var(--text); font-size:13px; margin-top:2px; }}
+.cross-asset-meta {{ color:var(--muted); font-size:11px; margin-top:6px; }}
+.cross-asset-status {{ font-size:11px; margin-top:6px; }}
+.cross-asset-metrics {{
+  display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0 8px;
+}}
+.cross-asset-metrics div {{
+  border:1px solid var(--line); border-radius:9px; padding:8px; background:var(--panel2);
+}}
+.cross-asset-metrics span {{ display:block; color:var(--muted); font-size:10px; }}
+.cross-asset-metrics strong {{ display:block; margin-top:3px; font-size:13px; }}
+.cross-asset-chart {{ min-height:98px; margin-top:4px; }}
+.cross-asset-spark {{ width:100%; height:80px; }}
+.cross-asset-legend {{
+  display:flex; justify-content:space-between; gap:6px; color:var(--muted);
+  font-size:10px; margin-top:2px;
+}}
+.cross-asset-empty {{
+  margin-top:12px; padding:14px; border:1px dashed var(--line); border-radius:12px;
+  color:var(--muted); background:var(--panel);
+}}
 .ai-summary {{
   background:var(--panel); border:1px solid var(--line); border-radius:14px;
   padding:18px; margin-top:18px;
@@ -737,8 +932,8 @@ th {{ color:var(--muted); font-size:13px; }}
 .pending-line {{ margin-top:5px; color:var(--muted); font-size:11px; line-height:1.25; }}
 .trend-rule {{ margin:10px 0 18px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:var(--panel2); color:var(--muted); font-size:12px; }}
 @media (max-width:800px) {{
-  .grid,.mini-grid,.chart-grid,.providers,.split,.attention-grid,.weekly-actions {{ grid-template-columns:1fr; }}
-  .weekly-panel-head,.weekly-action-head {{ flex-direction:column; align-items:flex-start; }}
+  .grid,.mini-grid,.chart-grid,.providers,.split,.attention-grid,.weekly-actions,.cross-asset-grid {{ grid-template-columns:1fr; }}
+  .weekly-panel-head,.weekly-action-head,.cross-asset-section-head {{ flex-direction:column; align-items:flex-start; }}
   .weekly-next {{ text-align:left; }}
   main {{ padding:14px; }}
   .table-wrap {{ overflow-x:auto; }}
@@ -767,6 +962,8 @@ th {{ color:var(--muted); font-size:13px; }}
   </div>
 
   {weekly_recommendation_html}
+
+  {cross_asset_section_html}
 
   {ai_cards('emerging_rotations','Emerging rotations')}
   {ai_cards('accelerating_rotations','Accelerating rotations')}
@@ -886,12 +1083,42 @@ th {{ color:var(--muted); font-size:13px; }}
   </section>
 
   <p class="muted" style="margin-top:30px">
-    Quantitative scores are deterministic comparative indicators. Confirmed trend states use a 3-observation persistence rule; raw conditions remain available as early warnings. AI commentary interprets supplied values and confirmed states; it does not calculate or alter them. Weekly high-conviction actions are a prospective shadow layer and Evidence Confidence is not a calibrated probability of success.
+    Quantitative scores are deterministic comparative indicators. Confirmed trend states use a 3-observation persistence rule; raw conditions remain available as early warnings. Cross-asset reference signals are displayed independently versus their configured benchmark and are not peer ranked. AI commentary interprets supplied values and confirmed states; it does not calculate or alter them. Weekly high-conviction actions are a prospective shadow layer and Evidence Confidence is not a calibrated probability of success.
   </p>
 </main>
 
 <script>
 const series = {json.dumps(series)};
+const crossAssetSeries = {json.dumps(cross_asset_series)};
+
+function makeRelativeSparkline(points) {{
+  const width = 360, height = 80, pad = 7;
+  const vals = points.map(p => p.rs63).filter(v => Number.isFinite(v));
+  if (vals.length < 2) return '<div class="muted small">Not enough relative-strength history.</div>';
+  const rawMin = Math.min(...vals, 0), rawMax = Math.max(...vals, 0);
+  const extra = Math.max((rawMax - rawMin) * 0.08, 0.25);
+  const min = rawMin - extra, max = rawMax + extra;
+  const span = Math.max(max - min, 0.5);
+  const zeroY = height-pad - (0-min) * (height-2*pad) / span;
+  const xy = vals.map((v,i) => {{
+    const x = pad + i * (width-2*pad) / Math.max(vals.length-1,1);
+    const y = height-pad - (v-min) * (height-2*pad) / span;
+    return `${{x.toFixed(1)}},${{y.toFixed(1)}}`;
+  }}).join(' ');
+  const latest = vals[vals.length-1];
+  return `
+    <svg class="cross-asset-spark" viewBox="0 0 ${{width}} ${{height}}" role="img" aria-label="63-bar relative strength versus benchmark">
+      <line x1="${{pad}}" y1="${{zeroY.toFixed(1)}}" x2="${{width-pad}}" y2="${{zeroY.toFixed(1)}}" stroke="var(--line)" stroke-dasharray="4 3" />
+      <polyline points="${{xy}}" fill="none" stroke="var(--accent)" stroke-width="2.5" />
+    </svg>
+    <div class="cross-asset-legend"><span>63-bar RS history</span><span>0 = benchmark</span><span>latest ${{latest.toFixed(1)}}%</span></div>
+  `;
+}}
+
+document.querySelectorAll('[data-cross-asset]').forEach(el => {{
+  const ticker = el.dataset.crossAsset;
+  el.innerHTML = makeRelativeSparkline(crossAssetSeries[ticker] || []);
+}});
 
 function makeSparkline(points) {{
   const width = 520, height = 120, pad = 8;

@@ -1,0 +1,26 @@
+{
+  "patch": "10",
+  "purpose": "Display CROSS_ASSET REFERENCE rows independently versus SPY without changing production scoring or recommendation eligibility.",
+  "files_replaced": [
+    "src/build_dashboard.py"
+  ],
+  "model_logic_changes": false,
+  "scoring_changes": false,
+  "recommendation_model_changes": false,
+  "ai_changes": false,
+  "schedule_changes": false,
+  "checks": {
+    "python_syntax": "passed",
+    "render_with_five_cross_assets": "passed",
+    "gld_visible": "passed",
+    "slv_visible": "passed",
+    "ura_visible": "passed",
+    "cper_visible": "passed",
+    "remx_visible": "passed",
+    "reference_assets_not_scored": "design preserved",
+    "dynamic_cross_asset_discovery": "passed",
+    "rs63_zero_line_sparkline": "passed",
+    "weekly_patch8_1_ui_preserved": "passed",
+    "patch9_1_clean_fallback_preserved": "passed"
+  }
+}
