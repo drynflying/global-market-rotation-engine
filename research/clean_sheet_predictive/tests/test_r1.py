@@ -8,6 +8,7 @@ import pandas as pd
 from research.clean_sheet_predictive.build_features import build_features
 from research.clean_sheet_predictive.build_outcomes import add_forward_outcomes
 from research.clean_sheet_predictive.split_rules import assert_training_cutoff_integrity, training_rows_as_of
+from research.clean_sheet_predictive.validate_point_in_time import universe_completeness_check
 
 
 class R1Tests(unittest.TestCase):
@@ -65,6 +66,30 @@ class R1Tests(unittest.TestCase):
         train = training_rows_as_of(ds, 63, cutoff)
         assert_training_cutoff_integrity(train, 63, cutoff)
         self.assertTrue((pd.to_datetime(train["outcome_end_date_63"]) <= cutoff).all())
+
+    def test_universe_completeness_fails_when_active_symbol_is_missing(self):
+        raw, _ = self._sample()
+        cfg = pd.DataFrame({
+            "ticker": ["SPY", "AAA", "BBB", "CCC"],
+            "query_symbol": ["SPY", "AAA", "BBB", "CCC"],
+            "enabled": [True, True, True, True],
+            "query_ohlcv": [True, True, True, True],
+        })
+        report = universe_completeness_check(raw, cfg)
+        self.assertEqual(report["status"], "failed")
+        self.assertEqual(report["missing_symbols"], ["CCC"])
+
+    def test_universe_completeness_passes_when_all_active_symbols_exist(self):
+        raw, _ = self._sample()
+        cfg = pd.DataFrame({
+            "ticker": ["SPY", "AAA", "BBB"],
+            "query_symbol": ["SPY", "AAA", "BBB"],
+            "enabled": [True, True, True],
+            "query_ohlcv": [True, True, True],
+        })
+        report = universe_completeness_check(raw, cfg)
+        self.assertEqual(report["status"], "passed")
+        self.assertEqual(report["completeness_ratio"], 1.0)
 
 
 if __name__ == "__main__":

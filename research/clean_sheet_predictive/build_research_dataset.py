@@ -141,6 +141,10 @@ def build_dataset(
         "feature_count": len([c for c in FEATURE_COLUMNS if c in dataset.columns]),
         "outcome_horizons_bars": list(OUTCOME_HORIZONS),
         "validation_status": report["status"],
+        "universe_completeness_status": report["universe_completeness"]["status"],
+        "configured_active_symbols": report["universe_completeness"]["configured_active_symbols"],
+        "symbols_with_data": report["universe_completeness"]["symbols_with_data"],
+        "missing_symbols": report["universe_completeness"]["missing_symbols"],
         "important_note": (
             "Future outcomes are attached for research, but a row is eligible for model training "
             "only after its horizon-specific outcome_end_date has passed. R2/R3 must enforce this "
@@ -149,7 +153,7 @@ def build_dataset(
     }
     (output_dir / "dataset_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     if report["status"] != "ok":
-        raise RuntimeError(f"R1 point-in-time validation failed: {report.get('failures', [])}")
+        raise RuntimeError(f"R1/R1.1 research dataset validation failed: {report.get('failures', [])}")
     return manifest
 
 

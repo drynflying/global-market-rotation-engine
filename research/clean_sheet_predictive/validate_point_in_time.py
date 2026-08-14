@@ -117,6 +117,60 @@ def outcome_alignment_checks(dataset: pd.DataFrame) -> dict:
     return checks
 
 
+
+def universe_completeness_check(
+    raw_ohlcv: pd.DataFrame,
+    config: pd.DataFrame,
+) -> dict:
+    cfg = config.copy()
+    if "enabled" in cfg.columns:
+        enabled = cfg["enabled"].astype(str).str.strip().str.lower().isin(
+            {"true", "1", "yes", "y"}
+        )
+    else:
+        enabled = pd.Series(True, index=cfg.index)
+
+    if "query_ohlcv" in cfg.columns:
+        query_ohlcv = cfg["query_ohlcv"].astype(str).str.strip().str.lower().isin(
+            {"true", "1", "yes", "y"}
+        )
+    else:
+        query_ohlcv = pd.Series(True, index=cfg.index)
+
+    symbol_col = "query_symbol" if "query_symbol" in cfg.columns else "ticker"
+    expected = set(
+        cfg.loc[enabled & query_ohlcv, symbol_col]
+        .fillna("")
+        .astype(str)
+        .str.upper()
+        .str.strip()
+    )
+    expected.discard("")
+
+    actual = set(
+        raw_ohlcv["ticker"]
+        .fillna("")
+        .astype(str)
+        .str.upper()
+        .str.strip()
+    )
+    actual.discard("")
+
+    missing = sorted(expected - actual)
+    unexpected = sorted(actual - expected)
+    return {
+        "status": "passed" if not missing else "failed",
+        "configured_active_symbols": len(expected),
+        "symbols_with_data": len(actual & expected),
+        "completeness_ratio": round(
+            len(actual & expected) / max(len(expected), 1),
+            6,
+        ),
+        "missing_symbols": missing,
+        "unexpected_symbols": unexpected,
+    }
+
+
 def build_validation_report(
     raw_ohlcv: pd.DataFrame,
     config: pd.DataFrame,
@@ -145,6 +199,7 @@ def build_validation_report(
             "latest_date": latest.strftime("%Y-%m-%d"),
             "feature_columns": len(feature_columns_present),
         },
+        "universe_completeness": universe_completeness_check(raw_ohlcv, config),
         "future_mutation_leakage_test": future_mutation_test(raw_ohlcv, config),
         "outcome_alignment": outcome_alignment_checks(dataset),
         "feature_missing_fraction": feature_missing,
@@ -152,6 +207,11 @@ def build_validation_report(
     failures = []
     if report["raw_data"]["duplicate_ticker_date_rows"]:
         failures.append("duplicate ticker/date OHLCV rows")
+    if report["universe_completeness"].get("status") == "failed":
+        failures.append(
+            "active universe incomplete: "
+            + ", ".join(report["universe_completeness"].get("missing_symbols", []))
+        )
     if report["future_mutation_leakage_test"].get("status") == "failed":
         failures.append("future mutation leakage test failed")
     if any(v["missing_end_date_on_matured"] for v in report["outcome_alignment"].values()):

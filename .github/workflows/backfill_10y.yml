@@ -22,12 +22,22 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
 
     env:
       BACKFILL_YEARS: ${{ inputs.backtest_years }}
       BACKFILL_WARMUP_YEARS: ${{ inputs.warmup_years }}
-      BACKFILL_BATCH_SIZE: "25"
+      BACKFILL_BATCH_SIZE: "10"
+      BACKFILL_SECOND_PASS_BATCH_SIZE: "5"
+      BACKFILL_INDIVIDUAL_ATTEMPTS: "3"
+      BACKFILL_SEGMENT_YEARS: "3"
+      BACKFILL_RETRY_BASE_SECONDS: "1"
+      BACKFILL_STAGE_PAUSE_SECONDS: "5"
+      BACKFILL_MIN_BARS: "260"
+      BACKFILL_MIN_COVERAGE_RATIO: "0.85"
+      BACKFILL_MAX_GAP_DAYS: "21"
+      BACKFILL_MAX_STALE_DAYS: "7"
+      BACKFILL_ALLOWED_MISSING: ""
 
     steps:
       - name: Check out repository
@@ -44,19 +54,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Clean-Sheet R1 unit tests
+      - name: Run Clean-Sheet R1/R1.1 unit tests
         run: python -m unittest discover -s research/clean_sheet_predictive/tests -v
 
-      - name: Download historical OHLCV
+      - name: Download reliable historical OHLCV
         run: python -m src.backfill_10y
 
       - name: Show backfill summary
+        if: always()
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
           p = Path("backtest_data/backfill_summary.json")
+          if not p.exists():
+              print("Backfill summary was not produced.")
+              raise SystemExit(0)
+
           summary = json.loads(p.read_text())
           print(json.dumps({
               "requested_start_date": summary["requested_start_date"],
@@ -65,6 +80,10 @@ jobs:
               "configured_symbols": summary["configured_symbols"],
               "symbols_with_data": summary["symbols_with_data"],
               "failed_symbols": summary["failed_symbols"],
+              "failed_symbol_list": summary["failed_symbol_list"],
+              "completeness_ratio": summary["completeness_ratio"],
+              "universe_completeness_status": summary["universe_completeness_status"],
+              "recovered_after_first_bulk_pass_count": summary["recovered_after_first_bulk_pass_count"],
               "total_rows": summary["total_rows"],
           }, indent=2))
           PY
@@ -93,6 +112,7 @@ jobs:
               "analysis_latest_date": manifest["analysis_latest_date"],
               "feature_count": manifest["feature_count"],
               "validation_status": validation["status"],
+              "universe_completeness": validation["universe_completeness"],
               "future_mutation_test": validation["future_mutation_leakage_test"],
               "outcome_alignment": validation["outcome_alignment"],
           }, indent=2))
@@ -106,10 +126,11 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload 10-year OHLCV artifact
+      - name: Upload 10-year OHLCV diagnostics
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: market-rotation-10y-ohlcv-${{ github.run_id }}
           path: backtest_data/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 30

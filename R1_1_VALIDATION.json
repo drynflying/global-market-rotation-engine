@@ -1,0 +1,37 @@
+{
+  "research_patch": "R1.1",
+  "name": "Reliable Historical Data Acquisition",
+  "production_logic_changes": false,
+  "dashboard_changes": false,
+  "predictive_model_changes": false,
+  "purpose": "Recover transient Yahoo/yfinance misses and prevent incomplete universes from entering R2.",
+  "files_replaced": [
+    ".github/workflows/backfill_10y.yml",
+    "src/backfill_10y.py",
+    "research/clean_sheet_predictive/build_research_dataset.py",
+    "research/clean_sheet_predictive/validate_point_in_time.py",
+    "research/clean_sheet_predictive/tests/test_r1.py"
+  ],
+  "files_added": [
+    "research/clean_sheet_predictive/tests/test_r1_1_backfill.py"
+  ],
+  "checks": {
+    "python_syntax": "passed",
+    "local_unit_tests": "passed",
+    "preserves_successful_downloads_across_passes": "covered by test",
+    "missing_symbol_quality_gate": "covered by test",
+    "internal_gap_quality_gate": "covered by test",
+    "r1_universe_completeness_invariant": "passed",
+    "prior_incomplete_r1_artifact_detected": {
+      "status": "failed",
+      "configured_active_symbols": 167,
+      "symbols_with_data": 127,
+      "missing_count": 40
+    },
+    "always_uploads_backfill_diagnostics_on_failure": "workflow configured"
+  },
+  "notes": [
+    "Network access is disabled in the local validation environment, so Yahoo recovery behavior must be verified by the next GitHub Actions run.",
+    "R2 remains blocked unless universe_completeness_status is ok or a genuinely unsupported symbol is explicitly allowlisted after review."
+  ]
+}
