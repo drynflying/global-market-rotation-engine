@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-13",
+  "as_of": "2026-08-14",
   "requested_providers": [
     "gemini"
   ],
@@ -27,11 +27,8 @@
         "mixed_horizon_disclosure": true,
         "deterministic_conflict_coverage": true
       },
-      "attempt_count": 2,
-      "retry_used": true,
-      "first_attempt_errors": [
-        "mixed-horizon disclosure: weakening_rotations[1] for IYT must describe opposite-sign relative-strength horizons as mixed/divergent/conflicting"
-      ]
+      "attempt_count": 1,
+      "retry_used": false
     }
   }
 }

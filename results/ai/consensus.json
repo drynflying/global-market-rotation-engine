@@ -3,7 +3,7 @@
   "mode": "single_provider",
   "items": [
     {
-      "ticker": "XME",
+      "ticker": "XLE",
       "dominant_assessment": "EMERGING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -19,8 +19,8 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Metals & Mining Shows Emerging Momentum",
-          "confidence": "medium"
+          "title": "US Energy Sector Emerging Acceleration",
+          "confidence": "high"
         }
       ]
     },
@@ -41,7 +41,7 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Biotechnology Confirms Reacceleration Pattern",
+          "title": "Biotechnology Reacceleration Phase",
           "confidence": "medium"
         }
       ]
@@ -63,7 +63,29 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Cloud Computing Displays Persistent Strength",
+          "title": "Cloud Computing Sustained Market Leader",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "SCZ",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "EAFE Small Cap Emerging Leadership",
           "confidence": "high"
         }
       ]
@@ -85,51 +107,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal-Weight S&P 500 Leads Cap-Weighted Benchmark Over 63 Bars",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "REZ",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Residential Real Estate Weakens to 63-Bar Score Low",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "REET",
-      "dominant_assessment": "PAIR",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PAIR": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "Global REITs Lead US Sector Over Long Horizon",
+          "title": "S&P 500 Equal Weight vs Cap Weight Spread",
           "confidence": "medium"
         }
       ]
@@ -151,117 +129,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Food & Beverage Plunges in ROTATION_OUT State",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IYZ",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "Telecommunications Demonstrates Emerging Strength",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IYT",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Transportation Deteriorates to Score Low",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IXP",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Global Communication Services at Score Low",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IXJ",
-      "dominant_assessment": "ACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ACCELERATING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ACCELERATING",
-          "title": "Global Health Care Holds Accelerated Trend",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "IWF",
-      "dominant_assessment": "PAIR",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PAIR": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "Growth Lags Value in Direct Spread",
+          "title": "Food & Beverage Persistent Lag",
           "confidence": "high"
         }
       ]
@@ -283,7 +151,29 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Value Leads Growth in Paired Signal",
+          "title": "US Large-Cap Value vs Growth Spread",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "IHF",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Health Care Providers Relative Softness",
           "confidence": "high"
         }
       ]
@@ -305,29 +195,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Software Sustains Top-Tier Leadership",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "FEZ",
-      "dominant_assessment": "GEOGRAPHIC",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "GEOGRAPHIC": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "Eurozone Blue Chips Lead Regional Group",
+          "title": "Software Industry Sustained Leadership",
           "confidence": "high"
         }
       ]
@@ -349,13 +217,35 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Brazil Confirms Shift to Rotation Out",
+          "title": "Brazil Relative Leadership Weakness",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EWP",
+      "ticker": "EWL",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Switzerland Sharp Score Deterioration",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWD",
       "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
@@ -371,51 +261,7 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "Spain Retains High Rank Among Country ETFs",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EWD",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "Sweden Emerges in European Equities",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EPOL",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Poland Leads Country Group Allocations",
+          "title": "Nordic Relative Strength in Sweden",
           "confidence": "high"
         }
       ]
@@ -437,29 +283,7 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "Ireland Retains Confirmed Acceleration",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "CIBR",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Cybersecurity Holds Confirmed Weakening State",
+          "title": "Ireland Broad Market Acceleration",
           "confidence": "high"
         }
       ]
