@@ -1,0 +1,24 @@
+{
+  "research_patch": "R1.2",
+  "name": "Reproducible yfinance Environment",
+  "root_cause_from_uploaded_log": {
+    "installed_yfinance": "1.6.0",
+    "observed_error": "ModuleNotFoundError: No module named 'sklearn'",
+    "raw_symbols_with_some_data": "167/167",
+    "quality_failures": 13,
+    "failure_pattern": "latest observation stale by 731 days",
+    "interpretation": "repair-path dependency/environment failure caused partial historical recovery; R1.1 gate correctly blocked R2"
+  },
+  "changes": {
+    "yfinance": "yfinance[repair]==1.5.1",
+    "scikit_learn": ">=1.5,<2",
+    "workflow_version_assertion": true,
+    "quality_gate_weakened": false,
+    "allowlist_added": false,
+    "model_logic_changed": false
+  },
+  "files_replaced": [
+    "requirements.txt",
+    ".github/workflows/backfill_10y.yml"
+  ]
+}

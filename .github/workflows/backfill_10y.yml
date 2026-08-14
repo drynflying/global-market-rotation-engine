@@ -54,6 +54,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Verify research dependency versions
+        run: |
+          python - <<'PY'
+          import scipy
+          import sklearn
+          import yfinance
+
+          print("yfinance:", yfinance.__version__)
+          print("scipy:", scipy.__version__)
+          print("scikit-learn:", sklearn.__version__)
+
+          if yfinance.__version__ != "1.5.1":
+              raise RuntimeError(
+                  f"Research backfill requires pinned yfinance 1.5.1; got {yfinance.__version__}"
+              )
+          PY
+
       - name: Run Clean-Sheet R1/R1.1 unit tests
         run: python -m unittest discover -s research/clean_sheet_predictive/tests -v
 
