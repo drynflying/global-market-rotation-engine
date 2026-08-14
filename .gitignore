@@ -3,3 +3,8 @@ __pycache__/
 .DS_Store
 .venv/
 venv/
+
+# Clean-sheet research generated artifacts (download from GitHub Actions instead)
+research/clean_sheet_predictive/outputs/*
+!research/clean_sheet_predictive/outputs/.gitkeep
+backtest_data/

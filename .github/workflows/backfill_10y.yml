@@ -22,7 +22,7 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
 
     env:
       BACKFILL_YEARS: ${{ inputs.backtest_years }}
@@ -43,6 +43,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Run Clean-Sheet R1 unit tests
+        run: python -m unittest discover -s research/clean_sheet_predictive/tests -v
 
       - name: Download historical OHLCV
         run: python -m src.backfill_10y
@@ -65,6 +68,43 @@ jobs:
               "total_rows": summary["total_rows"],
           }, indent=2))
           PY
+
+      - name: Build Clean-Sheet R1 point-in-time dataset
+        run: |
+          python -m research.clean_sheet_predictive.build_research_dataset \
+            --input backtest_data/ohlcv_10y.csv \
+            --config backtest_data/rotation_universe_snapshot.csv \
+            --output research/clean_sheet_predictive/outputs \
+            --analysis-years "${{ inputs.backtest_years }}"
+
+      - name: Show Clean-Sheet R1 validation summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("research/clean_sheet_predictive/outputs")
+          manifest = json.loads((root / "dataset_manifest.json").read_text())
+          validation = json.loads((root / "validation_report.json").read_text())
+          print(json.dumps({
+              "dataset_version": manifest["dataset_version"],
+              "dataset_rows": manifest["dataset_rows"],
+              "dataset_tickers": manifest["dataset_tickers"],
+              "analysis_start_date": manifest["analysis_start_date"],
+              "analysis_latest_date": manifest["analysis_latest_date"],
+              "feature_count": manifest["feature_count"],
+              "validation_status": validation["status"],
+              "future_mutation_test": validation["future_mutation_leakage_test"],
+              "outcome_alignment": validation["outcome_alignment"],
+          }, indent=2))
+          PY
+
+      - name: Upload Clean-Sheet R1 research artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-sheet-r1-${{ github.run_id }}
+          path: research/clean_sheet_predictive/outputs/
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Upload 10-year OHLCV artifact
         uses: actions/upload-artifact@v4
