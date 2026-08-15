@@ -22,7 +22,7 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 300
 
     env:
       BACKFILL_YEARS: ${{ inputs.backtest_years }}
@@ -194,6 +194,55 @@ jobs:
         with:
           name: clean-sheet-r2-${{ github.run_id }}
           path: research/clean_sheet_predictive/r2_outputs/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Run Clean-Sheet R2.1 unit tests
+        run: python -m unittest research.clean_sheet_predictive.tests.test_r2_1 -v
+
+      - name: Run R2.1 signal independence and actionability audit
+        run: |
+          python -m research.clean_sheet_predictive.r2_1_independence             --dataset research/clean_sheet_predictive/outputs/research_dataset.csv.gz             --dictionary research/clean_sheet_predictive/outputs/data_dictionary.csv             --r2-summary research/clean_sheet_predictive/r2_outputs/feature_horizon_summary.csv             --r2-validation research/clean_sheet_predictive/r2_outputs/r2_validation.json             --output research/clean_sheet_predictive/r2_1_outputs
+
+      - name: Show R2.1 audit summary
+        run: |
+          python - <<'PY'
+          import json
+          import pandas as pd
+          from pathlib import Path
+
+          root = Path("research/clean_sheet_predictive/r2_1_outputs")
+          summary = json.loads((root / "r2_1_summary.json").read_text())
+          candidates = pd.read_csv(root / "nonredundant_candidate_set.csv")
+          actions = pd.read_csv(root / "actionability_audit.csv")
+
+          print(json.dumps(summary, indent=2))
+
+          print("\nSelected R3 candidates:")
+          selected = candidates[candidates["status"].eq("SELECTED")]
+          if selected.empty:
+              print("None")
+          else:
+              print(selected[
+                  [
+                      "horizon_label",
+                      "feature",
+                      "family",
+                      "r2_evidence_label",
+                      "actionability_label",
+                      "mean_monthly_ic",
+                  ]
+              ].to_string(index=False))
+
+          print("\nActionability counts:")
+          print(actions["actionability_label"].value_counts().to_string())
+          PY
+
+      - name: Upload Clean-Sheet R2.1 audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-sheet-r2-1-${{ github.run_id }}
+          path: research/clean_sheet_predictive/r2_1_outputs/
           if-no-files-found: error
           retention-days: 30
 

@@ -1,0 +1,30 @@
+{
+  "research_patch": "R2.1",
+  "name": "Signal Independence & Actionability Audit",
+  "production_logic_changes": false,
+  "combined_model_fitted": false,
+  "r2_thresholds_changed": false,
+  "files_replaced": [
+    ".github/workflows/backfill_10y.yml",
+    ".gitignore"
+  ],
+  "files_added": [
+    "research/clean_sheet_predictive/r2_1_spec.json",
+    "research/clean_sheet_predictive/r2_1_independence.py",
+    "research/clean_sheet_predictive/tests/test_r2_1.py",
+    "research/clean_sheet_predictive/r2_1_outputs/.gitkeep"
+  ],
+  "validation": {
+    "python_syntax": "passed",
+    "unit_tests": "4/4 passed",
+    "within_date_exact_rank_equivalence_test": "passed",
+    "near_redundancy_not_misclassified_as_exact_test": "passed",
+    "representative_prefers_raw_return_over_equivalent_rs_percentile_test": "passed",
+    "avoid_only_actionability_test": "passed",
+    "workflow_preserves_r1_r2_and_adds_r2_1_artifact": "passed"
+  },
+  "notes": [
+    "The full 10-year R2.1 study is intentionally run in GitHub Actions against the validated R1 dataset.",
+    "R2.1 remains a historical discovery/audit phase; it does not make any feature production-eligible."
+  ]
+}

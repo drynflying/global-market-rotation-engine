@@ -9,4 +9,6 @@ research/clean_sheet_predictive/outputs/*
 !research/clean_sheet_predictive/outputs/.gitkeep
 research/clean_sheet_predictive/r2_outputs/*
 !research/clean_sheet_predictive/r2_outputs/.gitkeep
+research/clean_sheet_predictive/r2_1_outputs/*
+!research/clean_sheet_predictive/r2_1_outputs/.gitkeep
 backtest_data/
