@@ -22,7 +22,7 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 360
 
     env:
       BACKFILL_YEARS: ${{ inputs.backtest_years }}
@@ -243,6 +243,75 @@ jobs:
         with:
           name: clean-sheet-r2-1-${{ github.run_id }}
           path: research/clean_sheet_predictive/r2_1_outputs/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Run Clean-Sheet R3 unit tests
+        run: python -m unittest research.clean_sheet_predictive.tests.test_r3 -v
+
+      - name: Run R3 walk-forward multivariate baseline
+        run: |
+          python -m research.clean_sheet_predictive.r3_walk_forward \
+            --dataset research/clean_sheet_predictive/outputs/research_dataset.csv.gz \
+            --r2-1-candidates research/clean_sheet_predictive/r2_1_outputs/nonredundant_candidate_set.csv \
+            --r2-1-summary research/clean_sheet_predictive/r2_1_outputs/r2_1_summary.json \
+            --output research/clean_sheet_predictive/r3_outputs
+
+      - name: Show R3 evidence summary
+        run: |
+          python - <<'PY'
+          import json
+          import pandas as pd
+          from pathlib import Path
+
+          root = Path("research/clean_sheet_predictive/r3_outputs")
+          summary = json.loads((root / "r3_summary.json").read_text())
+          gates = pd.read_csv(root / "r3_evidence_gates.csv")
+          ranking = pd.read_csv(root / "r3_ranking_summary.csv")
+          avoid = pd.read_csv(root / "r3_avoid_summary.csv")
+
+          print(json.dumps({
+              "status": summary["status"],
+              "walk_forward_folds_run": summary["walk_forward_folds_run"],
+              "prediction_rows": summary["prediction_rows"],
+              "matured_prediction_rows": summary["matured_prediction_rows"],
+              "pristine_holdout": summary["pristine_holdout"],
+          }, indent=2))
+
+          print("\nEvidence gates:")
+          print(gates.to_string(index=False))
+
+          print("\nRidge ranking:")
+          print(ranking[ranking["method"].eq("ridge")][
+              [
+                  "horizon_label",
+                  "months",
+                  "mean_ic",
+                  "ic_ci_low",
+                  "ic_ci_high",
+                  "mean_top_decile_mean_rel_return",
+                  "mean_top_decile_beat_spy_rate",
+              ]
+          ].to_string(index=False))
+
+          print("\nAVOID classifier:")
+          print(avoid[
+              [
+                  "horizon_label",
+                  "months",
+                  "mean_roc_auc",
+                  "mean_top_risk_quintile_precision",
+                  "mean_top_risk_quintile_lift",
+                  "mean_top_risk_quintile_mean_rel_return",
+              ]
+          ].to_string(index=False))
+          PY
+
+      - name: Upload Clean-Sheet R3 research artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-sheet-r3-${{ github.run_id }}
+          path: research/clean_sheet_predictive/r3_outputs/
           if-no-files-found: error
           retention-days: 30
 

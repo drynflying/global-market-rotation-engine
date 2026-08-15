@@ -1,0 +1,37 @@
+{
+  "research_patch": "R3",
+  "name": "Walk-Forward Multivariate Baseline",
+  "production_logic_changes": false,
+  "feature_discovery_changes": false,
+  "hyperparameter_search_performed": false,
+  "models": [
+    "Ridge(alpha=1.0)",
+    "LogisticRegression(L2,C=1.0)"
+  ],
+  "files_replaced": [
+    ".github/workflows/backfill_10y.yml",
+    ".gitignore",
+    "requirements.txt"
+  ],
+  "files_added": [
+    "research/clean_sheet_predictive/r3_spec.json",
+    "research/clean_sheet_predictive/r3_walk_forward.py",
+    "research/clean_sheet_predictive/tests/test_r3.py",
+    "research/clean_sheet_predictive/r3_outputs/.gitkeep"
+  ],
+  "validation": {
+    "python_syntax": "passed",
+    "unit_tests": "5/5 passed",
+    "candidate_gate_only_r2_1_selected": "passed",
+    "within_date_point_in_time_rank_transform": "passed",
+    "bottom_quintile_avoid_label_test": "passed",
+    "outcome_maturity_training_cutoff_test": "passed",
+    "synthetic_return_and_avoid_model_test": "passed",
+    "full_uploaded_r1_r2_1_artifact_smoke_test": "passed",
+    "full_smoke_walk_forward_folds": 28,
+    "full_smoke_prediction_rows": 53065,
+    "full_smoke_matured_prediction_rows": 49224,
+    "charts_generated": 4
+  },
+  "research_warning": "R3 is not a pristine holdout because R1-R2.1 used the same historical era for feature discovery. The walk-forward protocol is point-in-time for model fitting but remains development evidence."
+}

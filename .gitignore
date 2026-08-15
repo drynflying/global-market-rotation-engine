@@ -11,4 +11,6 @@ research/clean_sheet_predictive/r2_outputs/*
 !research/clean_sheet_predictive/r2_outputs/.gitkeep
 research/clean_sheet_predictive/r2_1_outputs/*
 !research/clean_sheet_predictive/r2_1_outputs/.gitkeep
+research/clean_sheet_predictive/r3_outputs/*
+!research/clean_sheet_predictive/r3_outputs/.gitkeep
 backtest_data/
