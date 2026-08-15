@@ -1,0 +1,23 @@
+{
+  "patch": "R3.0.1",
+  "name": "Read-Only NumPy Array Hotfix",
+  "root_cause": {
+    "failing_function": "_date_weights",
+    "failing_operation": "in-place normalization of Series-backed NumPy array",
+    "github_error": "ValueError: output array is read-only"
+  },
+  "changes": {
+    "owned_numpy_copy": true,
+    "removed_in_place_mutation": true,
+    "weighting_math_changed": false,
+    "model_logic_changed": false,
+    "research_thresholds_changed": false,
+    "workflow_changed": false
+  },
+  "validation": {
+    "r3_unit_tests": "6/6 passed",
+    "regression_test_added": true,
+    "date_weight_normalization_preserved": true,
+    "equal_total_weight_per_date_preserved": true
+  }
+}

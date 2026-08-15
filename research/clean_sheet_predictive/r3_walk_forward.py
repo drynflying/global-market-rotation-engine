@@ -77,9 +77,16 @@ def _safe_spearman(x: pd.Series, y: pd.Series) -> float:
 
 def _date_weights(dates: pd.Series) -> np.ndarray:
     counts = dates.value_counts()
-    w = dates.map(lambda d: 1.0 / counts[d]).to_numpy(dtype=float)
-    if np.isfinite(w).all() and w.sum() > 0:
-        w *= len(w) / w.sum()
+
+    # Pandas / NumPy may expose Series-backed arrays as read-only under
+    # copy-on-write semantics. Request an owned array explicitly and avoid
+    # in-place mutation so this remains compatible across pandas versions.
+    w = dates.map(lambda d: 1.0 / counts[d]).to_numpy(dtype=float, copy=True)
+
+    total = float(w.sum())
+    if np.isfinite(w).all() and total > 0:
+        w = w * (len(w) / total)
+
     return w
 
 

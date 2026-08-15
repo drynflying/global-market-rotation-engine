@@ -11,6 +11,7 @@ from research.clean_sheet_predictive.r3_walk_forward import (
     _eligible_training_rows,
     _make_avoid_label,
     _fit_fold,
+    _date_weights,
 )
 
 
@@ -88,6 +89,28 @@ class R3Tests(unittest.TestCase):
         )
         self.assertEqual(len(train), 2)
         self.assertTrue((train["end"] < pd.Timestamp("2020-01-01")).all())
+
+    def test_date_weights_are_owned_normalized_and_balanced_by_date(self):
+        dates = pd.Series(
+            pd.to_datetime(
+                [
+                    "2020-01-31",
+                    "2020-01-31",
+                    "2020-01-31",
+                    "2020-02-29",
+                    "2020-02-29",
+                    "2020-03-31",
+                ]
+            )
+        )
+        weights = _date_weights(dates)
+
+        self.assertTrue(weights.flags.writeable)
+        self.assertAlmostEqual(float(weights.sum()), float(len(weights)), places=10)
+
+        frame = pd.DataFrame({"date": dates, "weight": weights})
+        totals = frame.groupby("date")["weight"].sum().to_numpy()
+        self.assertTrue(np.allclose(totals, totals[0]))
 
     def test_synthetic_fold_learns_return_and_avoid_signal(self):
         rng = np.random.default_rng(123)
