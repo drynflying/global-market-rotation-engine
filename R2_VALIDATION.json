@@ -1,0 +1,29 @@
+{
+  "research_patch": "R2",
+  "name": "Univariate Predictive Discovery",
+  "files_replaced": [
+    ".github/workflows/backfill_10y.yml",
+    ".gitignore"
+  ],
+  "files_added": [
+    "research/clean_sheet_predictive/r2_spec.json",
+    "research/clean_sheet_predictive/r2_univariate.py",
+    "research/clean_sheet_predictive/tests/test_r2.py",
+    "research/clean_sheet_predictive/r2_outputs/.gitkeep"
+  ],
+  "production_logic_changes": false,
+  "combined_model_fitted": false,
+  "ai_used": false,
+  "validation": {
+    "python_syntax": "passed",
+    "unit_tests": "5/5 passed",
+    "positive_signal_test": "passed",
+    "negative_direction_not_flipped_test": "passed",
+    "r1_integrity_gate_test": "passed",
+    "evidence_gate_test": "passed",
+    "month_end_anchor_test": "passed",
+    "workflow_based_on_r1_2": true,
+    "r1_artifact_still_preserved": true,
+    "r2_artifact_added": true
+  }
+}

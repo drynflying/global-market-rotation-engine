@@ -22,7 +22,7 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 240
 
     env:
       BACKFILL_YEARS: ${{ inputs.backtest_years }}
@@ -140,6 +140,60 @@ jobs:
         with:
           name: clean-sheet-r1-${{ github.run_id }}
           path: research/clean_sheet_predictive/outputs/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Run Clean-Sheet R2 unit tests
+        run: python -m unittest research.clean_sheet_predictive.tests.test_r2 -v
+
+      - name: Run R2 univariate predictive discovery
+        run: |
+          python -m research.clean_sheet_predictive.r2_univariate             --dataset research/clean_sheet_predictive/outputs/research_dataset.csv.gz             --dictionary research/clean_sheet_predictive/outputs/data_dictionary.csv             --manifest research/clean_sheet_predictive/outputs/dataset_manifest.json             --validation research/clean_sheet_predictive/outputs/validation_report.json             --output research/clean_sheet_predictive/r2_outputs
+
+      - name: Show R2 discovery summary
+        run: |
+          python - <<'PY'
+          import json
+          import pandas as pd
+          from pathlib import Path
+
+          root = Path("research/clean_sheet_predictive/r2_outputs")
+          validation = json.loads((root / "r2_validation.json").read_text())
+          summary = pd.read_csv(root / "feature_horizon_summary.csv")
+
+          print(json.dumps(validation, indent=2))
+          print("\nTop R2 candidates by horizon:")
+          for h, g in summary.groupby("horizon_bars"):
+              rank = {
+                  "ROBUST_CANDIDATE": 0,
+                  "PROMISING": 1,
+                  "WEAK": 2,
+                  "INCONSISTENT_OR_NONE": 3,
+              }
+              g = g.copy()
+              g["rank"] = g["evidence_label"].map(rank).fillna(9)
+              g["abs_ic"] = g["mean_monthly_ic"].abs()
+              top = g.sort_values(["rank", "abs_ic"], ascending=[True, False]).head(10)
+              print(f"\n{int(h)} bars")
+              print(top[
+                  [
+                      "feature",
+                      "family",
+                      "evidence_label",
+                      "mean_monthly_ic",
+                      "bootstrap_ci_low",
+                      "bootstrap_ci_high",
+                      "annual_direction_consistency",
+                      "mean_high_minus_low",
+                  ]
+              ].to_string(index=False))
+          PY
+
+      - name: Upload Clean-Sheet R2 discovery artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-sheet-r2-${{ github.run_id }}
+          path: research/clean_sheet_predictive/r2_outputs/
           if-no-files-found: error
           retention-days: 30
 
