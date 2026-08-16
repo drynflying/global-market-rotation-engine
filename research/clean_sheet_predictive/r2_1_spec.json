@@ -1,0 +1,71 @@
+{
+  "research_patch": "R2.1",
+  "name": "Signal Independence & Actionability Audit",
+  "purpose": [
+    "Collapse mathematically equivalent cross-sectional features.",
+    "Identify near-redundant signals using within-date rank correlation.",
+    "Separate FAVOR evidence from AVOID evidence.",
+    "Produce the nonredundant candidate set that R3 is permitted to consider."
+  ],
+  "principles": [
+    "R2.1 does not fit a combined model.",
+    "R2.1 does not change or rerun R2 evidence thresholds.",
+    "Redundancy is measured within each monthly ETF cross-section, not by pooled correlation across dates.",
+    "A feature is not called FAVOR-actionable merely because it ranks ETFs; its favorable side must itself beat SPY with statistically positive evidence.",
+    "A feature may still be useful as AVOID evidence when its unfavorable side persistently lags SPY.",
+    "All actionability thresholds are frozen in this spec before R2.1 is run."
+  ],
+  "eligible_r2_labels": [
+    "ROBUST_CANDIDATE",
+    "PROMISING",
+    "WEAK"
+  ],
+  "horizons_bars": [
+    21,
+    63,
+    126,
+    189
+  ],
+  "minimum_cross_section_rows": 30,
+  "extreme_fraction": 0.1,
+  "redundancy": {
+    "exact_rank_equivalence_abs_rho": 0.9999,
+    "exact_rank_equivalence_month_fraction": 0.95,
+    "near_redundancy_median_abs_rho": 0.9,
+    "near_redundancy_abs_rho_floor": 0.85,
+    "near_redundancy_month_fraction": 0.8
+  },
+  "bootstrap": {
+    "method": "moving block bootstrap over monthly extreme-group metrics",
+    "block_months": 12,
+    "repetitions": 2000,
+    "confidence_interval": 0.95,
+    "seed": 20260815
+  },
+  "actionability": {
+    "favor_requires": [
+      "95% block-bootstrap CI for favorable-side mean SPY-relative return entirely above 0",
+      "95% block-bootstrap CI for favorable-side SPY-beating rate entirely above 0.50"
+    ],
+    "avoid_requires": [
+      "95% block-bootstrap CI for unfavorable-side mean SPY-relative return entirely below 0",
+      "95% block-bootstrap CI for unfavorable-side SPY-beating rate entirely below 0.50"
+    ],
+    "separation_requires": [
+      "95% block-bootstrap CI for oriented FAVOR-minus-AVOID relative-return spread entirely above 0"
+    ],
+    "labels": [
+      "BOTH_SIDES_ACTIONABLE",
+      "FAVOR_ACTIONABLE",
+      "AVOID_ACTIONABLE",
+      "SEPARATION_ONLY",
+      "NO_ACTIONABLE_EDGE"
+    ]
+  },
+  "representative_preference": [
+    "Prefer original economically interpretable features over cross-sectional percentile transforms.",
+    "Prefer absolute-return momentum over same-date SPY-relative momentum when their rankings are exactly equivalent.",
+    "Prefer features with broader month-end coverage.",
+    "Use stronger R2 evidence only after the interpretability/coverage rules above."
+  ]
+}

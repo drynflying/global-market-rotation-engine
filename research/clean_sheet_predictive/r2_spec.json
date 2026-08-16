@@ -1,0 +1,92 @@
+{
+  "research_patch": "R2",
+  "name": "Univariate Predictive Discovery",
+  "dataset_requirement": {
+    "r1_validation_status": "ok",
+    "universe_completeness_status": "passed",
+    "expected_tickers": 167
+  },
+  "principles": [
+    "No Patch 6 score, states, Path Risk, weekly recommendations, or AI inputs are used.",
+    "No combined predictive model is fitted in R2.",
+    "Every feature is evaluated independently.",
+    "Primary evaluation uses month-end point-in-time anchors to reduce daily pseudo-replication.",
+    "Cross-sectional features are evaluated by date across available ETFs.",
+    "Market-regime features are evaluated as date-level context, not as ETF-ranking features.",
+    "R2 is discovery evidence only; no R2 result is production-eligible."
+  ],
+  "horizons_bars": [
+    21,
+    63,
+    126,
+    189
+  ],
+  "horizon_labels": {
+    "21": "1M",
+    "63": "3M",
+    "126": "6M",
+    "189": "9M"
+  },
+  "primary_target": "fwd_spy_relative_return_{horizon}",
+  "supplementary_targets": [
+    "fwd_return_{horizon}",
+    "fwd_primary_relative_return_{horizon}",
+    "fwd_max_drawdown_{horizon}",
+    "fwd_spy_rel_mae_{horizon}"
+  ],
+  "market_regime_targets": [
+    "SPY absolute forward return",
+    "SPY forward max drawdown",
+    "cross-sectional median ETF excess return vs SPY"
+  ],
+  "anchor_rule": "Global final trading observation in each calendar month.",
+  "minimum_cross_section_rows": 30,
+  "minimum_months_for_evidence": 60,
+  "bootstrap": {
+    "method": "moving block bootstrap of monthly IC series",
+    "block_months": 12,
+    "repetitions": 2000,
+    "confidence_interval": 0.95,
+    "seed": 20260814
+  },
+  "evidence_labels": {
+    "ROBUST_CANDIDATE": {
+      "abs_mean_monthly_ic_min": 0.03,
+      "bootstrap_ci_excludes_zero": true,
+      "annual_direction_consistency_min": 0.7,
+      "high_minus_low_spread_direction_must_agree": true,
+      "minimum_months": 60
+    },
+    "PROMISING": {
+      "abs_mean_monthly_ic_min": 0.02,
+      "bootstrap_ci_excludes_zero": true,
+      "annual_direction_consistency_min": 0.6,
+      "high_minus_low_spread_direction_must_agree": true,
+      "minimum_months": 60
+    },
+    "WEAK": {
+      "abs_mean_monthly_ic_min": 0.01,
+      "bootstrap_ci_excludes_zero": true,
+      "minimum_months": 48
+    },
+    "INCONSISTENT_OR_NONE": {}
+  },
+  "temporal_subperiods": [
+    {
+      "name": "2016_2019",
+      "start": "2016-01-01",
+      "end": "2019-12-31"
+    },
+    {
+      "name": "2020_2022",
+      "start": "2020-01-01",
+      "end": "2022-12-31"
+    },
+    {
+      "name": "2023_2026",
+      "start": "2023-01-01",
+      "end": "2026-12-31"
+    }
+  ],
+  "redundancy_threshold_abs_spearman": 0.9
+}

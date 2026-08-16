@@ -1,0 +1,23 @@
+{
+  "patch": "R4.0.1",
+  "name": "Full Research-Branch Restore",
+  "root_cause": "Initial R4 research ZIP was a partial folder overlay; replacing rather than merging the folder could remove R1 foundation modules.",
+  "github_error": "ModuleNotFoundError: No module named 'research.clean_sheet_predictive.build_features'",
+  "model_logic_changed": false,
+  "research_thresholds_changed": false,
+  "production_logic_changed": false,
+  "main_scheduler_changed": false,
+  "restored_foundation_modules": [
+    "build_features.py",
+    "build_outcomes.py",
+    "build_research_dataset.py",
+    "feature_definitions.py",
+    "split_rules.py",
+    "validate_point_in_time.py"
+  ],
+  "validation": {
+    "workflow_equivalent_test_command": "python -m unittest discover -s research/clean_sheet_predictive/tests -v",
+    "test_status": "passed",
+    "required_r1_through_r4_files_present": true
+  }
+}
