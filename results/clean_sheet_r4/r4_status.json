@@ -1,0 +1,32 @@
+{
+  "research_patch": "R4",
+  "status": "ok",
+  "prospective_inception_date": "2026-08-15",
+  "first_eligible_anchor_date": "2026-08-31",
+  "latest_market_date": "2026-08-14",
+  "latest_issued_anchor_date": null,
+  "new_anchors_issued_this_run": 0,
+  "new_outcomes_matured_this_run": 0,
+  "prediction_rows": 0,
+  "anchor_manifest_rows": 0,
+  "matured_outcome_rows": 0,
+  "matured_outcomes_by_horizon": {
+    "21": 0,
+    "63": 0,
+    "126": 0,
+    "189": 0
+  },
+  "evaluated_months_by_horizon": {
+    "21": 0,
+    "63": 0,
+    "126": 0,
+    "189": 0
+  },
+  "frozen_universe_count": 167,
+  "current_registry_model_years": [
+    2026
+  ],
+  "charts": [],
+  "production_logic_changed": false,
+  "historical_reoptimization_performed": false
+}
