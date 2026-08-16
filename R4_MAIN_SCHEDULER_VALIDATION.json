@@ -1,0 +1,13 @@
+{
+  "patch": "R4 MAIN scheduler",
+  "production_model_logic_changes": false,
+  "files_added": [
+    ".github/workflows/r4_prospective_shadow.yml",
+    ".github/workflows/r4_annual_model_refresh.yml"
+  ],
+  "daily_schedule": "18:15 America/New_York Monday-Friday",
+  "annual_schedule": "January 3 at 18:45 America/New_York",
+  "checkout_ref": "research/clean-sheet-predictive",
+  "commits_to": "research/clean-sheet-predictive",
+  "pages_or_dashboard_deploy": false
+}
