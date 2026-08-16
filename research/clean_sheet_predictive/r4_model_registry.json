@@ -1,0 +1,429 @@
+{
+  "registry_format_version": "R4_MODEL_REGISTRY_V1",
+  "frozen_universe_tickers": [
+    "AAXJ",
+    "ACWI",
+    "ACWX",
+    "AFK",
+    "ARGT",
+    "ASEA",
+    "CARZ",
+    "CIBR",
+    "CORO",
+    "CPER",
+    "CQQQ",
+    "DBEF",
+    "DEM",
+    "DGS",
+    "DIA",
+    "DXJ",
+    "ECH",
+    "EDEN",
+    "EEM",
+    "EEMO",
+    "EEMV",
+    "EFA",
+    "EFAV",
+    "EFG",
+    "EFNL",
+    "EFV",
+    "EIDO",
+    "EIRL",
+    "EIS",
+    "EMXC",
+    "ENOR",
+    "ENZL",
+    "EPHE",
+    "EPOL",
+    "EPP",
+    "EPU",
+    "EWA",
+    "EWC",
+    "EWD",
+    "EWG",
+    "EWH",
+    "EWI",
+    "EWJ",
+    "EWL",
+    "EWM",
+    "EWN",
+    "EWO",
+    "EWP",
+    "EWQ",
+    "EWS",
+    "EWT",
+    "EWU",
+    "EWW",
+    "EWY",
+    "EWZ",
+    "EXI",
+    "EZA",
+    "EZU",
+    "FDN",
+    "FEZ",
+    "GLD",
+    "GREK",
+    "HEDJ",
+    "HEEM",
+    "HEFA",
+    "IBB",
+    "IEFA",
+    "IEMG",
+    "IEUR",
+    "IGV",
+    "IHF",
+    "IHI",
+    "IJR",
+    "ILF",
+    "IMTM",
+    "INDA",
+    "IOO",
+    "IQLT",
+    "ITA",
+    "ITB",
+    "ITOT",
+    "IWB",
+    "IWD",
+    "IWF",
+    "IWM",
+    "IXC",
+    "IXG",
+    "IXJ",
+    "IXN",
+    "IXP",
+    "IXUS",
+    "IYG",
+    "IYJ",
+    "IYK",
+    "IYT",
+    "IYW",
+    "IYZ",
+    "JXI",
+    "KBA",
+    "KBE",
+    "KIE",
+    "KRE",
+    "KSA",
+    "KWEB",
+    "KXI",
+    "MCHI",
+    "MDY",
+    "MTUM",
+    "MXI",
+    "OIH",
+    "PAVE",
+    "PBJ",
+    "PEJ",
+    "QAT",
+    "QQQ",
+    "QUAL",
+    "REET",
+    "REM",
+    "REMX",
+    "REZ",
+    "RSP",
+    "RWO",
+    "RXI",
+    "SCHD",
+    "SCHY",
+    "SCZ",
+    "SKYY",
+    "SLV",
+    "SMH",
+    "SOXX",
+    "SPGM",
+    "SPY",
+    "THD",
+    "TUR",
+    "UAE",
+    "URA",
+    "URTH",
+    "USMV",
+    "VEA",
+    "VEU",
+    "VGK",
+    "VNM",
+    "VNQ",
+    "VPL",
+    "VSS",
+    "VT",
+    "VWO",
+    "VXUS",
+    "VYMI",
+    "XAR",
+    "XBI",
+    "XHB",
+    "XLB",
+    "XLC",
+    "XLE",
+    "XLF",
+    "XLI",
+    "XLK",
+    "XLP",
+    "XLRE",
+    "XLU",
+    "XLV",
+    "XLY",
+    "XME",
+    "XOP",
+    "XPH",
+    "XRT"
+  ],
+  "frozen_universe_count": 167,
+  "frozen_universe_sha256": "da639165dc1030e6a782952062fd2fad9d77812dde093f44688f0e3f4ed035c0",
+  "feature_version": "CLEAN_SHEET_R1_V1",
+  "source_code_hashes": {
+    "build_features.py": "953475fb2b1149d845cf250d94ac07c09e47ad80011d4e35b212dffd6393d72f",
+    "feature_definitions.py": "3b9cb321d551dd7d30c64c5036b37005fbdc3ff8bca7c4ae3c20dae95ab37798",
+    "build_outcomes.py": "7391876b7308dce592c8f15e80bf8c026cb8320ba4a54541134c729bccab1c65"
+  },
+  "data_source": {
+    "provider": "Yahoo Finance via yfinance",
+    "yfinance_version": "1.5.1",
+    "auto_adjust": true,
+    "repair": true
+  },
+  "model_training_policy": {
+    "development_start_date": "2016-08-15",
+    "feature_transform": "within_date_percentile_rank",
+    "ridge_alpha": 1.0,
+    "logistic_C": 1.0,
+    "logistic_penalty": "l2",
+    "logistic_solver": "lbfgs",
+    "date_weighting": "equal aggregate training weight per anchor date",
+    "avoid_bottom_fraction": 0.2
+  },
+  "models_by_year": {
+    "2026": {
+      "model_version": "CLEAN_SHEET_R4_2026_V1",
+      "model_year": 2026,
+      "training_cutoff_exclusive": "2026-01-01",
+      "created_from_r3_run_id": "31913174055",
+      "validation": {
+        "matches_r3_2026_standardized_coefficients": true,
+        "matches_r3_2026_training_rows_months": true
+      },
+      "horizons": {
+        "21": {
+          "horizon_bars": 21,
+          "horizon_label": "1M",
+          "features": [
+            "bars_since_high_252",
+            "dist_low_252"
+          ],
+          "training_cutoff_exclusive": "2026-01-01",
+          "training_start_inclusive": "2016-08-15",
+          "training_rows": 18438,
+          "training_months": 112,
+          "training_avoid_base_rate": 0.19861156307625555,
+          "scaler_mean": [
+            0.503037205770691,
+            0.503037205770691
+          ],
+          "scaler_scale": [
+            0.2846282541781062,
+            0.2885581194540979
+          ],
+          "ridge": {
+            "alpha": 1.0,
+            "intercept": -0.002415527625654225,
+            "coefficients": [
+              0.0004634634899004015,
+              0.0018621654956649102
+            ]
+          },
+          "logistic": {
+            "C": 1.0,
+            "intercept": -1.4139533589110411,
+            "coefficients": [
+              0.26294494689408043,
+              0.18478457027051587
+            ]
+          },
+          "equal_weight_orientation": {
+            "bars_since_high_252": -1,
+            "dist_low_252": 1
+          },
+          "training_mean_univariate_ic": {
+            "bars_since_high_252": -0.02624213708128163,
+            "dist_low_252": 0.03906484624386731
+          },
+          "best_univariate_feature": "dist_low_252"
+        },
+        "63": {
+          "horizon_bars": 63,
+          "horizon_label": "3M",
+          "features": [
+            "dist_low_252",
+            "sma_200_slope_20",
+            "dollar_volume_ratio_20_63"
+          ],
+          "training_cutoff_exclusive": "2026-01-01",
+          "training_start_inclusive": "2016-08-15",
+          "training_rows": 18106,
+          "training_months": 110,
+          "training_avoid_base_rate": 0.1987186567988512,
+          "scaler_mean": [
+            0.503037667071689,
+            0.503055478706048,
+            0.5027375344312119
+          ],
+          "scaler_scale": [
+            0.2885560694323223,
+            0.28869942902647777,
+            0.28847270881924914
+          ],
+          "ridge": {
+            "alpha": 1.0,
+            "intercept": -0.009108261489551498,
+            "coefficients": [
+              0.003989249492533791,
+              -0.0006596495545515673,
+              -0.0015217910381872186
+            ]
+          },
+          "logistic": {
+            "C": 1.0,
+            "intercept": -1.4052201073683575,
+            "coefficients": [
+              0.23590027623517867,
+              -0.2498944287013767,
+              0.010466311084677235
+            ]
+          },
+          "equal_weight_orientation": {
+            "dist_low_252": 1,
+            "sma_200_slope_20": 1,
+            "dollar_volume_ratio_20_63": -1
+          },
+          "training_mean_univariate_ic": {
+            "dist_low_252": 0.05694783043667349,
+            "sma_200_slope_20": 0.04544126295570156,
+            "dollar_volume_ratio_20_63": -0.014434035496189442
+          },
+          "best_univariate_feature": "dist_low_252"
+        },
+        "126": {
+          "horizon_bars": 126,
+          "horizon_label": "6M",
+          "features": [
+            "dist_low_126",
+            "above_sma_200",
+            "ret_126"
+          ],
+          "training_cutoff_exclusive": "2026-01-01",
+          "training_start_inclusive": "2016-08-15",
+          "training_rows": 17623,
+          "training_months": 107,
+          "training_avoid_base_rate": 0.19871758497418146,
+          "scaler_mean": [
+            0.5029923468439952,
+            0.5030358054814731,
+            0.5030911549148174
+          ],
+          "scaler_scale": [
+            0.28855505182944224,
+            0.1841233343738098,
+            0.28876549838495497
+          ],
+          "ridge": {
+            "alpha": 1.0,
+            "intercept": -0.019084707627562595,
+            "coefficients": [
+              0.003327843418076432,
+              -0.0010426323201385293,
+              0.002150039783285867
+            ]
+          },
+          "logistic": {
+            "C": 1.0,
+            "intercept": -1.4139264813487205,
+            "coefficients": [
+              0.25685458572364783,
+              -0.11445520034726907,
+              -0.25993207947068614
+            ]
+          },
+          "equal_weight_orientation": {
+            "dist_low_126": 1,
+            "above_sma_200": 1,
+            "ret_126": 1
+          },
+          "training_mean_univariate_ic": {
+            "dist_low_126": 0.0571145589425952,
+            "above_sma_200": 0.0419051883336932,
+            "ret_126": 0.057010831579269
+          },
+          "best_univariate_feature": "dist_low_126"
+        },
+        "189": {
+          "horizon_bars": 189,
+          "horizon_label": "9M",
+          "features": [
+            "volume_z20",
+            "dist_low_126",
+            "dist_low_63",
+            "range_position_126",
+            "sma_50_slope_20"
+          ],
+          "training_cutoff_exclusive": "2026-01-01",
+          "training_start_inclusive": "2016-08-15",
+          "training_rows": 17142,
+          "training_months": 104,
+          "training_avoid_base_rate": 0.19880994049702486,
+          "scaler_mean": [
+            0.5030075684490868,
+            0.5030374461109887,
+            0.5031210421488688,
+            0.5030201612961307,
+            0.5031201452877428
+          ],
+          "scaler_scale": [
+            0.2886028253187968,
+            0.28847540860611787,
+            0.287800510368798,
+            0.28808911674277016,
+            0.2886876764420283
+          ],
+          "ridge": {
+            "alpha": 1.0,
+            "intercept": -0.029355244777288365,
+            "coefficients": [
+              -0.0033303588233723333,
+              0.013092412230121572,
+              -0.0042884946879803345,
+              -0.002635292682823588,
+              0.0009057996962521576
+            ]
+          },
+          "logistic": {
+            "C": 1.0,
+            "intercept": -1.4280300910598502,
+            "coefficients": [
+              -0.008651830469020716,
+              0.1654080905061957,
+              0.19848000926246898,
+              -0.3852227230703765,
+              -0.08370696102248482
+            ]
+          },
+          "equal_weight_orientation": {
+            "volume_z20": -1,
+            "dist_low_126": 1,
+            "dist_low_63": 1,
+            "range_position_126": 1,
+            "sma_50_slope_20": 1
+          },
+          "training_mean_univariate_ic": {
+            "volume_z20": -0.027644664625030013,
+            "dist_low_126": 0.07572285681395198,
+            "dist_low_63": 0.05358600626259619,
+            "range_position_126": 0.05916119851483475,
+            "sma_50_slope_20": 0.04966556421713365
+          },
+          "best_univariate_feature": "dist_low_126"
+        }
+      }
+    }
+  }
+}

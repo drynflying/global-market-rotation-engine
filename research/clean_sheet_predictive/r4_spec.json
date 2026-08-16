@@ -1,0 +1,115 @@
+{
+  "research_patch": "R4",
+  "name": "Prospective Clean-Sheet Shadow Validation",
+  "inception_date": "2026-08-15",
+  "first_eligible_anchor_date": "2026-08-31",
+  "development_start_date": "2016-08-15",
+  "feature_version": "CLEAN_SHEET_R1_V1",
+  "primary_research_horizon_bars": 126,
+  "horizons_bars": [
+    21,
+    63,
+    126,
+    189
+  ],
+  "horizon_labels": {
+    "21": "1M",
+    "63": "3M",
+    "126": "6M",
+    "189": "9M"
+  },
+  "candidate_features_by_horizon": {
+    "21": [
+      "bars_since_high_252",
+      "dist_low_252"
+    ],
+    "63": [
+      "dist_low_252",
+      "sma_200_slope_20",
+      "dollar_volume_ratio_20_63"
+    ],
+    "126": [
+      "dist_low_126",
+      "above_sma_200",
+      "ret_126"
+    ],
+    "189": [
+      "volume_z20",
+      "dist_low_126",
+      "dist_low_63",
+      "range_position_126",
+      "sma_50_slope_20"
+    ]
+  },
+  "models_tracked": [
+    "equal_weight_training_oriented_feature_ranks",
+    "ridge_return_ranking",
+    "logistic_avoid_probability"
+  ],
+  "anchor_rule": "Use the last available trading observation in a calendar month only after market data from a later calendar month exists. Never issue historical anchors before 2026-08-31.",
+  "universe_policy": "Freeze the economic universe to the 167 R1/R3 tickers present at R4 inception. Future config additions do not enter R4 V1; operational query-symbol corrections for an existing frozen ticker are allowed.",
+  "feature_transform": "within_date_percentile_rank",
+  "minimum_prediction_cross_section_rows": 30,
+  "minimum_evaluation_cross_section_rows": 30,
+  "minimum_maturity_fraction": 0.9,
+  "avoid_target": {
+    "definition": "bottom 20% of realized future SPY-relative return within each evaluated anchor-date cross-section",
+    "bottom_fraction": 0.2,
+    "positive_class": "AVOID"
+  },
+  "prediction_immutability": {
+    "prediction_key": "registry_model_version|anchor_date|horizon_bars|ticker",
+    "rule": "Once an anchor/horizon is issued it is never rescored, expanded, or rewritten."
+  },
+  "outcome_immutability": {
+    "rule": "A matured ticker/horizon outcome is appended once and never rewritten."
+  },
+  "prospective_bootstrap": {
+    "method": "moving block bootstrap over monthly prospective metrics",
+    "block_months": 3,
+    "repetitions": 2000,
+    "confidence_interval": 0.95,
+    "seed": 20260815
+  },
+  "favor_gate": {
+    "applies_to": [
+      "ridge",
+      "equal_weight"
+    ],
+    "minimum_evaluated_months": 12,
+    "requires": [
+      "mean monthly rank IC 95% bootstrap CI lower bound > 0",
+      "top-decile mean SPY-relative return 95% bootstrap CI lower bound > 0",
+      "top-decile SPY-beating rate 95% bootstrap CI lower bound > 0.50",
+      "top-quintile minus bottom-quintile relative-return spread 95% bootstrap CI lower bound > 0"
+    ]
+  },
+  "avoid_gate": {
+    "applies_to": "logistic_avoid_probability",
+    "minimum_evaluated_months": 12,
+    "requires": [
+      "mean monthly ROC AUC 95% bootstrap CI lower bound > 0.50",
+      "top predicted-risk quintile precision 95% bootstrap CI lower bound > 0.20",
+      "top predicted-risk quintile mean SPY-relative return 95% bootstrap CI upper bound < 0"
+    ]
+  },
+  "evidence_status_policy": {
+    "INSUFFICIENT": "fewer than 3 evaluated prospective months",
+    "EARLY": "3 through 11 evaluated prospective months",
+    "PROMISING": "12 through 23 months and at least one frozen prospective evidence gate passes",
+    "MIXED": "12 through 23 months without a passing frozen evidence gate",
+    "CONFIRMED_PROSPECTIVE": "24 or more months and at least one frozen prospective evidence gate passes",
+    "FAILED_TO_CONFIRM": "24 or more months and no frozen prospective evidence gate passes"
+  },
+  "annual_model_refresh_policy": {
+    "cadence": "Once per calendar year before that year's first prospective anchor is issued",
+    "cutoff": "January 1 of model year, exclusive",
+    "training_start": "2016-08-15, fixed",
+    "feature_set": "Frozen R2.1 SELECTED features above; no rediscovery",
+    "hyperparameters": "Frozen Ridge alpha=1.0 and LogisticRegression C=1.0 L2",
+    "universe": "Frozen R4 inception universe",
+    "outcome_maturity": "Training row outcome_end_date must be strictly before the model-year cutoff",
+    "registry_rule": "Append a versioned model year; never rewrite an existing model year"
+  },
+  "production_effect": "NONE"
+}

@@ -1,0 +1,25 @@
+{
+  "research_patch": "R4",
+  "name": "Prospective Clean-Sheet Shadow Validation",
+  "production_logic_changes": false,
+  "historical_reoptimization": false,
+  "frozen_universe_count": 167,
+  "inception_date": "2026-08-15",
+  "first_eligible_anchor_date": "2026-08-31",
+  "initial_model_year": 2026,
+  "validation": {
+    "python_syntax": "passed",
+    "unit_tests": "6/6 passed",
+    "no_network_inception_smoke_test": "passed",
+    "pre_inception_predictions_created": 0,
+    "source_code_hash_guard": "configured and smoke-tested",
+    "yfinance_version_guard": "configured",
+    "immutable_prediction_key": "configured",
+    "immutable_outcome_append": "configured",
+    "minimum_maturity_fraction": 0.9,
+    "initial_registry_training_rows_months_match_uploaded_r3_2026": true,
+    "max_abs_ridge_coefficient_difference_vs_uploaded_r3": 2.1856866328807956e-07,
+    "max_abs_logistic_coefficient_difference_vs_uploaded_r3": 1.4026735865813045e-05
+  },
+  "main_scheduler_required_for_automatic_runs": true
+}
