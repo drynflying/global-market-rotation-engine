@@ -89,3 +89,16 @@ January 1 of that model year.
 
 Old model years remain in the registry forever so historical prospective predictions stay
 reproducible.
+
+
+## R4.1 read-only web dashboard
+
+`python -m research.clean_sheet_predictive.r4_dashboard`
+
+builds `results/clean_sheet_r4/r4_dashboard.html`.
+
+The page is a read-only presentation layer. It does not calculate predictions, change
+models, change evidence gates, or mutate R4 records.
+
+The MAIN scheduler publishes the generated page to GitHub Pages as `docs/r4.html` and
+copies the underlying R4 audit files to `docs/r4-data/`.

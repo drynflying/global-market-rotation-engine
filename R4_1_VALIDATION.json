@@ -1,0 +1,15 @@
+{
+  "patch": "R4.1",
+  "name": "Read-Only Prospective Research Dashboard",
+  "research_logic_changed": false,
+  "production_scoring_changed": false,
+  "validation": {
+    "dashboard_render_from_uploaded_r4_artifact": "passed",
+    "empty_prospective_state": "passed",
+    "dashboard_and_model_helper_tests": "passed",
+    "pages_publish_workflow_checks": "passed",
+    "first_anchor_display": "Aug 31, 2026"
+  },
+  "published_page": "docs/r4.html",
+  "published_data_directory": "docs/r4-data/"
+}
