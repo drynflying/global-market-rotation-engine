@@ -4,12 +4,12 @@
   "shadow_only": true,
   "dashboard_effect": "none",
   "capture": {
-    "status": "already_recorded",
-    "recommendation_date": "2026-08-14",
-    "appended_rows": 0,
+    "status": "not_due",
+    "recommendation_date": "2026-08-17",
+    "week_ending_date": "2026-08-21",
+    "gate_reason": "not_weekly_capture_window",
     "action_count": 0,
-    "selectable_finalists": 2,
-    "gate_reason": "weekend_recovery_for_friday_close"
+    "appended_rows": 0
   },
   "outcomes": {
     "action_rows": 1,
