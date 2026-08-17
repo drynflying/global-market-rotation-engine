@@ -3,6 +3,28 @@
   "mode": "single_provider",
   "items": [
     {
+      "ticker": "XLF",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Financials Benchmark Weakening Amid Short-Term Score Loss",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
       "ticker": "XLE",
       "dominant_assessment": "EMERGING",
       "agreement_count": 1,
@@ -19,7 +41,7 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "US Energy Sector Emerging Acceleration",
+          "title": "US Energy Emerging Momentum",
           "confidence": "high"
         }
       ]
@@ -41,7 +63,7 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Biotechnology Reacceleration Phase",
+          "title": "Biotechnology Reaccelerates Following Prior Score Pullback",
           "confidence": "medium"
         }
       ]
@@ -63,7 +85,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Cloud Computing Sustained Market Leader",
+          "title": "Cloud Computing Demonstrates Sustained Cross-Sectional Dominance",
           "confidence": "high"
         }
       ]
@@ -85,8 +107,8 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "EAFE Small Cap Emerging Leadership",
-          "confidence": "high"
+          "title": "EAFE Small Cap Reaches 63-Bar Score High",
+          "confidence": "medium"
         }
       ]
     },
@@ -107,7 +129,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "S&P 500 Equal Weight vs Cap Weight Spread",
+          "title": "Equal-Weight vs Cap-Weight Pair Maintains Long-Term Lead",
           "confidence": "medium"
         }
       ]
@@ -129,7 +151,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Food & Beverage Persistent Lag",
+          "title": "Food & Beverage Reaches Lowest Score Extremum",
           "confidence": "high"
         }
       ]
@@ -151,13 +173,13 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "US Large-Cap Value vs Growth Spread",
+          "title": "Value vs Growth Pair Spread Displays Long-Horizon Leadership",
           "confidence": "medium"
         }
       ]
     },
     {
-      "ticker": "IHF",
+      "ticker": "GREK",
       "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -173,13 +195,13 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Health Care Providers Relative Softness",
-          "confidence": "high"
+          "title": "Greece Shows High Score with Confirmed Weakening State",
+          "confidence": "medium"
         }
       ]
     },
     {
-      "ticker": "IGV",
+      "ticker": "FEZ",
       "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
@@ -195,7 +217,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Software Industry Sustained Leadership",
+          "title": "Eurozone Blue Chips Maintain Regional Leadership",
           "confidence": "high"
         }
       ]
@@ -217,35 +239,13 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Brazil Relative Leadership Weakness",
+          "title": "Brazil Equities Experience Broad Relative Deterioration",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EWL",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Switzerland Sharp Score Deterioration",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EWD",
+      "ticker": "EPOL",
       "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
@@ -261,7 +261,7 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "Nordic Relative Strength in Sweden",
+          "title": "Poland Leads European Single-Country Rotation",
           "confidence": "high"
         }
       ]
@@ -283,8 +283,30 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "Ireland Broad Market Acceleration",
+          "title": "Irish Equity Relative Leadership Accelerating",
           "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "AFK",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Africa Region Reaches 63-Bar Score High",
+          "confidence": "medium"
         }
       ]
     }
