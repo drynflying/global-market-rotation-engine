@@ -8,15 +8,17 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: r4-prospective-shadow
   cancel-in-progress: false
 
 jobs:
-  r4:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 50
 
     steps:
       - name: Check out research branch
@@ -40,10 +42,14 @@ jobs:
         run: |
           python -m unittest \
             research.clean_sheet_predictive.tests.test_r4 \
-            research.clean_sheet_predictive.tests.test_r4_model_builder -v
+            research.clean_sheet_predictive.tests.test_r4_model_builder \
+            research.clean_sheet_predictive.tests.test_r4_dashboard -v
 
       - name: Run prospective R4 shadow
         run: python -m research.clean_sheet_predictive.r4_prospective
+
+      - name: Build R4 read-only dashboard
+        run: python -m research.clean_sheet_predictive.r4_dashboard
 
       - name: Upload R4 research artifact
         uses: actions/upload-artifact@v4
@@ -52,6 +58,14 @@ jobs:
           path: results/clean_sheet_r4/
           if-no-files-found: error
           retention-days: 30
+
+      - name: Stage R4 web publication
+        run: |
+          rm -rf /tmp/r4-publish
+          mkdir -p /tmp/r4-publish
+          cp results/clean_sheet_r4/r4_dashboard.html /tmp/r4-publish/r4.html
+          cp -R results/clean_sheet_r4 /tmp/r4-publish/r4-data
+          rm -f /tmp/r4-publish/r4-data/r4_dashboard.html
 
       - name: Commit R4 research state to research branch
         run: |
@@ -64,3 +78,48 @@ jobs:
             git commit -m "Update R4 prospective shadow"
             git push origin HEAD:research/clean-sheet-predictive
           fi
+
+      - name: Publish R4 page into main docs
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          mkdir -p docs
+          rm -rf docs/r4-data
+          cp /tmp/r4-publish/r4.html docs/r4.html
+          cp -R /tmp/r4-publish/r4-data docs/r4-data
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/r4.html docs/r4-data/
+          if git diff --cached --quiet; then
+            echo "No R4 web changes to commit to main."
+          else
+            git commit -m "Publish R4 research dashboard"
+            git push origin main
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy updated dashboard site
+        id: deployment
+        uses: actions/deploy-pages@v5

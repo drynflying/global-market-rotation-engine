@@ -22,12 +22,22 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 360
 
     env:
       BACKFILL_YEARS: ${{ inputs.backtest_years }}
       BACKFILL_WARMUP_YEARS: ${{ inputs.warmup_years }}
-      BACKFILL_BATCH_SIZE: "25"
+      BACKFILL_BATCH_SIZE: "10"
+      BACKFILL_SECOND_PASS_BATCH_SIZE: "5"
+      BACKFILL_INDIVIDUAL_ATTEMPTS: "3"
+      BACKFILL_SEGMENT_YEARS: "3"
+      BACKFILL_RETRY_BASE_SECONDS: "1"
+      BACKFILL_STAGE_PAUSE_SECONDS: "5"
+      BACKFILL_MIN_BARS: "260"
+      BACKFILL_MIN_COVERAGE_RATIO: "0.85"
+      BACKFILL_MAX_GAP_DAYS: "21"
+      BACKFILL_MAX_STALE_DAYS: "7"
+      BACKFILL_ALLOWED_MISSING: ""
 
     steps:
       - name: Check out repository
@@ -44,16 +54,41 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Download historical OHLCV
+      - name: Verify research dependency versions
+        run: |
+          python - <<'PY'
+          import scipy
+          import sklearn
+          import yfinance
+
+          print("yfinance:", yfinance.__version__)
+          print("scipy:", scipy.__version__)
+          print("scikit-learn:", sklearn.__version__)
+
+          if yfinance.__version__ != "1.5.1":
+              raise RuntimeError(
+                  f"Research backfill requires pinned yfinance 1.5.1; got {yfinance.__version__}"
+              )
+          PY
+
+      - name: Run Clean-Sheet R1/R1.1 unit tests
+        run: python -m unittest discover -s research/clean_sheet_predictive/tests -v
+
+      - name: Download reliable historical OHLCV
         run: python -m src.backfill_10y
 
       - name: Show backfill summary
+        if: always()
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
           p = Path("backtest_data/backfill_summary.json")
+          if not p.exists():
+              print("Backfill summary was not produced.")
+              raise SystemExit(0)
+
           summary = json.loads(p.read_text())
           print(json.dumps({
               "requested_start_date": summary["requested_start_date"],
@@ -62,14 +97,229 @@ jobs:
               "configured_symbols": summary["configured_symbols"],
               "symbols_with_data": summary["symbols_with_data"],
               "failed_symbols": summary["failed_symbols"],
+              "failed_symbol_list": summary["failed_symbol_list"],
+              "completeness_ratio": summary["completeness_ratio"],
+              "universe_completeness_status": summary["universe_completeness_status"],
+              "recovered_after_first_bulk_pass_count": summary["recovered_after_first_bulk_pass_count"],
               "total_rows": summary["total_rows"],
           }, indent=2))
           PY
 
-      - name: Upload 10-year OHLCV artifact
+      - name: Build Clean-Sheet R1 point-in-time dataset
+        run: |
+          python -m research.clean_sheet_predictive.build_research_dataset \
+            --input backtest_data/ohlcv_10y.csv \
+            --config backtest_data/rotation_universe_snapshot.csv \
+            --output research/clean_sheet_predictive/outputs \
+            --analysis-years "${{ inputs.backtest_years }}"
+
+      - name: Show Clean-Sheet R1 validation summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("research/clean_sheet_predictive/outputs")
+          manifest = json.loads((root / "dataset_manifest.json").read_text())
+          validation = json.loads((root / "validation_report.json").read_text())
+          print(json.dumps({
+              "dataset_version": manifest["dataset_version"],
+              "dataset_rows": manifest["dataset_rows"],
+              "dataset_tickers": manifest["dataset_tickers"],
+              "analysis_start_date": manifest["analysis_start_date"],
+              "analysis_latest_date": manifest["analysis_latest_date"],
+              "feature_count": manifest["feature_count"],
+              "validation_status": validation["status"],
+              "universe_completeness": validation["universe_completeness"],
+              "future_mutation_test": validation["future_mutation_leakage_test"],
+              "outcome_alignment": validation["outcome_alignment"],
+          }, indent=2))
+          PY
+
+      - name: Upload Clean-Sheet R1 research artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-sheet-r1-${{ github.run_id }}
+          path: research/clean_sheet_predictive/outputs/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Run Clean-Sheet R2 unit tests
+        run: python -m unittest research.clean_sheet_predictive.tests.test_r2 -v
+
+      - name: Run R2 univariate predictive discovery
+        run: |
+          python -m research.clean_sheet_predictive.r2_univariate             --dataset research/clean_sheet_predictive/outputs/research_dataset.csv.gz             --dictionary research/clean_sheet_predictive/outputs/data_dictionary.csv             --manifest research/clean_sheet_predictive/outputs/dataset_manifest.json             --validation research/clean_sheet_predictive/outputs/validation_report.json             --output research/clean_sheet_predictive/r2_outputs
+
+      - name: Show R2 discovery summary
+        run: |
+          python - <<'PY'
+          import json
+          import pandas as pd
+          from pathlib import Path
+
+          root = Path("research/clean_sheet_predictive/r2_outputs")
+          validation = json.loads((root / "r2_validation.json").read_text())
+          summary = pd.read_csv(root / "feature_horizon_summary.csv")
+
+          print(json.dumps(validation, indent=2))
+          print("\nTop R2 candidates by horizon:")
+          for h, g in summary.groupby("horizon_bars"):
+              rank = {
+                  "ROBUST_CANDIDATE": 0,
+                  "PROMISING": 1,
+                  "WEAK": 2,
+                  "INCONSISTENT_OR_NONE": 3,
+              }
+              g = g.copy()
+              g["rank"] = g["evidence_label"].map(rank).fillna(9)
+              g["abs_ic"] = g["mean_monthly_ic"].abs()
+              top = g.sort_values(["rank", "abs_ic"], ascending=[True, False]).head(10)
+              print(f"\n{int(h)} bars")
+              print(top[
+                  [
+                      "feature",
+                      "family",
+                      "evidence_label",
+                      "mean_monthly_ic",
+                      "bootstrap_ci_low",
+                      "bootstrap_ci_high",
+                      "annual_direction_consistency",
+                      "mean_high_minus_low",
+                  ]
+              ].to_string(index=False))
+          PY
+
+      - name: Upload Clean-Sheet R2 discovery artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-sheet-r2-${{ github.run_id }}
+          path: research/clean_sheet_predictive/r2_outputs/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Run Clean-Sheet R2.1 unit tests
+        run: python -m unittest research.clean_sheet_predictive.tests.test_r2_1 -v
+
+      - name: Run R2.1 signal independence and actionability audit
+        run: |
+          python -m research.clean_sheet_predictive.r2_1_independence             --dataset research/clean_sheet_predictive/outputs/research_dataset.csv.gz             --dictionary research/clean_sheet_predictive/outputs/data_dictionary.csv             --r2-summary research/clean_sheet_predictive/r2_outputs/feature_horizon_summary.csv             --r2-validation research/clean_sheet_predictive/r2_outputs/r2_validation.json             --output research/clean_sheet_predictive/r2_1_outputs
+
+      - name: Show R2.1 audit summary
+        run: |
+          python - <<'PY'
+          import json
+          import pandas as pd
+          from pathlib import Path
+
+          root = Path("research/clean_sheet_predictive/r2_1_outputs")
+          summary = json.loads((root / "r2_1_summary.json").read_text())
+          candidates = pd.read_csv(root / "nonredundant_candidate_set.csv")
+          actions = pd.read_csv(root / "actionability_audit.csv")
+
+          print(json.dumps(summary, indent=2))
+
+          print("\nSelected R3 candidates:")
+          selected = candidates[candidates["status"].eq("SELECTED")]
+          if selected.empty:
+              print("None")
+          else:
+              print(selected[
+                  [
+                      "horizon_label",
+                      "feature",
+                      "family",
+                      "r2_evidence_label",
+                      "actionability_label",
+                      "mean_monthly_ic",
+                  ]
+              ].to_string(index=False))
+
+          print("\nActionability counts:")
+          print(actions["actionability_label"].value_counts().to_string())
+          PY
+
+      - name: Upload Clean-Sheet R2.1 audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-sheet-r2-1-${{ github.run_id }}
+          path: research/clean_sheet_predictive/r2_1_outputs/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Run Clean-Sheet R3 unit tests
+        run: python -m unittest research.clean_sheet_predictive.tests.test_r3 -v
+
+      - name: Run R3 walk-forward multivariate baseline
+        run: |
+          python -m research.clean_sheet_predictive.r3_walk_forward \
+            --dataset research/clean_sheet_predictive/outputs/research_dataset.csv.gz \
+            --r2-1-candidates research/clean_sheet_predictive/r2_1_outputs/nonredundant_candidate_set.csv \
+            --r2-1-summary research/clean_sheet_predictive/r2_1_outputs/r2_1_summary.json \
+            --output research/clean_sheet_predictive/r3_outputs
+
+      - name: Show R3 evidence summary
+        run: |
+          python - <<'PY'
+          import json
+          import pandas as pd
+          from pathlib import Path
+
+          root = Path("research/clean_sheet_predictive/r3_outputs")
+          summary = json.loads((root / "r3_summary.json").read_text())
+          gates = pd.read_csv(root / "r3_evidence_gates.csv")
+          ranking = pd.read_csv(root / "r3_ranking_summary.csv")
+          avoid = pd.read_csv(root / "r3_avoid_summary.csv")
+
+          print(json.dumps({
+              "status": summary["status"],
+              "walk_forward_folds_run": summary["walk_forward_folds_run"],
+              "prediction_rows": summary["prediction_rows"],
+              "matured_prediction_rows": summary["matured_prediction_rows"],
+              "pristine_holdout": summary["pristine_holdout"],
+          }, indent=2))
+
+          print("\nEvidence gates:")
+          print(gates.to_string(index=False))
+
+          print("\nRidge ranking:")
+          print(ranking[ranking["method"].eq("ridge")][
+              [
+                  "horizon_label",
+                  "months",
+                  "mean_ic",
+                  "ic_ci_low",
+                  "ic_ci_high",
+                  "mean_top_decile_mean_rel_return",
+                  "mean_top_decile_beat_spy_rate",
+              ]
+          ].to_string(index=False))
+
+          print("\nAVOID classifier:")
+          print(avoid[
+              [
+                  "horizon_label",
+                  "months",
+                  "mean_roc_auc",
+                  "mean_top_risk_quintile_precision",
+                  "mean_top_risk_quintile_lift",
+                  "mean_top_risk_quintile_mean_rel_return",
+              ]
+          ].to_string(index=False))
+          PY
+
+      - name: Upload Clean-Sheet R3 research artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-sheet-r3-${{ github.run_id }}
+          path: research/clean_sheet_predictive/r3_outputs/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload 10-year OHLCV diagnostics
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: market-rotation-10y-ohlcv-${{ github.run_id }}
           path: backtest_data/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 30
