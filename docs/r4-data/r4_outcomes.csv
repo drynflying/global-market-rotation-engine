@@ -1,0 +1,1 @@
+prediction_id,recorded_at_utc,anchor_date,ticker,horizon_bars,horizon_label,outcome_end_date,fwd_return,fwd_spy_relative_return,fwd_max_drawdown,fwd_spy_rel_mae,fwd_spy_rel_mfe,beat_spy
