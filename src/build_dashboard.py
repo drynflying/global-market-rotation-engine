@@ -39,6 +39,57 @@ def _pair_class(signal: str) -> str:
     }.get(signal, "muted")
 
 
+def _load_r4_dashboard_summary() -> dict:
+    """Read published R4 state for display only."""
+    data_dir = DOCS_DIR / "r4-data"
+    status_path = data_dir / "r4_status.json"
+    assessment_path = data_dir / "r4_assessment.json"
+
+    if not status_path.exists():
+        return {
+            "available": False,
+            "status": {},
+            "assessment": {},
+            "reason": "R4 research data has not been published to docs/r4-data yet.",
+        }
+
+    try:
+        status = json.loads(status_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return {
+            "available": False,
+            "status": {},
+            "assessment": {},
+            "reason": f"R4 status could not be read: {exc}",
+        }
+
+    assessment = {}
+    if assessment_path.exists():
+        try:
+            assessment = json.loads(assessment_path.read_text(encoding="utf-8"))
+        except Exception:
+            assessment = {}
+
+    return {
+        "available": True,
+        "status": status,
+        "assessment": assessment,
+        "reason": "",
+    }
+
+
+def _r4_fmt(value, digits=3) -> str:
+    if value is None:
+        return "—"
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return "—"
+    if not np.isfinite(number):
+        return "—"
+    return f"{number:.{digits}f}"
+
+
 def build_dashboard(
     latest: pd.DataFrame,
     history: pd.DataFrame,
@@ -54,6 +105,103 @@ def build_dashboard(
 
     as_of_date = pd.Timestamp(latest["date"].max()).normalize()
     as_of = as_of_date.strftime("%Y-%m-%d")
+
+    # R4 is a separate frozen prospective research stream. The production
+    # dashboard reads its already-published status for visibility only.
+    r4_bundle = _load_r4_dashboard_summary()
+    r4_status = r4_bundle.get("status", {})
+    r4_assessment = r4_bundle.get("assessment", {})
+    r4_by_horizon = (
+        r4_assessment.get("by_horizon", {})
+        if isinstance(r4_assessment, dict)
+        else {}
+    )
+
+    def _r4_horizon_card(horizon_bars: int, label: str) -> str:
+        row = r4_by_horizon.get(str(horizon_bars), {}) or {}
+        ranking = row.get("ranking", {}) or {}
+        ridge = ranking.get("ridge", {}) or {}
+        equal_weight = ranking.get("equal_weight", {}) or {}
+        avoid = row.get("avoid", {}) or {}
+        raw_status = str(row.get("evidence_status") or "INSUFFICIENT")
+        evidence = raw_status.replace("_", " ").title()
+        evidence_class = {
+            "INSUFFICIENT": "muted",
+            "EARLY": "good2",
+            "PROMISING": "good",
+            "MIXED": "warn",
+            "CONFIRMED_PROSPECTIVE": "good",
+            "FAILED_TO_CONFIRM": "bad",
+        }.get(raw_status, "muted")
+        months = int(row.get("evaluated_months") or 0)
+        primary_class = " r4-primary" if horizon_bars == 126 else ""
+
+        return f"""
+        <div class='r4-horizon-card{primary_class}'>
+          <div class='r4-horizon-head'>
+            <strong>{html.escape(label)}</strong>
+            <span class='badge {evidence_class}'>{html.escape(evidence)}</span>
+          </div>
+          <div class='r4-mini-grid'>
+            <div><span>Months</span><strong>{months}</strong></div>
+            <div><span>Ridge IC</span><strong>{_r4_fmt(ridge.get("mean_ic"))}</strong></div>
+            <div><span>Equal IC</span><strong>{_r4_fmt(equal_weight.get("mean_ic"))}</strong></div>
+            <div><span>AVOID AUC</span><strong>{_r4_fmt(avoid.get("mean_roc_auc"))}</strong></div>
+            <div><span>AVOID lift</span><strong>{_r4_fmt(avoid.get("mean_top_risk_quintile_lift"), 2)}×</strong></div>
+          </div>
+        </div>
+        """
+
+    if r4_bundle.get("available"):
+        r4_prediction_rows = int(r4_status.get("prediction_rows") or 0)
+        r4_matured_rows = int(r4_status.get("matured_outcome_rows") or 0)
+        r4_latest_anchor = r4_status.get("latest_issued_anchor_date")
+        r4_latest_anchor_text = (
+            html.escape(str(r4_latest_anchor))
+            if r4_latest_anchor
+            else "Waiting for first completed month"
+        )
+        r4_cards = "".join(
+            [
+                _r4_horizon_card(21, "1M"),
+                _r4_horizon_card(63, "3M"),
+                _r4_horizon_card(126, "6M"),
+                _r4_horizon_card(189, "9M"),
+            ]
+        )
+        r4_summary_html = f"""
+        <section class='r4-summary-panel'>
+          <div class='r4-summary-head'>
+            <div>
+              <div class='r4-eyebrow'>Clean-Sheet Forward Research · prospective shadow</div>
+              <h2>R4 Prospective Evidence</h2>
+              <div class='r4-subline'>Latest cohort: {r4_latest_anchor_text} · {r4_prediction_rows:,} prediction rows · {r4_matured_rows:,} matured outcomes</div>
+            </div>
+            <a class='r4-open-button' href='r4.html'>Open full R4 dashboard →</a>
+          </div>
+          <div class='r4-boundary-note'><strong>Research boundary:</strong> R4 is displayed here for visibility only. It does not alter the production rotation score, weekly recommendation layer, AI commentary, or Cross-Asset signals.</div>
+          <div class='r4-horizon-grid'>{r4_cards}</div>
+        </section>
+        """
+    else:
+        reason = html.escape(
+            str(
+                r4_bundle.get("reason")
+                or "R4 research data is not available yet."
+            )
+        )
+        r4_summary_html = f"""
+        <section class='r4-summary-panel r4-unavailable'>
+          <div class='r4-summary-head'>
+            <div>
+              <div class='r4-eyebrow'>Clean-Sheet Forward Research · prospective shadow</div>
+              <h2>R4 Prospective Evidence</h2>
+              <div class='r4-subline'>{reason}</div>
+            </div>
+            <a class='r4-open-button' href='r4.html'>Open R4 dashboard →</a>
+          </div>
+        </section>
+        """
 
     def _format_date(value) -> str:
         try:
@@ -931,9 +1079,42 @@ th {{ color:var(--muted); font-size:13px; }}
 .attention-subhead {{ margin:12px 0 4px; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }}
 .pending-line {{ margin-top:5px; color:var(--muted); font-size:11px; line-height:1.25; }}
 .trend-rule {{ margin:10px 0 18px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:var(--panel2); color:var(--muted); font-size:12px; }}
+.r4-summary-panel {{
+  margin:18px 0 22px; padding:18px; border:1px solid #2f5870; border-radius:14px;
+  background:linear-gradient(135deg, rgba(102,179,255,.08), rgba(74,210,149,.035), var(--panel));
+}}
+.r4-summary-head {{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+}}
+.r4-summary-panel h2 {{ margin:4px 0 4px; font-size:20px; }}
+.r4-eyebrow {{
+  color:var(--accent); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.06em;
+}}
+.r4-subline {{ color:var(--muted); font-size:12px; line-height:1.45; }}
+.r4-open-button {{
+  display:inline-flex; align-items:center; padding:9px 12px; border-radius:9px;
+  border:1px solid var(--accent); color:var(--accent); text-decoration:none; font-size:12px; font-weight:800;
+  white-space:nowrap;
+}}
+.r4-open-button:hover {{ background:rgba(102,179,255,.08); }}
+.r4-boundary-note {{
+  margin:13px 0; padding:9px 11px; border-left:3px solid var(--accent);
+  background:rgba(102,179,255,.045); color:var(--muted); font-size:11px; line-height:1.45;
+}}
+.r4-horizon-grid {{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:12px; }}
+.r4-horizon-card {{
+  padding:12px; border:1px solid var(--line); border-radius:11px; background:rgba(0,0,0,.08);
+}}
+.r4-horizon-card.r4-primary {{ border-color:var(--accent); }}
+.r4-horizon-head {{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:9px; }}
+.r4-horizon-head strong {{ font-size:16px; }}
+.r4-mini-grid {{ display:grid; grid-template-columns:1fr 1fr; gap:6px 10px; }}
+.r4-mini-grid span {{ display:block; color:var(--muted); font-size:10px; margin-bottom:2px; }}
+.r4-mini-grid strong {{ font-size:12px; }}
+.r4-unavailable {{ opacity:.88; }}
 @media (max-width:800px) {{
-  .grid,.mini-grid,.chart-grid,.providers,.split,.attention-grid,.weekly-actions,.cross-asset-grid {{ grid-template-columns:1fr; }}
-  .weekly-panel-head,.weekly-action-head,.cross-asset-section-head {{ flex-direction:column; align-items:flex-start; }}
+  .grid,.mini-grid,.chart-grid,.providers,.split,.attention-grid,.weekly-actions,.cross-asset-grid,.r4-horizon-grid {{ grid-template-columns:1fr; }}
+  .weekly-panel-head,.weekly-action-head,.cross-asset-section-head,.r4-summary-head {{ flex-direction:column; align-items:flex-start; }}
   .weekly-next {{ text-align:left; }}
   main {{ padding:14px; }}
   .table-wrap {{ overflow-x:auto; }}
@@ -952,6 +1133,8 @@ th {{ color:var(--muted); font-size:13px; }}
     <div class="card"><div class="muted">Persistent leaders</div><div class="metric">{int((scored['rotation_state']=='PERSISTENT_LEADER').sum())}</div></div>
     <div class="card"><div class="muted">Weakening / out</div><div class="metric">{int(scored['rotation_state'].isin(['WEAKENING','ROTATION_OUT']).sum())}</div></div>
   </div>
+
+  {r4_summary_html}
 
   <div class="ai-summary">
     <div class="muted">AI interpretation · primary analyst: {html.escape(str(primary_provider))}</div>

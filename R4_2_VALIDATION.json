@@ -1,0 +1,19 @@
+{
+  "patch": "R4.2",
+  "name": "Main Dashboard R4 Integration",
+  "baseline": "Patch 10 build_dashboard.py",
+  "production_scoring_changed": false,
+  "r4_model_changed": false,
+  "weekly_logic_changed": false,
+  "cross_asset_logic_changed": false,
+  "file_replaced": "src/build_dashboard.py",
+  "r4_inputs": [
+    "docs/r4-data/r4_status.json",
+    "docs/r4-data/r4_assessment.json"
+  ],
+  "validation": {
+    "python_syntax": "passed",
+    "patch10_sections_preserved": true,
+    "missing_r4_data_fallback": true
+  }
+}
