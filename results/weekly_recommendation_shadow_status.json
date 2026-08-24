@@ -4,14 +4,12 @@
   "shadow_only": true,
   "dashboard_effect": "none",
   "capture": {
-    "status": "recorded",
-    "recommendation_date": "2026-08-21",
-    "appended_rows": 2,
-    "action_count": 2,
-    "selectable_finalists": 4,
-    "provider": "gemini",
-    "provider_model": "gemini-3.6-flash",
-    "gate_reason": "friday_after_close"
+    "status": "not_due",
+    "recommendation_date": "2026-08-24",
+    "week_ending_date": "2026-08-28",
+    "gate_reason": "not_weekly_capture_window",
+    "action_count": 0,
+    "appended_rows": 0
   },
   "outcomes": {
     "action_rows": 3,

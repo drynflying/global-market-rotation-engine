@@ -1,281 +1,179 @@
 {
-  "headline": "Health Care and Emerging Niche Leaders Gain Momentum Amid Sector Divergences",
-  "market_regime": "Mixed leadership driven by Health Care strength, international divergence, and intra-sector splits.",
-  "executive_summary": "Health Care demonstrates strong confirmed leadership across US (XLV) and Global (IXJ) benchmarks, supported by reaccelerating Biotech (XBI). Emerging markets display notable divergence, with South Africa (EZA) reaching a 63-bar score high while Latin American exposures face rotational pressure. Intra-sector divergences remain prominent across Health Care, Real Estate, Industrials, and Communication Services.",
+  "headline": "Cross-Asset Rotation Analysis: Emerging Leadership in Materials and African Equities Amid Divergent Sector Trends",
+  "market_regime": "Selective Sector Rotation & Emerging Regional Leadership",
+  "executive_summary": "The quantitative ETF rotation data indicates strong emerging leadership in Materials and select international equities, alongside sustained strength in Health Care, Energy, and Biotech. Conversely, previous defensive leaders like Utilities and broader Industrial benchmarks show relative deterioration. Notably, several broad benchmarks and sector funds reflect mixed-horizon relative strength, requiring distinct evaluation across 20-bar and 63-bar windows.",
   "emerging_rotations": [
     {
-      "ticker": "EZA",
-      "title": "South Africa Shows Rapid Emerging Leadership",
-      "explanation": "EZA carries a confirmed EMERGING trend state with a rotation score of 85.89, reaching a 63-bar score high. It registered a 20-bar score change of +60.28 and a 5-bar score change of +35.70, backed by 20-bar relative strength of +13.55 percentage points and 63-bar relative strength of +3.88 percentage points.",
+      "ticker": "AFK",
+      "title": "African Equities Emerging Regional Leadership",
+      "explanation": "AFK holds a confirmed EMERGING state with a rotation score of 94.38, supported by a 5-bar score change of +30.0 and a 20-bar score change of +62.5. Relative strength is positive across both horizons at +10.79 percentage points on the 20-bar horizon and +5.55 percentage points on the 63-bar horizon, reaching a 63-bar score high of 94.38.",
       "confidence": "high",
       "related_tickers": [
-        "AFK",
-        "EEM"
-      ]
-    },
-    {
-      "ticker": "XME",
-      "title": "Metals & Mining Emerging Rotation",
-      "explanation": "XME holds a confirmed EMERGING trend state with a score of 75.00, advancing by a 20-bar score change of +64.26 and a 5-bar score change of +10.83. Its 20-bar relative strength is positive at +13.67 percentage points, while its 63-bar relative strength is +0.14 percentage points.",
-      "confidence": "high",
-      "related_tickers": [
-        "XLB",
-        "MXI"
-      ]
-    },
-    {
-      "ticker": "IGV",
-      "title": "Software Sector Shows Emerging Strength",
-      "explanation": "IGV exhibits a confirmed EMERGING trend state with a rotation score of 80.42, demonstrating a 20-bar score change of +28.01 and a 5-bar score change of +4.03. It exhibits positive relative strength across both 20-bar (+13.87 percentage points) and 63-bar (+8.43 percentage points) horizons.",
-      "confidence": "high",
-      "related_tickers": [
-        "CIBR",
-        "SKYY",
-        "XLK"
+        "EZA"
       ]
     },
     {
       "ticker": "MXI",
-      "title": "Global Materials Improving on Shorter Horizon",
-      "explanation": "MXI carries a confirmed EMERGING trend state with a score of 67.50 and a 20-bar score change of +49.00. However, relative strength evidence is mixed across horizons, as its 20-bar relative strength is +2.05 percentage points while its 63-bar relative strength remains negative at -5.51 percentage points.",
-      "confidence": "medium",
+      "title": "Global Materials Rotation Signals Improvement",
+      "explanation": "MXI is in a confirmed EMERGING state with a score of 88.33, driven by a 5-bar score change of +15.83 and a 20-bar score change of +59.83. It demonstrates positive relative strength across both horizons with +7.46 percentage points over 20 bars and +4.17 percentage points over 63 bars.",
+      "confidence": "high",
       "related_tickers": [
-        "XLB",
-        "XME"
+        "XLB"
       ]
     }
   ],
   "accelerating_rotations": [
     {
       "ticker": "IXJ",
-      "title": "Global Health Care Accelerates Upward",
-      "explanation": "IXJ holds a confirmed ACCELERATING state with a rotation score of 90.00, achieving a 5-bar score change of +25.00 and a 20-bar score change of +19.00. Relative strength is positive on both horizons, at +2.75 percentage points over 20 bars and +10.56 percentage points over 63 bars. Note that IXJ has a pending trend change to PERSISTENT_LEADER (1/3 observations).",
+      "title": "Global Health Care Trend Acceleration",
+      "explanation": "IXJ displays a confirmed ACCELERATING state with a score of 84.17 and a 5-bar score change of +13.17. Its relative strength is positive across both horizons at +2.65 percentage points over 20 bars and +10.24 percentage points over 63 bars. It holds a pending raw state of PERSISTENT_LEADER at 2/3 observations.",
       "confidence": "high",
       "related_tickers": [
-        "XLV",
-        "XBI"
+        "XLV"
       ]
     }
   ],
   "persistent_leaders": [
     {
-      "ticker": "XLV",
-      "title": "US Health Care Maintains Top Leadership",
-      "explanation": "XLV leads the US sector group in a confirmed PERSISTENT_LEADER state with a group-topping rotation score of 95.45. It posted a 5-bar score change of +20.45 and a 20-bar score change of +24.09, supported by 20-bar relative strength of +3.79 percentage points and 63-bar relative strength of +15.02 percentage points.",
-      "confidence": "high",
-      "related_tickers": [
-        "IXJ",
-        "XBI",
-        "IHI"
-      ]
-    },
-    {
-      "ticker": "CIBR",
-      "title": "Cybersecurity Exhibits Sustained Leadership",
-      "explanation": "CIBR carries a confirmed PERSISTENT_LEADER trend state with a score of 82.92, showing steady relative strength over 20 bars (+3.67 percentage points) and 63 bars (+12.20 percentage points), with a 20-bar score change of +7.92.",
-      "confidence": "high",
-      "related_tickers": [
-        "SKYY",
-        "IGV"
-      ]
-    },
-    {
       "ticker": "GREK",
-      "title": "Greece Remains Persistent European Leader",
-      "explanation": "GREK holds a confirmed PERSISTENT_LEADER state with a score of 80.81, showing 20-bar relative strength of +4.27 percentage points and 63-bar relative strength of +14.51 percentage points, despite a 5-bar score change of -10.78.",
+      "title": "Greece Maintains Top Country Ranking",
+      "explanation": "GREK holds a confirmed PERSISTENT_LEADER state with a rotation score of 93.92, ranking first in the ex-US country group. It posted a 5-bar score change of +18.07 and positive relative strength across both horizons (+4.43 percentage points over 20 bars and +16.67 percentage points over 63 bars), reaching a 63-bar score high of 93.92.",
       "confidence": "high",
       "related_tickers": [
-        "FEZ",
-        "EIRL"
+        "FEZ"
+      ]
+    },
+    {
+      "ticker": "XBI",
+      "title": "Biotechnology Multi-Horizon Leadership",
+      "explanation": "XBI exhibits a confirmed PERSISTENT_LEADER state with a score of 89.60, ranking first in US Industry Themes. It reflects a 5-bar score change of +13.86 and a 20-bar score change of +27.56, with aligned positive relative strength of +5.72 percentage points over 20 bars and +22.16 percentage points over 63 bars.",
+      "confidence": "high",
+      "related_tickers": [
+        "XLV"
       ]
     }
   ],
   "reaccelerating_rotations": [
     {
-      "ticker": "XBI",
-      "title": "Biotechnology Reaccelerates Within Health Care",
-      "explanation": "XBI holds a confirmed REACCELERATING state with a rotation score of 87.29, driven by a 5-bar score change of +19.14 and a 20-bar score change of +30.44. Relative strength is strong over both 20 bars (+6.51 percentage points) and 63 bars (+21.58 percentage points). It currently has an unconfirmed pending trend change toward PERSISTENT_LEADER (2/3 observations).",
-      "confidence": "high",
-      "related_tickers": [
-        "XLV",
-        "IHI",
-        "IHF"
-      ]
-    },
-    {
       "ticker": "ASEA",
-      "title": "Southeast Asia Displays Reaccelerating Signal with Conflicting Horizons",
-      "explanation": "ASEA holds a confirmed REACCELERATING state with a score of 65.71 and a 5-bar score change of +15.71. Relative strength indicators reflect mixed horizon evidence: 20-bar relative strength is negative at -1.50 percentage points, while 63-bar relative strength remains positive at +5.87 percentage points.",
+      "title": "Southeast Asia Turning Upward Following Pullback",
+      "explanation": "ASEA holds a confirmed REACCELERATING state with a score of 65.0 and a 5-bar score change of +8.12. Disclosing mixed horizons, its 20-bar relative strength is negative at -1.12 percentage points while its 63-bar relative strength remains positive at +6.36 percentage points, reflecting a split across short and long horizons.",
       "confidence": "medium",
       "related_tickers": [
-        "EPHE",
-        "EWM",
-        "THD"
+        "EEM"
       ]
     }
   ],
   "weakening_rotations": [
     {
-      "ticker": "REZ",
-      "title": "Residential Real Estate Weakens Severely",
-      "explanation": "REZ is in a confirmed WEAKENING trend state with a score of 31.25, following a major 20-bar score change of -53.94. Horizons are conflicting as 20-bar relative strength is -6.88 percentage points, whereas 63-bar relative strength is +2.08 percentage points.",
-      "confidence": "high",
+      "ticker": "QQQ",
+      "title": "Nasdaq-100 Relative Leadership Weakening",
+      "explanation": "QQQ has a confirmed WEAKENING state with a score of 78.33 and a 5-bar score change of +18.33. Disclosing mixed horizons, its 20-bar relative strength is +0.25 percentage points while its 63-bar relative strength is -4.11 percentage points, showing divergent horizon signals. It holds a pending raw state of EMERGING at 1/3 observations.",
+      "confidence": "medium",
       "related_tickers": [
-        "XLRE",
-        "REM"
+        "SPY"
       ]
     },
     {
-      "ticker": "XLRE",
-      "title": "US Real Estate Sector Hits 63-Bar Score Low",
-      "explanation": "XLRE holds a confirmed WEAKENING state with a rotation score of 31.82, which represents a 63-bar score low. It experienced a 20-bar score change of -41.36 and a 5-bar score change of -20.91, alongside 20-bar relative strength of -5.52 percentage points and 63-bar relative strength of -1.17 percentage points.",
-      "confidence": "high",
+      "ticker": "XLF",
+      "title": "Financials Sector Experiencing Short-Term Deterioration",
+      "explanation": "XLF exhibits a confirmed WEAKENING state with a score of 65.91, dropping via a 5-bar score change of -15.0 and a 20-bar score change of -18.18. Disclosing mixed horizons, its 20-bar relative strength is -0.94 percentage points while its 63-bar relative strength is +9.83 percentage points, presenting conflicting horizon evidence.",
+      "confidence": "medium",
       "related_tickers": [
-        "REZ",
-        "REET"
-      ]
-    },
-    {
-      "ticker": "IHF",
-      "title": "Health Care Providers Reach Score Low Within Sector",
-      "explanation": "IHF carries a confirmed WEAKENING state with a rotation score of 41.67, marking a 63-bar score low and a 20-bar score change of -41.30. Relative strength shows conflicting horizons: 20-bar relative strength is -2.90 percentage points, while 63-bar relative strength is +6.35 percentage points.",
-      "confidence": "high",
-      "related_tickers": [
-        "XLV",
-        "IHI",
-        "XBI"
-      ]
-    },
-    {
-      "ticker": "EWW",
-      "title": "Mexico Relative Leadership Deteriorates to Score Low",
-      "explanation": "EWW is in a confirmed WEAKENING state with a rotation score of 19.05, which is a 63-bar score low. It dropped with a 20-bar score change of -38.75 and a 5-bar score change of -20.34, showing 20-bar relative strength of -4.98 percentage points and 63-bar relative strength of -7.94 percentage points. Note a pending raw state change to ROTATION_OUT (1/3 observations).",
-      "confidence": "high",
-      "related_tickers": [
-        "EWZ",
-        "ILF"
+        "IXG",
+        "KRE"
       ]
     }
   ],
   "rotation_out": [
     {
-      "ticker": "PBJ",
-      "title": "Food & Beverage Remains Entrenched in Rotation Out",
-      "explanation": "PBJ carries a confirmed ROTATION_OUT state with the dataset's lowest score of 17.59 and a CMF20 of -0.745. It suffered a 20-bar score change of -34.07, with negative relative strength over both 20 bars (-3.76 percentage points) and 63 bars (-4.75 percentage points).",
+      "ticker": "EWZ",
+      "title": "Brazil Equity Lags Across Horizons",
+      "explanation": "EWZ is in a confirmed ROTATION_OUT state with a score of 22.16, placing 37th of 37 in country ETFs. It experienced a 20-bar score change of -31.13 and negative relative strength across both horizons (-6.01 percentage points over 20 bars and -6.68 percentage points over 63 bars), accompanied by a low CMF20 of -0.361.",
       "confidence": "high",
       "related_tickers": [
-        "XLP",
-        "KXI"
+        "ILF"
       ]
     },
     {
       "ticker": "XLU",
-      "title": "Utilities Sinks Into Rotation Out",
-      "explanation": "XLU exhibits a confirmed ROTATION_OUT state with a score of 20.91, recording a 20-bar score change of -32.73. Relative strength is negative across both 20-bar (-11.23 percentage points) and 63-bar (-7.71 percentage points) horizons.",
+      "title": "Utilities Sector Persistently Lagging",
+      "explanation": "XLU is in a confirmed ROTATION_OUT state with a score of 22.73, ranking last among US sectors. It shows a 20-bar score change of -18.64 and negative relative strength across both horizons (-8.68 percentage points over 20 bars and -6.74 percentage points over 63 bars).",
       "confidence": "high",
       "related_tickers": [
         "JXI"
-      ]
-    },
-    {
-      "ticker": "IXP",
-      "title": "Global Communication Services Lagging Significantly",
-      "explanation": "IXP holds a confirmed ROTATION_OUT state with a score of 23.12 and a 20-bar score change of -24.38. Relative strength is negative over 20 bars (-3.11 percentage points) and 63 bars (-10.33 percentage points).",
-      "confidence": "high",
-      "related_tickers": [
-        "XLC"
-      ]
-    },
-    {
-      "ticker": "EWZ",
-      "title": "Brazil Dragged into Rotation Out Category",
-      "explanation": "EWZ holds a confirmed ROTATION_OUT state with a score of 24.35, dropping by a 20-bar score change of -32.23. Relative strength is negative on both 20-bar (-7.06 percentage points) and 63-bar (-9.04 percentage points) horizons.",
-      "confidence": "high",
-      "related_tickers": [
-        "ILF",
-        "EWW"
       ]
     }
   ],
   "geographic_rotations": [
     {
       "ticker": "EZA",
-      "title": "South Africa Surges to Regional Score High",
-      "explanation": "EZA holds a confirmed EMERGING state with a score of 85.89, reaching a 63-bar score high. It leads country ETFs with a 20-bar score change of +60.28, supported by 20-bar relative strength of +13.55 percentage points and 63-bar relative strength of +3.88 percentage points.",
+      "title": "South Africa Drives Emerging Country Rotation",
+      "explanation": "EZA displays a confirmed EMERGING state with a score of 83.58, driven by a 5-bar score change of +29.98 and the largest 20-bar score improvement among country ETFs (+69.07). Its relative strength is positive on both horizons (+11.10 percentage points over 20 bars and +3.99 percentage points over 63 bars).",
       "confidence": "high",
       "related_tickers": [
-        "AFK",
-        "EEM"
+        "AFK"
       ]
     },
     {
-      "ticker": "FEZ",
-      "title": "Eurozone Blue Chips Maintain European Leadership",
-      "explanation": "FEZ is in a confirmed PERSISTENT_LEADER state with a score of 75.71, supported by positive relative strength over 20 bars (+0.83 percentage points) and 63 bars (+3.37 percentage points) relative to ACWX.",
+      "ticker": "EPOL",
+      "title": "Poland Maintains Strong European Leadership",
+      "explanation": "EPOL holds a confirmed PERSISTENT_LEADER state with a score of 90.68 and a 20-bar score change of +27.75. Relative strength is positive across both horizons (+4.34 percentage points over 20 bars and +7.96 percentage points over 63 bars), reaching a 63-bar score high of 90.68.",
       "confidence": "high",
       "related_tickers": [
-        "VGK",
-        "EIRL",
-        "GREK"
-      ]
-    },
-    {
-      "ticker": "EWW",
-      "title": "Mexico Geographic Deterioration",
-      "explanation": "EWW is in a confirmed WEAKENING state with a rotation score of 19.05 (63-bar score low) and a 20-bar score change of -38.75. Relative strength is negative over 20 bars (-4.98 percentage points) and 63 bars (-7.94 percentage points), with a pending raw condition of ROTATION_OUT (1/3 observations).",
-      "confidence": "high",
-      "related_tickers": [
-        "EWZ",
-        "ILF"
+        "VGK"
       ]
     }
   ],
   "pair_relationships": [
     {
       "ticker": "IWD",
-      "title": "Large-Cap Value Leading Large-Cap Growth Over Longer Horizon",
-      "explanation": "IWD (U.S. Large-Cap Value) holds a confirmed EMERGING state with a rotation score of 63.45 and a confirmed PAIR_LEADING signal versus paired ticker IWF (U.S. Large-Cap Growth). Spreads versus IWF demonstrate conflicting horizon evidence: the 20-bar pair spread is -0.38 percentage points, while the 63-bar pair spread is +11.72 percentage points. A pending pair change to PAIR_MIXED is logged at 1/3 observations.",
-      "confidence": "medium",
+      "title": "Large-Cap Value Outperforming Growth Pair",
+      "explanation": "IWD holds a confirmed EMERGING state (score 77.68) and a confirmed PAIR_LEADING signal versus paired ticker IWF. Direct pair performance spreads show +0.10 percentage points over 20 bars and +12.74 percentage points over 63 bars relative to IWF. It holds a pending raw state of NEUTRAL at 2/3 observations.",
+      "confidence": "high",
       "related_tickers": [
         "IWF"
       ]
     },
     {
       "ticker": "RSP",
-      "title": "Equal Weight Leading Cap Weight S&P 500",
-      "explanation": "RSP (S&P 500 Equal Weight) holds a confirmed EMERGING state with a rotation score of 60.92 and a confirmed PAIR_LEADING signal versus paired ticker SPY. Pair performance spreads versus SPY are positive across both horizons: +0.17 percentage points over 20 bars and +5.34 percentage points over 63 bars, with a 20-bar score change of +14.33.",
-      "confidence": "high",
+      "title": "Equal-Weight vs Cap-Weight Large Cap Relationship",
+      "explanation": "RSP holds a confirmed EMERGING state (score 59.13) with a confirmed PAIR_LEADING signal versus paired ticker SPY. Direct pair performance spreads show -0.16 percentage points over 20 bars and +5.19 percentage points over 63 bars relative to SPY. It carries a pending raw pair signal of PAIR_MIXED at 1/3 observations and a pending raw state of NEUTRAL at 1/3 observations.",
+      "confidence": "medium",
       "related_tickers": [
         "SPY"
       ]
     }
   ],
   "cross_market_confirmations": [
-    "Health Care relative strength is confirmed across both domestic (XLV: score 95.45, PERSISTENT_LEADER) and global (IXJ: score 90.00, ACCELERATING) ETFs.",
-    "Materials improvement is confirmed across domestic (XME: 20-bar score change +64.26, XLB: 20-bar score change +21.36) and global (MXI: 20-bar score change +49.00) markets.",
-    "Broad Real Estate weakness is confirmed across US sector (XLRE: score 31.82, WEAKENING) and global benchmarks (REET: score 53.10, WEAKENING)."
+    "Materials sector strength is confirmed across domestic and global structures, as global MXI (score 88.33, EMERGING) and domestic XLB (score 76.36, EMERGING) both display positive 20-bar relative strength (+7.46 and +0.96 percentage points) and strong 20-bar score improvements (+59.83 and +32.73).",
+    "Health Care broad leadership is confirmed between global IXJ (score 84.17, ACCELERATING) and US XLV (score 79.09, PERSISTENT_LEADER), both exhibiting positive relative strength over 20 bars (+2.65 and +3.62 percentage points) and 63 bars (+10.24 and +14.41 percentage points).",
+    "African geographic rotation is confirmed by regional ETF AFK (score 94.38, EMERGING) and country ETF EZA (score 83.58, EMERGING), both posting substantial 20-bar score improvements (+62.50 and +69.07) and positive relative strength across both horizons."
   ],
   "risks_or_conflicts": [
-    "Health Care sector divergence: Medical Devices (IHI) improved with a 20-bar score change of +48.22, while Health Care Providers (IHF) deteriorated with a 20-bar score change of -41.30.",
-    "Real Estate sector divergence: Mortgage Real Estate (REM) improved with a 20-bar score change of +17.01, whereas Residential Real Estate (REZ) deteriorated with a 20-bar score change of -53.94, while XLRE remains weak at a 31.82 score.",
-    "Industrials sector divergence: Global Industrials (EXI) improved with a 20-bar score change of +27.67, while Aerospace & Defense (ITA) deteriorated with a 20-bar score change of -20.86 (with pending WEAKENING state 2/3).",
-    "Communication Services sector divergence: US Communication Services (XLC) improved with a 20-bar score change of +24.09, while Global Communication Services (IXP) deteriorated with a 20-bar score change of -24.38.",
-    "Pending trend warning: XLE is in confirmed EMERGING state but has a pending PERSISTENT_LEADER state (2/3 observations); XBI is confirmed REACCELERATING with pending PERSISTENT_LEADER (2/3 observations); EWW is confirmed WEAKENING with pending ROTATION_OUT (1/3 observations)."
+    "In Health Care, a material sector divergence exists where Medical Devices (IHI, 20-bar score change +49.60) shows sharp relative improvement while Health Care Providers (IHF, 20-bar score change -17.67) displays relative deterioration.",
+    "In Industrials, Global Industrials (EXI, 20-bar score change +26.50) is improving while Aerospace & Defense (ITA, 20-bar score change -36.85) and broad US Industrials (XLI, score 38.18) exhibit substantial weakness.",
+    "In Real Estate, Mortgage Real Estate (REM, 20-bar score change +19.78) gains score momentum while Residential Real Estate (REZ, 20-bar score change -31.46) and sector benchmark XLRE (score 41.36) experience significant score drops.",
+    "In Communication Services, Telecommunications (IYZ, 20-bar score change +24.13) shows short-term score recovery while Global Communication Services (IXP, 20-bar score change -24.72) remains in ROTATION_OUT.",
+    "Multiple high-profile ETFs reflect conflicting relative strength horizons; for example, XME shows strong 20-bar RS (+11.02 percentage points) against negative 63-bar RS (-1.90 percentage points), while XLF exhibits negative 20-bar RS (-0.94 percentage points) against positive 63-bar RS (+9.83 percentage points)."
   ],
   "dashboard_focus_tickers": [
-    "XLV",
-    "IXJ",
+    "AFK",
+    "GREK",
+    "EPOL",
     "XBI",
+    "MXI",
+    "IXJ",
+    "XLE",
     "EZA",
-    "XME",
-    "IGV",
-    "REZ",
-    "EWW",
-    "PBJ",
-    "IWD"
+    "QQQ",
+    "EWZ",
+    "XLU",
+    "IWD",
+    "RSP"
   ],
   "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data.",
-  "as_of": "2026-08-21",
+  "as_of": "2026-08-24",
   "provider_status": "ai",
   "primary_provider": "gemini",
   "requested_providers": [
@@ -308,280 +206,178 @@
         "retry_used": false
       },
       "analysis": {
-        "headline": "Health Care and Emerging Niche Leaders Gain Momentum Amid Sector Divergences",
-        "market_regime": "Mixed leadership driven by Health Care strength, international divergence, and intra-sector splits.",
-        "executive_summary": "Health Care demonstrates strong confirmed leadership across US (XLV) and Global (IXJ) benchmarks, supported by reaccelerating Biotech (XBI). Emerging markets display notable divergence, with South Africa (EZA) reaching a 63-bar score high while Latin American exposures face rotational pressure. Intra-sector divergences remain prominent across Health Care, Real Estate, Industrials, and Communication Services.",
+        "headline": "Cross-Asset Rotation Analysis: Emerging Leadership in Materials and African Equities Amid Divergent Sector Trends",
+        "market_regime": "Selective Sector Rotation & Emerging Regional Leadership",
+        "executive_summary": "The quantitative ETF rotation data indicates strong emerging leadership in Materials and select international equities, alongside sustained strength in Health Care, Energy, and Biotech. Conversely, previous defensive leaders like Utilities and broader Industrial benchmarks show relative deterioration. Notably, several broad benchmarks and sector funds reflect mixed-horizon relative strength, requiring distinct evaluation across 20-bar and 63-bar windows.",
         "emerging_rotations": [
           {
-            "ticker": "EZA",
-            "title": "South Africa Shows Rapid Emerging Leadership",
-            "explanation": "EZA carries a confirmed EMERGING trend state with a rotation score of 85.89, reaching a 63-bar score high. It registered a 20-bar score change of +60.28 and a 5-bar score change of +35.70, backed by 20-bar relative strength of +13.55 percentage points and 63-bar relative strength of +3.88 percentage points.",
+            "ticker": "AFK",
+            "title": "African Equities Emerging Regional Leadership",
+            "explanation": "AFK holds a confirmed EMERGING state with a rotation score of 94.38, supported by a 5-bar score change of +30.0 and a 20-bar score change of +62.5. Relative strength is positive across both horizons at +10.79 percentage points on the 20-bar horizon and +5.55 percentage points on the 63-bar horizon, reaching a 63-bar score high of 94.38.",
             "confidence": "high",
             "related_tickers": [
-              "AFK",
-              "EEM"
-            ]
-          },
-          {
-            "ticker": "XME",
-            "title": "Metals & Mining Emerging Rotation",
-            "explanation": "XME holds a confirmed EMERGING trend state with a score of 75.00, advancing by a 20-bar score change of +64.26 and a 5-bar score change of +10.83. Its 20-bar relative strength is positive at +13.67 percentage points, while its 63-bar relative strength is +0.14 percentage points.",
-            "confidence": "high",
-            "related_tickers": [
-              "XLB",
-              "MXI"
-            ]
-          },
-          {
-            "ticker": "IGV",
-            "title": "Software Sector Shows Emerging Strength",
-            "explanation": "IGV exhibits a confirmed EMERGING trend state with a rotation score of 80.42, demonstrating a 20-bar score change of +28.01 and a 5-bar score change of +4.03. It exhibits positive relative strength across both 20-bar (+13.87 percentage points) and 63-bar (+8.43 percentage points) horizons.",
-            "confidence": "high",
-            "related_tickers": [
-              "CIBR",
-              "SKYY",
-              "XLK"
+              "EZA"
             ]
           },
           {
             "ticker": "MXI",
-            "title": "Global Materials Improving on Shorter Horizon",
-            "explanation": "MXI carries a confirmed EMERGING trend state with a score of 67.50 and a 20-bar score change of +49.00. However, relative strength evidence is mixed across horizons, as its 20-bar relative strength is +2.05 percentage points while its 63-bar relative strength remains negative at -5.51 percentage points.",
-            "confidence": "medium",
+            "title": "Global Materials Rotation Signals Improvement",
+            "explanation": "MXI is in a confirmed EMERGING state with a score of 88.33, driven by a 5-bar score change of +15.83 and a 20-bar score change of +59.83. It demonstrates positive relative strength across both horizons with +7.46 percentage points over 20 bars and +4.17 percentage points over 63 bars.",
+            "confidence": "high",
             "related_tickers": [
-              "XLB",
-              "XME"
+              "XLB"
             ]
           }
         ],
         "accelerating_rotations": [
           {
             "ticker": "IXJ",
-            "title": "Global Health Care Accelerates Upward",
-            "explanation": "IXJ holds a confirmed ACCELERATING state with a rotation score of 90.00, achieving a 5-bar score change of +25.00 and a 20-bar score change of +19.00. Relative strength is positive on both horizons, at +2.75 percentage points over 20 bars and +10.56 percentage points over 63 bars. Note that IXJ has a pending trend change to PERSISTENT_LEADER (1/3 observations).",
+            "title": "Global Health Care Trend Acceleration",
+            "explanation": "IXJ displays a confirmed ACCELERATING state with a score of 84.17 and a 5-bar score change of +13.17. Its relative strength is positive across both horizons at +2.65 percentage points over 20 bars and +10.24 percentage points over 63 bars. It holds a pending raw state of PERSISTENT_LEADER at 2/3 observations.",
             "confidence": "high",
             "related_tickers": [
-              "XLV",
-              "XBI"
+              "XLV"
             ]
           }
         ],
         "persistent_leaders": [
           {
-            "ticker": "XLV",
-            "title": "US Health Care Maintains Top Leadership",
-            "explanation": "XLV leads the US sector group in a confirmed PERSISTENT_LEADER state with a group-topping rotation score of 95.45. It posted a 5-bar score change of +20.45 and a 20-bar score change of +24.09, supported by 20-bar relative strength of +3.79 percentage points and 63-bar relative strength of +15.02 percentage points.",
-            "confidence": "high",
-            "related_tickers": [
-              "IXJ",
-              "XBI",
-              "IHI"
-            ]
-          },
-          {
-            "ticker": "CIBR",
-            "title": "Cybersecurity Exhibits Sustained Leadership",
-            "explanation": "CIBR carries a confirmed PERSISTENT_LEADER trend state with a score of 82.92, showing steady relative strength over 20 bars (+3.67 percentage points) and 63 bars (+12.20 percentage points), with a 20-bar score change of +7.92.",
-            "confidence": "high",
-            "related_tickers": [
-              "SKYY",
-              "IGV"
-            ]
-          },
-          {
             "ticker": "GREK",
-            "title": "Greece Remains Persistent European Leader",
-            "explanation": "GREK holds a confirmed PERSISTENT_LEADER state with a score of 80.81, showing 20-bar relative strength of +4.27 percentage points and 63-bar relative strength of +14.51 percentage points, despite a 5-bar score change of -10.78.",
+            "title": "Greece Maintains Top Country Ranking",
+            "explanation": "GREK holds a confirmed PERSISTENT_LEADER state with a rotation score of 93.92, ranking first in the ex-US country group. It posted a 5-bar score change of +18.07 and positive relative strength across both horizons (+4.43 percentage points over 20 bars and +16.67 percentage points over 63 bars), reaching a 63-bar score high of 93.92.",
             "confidence": "high",
             "related_tickers": [
-              "FEZ",
-              "EIRL"
+              "FEZ"
+            ]
+          },
+          {
+            "ticker": "XBI",
+            "title": "Biotechnology Multi-Horizon Leadership",
+            "explanation": "XBI exhibits a confirmed PERSISTENT_LEADER state with a score of 89.60, ranking first in US Industry Themes. It reflects a 5-bar score change of +13.86 and a 20-bar score change of +27.56, with aligned positive relative strength of +5.72 percentage points over 20 bars and +22.16 percentage points over 63 bars.",
+            "confidence": "high",
+            "related_tickers": [
+              "XLV"
             ]
           }
         ],
         "reaccelerating_rotations": [
           {
-            "ticker": "XBI",
-            "title": "Biotechnology Reaccelerates Within Health Care",
-            "explanation": "XBI holds a confirmed REACCELERATING state with a rotation score of 87.29, driven by a 5-bar score change of +19.14 and a 20-bar score change of +30.44. Relative strength is strong over both 20 bars (+6.51 percentage points) and 63 bars (+21.58 percentage points). It currently has an unconfirmed pending trend change toward PERSISTENT_LEADER (2/3 observations).",
-            "confidence": "high",
-            "related_tickers": [
-              "XLV",
-              "IHI",
-              "IHF"
-            ]
-          },
-          {
             "ticker": "ASEA",
-            "title": "Southeast Asia Displays Reaccelerating Signal with Conflicting Horizons",
-            "explanation": "ASEA holds a confirmed REACCELERATING state with a score of 65.71 and a 5-bar score change of +15.71. Relative strength indicators reflect mixed horizon evidence: 20-bar relative strength is negative at -1.50 percentage points, while 63-bar relative strength remains positive at +5.87 percentage points.",
+            "title": "Southeast Asia Turning Upward Following Pullback",
+            "explanation": "ASEA holds a confirmed REACCELERATING state with a score of 65.0 and a 5-bar score change of +8.12. Disclosing mixed horizons, its 20-bar relative strength is negative at -1.12 percentage points while its 63-bar relative strength remains positive at +6.36 percentage points, reflecting a split across short and long horizons.",
             "confidence": "medium",
             "related_tickers": [
-              "EPHE",
-              "EWM",
-              "THD"
+              "EEM"
             ]
           }
         ],
         "weakening_rotations": [
           {
-            "ticker": "REZ",
-            "title": "Residential Real Estate Weakens Severely",
-            "explanation": "REZ is in a confirmed WEAKENING trend state with a score of 31.25, following a major 20-bar score change of -53.94. Horizons are conflicting as 20-bar relative strength is -6.88 percentage points, whereas 63-bar relative strength is +2.08 percentage points.",
-            "confidence": "high",
+            "ticker": "QQQ",
+            "title": "Nasdaq-100 Relative Leadership Weakening",
+            "explanation": "QQQ has a confirmed WEAKENING state with a score of 78.33 and a 5-bar score change of +18.33. Disclosing mixed horizons, its 20-bar relative strength is +0.25 percentage points while its 63-bar relative strength is -4.11 percentage points, showing divergent horizon signals. It holds a pending raw state of EMERGING at 1/3 observations.",
+            "confidence": "medium",
             "related_tickers": [
-              "XLRE",
-              "REM"
+              "SPY"
             ]
           },
           {
-            "ticker": "XLRE",
-            "title": "US Real Estate Sector Hits 63-Bar Score Low",
-            "explanation": "XLRE holds a confirmed WEAKENING state with a rotation score of 31.82, which represents a 63-bar score low. It experienced a 20-bar score change of -41.36 and a 5-bar score change of -20.91, alongside 20-bar relative strength of -5.52 percentage points and 63-bar relative strength of -1.17 percentage points.",
-            "confidence": "high",
+            "ticker": "XLF",
+            "title": "Financials Sector Experiencing Short-Term Deterioration",
+            "explanation": "XLF exhibits a confirmed WEAKENING state with a score of 65.91, dropping via a 5-bar score change of -15.0 and a 20-bar score change of -18.18. Disclosing mixed horizons, its 20-bar relative strength is -0.94 percentage points while its 63-bar relative strength is +9.83 percentage points, presenting conflicting horizon evidence.",
+            "confidence": "medium",
             "related_tickers": [
-              "REZ",
-              "REET"
-            ]
-          },
-          {
-            "ticker": "IHF",
-            "title": "Health Care Providers Reach Score Low Within Sector",
-            "explanation": "IHF carries a confirmed WEAKENING state with a rotation score of 41.67, marking a 63-bar score low and a 20-bar score change of -41.30. Relative strength shows conflicting horizons: 20-bar relative strength is -2.90 percentage points, while 63-bar relative strength is +6.35 percentage points.",
-            "confidence": "high",
-            "related_tickers": [
-              "XLV",
-              "IHI",
-              "XBI"
-            ]
-          },
-          {
-            "ticker": "EWW",
-            "title": "Mexico Relative Leadership Deteriorates to Score Low",
-            "explanation": "EWW is in a confirmed WEAKENING state with a rotation score of 19.05, which is a 63-bar score low. It dropped with a 20-bar score change of -38.75 and a 5-bar score change of -20.34, showing 20-bar relative strength of -4.98 percentage points and 63-bar relative strength of -7.94 percentage points. Note a pending raw state change to ROTATION_OUT (1/3 observations).",
-            "confidence": "high",
-            "related_tickers": [
-              "EWZ",
-              "ILF"
+              "IXG",
+              "KRE"
             ]
           }
         ],
         "rotation_out": [
           {
-            "ticker": "PBJ",
-            "title": "Food & Beverage Remains Entrenched in Rotation Out",
-            "explanation": "PBJ carries a confirmed ROTATION_OUT state with the dataset's lowest score of 17.59 and a CMF20 of -0.745. It suffered a 20-bar score change of -34.07, with negative relative strength over both 20 bars (-3.76 percentage points) and 63 bars (-4.75 percentage points).",
+            "ticker": "EWZ",
+            "title": "Brazil Equity Lags Across Horizons",
+            "explanation": "EWZ is in a confirmed ROTATION_OUT state with a score of 22.16, placing 37th of 37 in country ETFs. It experienced a 20-bar score change of -31.13 and negative relative strength across both horizons (-6.01 percentage points over 20 bars and -6.68 percentage points over 63 bars), accompanied by a low CMF20 of -0.361.",
             "confidence": "high",
             "related_tickers": [
-              "XLP",
-              "KXI"
+              "ILF"
             ]
           },
           {
             "ticker": "XLU",
-            "title": "Utilities Sinks Into Rotation Out",
-            "explanation": "XLU exhibits a confirmed ROTATION_OUT state with a score of 20.91, recording a 20-bar score change of -32.73. Relative strength is negative across both 20-bar (-11.23 percentage points) and 63-bar (-7.71 percentage points) horizons.",
+            "title": "Utilities Sector Persistently Lagging",
+            "explanation": "XLU is in a confirmed ROTATION_OUT state with a score of 22.73, ranking last among US sectors. It shows a 20-bar score change of -18.64 and negative relative strength across both horizons (-8.68 percentage points over 20 bars and -6.74 percentage points over 63 bars).",
             "confidence": "high",
             "related_tickers": [
               "JXI"
-            ]
-          },
-          {
-            "ticker": "IXP",
-            "title": "Global Communication Services Lagging Significantly",
-            "explanation": "IXP holds a confirmed ROTATION_OUT state with a score of 23.12 and a 20-bar score change of -24.38. Relative strength is negative over 20 bars (-3.11 percentage points) and 63 bars (-10.33 percentage points).",
-            "confidence": "high",
-            "related_tickers": [
-              "XLC"
-            ]
-          },
-          {
-            "ticker": "EWZ",
-            "title": "Brazil Dragged into Rotation Out Category",
-            "explanation": "EWZ holds a confirmed ROTATION_OUT state with a score of 24.35, dropping by a 20-bar score change of -32.23. Relative strength is negative on both 20-bar (-7.06 percentage points) and 63-bar (-9.04 percentage points) horizons.",
-            "confidence": "high",
-            "related_tickers": [
-              "ILF",
-              "EWW"
             ]
           }
         ],
         "geographic_rotations": [
           {
             "ticker": "EZA",
-            "title": "South Africa Surges to Regional Score High",
-            "explanation": "EZA holds a confirmed EMERGING state with a score of 85.89, reaching a 63-bar score high. It leads country ETFs with a 20-bar score change of +60.28, supported by 20-bar relative strength of +13.55 percentage points and 63-bar relative strength of +3.88 percentage points.",
+            "title": "South Africa Drives Emerging Country Rotation",
+            "explanation": "EZA displays a confirmed EMERGING state with a score of 83.58, driven by a 5-bar score change of +29.98 and the largest 20-bar score improvement among country ETFs (+69.07). Its relative strength is positive on both horizons (+11.10 percentage points over 20 bars and +3.99 percentage points over 63 bars).",
             "confidence": "high",
             "related_tickers": [
-              "AFK",
-              "EEM"
+              "AFK"
             ]
           },
           {
-            "ticker": "FEZ",
-            "title": "Eurozone Blue Chips Maintain European Leadership",
-            "explanation": "FEZ is in a confirmed PERSISTENT_LEADER state with a score of 75.71, supported by positive relative strength over 20 bars (+0.83 percentage points) and 63 bars (+3.37 percentage points) relative to ACWX.",
+            "ticker": "EPOL",
+            "title": "Poland Maintains Strong European Leadership",
+            "explanation": "EPOL holds a confirmed PERSISTENT_LEADER state with a score of 90.68 and a 20-bar score change of +27.75. Relative strength is positive across both horizons (+4.34 percentage points over 20 bars and +7.96 percentage points over 63 bars), reaching a 63-bar score high of 90.68.",
             "confidence": "high",
             "related_tickers": [
-              "VGK",
-              "EIRL",
-              "GREK"
-            ]
-          },
-          {
-            "ticker": "EWW",
-            "title": "Mexico Geographic Deterioration",
-            "explanation": "EWW is in a confirmed WEAKENING state with a rotation score of 19.05 (63-bar score low) and a 20-bar score change of -38.75. Relative strength is negative over 20 bars (-4.98 percentage points) and 63 bars (-7.94 percentage points), with a pending raw condition of ROTATION_OUT (1/3 observations).",
-            "confidence": "high",
-            "related_tickers": [
-              "EWZ",
-              "ILF"
+              "VGK"
             ]
           }
         ],
         "pair_relationships": [
           {
             "ticker": "IWD",
-            "title": "Large-Cap Value Leading Large-Cap Growth Over Longer Horizon",
-            "explanation": "IWD (U.S. Large-Cap Value) holds a confirmed EMERGING state with a rotation score of 63.45 and a confirmed PAIR_LEADING signal versus paired ticker IWF (U.S. Large-Cap Growth). Spreads versus IWF demonstrate conflicting horizon evidence: the 20-bar pair spread is -0.38 percentage points, while the 63-bar pair spread is +11.72 percentage points. A pending pair change to PAIR_MIXED is logged at 1/3 observations.",
-            "confidence": "medium",
+            "title": "Large-Cap Value Outperforming Growth Pair",
+            "explanation": "IWD holds a confirmed EMERGING state (score 77.68) and a confirmed PAIR_LEADING signal versus paired ticker IWF. Direct pair performance spreads show +0.10 percentage points over 20 bars and +12.74 percentage points over 63 bars relative to IWF. It holds a pending raw state of NEUTRAL at 2/3 observations.",
+            "confidence": "high",
             "related_tickers": [
               "IWF"
             ]
           },
           {
             "ticker": "RSP",
-            "title": "Equal Weight Leading Cap Weight S&P 500",
-            "explanation": "RSP (S&P 500 Equal Weight) holds a confirmed EMERGING state with a rotation score of 60.92 and a confirmed PAIR_LEADING signal versus paired ticker SPY. Pair performance spreads versus SPY are positive across both horizons: +0.17 percentage points over 20 bars and +5.34 percentage points over 63 bars, with a 20-bar score change of +14.33.",
-            "confidence": "high",
+            "title": "Equal-Weight vs Cap-Weight Large Cap Relationship",
+            "explanation": "RSP holds a confirmed EMERGING state (score 59.13) with a confirmed PAIR_LEADING signal versus paired ticker SPY. Direct pair performance spreads show -0.16 percentage points over 20 bars and +5.19 percentage points over 63 bars relative to SPY. It carries a pending raw pair signal of PAIR_MIXED at 1/3 observations and a pending raw state of NEUTRAL at 1/3 observations.",
+            "confidence": "medium",
             "related_tickers": [
               "SPY"
             ]
           }
         ],
         "cross_market_confirmations": [
-          "Health Care relative strength is confirmed across both domestic (XLV: score 95.45, PERSISTENT_LEADER) and global (IXJ: score 90.00, ACCELERATING) ETFs.",
-          "Materials improvement is confirmed across domestic (XME: 20-bar score change +64.26, XLB: 20-bar score change +21.36) and global (MXI: 20-bar score change +49.00) markets.",
-          "Broad Real Estate weakness is confirmed across US sector (XLRE: score 31.82, WEAKENING) and global benchmarks (REET: score 53.10, WEAKENING)."
+          "Materials sector strength is confirmed across domestic and global structures, as global MXI (score 88.33, EMERGING) and domestic XLB (score 76.36, EMERGING) both display positive 20-bar relative strength (+7.46 and +0.96 percentage points) and strong 20-bar score improvements (+59.83 and +32.73).",
+          "Health Care broad leadership is confirmed between global IXJ (score 84.17, ACCELERATING) and US XLV (score 79.09, PERSISTENT_LEADER), both exhibiting positive relative strength over 20 bars (+2.65 and +3.62 percentage points) and 63 bars (+10.24 and +14.41 percentage points).",
+          "African geographic rotation is confirmed by regional ETF AFK (score 94.38, EMERGING) and country ETF EZA (score 83.58, EMERGING), both posting substantial 20-bar score improvements (+62.50 and +69.07) and positive relative strength across both horizons."
         ],
         "risks_or_conflicts": [
-          "Health Care sector divergence: Medical Devices (IHI) improved with a 20-bar score change of +48.22, while Health Care Providers (IHF) deteriorated with a 20-bar score change of -41.30.",
-          "Real Estate sector divergence: Mortgage Real Estate (REM) improved with a 20-bar score change of +17.01, whereas Residential Real Estate (REZ) deteriorated with a 20-bar score change of -53.94, while XLRE remains weak at a 31.82 score.",
-          "Industrials sector divergence: Global Industrials (EXI) improved with a 20-bar score change of +27.67, while Aerospace & Defense (ITA) deteriorated with a 20-bar score change of -20.86 (with pending WEAKENING state 2/3).",
-          "Communication Services sector divergence: US Communication Services (XLC) improved with a 20-bar score change of +24.09, while Global Communication Services (IXP) deteriorated with a 20-bar score change of -24.38.",
-          "Pending trend warning: XLE is in confirmed EMERGING state but has a pending PERSISTENT_LEADER state (2/3 observations); XBI is confirmed REACCELERATING with pending PERSISTENT_LEADER (2/3 observations); EWW is confirmed WEAKENING with pending ROTATION_OUT (1/3 observations)."
+          "In Health Care, a material sector divergence exists where Medical Devices (IHI, 20-bar score change +49.60) shows sharp relative improvement while Health Care Providers (IHF, 20-bar score change -17.67) displays relative deterioration.",
+          "In Industrials, Global Industrials (EXI, 20-bar score change +26.50) is improving while Aerospace & Defense (ITA, 20-bar score change -36.85) and broad US Industrials (XLI, score 38.18) exhibit substantial weakness.",
+          "In Real Estate, Mortgage Real Estate (REM, 20-bar score change +19.78) gains score momentum while Residential Real Estate (REZ, 20-bar score change -31.46) and sector benchmark XLRE (score 41.36) experience significant score drops.",
+          "In Communication Services, Telecommunications (IYZ, 20-bar score change +24.13) shows short-term score recovery while Global Communication Services (IXP, 20-bar score change -24.72) remains in ROTATION_OUT.",
+          "Multiple high-profile ETFs reflect conflicting relative strength horizons; for example, XME shows strong 20-bar RS (+11.02 percentage points) against negative 63-bar RS (-1.90 percentage points), while XLF exhibits negative 20-bar RS (-0.94 percentage points) against positive 63-bar RS (+9.83 percentage points)."
         ],
         "dashboard_focus_tickers": [
-          "XLV",
-          "IXJ",
+          "AFK",
+          "GREK",
+          "EPOL",
           "XBI",
+          "MXI",
+          "IXJ",
+          "XLE",
           "EZA",
-          "XME",
-          "IGV",
-          "REZ",
-          "EWW",
-          "PBJ",
-          "IWD"
+          "QQQ",
+          "EWZ",
+          "XLU",
+          "IWD",
+          "RSP"
         ],
         "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
       }
@@ -591,50 +387,6 @@
     "provider_count": 1,
     "mode": "single_provider",
     "items": [
-      {
-        "ticker": "XME",
-        "dominant_assessment": "EMERGING",
-        "agreement_count": 1,
-        "provider_count": 1,
-        "agreement_ratio": 1.0,
-        "providers_mentioning": [
-          "gemini"
-        ],
-        "assessment_counts": {
-          "EMERGING": 1
-        },
-        "conflict": false,
-        "votes": [
-          {
-            "provider": "gemini",
-            "assessment": "EMERGING",
-            "title": "Metals & Mining Emerging Rotation",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "ticker": "XLV",
-        "dominant_assessment": "PERSISTENT_LEADER",
-        "agreement_count": 1,
-        "provider_count": 1,
-        "agreement_ratio": 1.0,
-        "providers_mentioning": [
-          "gemini"
-        ],
-        "assessment_counts": {
-          "PERSISTENT_LEADER": 1
-        },
-        "conflict": false,
-        "votes": [
-          {
-            "provider": "gemini",
-            "assessment": "PERSISTENT_LEADER",
-            "title": "US Health Care Maintains Top Leadership",
-            "confidence": "high"
-          }
-        ]
-      },
       {
         "ticker": "XLU",
         "dominant_assessment": "ROTATION_OUT",
@@ -652,13 +404,13 @@
           {
             "provider": "gemini",
             "assessment": "ROTATION_OUT",
-            "title": "Utilities Sinks Into Rotation Out",
+            "title": "Utilities Sector Persistently Lagging",
             "confidence": "high"
           }
         ]
       },
       {
-        "ticker": "XLRE",
+        "ticker": "XLF",
         "dominant_assessment": "WEAKENING",
         "agreement_count": 1,
         "provider_count": 1,
@@ -674,14 +426,14 @@
           {
             "provider": "gemini",
             "assessment": "WEAKENING",
-            "title": "US Real Estate Sector Hits 63-Bar Score Low",
-            "confidence": "high"
+            "title": "Financials Sector Experiencing Short-Term Deterioration",
+            "confidence": "medium"
           }
         ]
       },
       {
         "ticker": "XBI",
-        "dominant_assessment": "REACCELERATING",
+        "dominant_assessment": "PERSISTENT_LEADER",
         "agreement_count": 1,
         "provider_count": 1,
         "agreement_ratio": 1.0,
@@ -689,14 +441,14 @@
           "gemini"
         ],
         "assessment_counts": {
-          "REACCELERATING": 1
+          "PERSISTENT_LEADER": 1
         },
         "conflict": false,
         "votes": [
           {
             "provider": "gemini",
-            "assessment": "REACCELERATING",
-            "title": "Biotechnology Reaccelerates Within Health Care",
+            "assessment": "PERSISTENT_LEADER",
+            "title": "Biotechnology Multi-Horizon Leadership",
             "confidence": "high"
           }
         ]
@@ -718,13 +470,13 @@
           {
             "provider": "gemini",
             "assessment": "PAIR",
-            "title": "Equal Weight Leading Cap Weight S&P 500",
-            "confidence": "high"
+            "title": "Equal-Weight vs Cap-Weight Large Cap Relationship",
+            "confidence": "medium"
           }
         ]
       },
       {
-        "ticker": "REZ",
+        "ticker": "QQQ",
         "dominant_assessment": "WEAKENING",
         "agreement_count": 1,
         "provider_count": 1,
@@ -740,30 +492,8 @@
           {
             "provider": "gemini",
             "assessment": "WEAKENING",
-            "title": "Residential Real Estate Weakens Severely",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "ticker": "PBJ",
-        "dominant_assessment": "ROTATION_OUT",
-        "agreement_count": 1,
-        "provider_count": 1,
-        "agreement_ratio": 1.0,
-        "providers_mentioning": [
-          "gemini"
-        ],
-        "assessment_counts": {
-          "ROTATION_OUT": 1
-        },
-        "conflict": false,
-        "votes": [
-          {
-            "provider": "gemini",
-            "assessment": "ROTATION_OUT",
-            "title": "Food & Beverage Remains Entrenched in Rotation Out",
-            "confidence": "high"
+            "title": "Nasdaq-100 Relative Leadership Weakening",
+            "confidence": "medium"
           }
         ]
       },
@@ -784,29 +514,7 @@
           {
             "provider": "gemini",
             "assessment": "EMERGING",
-            "title": "Global Materials Improving on Shorter Horizon",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "ticker": "IXP",
-        "dominant_assessment": "ROTATION_OUT",
-        "agreement_count": 1,
-        "provider_count": 1,
-        "agreement_ratio": 1.0,
-        "providers_mentioning": [
-          "gemini"
-        ],
-        "assessment_counts": {
-          "ROTATION_OUT": 1
-        },
-        "conflict": false,
-        "votes": [
-          {
-            "provider": "gemini",
-            "assessment": "ROTATION_OUT",
-            "title": "Global Communication Services Lagging Significantly",
+            "title": "Global Materials Rotation Signals Improvement",
             "confidence": "high"
           }
         ]
@@ -828,7 +536,7 @@
           {
             "provider": "gemini",
             "assessment": "ACCELERATING",
-            "title": "Global Health Care Accelerates Upward",
+            "title": "Global Health Care Trend Acceleration",
             "confidence": "high"
           }
         ]
@@ -850,51 +558,7 @@
           {
             "provider": "gemini",
             "assessment": "PAIR",
-            "title": "Large-Cap Value Leading Large-Cap Growth Over Longer Horizon",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "ticker": "IHF",
-        "dominant_assessment": "WEAKENING",
-        "agreement_count": 1,
-        "provider_count": 1,
-        "agreement_ratio": 1.0,
-        "providers_mentioning": [
-          "gemini"
-        ],
-        "assessment_counts": {
-          "WEAKENING": 1
-        },
-        "conflict": false,
-        "votes": [
-          {
-            "provider": "gemini",
-            "assessment": "WEAKENING",
-            "title": "Health Care Providers Reach Score Low Within Sector",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "ticker": "IGV",
-        "dominant_assessment": "EMERGING",
-        "agreement_count": 1,
-        "provider_count": 1,
-        "agreement_ratio": 1.0,
-        "providers_mentioning": [
-          "gemini"
-        ],
-        "assessment_counts": {
-          "EMERGING": 1
-        },
-        "conflict": false,
-        "votes": [
-          {
-            "provider": "gemini",
-            "assessment": "EMERGING",
-            "title": "Software Sector Shows Emerging Strength",
+            "title": "Large-Cap Value Outperforming Growth Pair",
             "confidence": "high"
           }
         ]
@@ -916,13 +580,13 @@
           {
             "provider": "gemini",
             "assessment": "PERSISTENT_LEADER",
-            "title": "Greece Remains Persistent European Leader",
+            "title": "Greece Maintains Top Country Ranking",
             "confidence": "high"
           }
         ]
       },
       {
-        "ticker": "FEZ",
+        "ticker": "EZA",
         "dominant_assessment": "GEOGRAPHIC",
         "agreement_count": 1,
         "provider_count": 1,
@@ -938,7 +602,7 @@
           {
             "provider": "gemini",
             "assessment": "GEOGRAPHIC",
-            "title": "Eurozone Blue Chips Maintain European Leadership",
+            "title": "South Africa Drives Emerging Country Rotation",
             "confidence": "high"
           }
         ]
@@ -960,14 +624,14 @@
           {
             "provider": "gemini",
             "assessment": "ROTATION_OUT",
-            "title": "Brazil Dragged into Rotation Out Category",
+            "title": "Brazil Equity Lags Across Horizons",
             "confidence": "high"
           }
         ]
       },
       {
-        "ticker": "CIBR",
-        "dominant_assessment": "PERSISTENT_LEADER",
+        "ticker": "EPOL",
+        "dominant_assessment": "GEOGRAPHIC",
         "agreement_count": 1,
         "provider_count": 1,
         "agreement_ratio": 1.0,
@@ -975,14 +639,14 @@
           "gemini"
         ],
         "assessment_counts": {
-          "PERSISTENT_LEADER": 1
+          "GEOGRAPHIC": 1
         },
         "conflict": false,
         "votes": [
           {
             "provider": "gemini",
-            "assessment": "PERSISTENT_LEADER",
-            "title": "Cybersecurity Exhibits Sustained Leadership",
+            "assessment": "GEOGRAPHIC",
+            "title": "Poland Maintains Strong European Leadership",
             "confidence": "high"
           }
         ]
@@ -1004,13 +668,13 @@
           {
             "provider": "gemini",
             "assessment": "REACCELERATING",
-            "title": "Southeast Asia Displays Reaccelerating Signal with Conflicting Horizons",
+            "title": "Southeast Asia Turning Upward Following Pullback",
             "confidence": "medium"
           }
         ]
       },
       {
-        "ticker": "EZA",
+        "ticker": "AFK",
         "dominant_assessment": "EMERGING",
         "agreement_count": 1,
         "provider_count": 1,
@@ -1019,50 +683,14 @@
           "gemini"
         ],
         "assessment_counts": {
-          "EMERGING": 1,
-          "GEOGRAPHIC": 1
+          "EMERGING": 1
         },
-        "conflict": true,
+        "conflict": false,
         "votes": [
           {
             "provider": "gemini",
             "assessment": "EMERGING",
-            "title": "South Africa Shows Rapid Emerging Leadership",
-            "confidence": "high"
-          },
-          {
-            "provider": "gemini",
-            "assessment": "GEOGRAPHIC",
-            "title": "South Africa Surges to Regional Score High",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "ticker": "EWW",
-        "dominant_assessment": "WEAKENING",
-        "agreement_count": 1,
-        "provider_count": 1,
-        "agreement_ratio": 1.0,
-        "providers_mentioning": [
-          "gemini"
-        ],
-        "assessment_counts": {
-          "WEAKENING": 1,
-          "GEOGRAPHIC": 1
-        },
-        "conflict": true,
-        "votes": [
-          {
-            "provider": "gemini",
-            "assessment": "WEAKENING",
-            "title": "Mexico Relative Leadership Deteriorates to Score Low",
-            "confidence": "high"
-          },
-          {
-            "provider": "gemini",
-            "assessment": "GEOGRAPHIC",
-            "title": "Mexico Geographic Deterioration",
+            "title": "African Equities Emerging Regional Leadership",
             "confidence": "high"
           }
         ]
