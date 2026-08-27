@@ -1,4 +1,4 @@
 action_id,model_version,recommendation_date,ticker,direction,primary_benchmark,outcome_as_of_market_date,fwd_relative_return_21,signed_return_21,fwd_relative_return_63,signed_return_63,fwd_relative_return_84,signed_return_84,fwd_relative_return_126,signed_return_126,fwd_relative_mdd_126,fwd_relative_mru_126,band_median_relative_return,primary_success
-3ced047dc7c5dfe5c2187d9f,WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12,2026-08-14,REM,AVOID,SPY,2026-08-25,,,,,,,,,,,,
-937286554002fb322e7003a9,WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12,2026-08-21,CIBR,FAVOR,SPY,2026-08-25,,,,,,,,,,,,
-14983d067968cc4090ff5a02,WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12,2026-08-21,XLU,AVOID,SPY,2026-08-25,,,,,,,,,,,,
+3ced047dc7c5dfe5c2187d9f,WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12,2026-08-14,REM,AVOID,SPY,2026-08-26,,,,,,,,,,,,
+937286554002fb322e7003a9,WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12,2026-08-21,CIBR,FAVOR,SPY,2026-08-26,,,,,,,,,,,,
+14983d067968cc4090ff5a02,WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12,2026-08-21,XLU,AVOID,SPY,2026-08-26,,,,,,,,,,,,
