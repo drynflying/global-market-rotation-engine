@@ -4,15 +4,17 @@
   "shadow_only": true,
   "dashboard_effect": "none",
   "capture": {
-    "status": "not_due",
-    "recommendation_date": "2026-08-27",
-    "week_ending_date": "2026-08-28",
-    "gate_reason": "friday_before_post_close_buffer",
-    "action_count": 0,
-    "appended_rows": 0
+    "status": "recorded",
+    "recommendation_date": "2026-08-28",
+    "appended_rows": 2,
+    "action_count": 2,
+    "selectable_finalists": 3,
+    "provider": "gemini",
+    "provider_model": "gemini-3.6-flash",
+    "gate_reason": "friday_after_close"
   },
   "outcomes": {
-    "action_rows": 3,
+    "action_rows": 5,
     "matured_21": 0,
     "matured_63": 0,
     "matured_84": 0,
