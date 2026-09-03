@@ -844,17 +844,48 @@ def _make_latest(
 
     latest = predictions["anchor_date"].max()
     p = predictions[predictions["anchor_date"].eq(latest)].copy()
+
+    # CSV-loaded columns and columns concatenated onto an initially empty
+    # DataFrame can retain object dtype even when every valid value is numeric.
+    # Normalize all values used by the latest-ranking payload and discard
+    # non-finite values from each ranking instead of treating them as zero.
+    ranking_columns = (
+        "ridge_prediction",
+        "ridge_rank_pct",
+        "equal_weight_score",
+        "equal_weight_rank_pct",
+        "avoid_probability",
+        "avoid_risk_rank_pct",
+    )
+    for column in ranking_columns:
+        if column in p.columns:
+            p[column] = pd.to_numeric(p[column], errors="coerce")
+
     result = {}
     for h, g in p.groupby("horizon_bars", sort=True):
+        ridge_rows = g[
+            np.isfinite(g["ridge_prediction"].to_numpy(dtype=float))
+        ]
+        equal_weight_rows = g[
+            np.isfinite(g["equal_weight_score"].to_numpy(dtype=float))
+        ]
+        avoid_rows = g[
+            np.isfinite(g["avoid_probability"].to_numpy(dtype=float))
+        ]
+
         result[str(int(h))] = {
             "horizon_label": spec["horizon_labels"][str(int(h))],
-            "ridge_top_10": g.nlargest(10, "ridge_prediction")[
+            "ridge_top_10": ridge_rows.nlargest(10, "ridge_prediction")[
                 ["ticker", "ridge_prediction", "ridge_rank_pct"]
             ].to_dict(orient="records"),
-            "equal_weight_top_10": g.nlargest(10, "equal_weight_score")[
+            "equal_weight_top_10": equal_weight_rows.nlargest(
+                10, "equal_weight_score"
+            )[
                 ["ticker", "equal_weight_score", "equal_weight_rank_pct"]
             ].to_dict(orient="records"),
-            "avoid_highest_risk_10": g.nlargest(10, "avoid_probability")[
+            "avoid_highest_risk_10": avoid_rows.nlargest(
+                10, "avoid_probability"
+            )[
                 ["ticker", "avoid_probability", "avoid_risk_rank_pct"]
             ].to_dict(orient="records"),
         }
