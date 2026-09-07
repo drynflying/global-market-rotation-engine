@@ -6,7 +6,7 @@
     {
       "ticker": "EMXC",
       "title": "Emerging: Emerging markets ex-China",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 93.0; 5-bar score change 36.57; 20-bar score change 58.71.",
+      "explanation": "Confirmed deterministic trend EMERGING; rotation score 92.86; 5-bar score change 36.43; 20-bar score change 58.57.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX"
@@ -15,7 +15,7 @@
     {
       "ticker": "EWZ",
       "title": "Emerging: Brazil",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 81.69; 5-bar score change 49.43; 20-bar score change 52.12.",
+      "explanation": "Confirmed deterministic trend EMERGING; rotation score 83.23; 5-bar score change 50.98; 20-bar score change 53.66.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -25,7 +25,7 @@
     {
       "ticker": "OIH",
       "title": "Emerging: Oil Services",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 75.62; 5-bar score change 2.11; 20-bar score change 50.07.",
+      "explanation": "Confirmed deterministic trend EMERGING; rotation score 75.0; 5-bar score change 1.48; 20-bar score change 49.44.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
@@ -45,7 +45,7 @@
     {
       "ticker": "EWT",
       "title": "Emerging: Taiwan",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 83.38; 5-bar score change 6.43; 20-bar score change 39.72.",
+      "explanation": "Confirmed deterministic trend EMERGING; rotation score 85.0; 5-bar score change 8.05; 20-bar score change 41.34.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -79,11 +79,21 @@
     {
       "ticker": "IXC",
       "title": "Persistent leader: Global Energy",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 91.88; 5-bar score change 15.38; 20-bar score change 34.38.",
+      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 93.5; 5-bar score change 17.0; 20-bar score change 36.0.",
       "confidence": "medium",
       "related_tickers": [
         "ACWI",
         "XLE"
+      ]
+    },
+    {
+      "ticker": "EWS",
+      "title": "Persistent leader: Singapore",
+      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 91.1; 5-bar score change 16.34; 20-bar score change 13.05.",
+      "confidence": "medium",
+      "related_tickers": [
+        "ACWX",
+        "VPL"
       ]
     },
     {
@@ -97,19 +107,9 @@
       ]
     },
     {
-      "ticker": "EWS",
-      "title": "Persistent leader: Singapore",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 90.14; 5-bar score change 15.38; 20-bar score change 12.09.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "VPL"
-      ]
-    },
-    {
       "ticker": "GREK",
       "title": "Persistent leader: Greece",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 87.16; 5-bar score change 10.21; 20-bar score change 25.33.",
+      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 87.93; 5-bar score change 10.98; 20-bar score change 26.1.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -117,7 +117,18 @@
       ]
     }
   ],
-  "reaccelerating_rotations": [],
+  "reaccelerating_rotations": [
+    {
+      "ticker": "IXG",
+      "title": "Reaccelerating: Global Financials",
+      "explanation": "Confirmed deterministic trend REACCELERATING; rotation score 62.5; 5-bar score change 1.0; 20-bar score change -15.0.",
+      "confidence": "medium",
+      "related_tickers": [
+        "ACWI",
+        "XLF"
+      ]
+    }
+  ],
   "weakening_rotations": [
     {
       "ticker": "FEZ",
@@ -140,9 +151,9 @@
       ]
     },
     {
-      "ticker": "EWI",
-      "title": "Weakening: Italy",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 35.73; 5-bar score change -12.68; 20-bar score change -41.34.",
+      "ticker": "EWQ",
+      "title": "Weakening: France",
+      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 27.56; 5-bar score change -19.15; 20-bar score change -40.37.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -150,9 +161,9 @@
       ]
     },
     {
-      "ticker": "EWQ",
-      "title": "Weakening: France",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 26.76; 5-bar score change -19.95; 20-bar score change -41.17.",
+      "ticker": "EWI",
+      "title": "Weakening: Italy",
+      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 36.83; 5-bar score change -10.0; 20-bar score change -37.2.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -162,7 +173,7 @@
     {
       "ticker": "SCZ",
       "title": "Weakening: EAFE small cap",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 33.0; 5-bar score change -21.29; 20-bar score change -40.57.",
+      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 37.14; 5-bar score change -17.14; 20-bar score change -36.43.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -174,7 +185,7 @@
     {
       "ticker": "EPHE",
       "title": "Rotation out: Philippines",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 7.57; 5-bar score change -20.85; 20-bar score change -55.85.",
+      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 8.54; 5-bar score change -19.88; 20-bar score change -54.88.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -184,7 +195,7 @@
     {
       "ticker": "ITA",
       "title": "Rotation out: Aerospace & Defense",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 17.92; 5-bar score change -13.94; 20-bar score change -45.97.",
+      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 17.41; 5-bar score change -14.44; 20-bar score change -46.48.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
@@ -194,7 +205,7 @@
     {
       "ticker": "MCHI",
       "title": "Rotation out: China broad",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 14.73; 5-bar score change -16.98; 20-bar score change -36.0.",
+      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 16.34; 5-bar score change -15.37; 20-bar score change -34.39.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
