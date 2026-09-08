@@ -5,8 +5,8 @@
   "dashboard_effect": "none",
   "capture": {
     "status": "not_due",
-    "recommendation_date": "2026-09-04",
-    "week_ending_date": "2026-09-04",
+    "recommendation_date": "2026-09-08",
+    "week_ending_date": "2026-09-11",
     "gate_reason": "not_weekly_capture_window",
     "action_count": 0,
     "appended_rows": 0

@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-09-08",
+  "requested_providers": [
+    "gemini"
+  ],
+  "successful_providers": [],
+  "failed_providers": [
+    "gemini"
+  ],
+  "primary_provider": "deterministic_fallback",
+  "provider_status": "fallback",
+  "provider_models": {},
+  "ai_validator_version": "v1.2.8",
+  "provider_validation": {
+    "gemini": {
+      "status": "not_run",
+      "validator_version": "v1.2.8"
+    }
+  }
+}
