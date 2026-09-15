@@ -2,20 +2,20 @@
   "status": "ok",
   "prediction": {
     "model_version": "PATH_RISK_V1_2026-08-12",
-    "market_date": "2026-09-14",
-    "eligible_rows": 103,
-    "feature_complete_rows": 103,
-    "appended_rows": 103,
+    "market_date": "2026-09-15",
+    "eligible_rows": 89,
+    "feature_complete_rows": 89,
+    "appended_rows": 89,
     "skipped_existing_rows": 0,
-    "patch6_top20_rows": 26,
-    "universal_low_trust_rows": 18,
-    "universal_veto_rows": 1,
-    "challenger_low_trust_rows": 18,
-    "challenger_veto_rows": 2
+    "patch6_top20_rows": 23,
+    "universal_low_trust_rows": 16,
+    "universal_veto_rows": 4,
+    "challenger_low_trust_rows": 16,
+    "challenger_veto_rows": 5
   },
   "outcomes": {
-    "prediction_rows": 2092,
-    "matured_21": 298,
+    "prediction_rows": 2181,
+    "matured_21": 378,
     "matured_63": 0,
     "matured_84": 0,
     "matured_126": 0
