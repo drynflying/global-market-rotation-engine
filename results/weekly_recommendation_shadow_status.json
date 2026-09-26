@@ -1,15 +1,17 @@
 {
-  "status": "ok",
+  "status": "partial",
   "model_version": "WEEKLY_RECOMMENDATION_SHADOW_V1_2026-08-12",
   "shadow_only": true,
   "dashboard_effect": "none",
   "capture": {
-    "status": "not_due",
-    "recommendation_date": "2026-09-24",
+    "status": "capture_error",
+    "recommendation_date": "2026-09-25",
     "week_ending_date": "2026-09-25",
-    "gate_reason": "not_weekly_capture_window",
+    "gate_reason": "friday_after_close",
+    "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
     "action_count": 0,
-    "appended_rows": 0
+    "appended_rows": 0,
+    "selectable_finalists": 4
   },
   "outcomes": {
     "action_rows": 9,
