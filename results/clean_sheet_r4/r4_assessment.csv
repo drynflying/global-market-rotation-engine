@@ -1,5 +1,5 @@
 horizon_bars,horizon_label,primary_research_horizon,evaluated_months,evidence_status,ridge_favor_gate_pass,equal_weight_favor_gate_pass,avoid_gate_pass,ridge_mean_ic,equal_weight_mean_ic,avoid_mean_roc_auc,avoid_mean_precision,avoid_mean_lift,avoid_mean_rel_return
-21,1M,False,0,INSUFFICIENT,False,False,False,,,,,,
+21,1M,False,1,INSUFFICIENT,False,False,False,0.35002628134436814,0.30961100064921426,0.6169154228855722,0.3235294117647059,1.6372549019607843,-0.025263552092570286
 63,3M,False,0,INSUFFICIENT,False,False,False,,,,,,
 126,6M,True,0,INSUFFICIENT,False,False,False,,,,,,
 189,9M,False,0,INSUFFICIENT,False,False,False,,,,,,

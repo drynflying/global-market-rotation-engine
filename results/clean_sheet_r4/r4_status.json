@@ -3,21 +3,21 @@
   "status": "ok",
   "prospective_inception_date": "2026-08-15",
   "first_eligible_anchor_date": "2026-08-31",
-  "latest_market_date": "2026-09-29",
+  "latest_market_date": "2026-09-30",
   "latest_issued_anchor_date": "2026-08-31",
   "new_anchors_issued_this_run": 0,
-  "new_outcomes_matured_this_run": 0,
+  "new_outcomes_matured_this_run": 167,
   "prediction_rows": 668,
   "anchor_manifest_rows": 4,
-  "matured_outcome_rows": 0,
+  "matured_outcome_rows": 167,
   "matured_outcomes_by_horizon": {
-    "21": 0,
+    "21": 167,
     "63": 0,
     "126": 0,
     "189": 0
   },
   "evaluated_months_by_horizon": {
-    "21": 0,
+    "21": 1,
     "63": 0,
     "126": 0,
     "189": 0
@@ -26,7 +26,11 @@
   "current_registry_model_years": [
     2026
   ],
-  "charts": [],
+  "charts": [
+    "ranking_ic_ridge.png",
+    "ranking_ic_equal_weight.png",
+    "avoid_precision_lift.png"
+  ],
   "production_logic_changed": false,
   "historical_reoptimization_performed": false
 }

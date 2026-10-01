@@ -176,10 +176,10 @@ canvas{width:100%;height:100%}
       <span class="eyebrow">Study progress</span>
       <h2>Prospective since Aug 15, 2026</h2>
       <div class="progress-grid">
-        <div class="progress-box"><span>Latest market date</span><strong>Sep 29, 2026</strong></div>
+        <div class="progress-box"><span>Latest market date</span><strong>Sep 30, 2026</strong></div>
         <div class="progress-box"><span>Latest cohort</span><strong>Aug 31, 2026</strong></div>
         <div class="progress-box"><span>Prediction rows</span><strong>668</strong></div>
-        <div class="progress-box"><span>Matured outcomes</span><strong>0</strong></div>
+        <div class="progress-box"><span>Matured outcomes</span><strong>167</strong></div>
         <div class="progress-box"><span>Frozen universe</span><strong>167</strong></div>
         <div class="progress-box"><span>First eligible anchor</span><strong>Aug 31, 2026</strong></div>
       </div>
@@ -197,12 +197,12 @@ canvas{width:100%;height:100%}
         <span class="evidence-badge status-muted">Insufficient</span>
       </div>
       <div class="metric-grid compact">
-        <div><span>Evaluated months</span><strong>0</strong></div>
-        <div><span>Ridge IC</span><strong>—</strong></div>
-        <div><span>Equal-weight IC</span><strong>—</strong></div>
-        <div><span>AVOID AUC</span><strong>—</strong></div>
-        <div><span>AVOID lift</span><strong>—×</strong></div>
-        <div><span>High-risk vs SPY</span><strong>—</strong></div>
+        <div><span>Evaluated months</span><strong>1</strong></div>
+        <div><span>Ridge IC</span><strong>0.350</strong></div>
+        <div><span>Equal-weight IC</span><strong>0.310</strong></div>
+        <div><span>AVOID AUC</span><strong>0.617</strong></div>
+        <div><span>AVOID lift</span><strong>1.64×</strong></div>
+        <div><span>High-risk vs SPY</span><strong>-2.5%</strong></div>
       </div>
       <div class="gate-row">
         <span class="gate ">Ridge FAVOR not earned</span>
@@ -1309,12 +1309,12 @@ canvas{width:100%;height:100%}
   </section>
 
   <div class="footer-note">
-    As of Sep 29, 2026. R4 inception Aug 15, 2026. Latest cohort Aug 31, 2026. Production logic changed: no. Historical reoptimization performed: no. Dashboard is informational research output only.
+    As of Sep 30, 2026. R4 inception Aug 15, 2026. Latest cohort Aug 31, 2026. Production logic changed: no. Historical reoptimization performed: no. Dashboard is informational research output only.
   </div>
 </div>
 
 <script>
-const DATA={"ranking":[],"avoid":[],"horizonLabels":{"21":"1M","63":"3M","126":"6M","189":"9M"},"initialHorizon":126};
+const DATA={"ranking":[{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","method":"ridge","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"ic":0.3500262813443681,"top_quintile_mean_rel_return":-0.0154943825790674,"bottom_quintile_mean_rel_return":-0.0537897462075591,"q5_minus_q1_spread":0.0382953636284917,"top_quintile_beat_spy_rate":0.4117647058823529,"top_decile_mean_rel_return":0.0001123155161324,"bottom_decile_mean_rel_return":-0.0530928187263193,"top_decile_beat_spy_rate":0.5882352941176471},{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","method":"equal_weight","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"ic":0.3096110006492142,"top_quintile_mean_rel_return":-0.0279148939128916,"bottom_quintile_mean_rel_return":-0.051351357503631,"q5_minus_q1_spread":0.0234364635907393,"top_quintile_beat_spy_rate":0.1176470588235294,"top_decile_mean_rel_return":-0.0343551631026603,"bottom_decile_mean_rel_return":-0.0555370961713489,"top_decile_beat_spy_rate":0.1176470588235294}],"avoid":[{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"base_rate":0.1976047904191616,"roc_auc":0.6169154228855722,"average_precision":0.3505417197663099,"top_risk_quintile_precision":0.3235294117647059,"top_risk_quintile_lift":1.6372549019607845,"top_risk_quintile_mean_rel_return":-0.0252635520925702,"top_risk_quintile_beat_spy_rate":0.3823529411764705,"top_risk_decile_precision":0.4117647058823529,"top_risk_decile_lift":2.083778966131907,"top_risk_decile_mean_rel_return":-0.0277797656308173}],"horizonLabels":{"21":"1M","63":"3M","126":"6M","189":"9M"},"initialHorizon":126};
 let selectedHorizon=DATA.initialHorizon;
 
 function activateHorizon(h){
