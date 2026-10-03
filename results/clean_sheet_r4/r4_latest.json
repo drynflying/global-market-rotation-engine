@@ -8,53 +8,53 @@
       "ridge_top_10": [
         {
           "ticker": "EWY",
-          "ridge_prediction": 0.001113237264435111,
+          "ridge_prediction": 0.0011132372644351,
           "ridge_rank_pct": 1.0
         },
         {
           "ticker": "OIH",
-          "ridge_prediction": 0.0010175269899849117,
-          "ridge_rank_pct": 0.9940119760479041
+          "ridge_prediction": 0.0010175269899849,
+          "ridge_rank_pct": 0.994011976047904
         },
         {
           "ticker": "SOXX",
-          "ridge_prediction": 0.0010112170738698061,
+          "ridge_prediction": 0.0010112170738698,
           "ridge_rank_pct": 0.9880239520958084
         },
         {
           "ticker": "SMH",
-          "ridge_prediction": 0.0009339314884778374,
-          "ridge_rank_pct": 0.9820359281437125
+          "ridge_prediction": 0.0009339314884778,
+          "ridge_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "IXN",
-          "ridge_prediction": 0.0008528467673820967,
+          "ridge_prediction": 0.000852846767382,
           "ridge_rank_pct": 0.9760479041916168
         },
         {
           "ticker": "XLK",
-          "ridge_prediction": 0.0008142039746861125,
-          "ridge_rank_pct": 0.9700598802395209
+          "ridge_prediction": 0.0008142039746861,
+          "ridge_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "IGV",
-          "ridge_prediction": 0.0007888983800521492,
+          "ridge_prediction": 0.0007888983800521,
           "ridge_rank_pct": 0.9640718562874252
         },
         {
           "ticker": "CARZ",
-          "ridge_prediction": 0.0007755611819901275,
-          "ridge_rank_pct": 0.9580838323353293
+          "ridge_prediction": 0.0007755611819901,
+          "ridge_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "EMXC",
-          "ridge_prediction": 0.0005475035615179927,
-          "ridge_rank_pct": 0.9520958083832335
+          "ridge_prediction": 0.0005475035615179,
+          "ridge_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "SKYY",
-          "ridge_prediction": 0.0004965996195077007,
-          "ridge_rank_pct": 0.9461077844311377
+          "ridge_prediction": 0.0004965996195077,
+          "ridge_rank_pct": 0.9461077844311376
         }
       ],
       "equal_weight_top_10": [
@@ -65,48 +65,48 @@
         },
         {
           "ticker": "EWT",
-          "equal_weight_score": 0.47155688622754494,
-          "equal_weight_rank_pct": 0.9940119760479041
+          "equal_weight_score": 0.4715568862275449,
+          "equal_weight_rank_pct": 0.994011976047904
         },
         {
           "ticker": "IYW",
-          "equal_weight_score": 0.46407185628742514,
+          "equal_weight_score": 0.4640718562874251,
           "equal_weight_rank_pct": 0.9880239520958084
         },
         {
           "ticker": "XLE",
           "equal_weight_score": 0.4281437125748503,
-          "equal_weight_rank_pct": 0.9820359281437125
+          "equal_weight_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "XOP",
-          "equal_weight_score": 0.42514970059880236,
+          "equal_weight_score": 0.4251497005988023,
           "equal_weight_rank_pct": 0.9760479041916168
         },
         {
           "ticker": "IXC",
           "equal_weight_score": 0.4221556886227545,
-          "equal_weight_rank_pct": 0.9700598802395209
+          "equal_weight_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "EPOL",
-          "equal_weight_score": 0.40119760479041916,
+          "equal_weight_score": 0.4011976047904191,
           "equal_weight_rank_pct": 0.9640718562874252
         },
         {
           "ticker": "GREK",
-          "equal_weight_score": 0.39820359281437123,
-          "equal_weight_rank_pct": 0.9580838323353293
+          "equal_weight_score": 0.3982035928143712,
+          "equal_weight_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "ENOR",
           "equal_weight_score": 0.3892215568862275,
-          "equal_weight_rank_pct": 0.9520958083832335
+          "equal_weight_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "QQQ",
-          "equal_weight_score": 0.38772455089820357,
-          "equal_weight_rank_pct": 0.9461077844311377
+          "equal_weight_score": 0.3877245508982035,
+          "equal_weight_rank_pct": 0.9461077844311376
         }
       ],
       "avoid_highest_risk_10": [
@@ -117,8 +117,8 @@
         },
         {
           "ticker": "ARGT",
-          "avoid_probability": 0.29729590138381584,
-          "avoid_risk_rank_pct": 0.9940119760479041
+          "avoid_probability": 0.2972959013838158,
+          "avoid_risk_rank_pct": 0.994011976047904
         },
         {
           "ticker": "OIH",
@@ -127,8 +127,8 @@
         },
         {
           "ticker": "SLV",
-          "avoid_probability": 0.29361891897565306,
-          "avoid_risk_rank_pct": 0.9820359281437125
+          "avoid_probability": 0.293618918975653,
+          "avoid_risk_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "EWY",
@@ -138,7 +138,7 @@
         {
           "ticker": "IXN",
           "avoid_probability": 0.285729051206274,
-          "avoid_risk_rank_pct": 0.9700598802395209
+          "avoid_risk_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "XLK",
@@ -148,17 +148,17 @@
         {
           "ticker": "EWZ",
           "avoid_probability": 0.2841920760871502,
-          "avoid_risk_rank_pct": 0.9580838323353293
+          "avoid_risk_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "CARZ",
-          "avoid_probability": 0.28416645015356073,
-          "avoid_risk_rank_pct": 0.9520958083832335
+          "avoid_probability": 0.2841664501535607,
+          "avoid_risk_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "ECH",
           "avoid_probability": 0.2807521461562276,
-          "avoid_risk_rank_pct": 0.9461077844311377
+          "avoid_risk_rank_pct": 0.9461077844311376
         }
       ]
     },
@@ -167,53 +167,53 @@
       "ridge_top_10": [
         {
           "ticker": "IGV",
-          "ridge_prediction": -0.0012543068663116077,
+          "ridge_prediction": -0.0012543068663116,
           "ridge_rank_pct": 1.0
         },
         {
           "ticker": "EWY",
-          "ridge_prediction": -0.0012897807935905812,
-          "ridge_rank_pct": 0.9940119760479041
+          "ridge_prediction": -0.0012897807935905,
+          "ridge_rank_pct": 0.994011976047904
         },
         {
           "ticker": "SMH",
-          "ridge_prediction": -0.0014339078884407462,
+          "ridge_prediction": -0.0014339078884407,
           "ridge_rank_pct": 0.9880239520958084
         },
         {
           "ticker": "SOXX",
-          "ridge_prediction": -0.001755855403976588,
-          "ridge_rank_pct": 0.9820359281437125
+          "ridge_prediction": -0.0017558554039765,
+          "ridge_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "IXN",
-          "ridge_prediction": -0.0018920892406701362,
+          "ridge_prediction": -0.0018920892406701,
           "ridge_rank_pct": 0.9760479041916168
         },
         {
           "ticker": "EWT",
-          "ridge_prediction": -0.002231387286203153,
-          "ridge_rank_pct": 0.9700598802395209
+          "ridge_prediction": -0.0022313872862031,
+          "ridge_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "SKYY",
-          "ridge_prediction": -0.0023758894369186306,
+          "ridge_prediction": -0.0023758894369186,
           "ridge_rank_pct": 0.9640718562874252
         },
         {
           "ticker": "EPU",
-          "ridge_prediction": -0.0025032986800651406,
-          "ridge_rank_pct": 0.9580838323353293
+          "ridge_prediction": -0.0025032986800651,
+          "ridge_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "EWO",
-          "ridge_prediction": -0.002507118102445109,
-          "ridge_rank_pct": 0.9520958083832335
+          "ridge_prediction": -0.0025071181024451,
+          "ridge_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "GREK",
-          "ridge_prediction": -0.002544630850660594,
-          "ridge_rank_pct": 0.9461077844311377
+          "ridge_prediction": -0.0025446308506605,
+          "ridge_rank_pct": 0.9461077844311376
         }
       ],
       "equal_weight_top_10": [
@@ -225,7 +225,7 @@
         {
           "ticker": "SMH",
           "equal_weight_score": 0.622754491017964,
-          "equal_weight_rank_pct": 0.9940119760479041
+          "equal_weight_rank_pct": 0.994011976047904
         },
         {
           "ticker": "SOXX",
@@ -235,7 +235,7 @@
         {
           "ticker": "IXN",
           "equal_weight_score": 0.592814371257485,
-          "equal_weight_rank_pct": 0.9820359281437125
+          "equal_weight_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "EWO",
@@ -245,7 +245,7 @@
         {
           "ticker": "GREK",
           "equal_weight_score": 0.5768463073852296,
-          "equal_weight_rank_pct": 0.9700598802395209
+          "equal_weight_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "EWT",
@@ -255,17 +255,17 @@
         {
           "ticker": "EPU",
           "equal_weight_score": 0.5728542914171656,
-          "equal_weight_rank_pct": 0.9580838323353293
+          "equal_weight_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "EEMO",
           "equal_weight_score": 0.5608782435129741,
-          "equal_weight_rank_pct": 0.9520958083832335
+          "equal_weight_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "EMXC",
           "equal_weight_score": 0.5508982035928144,
-          "equal_weight_rank_pct": 0.9461077844311377
+          "equal_weight_rank_pct": 0.9461077844311376
         }
       ],
       "avoid_highest_risk_10": [
@@ -276,28 +276,28 @@
         },
         {
           "ticker": "ARGT",
-          "avoid_probability": 0.29033607204855116,
-          "avoid_risk_rank_pct": 0.9940119760479041
+          "avoid_probability": 0.2903360720485511,
+          "avoid_risk_rank_pct": 0.994011976047904
         },
         {
           "ticker": "IWF",
-          "avoid_probability": 0.26252751161106835,
+          "avoid_probability": 0.2625275116110683,
           "avoid_risk_rank_pct": 0.9880239520958084
         },
         {
           "ticker": "FDN",
           "avoid_probability": 0.2604672088870581,
-          "avoid_risk_rank_pct": 0.9820359281437125
+          "avoid_risk_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "ECH",
-          "avoid_probability": 0.25966046173736473,
+          "avoid_probability": 0.2596604617373647,
           "avoid_risk_rank_pct": 0.9760479041916168
         },
         {
           "ticker": "SLV",
-          "avoid_probability": 0.24289244641220592,
-          "avoid_risk_rank_pct": 0.9700598802395209
+          "avoid_probability": 0.2428924464122059,
+          "avoid_risk_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "XLV",
@@ -306,18 +306,18 @@
         },
         {
           "ticker": "EIDO",
-          "avoid_probability": 0.23353974832362787,
-          "avoid_risk_rank_pct": 0.9580838323353293
+          "avoid_probability": 0.2335397483236278,
+          "avoid_risk_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "UAE",
-          "avoid_probability": 0.22359951709629494,
-          "avoid_risk_rank_pct": 0.9520958083832335
+          "avoid_probability": 0.2235995170962949,
+          "avoid_risk_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "EWZ",
           "avoid_probability": 0.2222687564028341,
-          "avoid_risk_rank_pct": 0.9461077844311377
+          "avoid_risk_rank_pct": 0.9461077844311376
         }
       ]
     },
@@ -326,65 +326,65 @@
       "ridge_top_10": [
         {
           "ticker": "CIBR",
-          "ridge_prediction": -0.010833303547921867,
+          "ridge_prediction": -0.0108333035479218,
           "ridge_rank_pct": 1.0
         },
         {
           "ticker": "SOXX",
-          "ridge_prediction": -0.01085777755731253,
-          "ridge_rank_pct": 0.9940119760479041
+          "ridge_prediction": -0.0108577775573125,
+          "ridge_rank_pct": 0.994011976047904
         },
         {
           "ticker": "EWT",
-          "ridge_prediction": -0.011016005319754864,
+          "ridge_prediction": -0.0110160053197548,
           "ridge_rank_pct": 0.9880239520958084
         },
         {
           "ticker": "SKYY",
-          "ridge_prediction": -0.011174233082197197,
-          "ridge_rank_pct": 0.9820359281437125
+          "ridge_prediction": -0.0111742330821971,
+          "ridge_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "SMH",
-          "ridge_prediction": -0.011198707091587861,
+          "ridge_prediction": -0.0111987070915878,
           "ridge_rank_pct": 0.9760479041916168
         },
         {
           "ticker": "EWY",
-          "ridge_prediction": -0.011356934854030195,
-          "ridge_rank_pct": 0.9700598802395209
+          "ridge_prediction": -0.0113569348540301,
+          "ridge_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "IXN",
-          "ridge_prediction": -0.01147057803212197,
+          "ridge_prediction": -0.0114705780321219,
           "ridge_rank_pct": 0.9640718562874252
         },
         {
           "ticker": "XLK",
-          "ridge_prediction": -0.011584221210213748,
-          "ridge_rank_pct": 0.9580838323353293
+          "ridge_prediction": -0.0115842212102137,
+          "ridge_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "IYW",
-          "ridge_prediction": -0.011697864388305525,
-          "ridge_rank_pct": 0.9520958083832335
+          "ridge_prediction": -0.0116978643883055,
+          "ridge_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "EEMO",
-          "ridge_prediction": -0.011925150744489079,
-          "ridge_rank_pct": 0.9461077844311377
+          "ridge_prediction": -0.011925150744489,
+          "ridge_rank_pct": 0.9461077844311376
         }
       ],
       "equal_weight_top_10": [
         {
           "ticker": "CIBR",
           "equal_weight_score": 0.8992015968063872,
-          "equal_weight_rank_pct": 0.9970059880239521
+          "equal_weight_rank_pct": 0.997005988023952
         },
         {
           "ticker": "SOXX",
           "equal_weight_score": 0.8992015968063872,
-          "equal_weight_rank_pct": 0.9970059880239521
+          "equal_weight_rank_pct": 0.997005988023952
         },
         {
           "ticker": "EWT",
@@ -394,17 +394,17 @@
         {
           "ticker": "SKYY",
           "equal_weight_score": 0.8872255489021956,
-          "equal_weight_rank_pct": 0.9790419161676647
+          "equal_weight_rank_pct": 0.9790419161676648
         },
         {
           "ticker": "SMH",
           "equal_weight_score": 0.8872255489021956,
-          "equal_weight_rank_pct": 0.9790419161676647
+          "equal_weight_rank_pct": 0.9790419161676648
         },
         {
           "ticker": "EWY",
           "equal_weight_score": 0.8812375249500998,
-          "equal_weight_rank_pct": 0.9700598802395209
+          "equal_weight_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "IXN",
@@ -414,17 +414,17 @@
         {
           "ticker": "XLK",
           "equal_weight_score": 0.873253493013972,
-          "equal_weight_rank_pct": 0.9580838323353293
+          "equal_weight_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "IYW",
           "equal_weight_score": 0.8692614770459083,
-          "equal_weight_rank_pct": 0.9520958083832335
+          "equal_weight_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "EEMO",
           "equal_weight_score": 0.8612774451097804,
-          "equal_weight_rank_pct": 0.9431137724550899
+          "equal_weight_rank_pct": 0.94311377245509
         }
       ],
       "avoid_highest_risk_10": [
@@ -436,7 +436,7 @@
         {
           "ticker": "SLV",
           "avoid_probability": 0.3085113239449795,
-          "avoid_risk_rank_pct": 0.9940119760479041
+          "avoid_risk_rank_pct": 0.994011976047904
         },
         {
           "ticker": "URA",
@@ -446,7 +446,7 @@
         {
           "ticker": "IHI",
           "avoid_probability": 0.2860123624633305,
-          "avoid_risk_rank_pct": 0.9820359281437125
+          "avoid_risk_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "XOP",
@@ -455,8 +455,8 @@
         },
         {
           "ticker": "XME",
-          "avoid_probability": 0.26998012107222785,
-          "avoid_risk_rank_pct": 0.9700598802395209
+          "avoid_probability": 0.2699801210722278,
+          "avoid_risk_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "GLD",
@@ -466,17 +466,17 @@
         {
           "ticker": "KWEB",
           "avoid_probability": 0.2639097355772779,
-          "avoid_risk_rank_pct": 0.9580838323353293
+          "avoid_risk_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "EZA",
           "avoid_probability": 0.2626666062846061,
-          "avoid_risk_rank_pct": 0.9520958083832335
+          "avoid_risk_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "IXC",
-          "avoid_probability": 0.26111831297339116,
-          "avoid_risk_rank_pct": 0.9461077844311377
+          "avoid_probability": 0.2611183129733911,
+          "avoid_risk_rank_pct": 0.9461077844311376
         }
       ]
     },
@@ -485,53 +485,53 @@
       "ridge_top_10": [
         {
           "ticker": "IHF",
-          "ridge_prediction": -0.00471093909112796,
+          "ridge_prediction": -0.0047109390911279,
           "ridge_rank_pct": 1.0
         },
         {
           "ticker": "XPH",
-          "ridge_prediction": -0.007676476011514024,
-          "ridge_rank_pct": 0.9940119760479041
+          "ridge_prediction": -0.007676476011514,
+          "ridge_rank_pct": 0.994011976047904
         },
         {
           "ticker": "SOXX",
-          "ridge_prediction": -0.012233471161967196,
+          "ridge_prediction": -0.0122334711619671,
           "ridge_rank_pct": 0.9880239520958084
         },
         {
           "ticker": "SKYY",
-          "ridge_prediction": -0.012406527963035402,
-          "ridge_rank_pct": 0.9820359281437125
+          "ridge_prediction": -0.0124065279630354,
+          "ridge_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "IXG",
-          "ridge_prediction": -0.013283730562941853,
+          "ridge_prediction": -0.0132837305629418,
           "ridge_rank_pct": 0.9760479041916168
         },
         {
           "ticker": "SMH",
-          "ridge_prediction": -0.01338558207098648,
-          "ridge_rank_pct": 0.9700598802395209
+          "ridge_prediction": -0.0133855820709864,
+          "ridge_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "IYW",
-          "ridge_prediction": -0.013507776801673876,
+          "ridge_prediction": -0.0135077768016738,
           "ridge_rank_pct": 0.9640718562874252
         },
         {
           "ticker": "XBI",
-          "ridge_prediction": -0.014120353601061515,
-          "ridge_rank_pct": 0.9580838323353293
+          "ridge_prediction": -0.0141203536010615,
+          "ridge_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "CARZ",
-          "ridge_prediction": -0.01448134769364099,
-          "ridge_rank_pct": 0.9520958083832335
+          "ridge_prediction": -0.0144813476936409,
+          "ridge_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "EIDO",
-          "ridge_prediction": -0.014746287429887376,
-          "ridge_rank_pct": 0.9461077844311377
+          "ridge_prediction": -0.0147462874298873,
+          "ridge_rank_pct": 0.9461077844311376
         }
       ],
       "equal_weight_top_10": [
@@ -543,7 +543,7 @@
         {
           "ticker": "IYW",
           "equal_weight_score": 0.7341317365269461,
-          "equal_weight_rank_pct": 0.9940119760479041
+          "equal_weight_rank_pct": 0.994011976047904
         },
         {
           "ticker": "EWT",
@@ -553,7 +553,7 @@
         {
           "ticker": "IGV",
           "equal_weight_score": 0.6946107784431138,
-          "equal_weight_rank_pct": 0.9820359281437125
+          "equal_weight_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "IXN",
@@ -563,7 +563,7 @@
         {
           "ticker": "EPOL",
           "equal_weight_score": 0.6790419161676646,
-          "equal_weight_rank_pct": 0.9700598802395209
+          "equal_weight_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "XLE",
@@ -573,17 +573,17 @@
         {
           "ticker": "EWS",
           "equal_weight_score": 0.6730538922155688,
-          "equal_weight_rank_pct": 0.9580838323353293
+          "equal_weight_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "XOP",
           "equal_weight_score": 0.6574850299401198,
-          "equal_weight_rank_pct": 0.9520958083832335
+          "equal_weight_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "FDN",
           "equal_weight_score": 0.6467065868263473,
-          "equal_weight_rank_pct": 0.9461077844311377
+          "equal_weight_rank_pct": 0.9461077844311376
         }
       ],
       "avoid_highest_risk_10": [
@@ -594,18 +594,18 @@
         },
         {
           "ticker": "SLV",
-          "avoid_probability": 0.28683918155434096,
-          "avoid_risk_rank_pct": 0.9940119760479041
+          "avoid_probability": 0.2868391815543409,
+          "avoid_risk_rank_pct": 0.994011976047904
         },
         {
           "ticker": "EWY",
-          "avoid_probability": 0.27841086782949437,
+          "avoid_probability": 0.2784108678294943,
           "avoid_risk_rank_pct": 0.9880239520958084
         },
         {
           "ticker": "CARZ",
-          "avoid_probability": 0.27040453088011823,
-          "avoid_risk_rank_pct": 0.9820359281437125
+          "avoid_probability": 0.2704045308801182,
+          "avoid_risk_rank_pct": 0.9820359281437124
         },
         {
           "ticker": "EEMO",
@@ -614,28 +614,28 @@
         },
         {
           "ticker": "SOXX",
-          "avoid_probability": 0.26712705120666863,
-          "avoid_risk_rank_pct": 0.9700598802395209
+          "avoid_probability": 0.2671270512066686,
+          "avoid_risk_rank_pct": 0.9700598802395208
         },
         {
           "ticker": "XME",
-          "avoid_probability": 0.26454594633311734,
+          "avoid_probability": 0.2645459463331173,
           "avoid_risk_rank_pct": 0.9640718562874252
         },
         {
           "ticker": "VNM",
           "avoid_probability": 0.261135179550372,
-          "avoid_risk_rank_pct": 0.9580838323353293
+          "avoid_risk_rank_pct": 0.9580838323353292
         },
         {
           "ticker": "XHB",
           "avoid_probability": 0.2522189520071011,
-          "avoid_risk_rank_pct": 0.9520958083832335
+          "avoid_risk_rank_pct": 0.9520958083832336
         },
         {
           "ticker": "KWEB",
           "avoid_probability": 0.2503041787172668,
-          "avoid_risk_rank_pct": 0.9461077844311377
+          "avoid_risk_rank_pct": 0.9461077844311376
         }
       ]
     }
