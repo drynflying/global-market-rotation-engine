@@ -4,6 +4,16 @@
   "executive_summary": "The quantitative dashboard remains available using deterministic rotation calculations. AI interpretation was withheld because no requested provider produced output that passed the required grounding checks. The underlying quantitative calculations are unaffected.",
   "emerging_rotations": [
     {
+      "ticker": "IYZ",
+      "title": "Emerging: Telecommunications",
+      "explanation": "Confirmed deterministic trend EMERGING; rotation score 81.6; 5-bar score change 26.97; 20-bar score change 35.12.",
+      "confidence": "medium",
+      "related_tickers": [
+        "SPY",
+        "XLC"
+      ]
+    },
+    {
       "ticker": "XLC",
       "title": "Emerging: Communication Services",
       "explanation": "Confirmed deterministic trend EMERGING; rotation score 69.09; 5-bar score change 10.0; 20-bar score change 29.55. Current raw condition NEUTRAL is pending 2/3 observations.",
@@ -11,16 +21,6 @@
       "related_tickers": [
         "SPY",
         "IXP"
-      ]
-    },
-    {
-      "ticker": "THD",
-      "title": "Emerging: Thailand",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 59.02; 5-bar score change -6.34; 20-bar score change 20.0. Current raw condition NEUTRAL is pending 2/3 observations.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "ASEA"
       ]
     },
     {
@@ -36,23 +36,22 @@
   "accelerating_rotations": [],
   "persistent_leaders": [
     {
-      "ticker": "IXN",
-      "title": "Persistent leader: Global Technology",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 94.5; 5-bar score change -1.5; 20-bar score change 35.5.",
+      "ticker": "QQQ",
+      "title": "Persistent leader: Nasdaq-100",
+      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 93.33; 5-bar score change 0.0; 20-bar score change 23.33.",
       "confidence": "medium",
       "related_tickers": [
-        "ACWI",
-        "XLK"
+        "SPY"
       ]
     },
     {
-      "ticker": "EWZ",
-      "title": "Persistent leader: Brazil",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 93.41; 5-bar score change 19.76; 20-bar score change 10.18.",
+      "ticker": "SKYY",
+      "title": "Persistent leader: Cloud Computing",
+      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 92.8; 5-bar score change 5.76; 20-bar score change 21.5.",
       "confidence": "medium",
       "related_tickers": [
-        "ACWX",
-        "ILF"
+        "SPY",
+        "XLK"
       ]
     },
     {
@@ -66,32 +65,52 @@
       ]
     },
     {
-      "ticker": "XLK",
-      "title": "Persistent leader: Information Technology",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 88.64; 5-bar score change 0.45; 20-bar score change 23.18.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "IXN"
-      ]
-    },
-    {
-      "ticker": "EPU",
-      "title": "Persistent leader: Peru",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 88.05; 5-bar score change 25.98; 20-bar score change 12.56. Current raw condition ACCELERATING is pending 1/3 observations.",
+      "ticker": "EWZ",
+      "title": "Persistent leader: Brazil",
+      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 92.21; 5-bar score change 6.84; 20-bar score change 5.56.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
         "ILF"
+      ]
+    },
+    {
+      "ticker": "SMH",
+      "title": "Persistent leader: Semiconductors",
+      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 87.2; 5-bar score change 15.53; 20-bar score change 23.31.",
+      "confidence": "medium",
+      "related_tickers": [
+        "SPY",
+        "XLK"
       ]
     }
   ],
   "reaccelerating_rotations": [],
   "weakening_rotations": [
     {
+      "ticker": "XBI",
+      "title": "Weakening: Biotechnology",
+      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 40.8; 5-bar score change -27.35; 20-bar score change -50.31.",
+      "confidence": "medium",
+      "related_tickers": [
+        "SPY",
+        "XLV"
+      ]
+    },
+    {
+      "ticker": "XPH",
+      "title": "Weakening: Pharmaceuticals",
+      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 32.2; 5-bar score change -11.32; 20-bar score change -42.06.",
+      "confidence": "medium",
+      "related_tickers": [
+        "SPY",
+        "XLV"
+      ]
+    },
+    {
       "ticker": "XLF",
       "title": "Weakening: Financials",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 28.64; 5-bar score change -24.55; 20-bar score change -44.55.",
+      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 26.11; 5-bar score change -26.16; 20-bar score change -39.34.",
       "confidence": "medium",
       "related_tickers": [
         "SPY",
@@ -99,61 +118,31 @@
       ]
     },
     {
-      "ticker": "ENZL",
-      "title": "Weakening: New Zealand",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 16.46; 5-bar score change -9.15; 20-bar score change -42.93. Current raw condition ROTATION_OUT is pending 1/3 observations.",
+      "ticker": "EWO",
+      "title": "Weakening: Austria",
+      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 28.09; 5-bar score change -32.52; 20-bar score change -38.86.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
-        "VPL"
+        "FEZ"
       ]
     },
     {
-      "ticker": "AFK",
-      "title": "Weakening: Africa",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 48.75; 5-bar score change -2.5; 20-bar score change -41.87.",
+      "ticker": "ECH",
+      "title": "Weakening: Chile",
+      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 28.97; 5-bar score change -4.93; 20-bar score change -36.94.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
-        "EEM"
-      ]
-    },
-    {
-      "ticker": "EZA",
-      "title": "Weakening: South Africa",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 29.02; 5-bar score change -11.46; 20-bar score change -41.52.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "AFK"
-      ]
-    },
-    {
-      "ticker": "IYG",
-      "title": "Weakening: Financial Services",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 42.96; 5-bar score change -16.3; 20-bar score change -39.63.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "XLF"
+        "ILF"
       ]
     }
   ],
   "rotation_out": [
     {
-      "ticker": "REM",
-      "title": "Rotation out: Mortgage Real Estate",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 17.22; 5-bar score change -6.3; 20-bar score change -35.74.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "XLRE"
-      ]
-    },
-    {
       "ticker": "TUR",
       "title": "Rotation out: Turkey",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 8.78; 5-bar score change -13.41; 20-bar score change -35.49.",
+      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 7.79; 5-bar score change -7.82; 20-bar score change -61.96.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -161,9 +150,29 @@
       ]
     },
     {
+      "ticker": "REM",
+      "title": "Rotation out: Mortgage Real Estate",
+      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 17.0; 5-bar score change -8.56; 20-bar score change -37.44.",
+      "confidence": "medium",
+      "related_tickers": [
+        "SPY",
+        "XLRE"
+      ]
+    },
+    {
+      "ticker": "JXI",
+      "title": "Rotation out: Global Utilities",
+      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 18.5; 5-bar score change -2.0; 20-bar score change -30.0.",
+      "confidence": "medium",
+      "related_tickers": [
+        "ACWI",
+        "XLU"
+      ]
+    },
+    {
       "ticker": "VNM",
       "title": "Rotation out: Vietnam",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 17.56; 5-bar score change 1.46; 20-bar score change -32.68.",
+      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 14.71; 5-bar score change -5.17; 20-bar score change -26.76.",
       "confidence": "medium",
       "related_tickers": [
         "ACWX",
@@ -171,23 +180,13 @@
       ]
     },
     {
-      "ticker": "ARGT",
-      "title": "Rotation out: Argentina",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 31.71; 5-bar score change 3.29; 20-bar score change -31.71. Current raw condition WEAKENING is pending 1/3 observations.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "ILF"
-      ]
-    },
-    {
-      "ticker": "JXI",
-      "title": "Rotation out: Global Utilities",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 19.5; 5-bar score change -5.0; 20-bar score change -16.0.",
+      "ticker": "RXI",
+      "title": "Rotation out: Global Consumer Discretionary",
+      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 35.0; 5-bar score change 0.0; 20-bar score change 13.0. Current raw condition NEUTRAL is pending 1/3 observations.",
       "confidence": "medium",
       "related_tickers": [
         "ACWI",
-        "XLU"
+        "XLY"
       ]
     }
   ],
@@ -196,7 +195,7 @@
     {
       "ticker": "IWD",
       "title": "Pair relationship: U.S. large-cap value",
-      "explanation": "Confirmed pair signal PAIR_LAGGING versus IWF; 20-bar spread -6.56 percentage points; 63-bar spread -4.44 percentage points.",
+      "explanation": "Confirmed pair signal PAIR_LAGGING versus IWF; 20-bar spread -6.23 percentage points; 63-bar spread -3.12 percentage points.",
       "confidence": "medium",
       "related_tickers": [
         "IWF"
@@ -205,7 +204,7 @@
     {
       "ticker": "IWF",
       "title": "Pair relationship: U.S. large-cap growth",
-      "explanation": "Confirmed pair signal PAIR_LEADING versus IWD; 20-bar spread 6.56 percentage points; 63-bar spread 4.44 percentage points.",
+      "explanation": "Confirmed pair signal PAIR_LEADING versus IWD; 20-bar spread 6.23 percentage points; 63-bar spread 3.12 percentage points.",
       "confidence": "medium",
       "related_tickers": [
         "IWD"
@@ -223,7 +222,7 @@
     {
       "ticker": "RSP",
       "title": "Pair relationship: S&P 500 equal weight",
-      "explanation": "Confirmed pair signal PAIR_LAGGING versus SPY; 20-bar spread -4.09 percentage points; 63-bar spread -5.2 percentage points.",
+      "explanation": "Confirmed pair signal PAIR_LAGGING versus SPY; 20-bar spread -3.63 percentage points; 63-bar spread -4.34 percentage points.",
       "confidence": "medium",
       "related_tickers": [
         "SPY"
@@ -236,17 +235,17 @@
     "ETF trading volume is not the same as ETF net creations/redemptions."
   ],
   "dashboard_focus_tickers": [
+    "IYZ",
     "XLC",
-    "THD",
     "EMXC",
-    "IXN",
-    "EWZ",
+    "QQQ",
+    "SKYY",
     "CIBR",
-    "XLK",
-    "EPU"
+    "EWZ",
+    "SMH"
   ],
   "methodology_note": "Deterministic fallback summary; no AI API call was used.",
-  "as_of": "2026-10-05",
+  "as_of": "2026-10-06",
   "provider_status": "fallback",
   "primary_provider": "deterministic_fallback",
   "requested_providers": [
