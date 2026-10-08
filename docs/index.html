@@ -213,14 +213,14 @@ th { color:var(--muted); font-size:13px; }
 <body>
 <main>
   <h1>Market Rotation Dashboard</h1>
-  <div class="sub">As of 2026-10-06 · Longer-horizon rotation monitoring, not a daily trading signal</div>
+  <div class="sub">As of 2026-10-07 · Longer-horizon rotation monitoring, not a daily trading signal</div>
   <div class="trend-rule"><strong>Trend confirmation:</strong> scores and raw conditions update daily, but a new rotation state or pair signal must persist for 3 consecutive observations before it becomes the confirmed dashboard trend. Pending raw changes remain visible as early warnings.</div>
 
   <div class="grid">
-    <div class="card"><div class="muted">Scored signals</div><div class="metric">111</div></div>
+    <div class="card"><div class="muted">Scored signals</div><div class="metric">108</div></div>
     <div class="card"><div class="muted">Emerging / accelerating</div><div class="metric">6</div></div>
     <div class="card"><div class="muted">Persistent leaders</div><div class="metric">13</div></div>
-    <div class="card"><div class="muted">Weakening / out</div><div class="metric">55</div></div>
+    <div class="card"><div class="muted">Weakening / out</div><div class="metric">53</div></div>
   </div>
 
   
@@ -633,32 +633,12 @@ th { color:var(--muted); font-size:13px; }
                 
                 <article class="mini-card">
                   <div class="mini-head">
-                    <strong>JXI</strong>
-                    <span>medium</span>
-                  </div>
-                  <div class="mini-title">Rotation out: Global Utilities</div>
-                  <p>Confirmed deterministic trend ROTATION_OUT; rotation score 18.5; 5-bar score change -2.0; 20-bar score change -30.0.</p>
-                  <div class='related'>Related: ACWI, XLU</div>
-                </article>
-                
-                <article class="mini-card">
-                  <div class="mini-head">
                     <strong>VNM</strong>
                     <span>medium</span>
                   </div>
                   <div class="mini-title">Rotation out: Vietnam</div>
                   <p>Confirmed deterministic trend ROTATION_OUT; rotation score 14.71; 5-bar score change -5.17; 20-bar score change -26.76.</p>
                   <div class='related'>Related: ACWX, ASEA</div>
-                </article>
-                
-                <article class="mini-card">
-                  <div class="mini-head">
-                    <strong>RXI</strong>
-                    <span>medium</span>
-                  </div>
-                  <div class="mini-title">Rotation out: Global Consumer Discretionary</div>
-                  <p>Confirmed deterministic trend ROTATION_OUT; rotation score 35.0; 5-bar score change 0.0; 20-bar score change 13.0. Current raw condition NEUTRAL is pending 1/3 observations.</p>
-                  <div class='related'>Related: ACWI, XLY</div>
                 </article>
                 </div></section>
 
@@ -669,9 +649,9 @@ th { color:var(--muted); font-size:13px; }
       <div class="insight-card">
         <h3>Absolute weakness and CMF extremes</h3>
         <div class="attention-subhead">Lowest current cross-sectional scores</div>
-        <ul class="insight-list"><li><strong>TUR</strong> — score 7.8, ROTATION_OUT; 20-bar Δ -62.0; CMF20 -0.344</li><li><strong>VNM</strong> — score 14.7, ROTATION_OUT; 20-bar Δ -26.8; CMF20 -0.610</li><li><strong>EPHE</strong> — score 16.0, NEUTRAL; 20-bar Δ 7.2; CMF20 -0.022</li><li><strong>REM</strong> — score 17.0, ROTATION_OUT; 20-bar Δ -37.4; CMF20 -0.453</li><li><strong>JXI</strong> — score 18.5, ROTATION_OUT; 20-bar Δ -30.0; CMF20 -0.433</li></ul>
+        <ul class="insight-list"><li><strong>TUR</strong> — score 7.8, ROTATION_OUT; 20-bar Δ -62.0; CMF20 -0.344</li><li><strong>VNM</strong> — score 14.7, ROTATION_OUT; 20-bar Δ -26.8; CMF20 -0.610</li><li><strong>EPHE</strong> — score 16.0, NEUTRAL; 20-bar Δ 7.2; CMF20 -0.022</li><li><strong>REM</strong> — score 17.0, ROTATION_OUT; 20-bar Δ -37.4; CMF20 -0.453</li><li><strong>EWQ</strong> — score 19.7, ROTATION_OUT; 20-bar Δ -9.7; CMF20 -0.140</li></ul>
         <div class="attention-subhead">Extreme CMF20 (|CMF20| ≥ 0.40)</div>
-        <ul class="insight-list"><li><strong>VNM</strong> — CMF20 -0.610, score 14.7, ROTATION_OUT</li><li><strong>REZ</strong> — CMF20 -0.517, score 35.0, NEUTRAL</li><li><strong>MXI</strong> — CMF20 0.464, score 48.0, WEAKENING</li><li><strong>REM</strong> — CMF20 -0.453, score 17.0, ROTATION_OUT</li><li><strong>RXI</strong> — CMF20 -0.436, score 35.0, ROTATION_OUT</li></ul>
+        <ul class="insight-list"><li><strong>VNM</strong> — CMF20 -0.610, score 14.7, ROTATION_OUT</li><li><strong>REZ</strong> — CMF20 -0.517, score 35.0, NEUTRAL</li><li><strong>MXI</strong> — CMF20 0.464, score 48.0, WEAKENING</li><li><strong>REM</strong> — CMF20 -0.453, score 17.0, ROTATION_OUT</li><li><strong>ENOR</strong> — CMF20 0.429, score 64.4, WEAKENING</li></ul>
       </div>
       <div class="insight-card">
         <h3>63-bar score extremes</h3>
@@ -1131,21 +1111,21 @@ th { color:var(--muted); font-size:13px; }
                 
 
                 <tr>
-                  <td><strong>JXI</strong></td>
-                  <td>Global Utilities</td>
-                  <td>18.5</td>
-                  <td>-30.0</td>
-                  <td>-4.0%</td>
-                  <td><span class='badge bad'>ROTATION_OUT</span></td>
-                </tr>
-                
-
-                <tr>
                   <td><strong>MXI</strong></td>
                   <td>Global Materials</td>
                   <td>48.0</td>
                   <td>-29.5</td>
                   <td>-5.2%</td>
+                  <td><span class='badge warn'>WEAKENING</span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong>XME</strong></td>
+                  <td>Metals &amp; Mining</td>
+                  <td>31.2</td>
+                  <td>-29.1</td>
+                  <td>-11.7%</td>
                   <td><span class='badge warn'>WEAKENING</span></td>
                 </tr>
                 </tbody>

@@ -160,16 +160,6 @@
       ]
     },
     {
-      "ticker": "JXI",
-      "title": "Rotation out: Global Utilities",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 18.5; 5-bar score change -2.0; 20-bar score change -30.0.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWI",
-        "XLU"
-      ]
-    },
-    {
       "ticker": "VNM",
       "title": "Rotation out: Vietnam",
       "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 14.71; 5-bar score change -5.17; 20-bar score change -26.76.",
@@ -177,16 +167,6 @@
       "related_tickers": [
         "ACWX",
         "ASEA"
-      ]
-    },
-    {
-      "ticker": "RXI",
-      "title": "Rotation out: Global Consumer Discretionary",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 35.0; 5-bar score change 0.0; 20-bar score change 13.0. Current raw condition NEUTRAL is pending 1/3 observations.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWI",
-        "XLY"
       ]
     }
   ],
@@ -245,7 +225,7 @@
     "SMH"
   ],
   "methodology_note": "Deterministic fallback summary; no AI API call was used.",
-  "as_of": "2026-10-06",
+  "as_of": "2026-10-07",
   "provider_status": "fallback",
   "primary_provider": "deterministic_fallback",
   "requested_providers": [
