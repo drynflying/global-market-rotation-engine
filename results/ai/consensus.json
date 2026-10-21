@@ -1,7 +1,477 @@
 {
-  "provider_count": 0,
+  "provider_count": 1,
   "mode": "single_provider",
-  "items": [],
+  "items": [
+    {
+      "ticker": "XRT",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "Retail Displays Short-Term Rebound amid Mixed Horizons",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "XLV",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "U.S. Health Care Sustains Relative Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "XLP",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "U.S. Consumer Staples Trend Signal Strengthening",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "XLK",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Information Technology Suffers Severe Score Decline",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "XLE",
+      "dominant_assessment": "ACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ACCELERATING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ACCELERATING",
+          "title": "Energy Sector Surges into Confirmed Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "SMH",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Semiconductors Experience Sharp Relative Softening",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "SKYY",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Cloud Computing Scores Decline Despite Long-Term RS",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "SCZ",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "EAFE Small Cap Rebound",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "RSP",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Equal Weight vs Cap Weight Exhibits Mixed Horizon Spread",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "REM",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Mortgage Real Estate Hits 63-Bar Score Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "QQQ",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Nasdaq-100 Relative Strength Softens",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "QAT",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Qatar Displays Persistent Relative Lag",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "KXI",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "Global Consumer Staples Reaches 63-Bar Score High",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IWF",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Large-Cap Growth Lagging Value Counterpart",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IWD",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Large-Cap Value Leading Large-Cap Growth",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "ILF",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Latin America Regional Dominance",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWY",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "South Korea Suffers Sharp Geographic Softening",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWL",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Switzerland Shows Short-Term Turnaround amid Conflicting Horizons",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "EWC",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Canada Maintains Multi-Horizon Strength",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EIDO",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Indonesia Confirmed in Rotation Out",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWZ",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1,
+        "GEOGRAPHIC": 1
+      },
+      "conflict": true,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Brazil Equity Relative Leadership Sustained",
+          "confidence": "high"
+        },
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Latin America Outperforms Broad International Equity",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
   "strong_consensus": [],
   "disagreements": []
 }
