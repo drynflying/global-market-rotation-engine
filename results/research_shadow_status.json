@@ -3,14 +3,14 @@
   "prediction": {
     "model_version": "PATH_RISK_V1_2026-08-12",
     "market_date": "2026-10-20",
-    "eligible_rows": 80,
-    "feature_complete_rows": 80,
-    "appended_rows": 80,
-    "skipped_existing_rows": 0,
+    "eligible_rows": 78,
+    "feature_complete_rows": 78,
+    "appended_rows": 0,
+    "skipped_existing_rows": 78,
     "patch6_top20_rows": 20,
-    "universal_low_trust_rows": 13,
+    "universal_low_trust_rows": 12,
     "universal_veto_rows": 3,
-    "challenger_low_trust_rows": 13,
+    "challenger_low_trust_rows": 12,
     "challenger_veto_rows": 3
   },
   "outcomes": {
