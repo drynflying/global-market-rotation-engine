@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-21",
+  "as_of": "2026-10-23",
   "requested_providers": [
     "gemini"
   ],
@@ -27,8 +27,13 @@
         "mixed_horizon_disclosure": true,
         "deterministic_conflict_coverage": true
       },
-      "attempt_count": 1,
-      "retry_used": false
+      "attempt_count": 2,
+      "retry_used": true,
+      "first_attempt_errors": [
+        "pair_relationships[3]: PAIR finding for REET uses generic benchmark language but paired ticker is XLRE",
+        "mixed-horizon disclosure: cross_market_confirmations[2] for XLK must name both 20-bar and 63-bar relative-strength horizons",
+        "mixed-horizon disclosure: cross_market_confirmations[2] for IXN must name both 20-bar and 63-bar relative-strength horizons"
+      ]
     }
   }
 }

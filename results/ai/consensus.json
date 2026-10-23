@@ -19,96 +19,8 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Retail Displays Short-Term Score Rebound Against Mixed Long Horizon",
+          "title": "Retail Displays Emerging Relative Improvement",
           "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "XOP",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Oil & Gas Exploration Signals Potential Reacceleration from Weakened State",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "XLV",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Health Care Sector Preserves Persistent Leadership",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "XLRE",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "U.S. Real Estate Remains in Confirmed Rotation Out Despite Minor Rebound",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "XLP",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "U.S. Consumer Staples Trend Improves with Pending Leadership Upgrade",
-          "confidence": "high"
         }
       ]
     },
@@ -129,7 +41,7 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Information Technology Suffers Steep Score Deterioration",
+          "title": "Information Technology Weakens Despite Long-Horizon Support",
           "confidence": "high"
         }
       ]
@@ -151,52 +63,8 @@
         {
           "provider": "gemini",
           "assessment": "ACCELERATING",
-          "title": "U.S. Energy Sector Accelerates to Top Cross-Sectional Score",
+          "title": "U.S. Energy Sector Demonstrates Confirmed Acceleration",
           "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "XLB",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Materials Trend Displays Early Warning Score Bounce",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "VNM",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Vietnam Shows Pending Neutral Warning Within Confirmed Rotation Out",
-          "confidence": "medium"
         }
       ]
     },
@@ -217,29 +85,7 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Semiconductors Score Drops Sharply Across Horizons",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "SCZ",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "EAFE Small Cap Demonstrates Emerging Relative Strength",
+          "title": "Semiconductors Face Sharp Relative Softening",
           "confidence": "high"
         }
       ]
@@ -261,7 +107,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted SPY Over Short Horizon",
+          "title": "Equal-Weight S&P 500 Shows Horizon Divergence vs Cap-Weight",
           "confidence": "medium"
         }
       ]
@@ -283,7 +129,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Mortgage Real Estate Hits 63-Bar Score Low in Absolute Rotation Out",
+          "title": "Mortgage Real Estate Bottoms Score Table",
           "confidence": "high"
         }
       ]
@@ -305,118 +151,8 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Global REITs Lag U.S. Sector Peers Across Timeframes",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "QAT",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Qatar Confirmed in Rotation Out Regime",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "KXI",
-      "dominant_assessment": "EMERGING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "EMERGING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "Global Consumer Staples Reaches 63-Bar Rotation Score High",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "KIE",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Insurance Score Bounces Within Confirmed Weakening Trend",
+          "title": "Global REITs Lag U.S. Real Estate Pair",
           "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "IXC",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Global Energy Retains Confirmed Leadership Despite Short-Term Softening",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "IWF",
-      "dominant_assessment": "PAIR",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PAIR": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "U.S. Large Growth Lags Large Value Across Horizons",
-          "confidence": "high"
         }
       ]
     },
@@ -437,7 +173,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "U.S. Large Value Expands Advantage Over Large Growth",
+          "title": "U.S. Large-Cap Value Outperforms Growth Pair",
           "confidence": "high"
         }
       ]
@@ -459,13 +195,35 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Latin America Large Caps Demonstrate Sustained Relative Dominance",
+          "title": "Latin America Maintains Broad Regional Leadership",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EWY",
+      "ticker": "EWZ",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Brazil Shows Sustained Country Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWW",
       "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
@@ -481,7 +239,51 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "South Korea Rotates Downward in Asian Single-Country Group",
+          "title": "Mexico Reaches 63-Bar Score High Amid Pending Emerging Signal",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "EWO",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Austria Reaches 63-Bar Score Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWL",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Switzerland Leads European Geographic Rotations",
           "confidence": "high"
         }
       ]
@@ -503,42 +305,13 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Canada Enters Confirmed Leadership Regime",
+          "title": "Canada Reaches 63-Bar Score High",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EWZ",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1,
-        "GEOGRAPHIC": 1
-      },
-      "conflict": true,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Brazil Maintains Extended Multi-Horizon Leadership",
-          "confidence": "high"
-        },
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "Latin American Sovereign Leadership Led by Brazil",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EWL",
+      "ticker": "EWA",
       "dominant_assessment": "EMERGING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -547,22 +320,15 @@
         "gemini"
       ],
       "assessment_counts": {
-        "EMERGING": 1,
-        "GEOGRAPHIC": 1
+        "EMERGING": 1
       },
-      "conflict": true,
+      "conflict": false,
       "votes": [
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Switzerland Emerging with Horizon Divergence",
-          "confidence": "medium"
-        },
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "Swiss Equity Score Expands Significantly Over 20 Bars",
-          "confidence": "medium"
+          "title": "Australia Shows Emerging Country-Level Leadership",
+          "confidence": "high"
         }
       ]
     }

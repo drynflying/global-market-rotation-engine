@@ -1,0 +1,224 @@
+{
+  "provider": "gemini",
+  "status": "success",
+  "model": "gemini-3.6-flash",
+  "error": null,
+  "validation": {
+    "status": "passed",
+    "validator_version": "v1.2.8",
+    "checks": {
+      "ticker_grounding": true,
+      "confirmed_state_category_consistency": true,
+      "pair_semantics": true,
+      "language_guardrails": true,
+      "numeric_evidence": true,
+      "horizon_precision": true,
+      "mixed_horizon_disclosure": true,
+      "deterministic_conflict_coverage": true
+    },
+    "attempt_count": 2,
+    "retry_used": true,
+    "first_attempt_errors": [
+      "pair_relationships[3]: PAIR finding for REET uses generic benchmark language but paired ticker is XLRE",
+      "mixed-horizon disclosure: cross_market_confirmations[2] for XLK must name both 20-bar and 63-bar relative-strength horizons",
+      "mixed-horizon disclosure: cross_market_confirmations[2] for IXN must name both 20-bar and 63-bar relative-strength horizons"
+    ]
+  },
+  "analysis": {
+    "headline": "ETF Rotation Analysis: Energy and Staples Lead While Technology Weakens and Value Gains Over Growth",
+    "market_regime": "Resource and Defensive Leadership with Technology Softening and Widespread Horizon Divergence",
+    "executive_summary": "Quantitative ETF rotation metrics highlight persistent leadership in Energy (XLE rotation score 96.82) and Latin American equities (ILF rotation score 96.25), backed by defensive strength in Consumer Staples (XLP score 80.91). Technology sectors demonstrate relative weakening, with XLK (score 40.0) and SMH (score 25.0) in confirmed WEAKENING states. Direct pair dynamics indicate Large-Cap Value leading Growth (IWD PAIR_LEADING vs paired_ticker IWF), while horizon divergences remain widespread across broad market groups.",
+    "emerging_rotations": [
+      {
+        "ticker": "XRT",
+        "title": "Retail Displays Emerging Relative Improvement",
+        "explanation": "XRT holds a confirmed EMERGING state with a rotation score of 78.54 and a 20-bar score change of 32.62. Relative strength indicators reflect mixed horizons, as positive 20-bar relative strength of 7.76 percentage points contrasts with negative 63-bar relative strength of -4.98 percentage points.",
+        "confidence": "medium",
+        "related_tickers": [
+          "XLY"
+        ]
+      },
+      {
+        "ticker": "EWA",
+        "title": "Australia Shows Emerging Country-Level Leadership",
+        "explanation": "EWA is in a confirmed EMERGING state with a rotation score of 74.17, supported by a 5-bar score change of 6.73 and a 20-bar score change of 30.87. Its relative strength remains positive across both horizons at 6.82 percentage points over 20 bars and 2.09 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "VPL",
+          "ACWX"
+        ]
+      }
+    ],
+    "accelerating_rotations": [
+      {
+        "ticker": "XLE",
+        "title": "U.S. Energy Sector Demonstrates Confirmed Acceleration",
+        "explanation": "XLE maintains a confirmed ACCELERATING state with a top-ranked sector score of 96.82, a 5-bar score change of 10.91, and a 20-bar score change of 6.82. Relative strength is aligned across horizons at 13.23 percentage points over 20 bars and 16.42 percentage points over 63 bars, while a raw condition of PERSISTENT_LEADER is pending for 2/3 observations.",
+        "confidence": "high",
+        "related_tickers": [
+          "IXC",
+          "XOP",
+          "OIH"
+        ]
+      }
+    ],
+    "persistent_leaders": [
+      {
+        "ticker": "ILF",
+        "title": "Latin America Maintains Broad Regional Leadership",
+        "explanation": "ILF displays a confirmed PERSISTENT_LEADER state with a rotation score of 96.25, supported by a 5-bar score change of 15.62 and a 20-bar score change of 32.5. Relative strength is positive across horizons at 12.89 percentage points over 20 bars and 9.57 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "EWZ",
+          "EEM"
+        ]
+      },
+      {
+        "ticker": "EWZ",
+        "title": "Brazil Shows Sustained Country Leadership",
+        "explanation": "EWZ holds a confirmed PERSISTENT_LEADER state with a rotation score of 89.44 and a confirmed state age of 31 bars. Relative strength is strong across horizons, posting 20.07 percentage points over 20 bars and 20.0 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "ILF"
+        ]
+      },
+      {
+        "ticker": "EWC",
+        "title": "Canada Reaches 63-Bar Score High",
+        "explanation": "EWC maintains a confirmed PERSISTENT_LEADER state with a rotation score of 86.94, reaching a 63-bar score high. Score momentum is supported by a 20-bar score change of 36.21, alongside positive relative strength of 6.24 percentage points over 20 bars and 3.45 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "ACWX"
+        ]
+      }
+    ],
+    "reaccelerating_rotations": [],
+    "weakening_rotations": [
+      {
+        "ticker": "XLK",
+        "title": "Information Technology Weakens Despite Long-Horizon Support",
+        "explanation": "XLK is in a confirmed WEAKENING state with a rotation score of 40.0, driven by a 20-bar score reduction of -46.82 and a 5-bar score change of -11.36. Relative strength indicators exhibit mixed horizons, as short-term weakness of -5.17 percentage points over 20 bars conflicts with longer-term strength of 2.17 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "SMH",
+          "IXN"
+        ]
+      },
+      {
+        "ticker": "SMH",
+        "title": "Semiconductors Face Sharp Relative Softening",
+        "explanation": "SMH holds a confirmed WEAKENING state with a rotation score of 25.0, reflecting a 5-bar score change of -24.63 and a 20-bar score decline of -51.85. Relative strength is negative across both timeframes at -11.61 percentage points over 20 bars and -6.97 percentage points over 63 bars, with a raw ROTATION_OUT condition pending for 1/3 observations.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLK"
+        ]
+      }
+    ],
+    "rotation_out": [
+      {
+        "ticker": "REM",
+        "title": "Mortgage Real Estate Bottoms Score Table",
+        "explanation": "REM displays a confirmed ROTATION_OUT state with the lowest rotation score in the dataset at 9.37. Negative relative strength persists across both horizons, measuring -5.83 percentage points over 20 bars and -20.2 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLRE",
+          "REZ"
+        ]
+      },
+      {
+        "ticker": "EWO",
+        "title": "Austria Reaches 63-Bar Score Low",
+        "explanation": "EWO remains in a confirmed ROTATION_OUT state with a rotation score of 18.19, touching its 63-bar score low. Its 20-bar score change stands at -49.73, accompanied by negative relative strength of -7.66 percentage points over 20 bars and -5.14 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "FEZ",
+          "VGK"
+        ]
+      }
+    ],
+    "geographic_rotations": [
+      {
+        "ticker": "EWL",
+        "title": "Switzerland Leads European Geographic Rotations",
+        "explanation": "EWL displays a confirmed PERSISTENT_LEADER state with a rotation score of 85.83, reaching a 63-bar score high. Score momentum is evidenced by a 20-bar score change of 57.42, alongside positive relative strength of 8.34 percentage points over 20 bars and 2.24 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "VGK",
+          "EWO"
+        ]
+      },
+      {
+        "ticker": "EWW",
+        "title": "Mexico Reaches 63-Bar Score High Amid Pending Emerging Signal",
+        "explanation": "EWW holds a confirmed NEUTRAL state while hitting a 63-bar score high at 64.76, supported by a 5-bar score change of 25.61 and a 20-bar score change of 24.02. Relative strength evidence is split across horizons, showing 4.88 percentage points over 20 bars versus -0.85 percentage points over 63 bars, with a raw EMERGING state pending for 1/3 observations.",
+        "confidence": "medium",
+        "related_tickers": [
+          "ILF"
+        ]
+      }
+    ],
+    "pair_relationships": [
+      {
+        "ticker": "IWD",
+        "title": "U.S. Large-Cap Value Outperforms Growth Pair",
+        "explanation": "IWD holds a confirmed EMERGING state and a PAIR_LEADING signal versus paired_ticker IWF. Direct pair performance spreads versus paired_ticker IWF are positive across both horizons, measuring 7.44 percentage points over 20 bars and 1.24 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "IWF"
+        ]
+      },
+      {
+        "ticker": "RSP",
+        "title": "Equal-Weight S&P 500 Shows Horizon Divergence vs Cap-Weight",
+        "explanation": "RSP holds a confirmed EMERGING state with a PAIR_MIXED signal versus paired_ticker SPY. Direct pair performance spreads versus paired_ticker SPY are split between horizons, with a positive 20-bar pair spread of 4.05 percentage points contrasting with a negative 63-bar pair spread of -2.07 percentage points.",
+        "confidence": "medium",
+        "related_tickers": [
+          "SPY"
+        ]
+      },
+      {
+        "ticker": "REET",
+        "title": "Global REITs Lag U.S. Real Estate Pair",
+        "explanation": "REET holds a confirmed NEUTRAL state and a PAIR_LAGGING signal versus paired_ticker XLRE. Pair performance spreads versus paired_ticker XLRE remain negative across both horizons at -2.12 percentage points over 20 bars and -2.24 percentage points over 63 bars.",
+        "confidence": "medium",
+        "related_tickers": [
+          "XLRE"
+        ]
+      }
+    ],
+    "cross_market_confirmations": [
+      "Broad energy leadership is confirmed across domestic and global structures, as XLE (rotation score 96.82, 20-bar relative strength 13.23 percentage points, 63-bar relative strength 16.42 percentage points) and IXC (rotation score 95.62, 20-bar relative strength 13.85 percentage points, 63-bar relative strength 16.49 percentage points) simultaneously occupy top peer-group ranks.",
+      "Defensive leadership in Consumer Staples is validated globally, with US-focused XLP (20-bar score change 41.36) and global-focused KXI (20-bar score change 35.88) both holding confirmed PERSISTENT_LEADER states.",
+      "Global and US technology sectors show consistent softening in relative strength over 20 bars while retaining longer-horizon strength; XLK displays mixed relative strength of -5.17 percentage points over 20 bars and 2.17 percentage points over 63 bars, while IXN displays mixed relative strength of -5.41 percentage points over 20 bars and 2.44 percentage points over 63 bars."
+    ],
+    "risks_or_conflicts": [
+      "A material sector divergence exists within Financials, where insurance ETF KIE displays strong relative improvement with a 20-bar score change of 38.68, while global financials ETF IXG shows severe deterioration with a 20-bar score change of -31.0, creating a 69.68 point divergence.",
+      "No deterministic pair state tensions are currently active across evaluated pair relationships.",
+      "Multiple ETFs exhibit pending raw trend changes awaiting 3-observation confirmation; for example, XOP holds a confirmed WEAKENING state despite a pending raw PERSISTENT_LEADER condition (2/3 days), and SKYY is confirmed WEAKENING despite a pending raw ACCELERATING state (1/3 days)."
+    ],
+    "dashboard_focus_tickers": [
+      "XLE",
+      "ILF",
+      "IXC",
+      "EWZ",
+      "EWC",
+      "EWL",
+      "XLP",
+      "KXI",
+      "XRT",
+      "KIE",
+      "EWA",
+      "SCZ",
+      "SMH",
+      "XLK",
+      "IXN",
+      "REM",
+      "EWO",
+      "IWD",
+      "IWF",
+      "RSP",
+      "REET"
+    ],
+    "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
+  }
+}
