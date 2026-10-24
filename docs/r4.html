@@ -176,7 +176,7 @@ canvas{width:100%;height:100%}
       <span class="eyebrow">Study progress</span>
       <h2>Prospective since Aug 15, 2026</h2>
       <div class="progress-grid">
-        <div class="progress-box"><span>Latest market date</span><strong>Oct 22, 2026</strong></div>
+        <div class="progress-box"><span>Latest market date</span><strong>Oct 23, 2026</strong></div>
         <div class="progress-box"><span>Latest cohort</span><strong>Sep 30, 2026</strong></div>
         <div class="progress-box"><span>Prediction rows</span><strong>1,336</strong></div>
         <div class="progress-box"><span>Matured outcomes</span><strong>167</strong></div>
@@ -1309,12 +1309,12 @@ canvas{width:100%;height:100%}
   </section>
 
   <div class="footer-note">
-    As of Oct 22, 2026. R4 inception Aug 15, 2026. Latest cohort Sep 30, 2026. Production logic changed: no. Historical reoptimization performed: no. Dashboard is informational research output only.
+    As of Oct 23, 2026. R4 inception Aug 15, 2026. Latest cohort Sep 30, 2026. Production logic changed: no. Historical reoptimization performed: no. Dashboard is informational research output only.
   </div>
 </div>
 
 <script>
-const DATA={"ranking":[{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","method":"ridge","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"ic":0.3500262813443681,"top_quintile_mean_rel_return":-0.015494382579067408,"bottom_quintile_mean_rel_return":-0.05378974620755908,"q5_minus_q1_spread":0.038295363628491674,"top_quintile_beat_spy_rate":0.4117647058823529,"top_decile_mean_rel_return":0.00011231551613240815,"bottom_decile_mean_rel_return":-0.05309281872631927,"top_decile_beat_spy_rate":0.5882352941176471},{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","method":"equal_weight","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"ic":0.30961100064921415,"top_quintile_mean_rel_return":-0.027914893912891623,"bottom_quintile_mean_rel_return":-0.051351357503631005,"q5_minus_q1_spread":0.023436463590739382,"top_quintile_beat_spy_rate":0.11764705882352941,"top_decile_mean_rel_return":-0.03435516310266035,"bottom_decile_mean_rel_return":-0.05553709617134894,"top_decile_beat_spy_rate":0.11764705882352941}],"avoid":[{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"base_rate":0.19760479041916168,"roc_auc":0.6169154228855722,"average_precision":0.3505417197663099,"top_risk_quintile_precision":0.3235294117647059,"top_risk_quintile_lift":1.6372549019607843,"top_risk_quintile_mean_rel_return":-0.025263552092570283,"top_risk_quintile_beat_spy_rate":0.38235294117647056,"top_risk_decile_precision":0.4117647058823529,"top_risk_decile_lift":2.083778966131907,"top_risk_decile_mean_rel_return":-0.027779765630817382}],"horizonLabels":{"21":"1M","63":"3M","126":"6M","189":"9M"},"initialHorizon":126};
+const DATA={"ranking":[{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","method":"ridge","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"ic":0.35002628134436803,"top_quintile_mean_rel_return":-0.015494382579067408,"bottom_quintile_mean_rel_return":-0.05378974620755908,"q5_minus_q1_spread":0.038295363628491674,"top_quintile_beat_spy_rate":0.4117647058823529,"top_decile_mean_rel_return":0.00011231551613240815,"bottom_decile_mean_rel_return":-0.05309281872631927,"top_decile_beat_spy_rate":0.5882352941176471},{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","method":"equal_weight","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"ic":0.3096110006492142,"top_quintile_mean_rel_return":-0.027914893912891623,"bottom_quintile_mean_rel_return":-0.051351357503631005,"q5_minus_q1_spread":0.023436463590739382,"top_quintile_beat_spy_rate":0.11764705882352941,"top_decile_mean_rel_return":-0.03435516310266035,"bottom_decile_mean_rel_return":-0.05553709617134894,"top_decile_beat_spy_rate":0.11764705882352941}],"avoid":[{"horizon_bars":21,"horizon_label":"1M","anchor_date":"2026-08-31","issued_rows":167,"matured_rows":167,"maturity_fraction":1.0,"base_rate":0.19760479041916168,"roc_auc":0.6169154228855722,"average_precision":0.3505417197663099,"top_risk_quintile_precision":0.3235294117647059,"top_risk_quintile_lift":1.6372549019607843,"top_risk_quintile_mean_rel_return":-0.025263552092570283,"top_risk_quintile_beat_spy_rate":0.38235294117647056,"top_risk_decile_precision":0.4117647058823529,"top_risk_decile_lift":2.083778966131907,"top_risk_decile_mean_rel_return":-0.027779765630817382}],"horizonLabels":{"21":"1M","63":"3M","126":"6M","189":"9M"},"initialHorizon":126};
 let selectedHorizon=DATA.initialHorizon;
 
 function activateHorizon(h){
