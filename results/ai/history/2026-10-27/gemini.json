@@ -1,0 +1,11 @@
+{
+  "provider": "gemini",
+  "status": "error",
+  "model": null,
+  "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+  "validation": {
+    "status": "not_run",
+    "validator_version": "v1.2.8"
+  },
+  "analysis": null
+}

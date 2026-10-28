@@ -1,39 +1,20 @@
 {
-  "as_of": "2026-10-23",
+  "as_of": "2026-10-27",
   "requested_providers": [
     "gemini"
   ],
-  "successful_providers": [
+  "successful_providers": [],
+  "failed_providers": [
     "gemini"
   ],
-  "failed_providers": [],
-  "primary_provider": "gemini",
-  "provider_status": "ai",
-  "provider_models": {
-    "gemini": "gemini-3.6-flash"
-  },
+  "primary_provider": "deterministic_fallback",
+  "provider_status": "fallback",
+  "provider_models": {},
   "ai_validator_version": "v1.2.8",
   "provider_validation": {
     "gemini": {
-      "status": "passed",
-      "validator_version": "v1.2.8",
-      "checks": {
-        "ticker_grounding": true,
-        "confirmed_state_category_consistency": true,
-        "pair_semantics": true,
-        "language_guardrails": true,
-        "numeric_evidence": true,
-        "horizon_precision": true,
-        "mixed_horizon_disclosure": true,
-        "deterministic_conflict_coverage": true
-      },
-      "attempt_count": 2,
-      "retry_used": true,
-      "first_attempt_errors": [
-        "pair_relationships[3]: PAIR finding for REET uses generic benchmark language but paired ticker is XLRE",
-        "mixed-horizon disclosure: cross_market_confirmations[2] for XLK must name both 20-bar and 63-bar relative-strength horizons",
-        "mixed-horizon disclosure: cross_market_confirmations[2] for IXN must name both 20-bar and 63-bar relative-strength horizons"
-      ]
+      "status": "not_run",
+      "validator_version": "v1.2.8"
     }
   }
 }
