@@ -3,10 +3,10 @@
   "prediction": {
     "model_version": "PATH_RISK_V1_2026-08-12",
     "market_date": "2026-10-23",
-    "eligible_rows": 96,
-    "feature_complete_rows": 96,
+    "eligible_rows": 95,
+    "feature_complete_rows": 95,
     "appended_rows": 0,
-    "skipped_existing_rows": 96,
+    "skipped_existing_rows": 95,
     "patch6_top20_rows": 24,
     "universal_low_trust_rows": 16,
     "universal_veto_rows": 2,

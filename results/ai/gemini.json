@@ -1,11 +1,16 @@
 {
   "provider": "gemini",
-  "status": "error",
-  "model": null,
-  "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+  "status": "validation_error",
+  "model": "gemini-3.6-flash",
+  "error": "AIOutputValidationError: AI output failed deterministic validation: mixed-horizon disclosure: risks_or_conflicts[1] for XLK must describe opposite-sign relative-strength horizons as mixed/divergent/conflicting",
   "validation": {
-    "status": "not_run",
-    "validator_version": "v1.2.8"
+    "status": "failed",
+    "validator_version": "v1.2.8",
+    "attempt_count": 2,
+    "retry_used": true,
+    "errors": [
+      "mixed-horizon disclosure: risks_or_conflicts[1] for XLK must describe opposite-sign relative-strength horizons as mixed/divergent/conflicting"
+    ]
   },
   "analysis": null
 }

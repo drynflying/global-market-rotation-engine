@@ -1,0 +1,25 @@
+{
+  "as_of": "2026-10-28",
+  "requested_providers": [
+    "gemini"
+  ],
+  "successful_providers": [],
+  "failed_providers": [
+    "gemini"
+  ],
+  "primary_provider": "deterministic_fallback",
+  "provider_status": "fallback",
+  "provider_models": {},
+  "ai_validator_version": "v1.2.8",
+  "provider_validation": {
+    "gemini": {
+      "status": "failed",
+      "validator_version": "v1.2.8",
+      "attempt_count": 2,
+      "retry_used": true,
+      "errors": [
+        "mixed-horizon disclosure: risks_or_conflicts[1] for XLK must describe opposite-sign relative-strength horizons as mixed/divergent/conflicting"
+      ]
+    }
+  }
+}
