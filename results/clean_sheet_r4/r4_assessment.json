@@ -1,6 +1,6 @@
 {
   "research_patch": "R4",
-  "generated_at_utc": "2026-10-28T01:21:06.499779+00:00",
+  "generated_at_utc": "2026-10-29T01:48:14.265468+00:00",
   "prospective_only": true,
   "historical_reoptimization": false,
   "by_horizon": {
@@ -10,7 +10,7 @@
       "evidence_status": "INSUFFICIENT",
       "ranking": {
         "ridge": {
-          "mean_ic": 0.35002628134436803,
+          "mean_ic": 0.3500262813443681,
           "ic_ci_low": null,
           "ic_ci_high": null,
           "mean_top_decile_mean_rel_return": 0.00011231551613240815,
@@ -28,7 +28,7 @@
           "favor_gate_pass": false
         },
         "equal_weight": {
-          "mean_ic": 0.3096110006492142,
+          "mean_ic": 0.30961100064921415,
           "ic_ci_low": null,
           "ic_ci_high": null,
           "mean_top_decile_mean_rel_return": -0.03435516310266035,
