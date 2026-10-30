@@ -3,21 +3,21 @@
   "status": "ok",
   "prospective_inception_date": "2026-08-15",
   "first_eligible_anchor_date": "2026-08-31",
-  "latest_market_date": "2026-10-28",
+  "latest_market_date": "2026-10-29",
   "latest_issued_anchor_date": "2026-09-30",
   "new_anchors_issued_this_run": 0,
-  "new_outcomes_matured_this_run": 0,
+  "new_outcomes_matured_this_run": 167,
   "prediction_rows": 1336,
   "anchor_manifest_rows": 8,
-  "matured_outcome_rows": 167,
+  "matured_outcome_rows": 334,
   "matured_outcomes_by_horizon": {
-    "21": 167,
+    "21": 334,
     "63": 0,
     "126": 0,
     "189": 0
   },
   "evaluated_months_by_horizon": {
-    "21": 1,
+    "21": 2,
     "63": 0,
     "126": 0,
     "189": 0

@@ -2,14 +2,14 @@
 
 **This report contains only predictions issued after the R4 inception date.**
 
-- Latest market date: 2026-10-28
+- Latest market date: 2026-10-29
 - Latest completed prospective anchor: 2026-09-30
 - Immutable prediction rows: 1,336
-- Immutable matured outcome rows: 167
+- Immutable matured outcome rows: 334
 
 ## Evidence status
 
-- **1M**: INSUFFICIENT; 1 evaluated month(s); Ridge IC 0.3500262813443681; AVOID AUC 0.6169154228855722.
+- **1M**: INSUFFICIENT; 2 evaluated month(s); Ridge IC 0.006673400187576672; AVOID AUC 0.7226368159203981.
 - **3M**: INSUFFICIENT; 0 evaluated month(s); Ridge IC n/a; AVOID AUC n/a.
 - **6M**: INSUFFICIENT; 0 evaluated month(s); Ridge IC n/a; AVOID AUC n/a.
 - **9M**: INSUFFICIENT; 0 evaluated month(s); Ridge IC n/a; AVOID AUC n/a.
