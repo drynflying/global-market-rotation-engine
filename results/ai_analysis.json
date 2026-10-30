@@ -247,7 +247,7 @@
     "IXC"
   ],
   "methodology_note": "Deterministic fallback summary; no AI API call was used.",
-  "as_of": "2026-10-28",
+  "as_of": "2026-10-29",
   "provider_status": "fallback",
   "primary_provider": "deterministic_fallback",
   "requested_providers": [
@@ -260,17 +260,12 @@
   "provider_results": {
     "gemini": {
       "provider": "gemini",
-      "status": "validation_error",
-      "model": "gemini-3.6-flash",
-      "error": "AIOutputValidationError: AI output failed deterministic validation: mixed-horizon disclosure: risks_or_conflicts[1] for XLK must describe opposite-sign relative-strength horizons as mixed/divergent/conflicting",
+      "status": "error",
+      "model": null,
+      "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
       "validation": {
-        "status": "failed",
-        "validator_version": "v1.2.8",
-        "attempt_count": 2,
-        "retry_used": true,
-        "errors": [
-          "mixed-horizon disclosure: risks_or_conflicts[1] for XLK must describe opposite-sign relative-strength horizons as mixed/divergent/conflicting"
-        ]
+        "status": "not_run",
+        "validator_version": "v1.2.8"
       },
       "analysis": null
     }

@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-28",
+  "as_of": "2026-10-29",
   "requested_providers": [
     "gemini"
   ],
@@ -13,13 +13,8 @@
   "ai_validator_version": "v1.2.8",
   "provider_validation": {
     "gemini": {
-      "status": "failed",
-      "validator_version": "v1.2.8",
-      "attempt_count": 2,
-      "retry_used": true,
-      "errors": [
-        "mixed-horizon disclosure: risks_or_conflicts[1] for XLK must describe opposite-sign relative-strength horizons as mixed/divergent/conflicting"
-      ]
+      "status": "not_run",
+      "validator_version": "v1.2.8"
     }
   }
 }

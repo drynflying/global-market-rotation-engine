@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-28",
+  "as_of": "2026-10-29",
   "purpose": "Longer-horizon rotation monitoring. Daily measurements remain responsive, but the canonical state is a confirmed trend requiring three consecutive daily observations before a new raw condition becomes the displayed state.",
   "score_formula_version": "v1.1",
   "state_confirmation": {
