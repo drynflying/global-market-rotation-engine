@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-29",
+  "as_of": "2026-11-02",
   "requested_providers": [
     "gemini"
   ],
@@ -13,8 +13,13 @@
   "ai_validator_version": "v1.2.8",
   "provider_validation": {
     "gemini": {
-      "status": "not_run",
-      "validator_version": "v1.2.8"
+      "status": "failed",
+      "validator_version": "v1.2.8",
+      "attempt_count": 2,
+      "retry_used": true,
+      "errors": [
+        "pair_relationships[2]: PAIR finding for REET uses generic benchmark language but paired ticker is XLRE"
+      ]
     }
   }
 }
