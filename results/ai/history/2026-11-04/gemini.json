@@ -1,0 +1,203 @@
+{
+  "provider": "gemini",
+  "status": "success",
+  "model": "gemini-3.6-flash",
+  "error": null,
+  "validation": {
+    "status": "passed",
+    "validator_version": "v1.2.8",
+    "checks": {
+      "ticker_grounding": true,
+      "confirmed_state_category_consistency": true,
+      "pair_semantics": true,
+      "language_guardrails": true,
+      "numeric_evidence": true,
+      "horizon_precision": true,
+      "mixed_horizon_disclosure": true,
+      "deterministic_conflict_coverage": true
+    },
+    "attempt_count": 1,
+    "retry_used": false
+  },
+  "analysis": {
+    "headline": "Developed International Equity and Health Care Lead as Technology and Emerging Markets Experience Relative Strength Deterioration",
+    "market_regime": "Rotation into Defensive Sectors and International Developed Markets",
+    "executive_summary": "The deterministic ETF rotation dataset shows strong relative leadership in global health care and developed international markets, while U.S. technology sectors and emerging markets face severe 20-bar relative score deterioration. Value spreads continue to lead growth spreads, and equal-weighted large caps are outpacing market-cap weighted benchmarks over 20-bar and 63-bar horizons.",
+    "emerging_rotations": [
+      {
+        "ticker": "EFA",
+        "title": "EAFE Developed Large/Mid Emerging Leadership",
+        "explanation": "EFA holds a confirmed EMERGING trend state with a 63-bar score high of 92.86. Its 5-bar score change of 33.57 and 20-bar score change of 62.14 reflect positive relative strength across both horizons (20-bar relative strength of 3.60 percentage points and 63-bar relative strength of 1.04 percentage points).",
+        "confidence": "high",
+        "related_tickers": [
+          "VGK",
+          "VEA",
+          "ACWX"
+        ]
+      },
+      {
+        "ticker": "IHI",
+        "title": "Medical Devices Emerging Sector Rotation",
+        "explanation": "IHI demonstrates a confirmed EMERGING trend state with a score of 91.76 (a 63-bar score high) and a 20-bar score change of 37.31. Its relative strength is 19.53 percentage points over 20 bars and 11.45 percentage points over 63 bars. A pending raw condition of PERSISTENT_LEADER is active at 1/3 observations.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLV",
+          "IXJ"
+        ]
+      },
+      {
+        "ticker": "MDY",
+        "title": "MidCap 400 Broad Market Emerging Rotation",
+        "explanation": "MDY carries a confirmed EMERGING state with a score of 86.67 and a 20-bar score change of 15.00. Relative strength evidence across horizons is mixed: 20-bar relative strength is positive at 3.66 percentage points, whereas 63-bar relative strength is negative at -2.14 percentage points.",
+        "confidence": "medium",
+        "related_tickers": [
+          "IWM",
+          "ITOT"
+        ]
+      }
+    ],
+    "accelerating_rotations": [
+      {
+        "ticker": "EIRL",
+        "title": "Ireland Accelerating Country Strength",
+        "explanation": "EIRL displays a confirmed ACCELERATING trend state with a rotation score of 84.76, a 5-bar score change of 4.02, and a 20-bar score change of 8.90. Its relative strength is aligned positively across horizons at 6.25 percentage points over 20 bars and 6.33 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "VGK",
+          "ACWX"
+        ]
+      }
+    ],
+    "persistent_leaders": [
+      {
+        "ticker": "IXJ",
+        "title": "Global Health Care Sustained Leadership",
+        "explanation": "IXJ ranks first in Global Sectors with a score of 93.50 under a confirmed PERSISTENT_LEADER trend state maintained for 19 observations. It exhibits positive relative strength of 14.29 percentage points over 20 bars and 15.09 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLV",
+          "IHI"
+        ]
+      },
+      {
+        "ticker": "EWD",
+        "title": "Sweden Country Index Persistent Leadership",
+        "explanation": "EWD holds a confirmed PERSISTENT_LEADER trend state with a rotation score of 90.98, driven by a 5-bar score change of 24.76 and a 20-bar score change of 41.22. Relative strength stands at 9.12 percentage points over 20 bars and 3.90 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "VGK",
+          "EWC"
+        ]
+      }
+    ],
+    "reaccelerating_rotations": [],
+    "weakening_rotations": [
+      {
+        "ticker": "XLV",
+        "title": "U.S. Health Care Trend Divergence",
+        "explanation": "XLV maintains a confirmed WEAKENING state with a 20-bar score change of -1.36, despite a score of 83.64 and positive relative strength of 13.69 percentage points over 20 bars and 15.75 percentage points over 63 bars. A pending raw condition of PERSISTENT_LEADER has logged 2/3 observations.",
+        "confidence": "medium",
+        "related_tickers": [
+          "IXJ",
+          "IHI"
+        ]
+      },
+      {
+        "ticker": "CIBR",
+        "title": "Cybersecurity Weakening Horizon Divergence",
+        "explanation": "CIBR is in a confirmed WEAKENING state with a rotation score of 29.44 (a 63-bar score low) and a 5-bar score change of -36.48. Relative strength evidence is divergent across horizons: 20-bar relative strength is -7.30 percentage points, while 63-bar relative strength remains positive at 0.99 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLK",
+          "IGV"
+        ]
+      }
+    ],
+    "rotation_out": [
+      {
+        "ticker": "SMH",
+        "title": "Semiconductors Severe Downward Rotation",
+        "explanation": "SMH holds a confirmed ROTATION_OUT trend state with a score of 14.44, experiencing a 20-bar score deterioration of -75.74 and a 5-bar score change of -20.74. Relative strength is negative across horizons at -17.98 percentage points over 20 bars and -11.78 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLK",
+          "QQQ"
+        ]
+      },
+      {
+        "ticker": "EWZ",
+        "title": "Brazil Latin America Broad Deterioration",
+        "explanation": "EWZ is in a confirmed ROTATION_OUT state with a score of 15.73 and a 20-bar score change of -70.98. Relative strength is negative on both horizons, registering -22.82 percentage points over 20 bars and -7.37 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "ILF",
+          "EPU"
+        ]
+      }
+    ],
+    "geographic_rotations": [
+      {
+        "ticker": "EPP",
+        "title": "Pacific ex-Japan Regional Strength",
+        "explanation": "EPP exhibits a confirmed PERSISTENT_LEADER state with a score high of 93.12 and a 20-bar score change of 41.87. Its 20-bar relative strength is 4.81 percentage points and 63-bar relative strength is 1.00 percentage point versus ACWX.",
+        "confidence": "high",
+        "related_tickers": [
+          "EWH",
+          "VEA"
+        ]
+      },
+      {
+        "ticker": "VGK",
+        "title": "Developed Europe Broad Regional Acceleration",
+        "explanation": "VGK holds a confirmed EMERGING trend state with a score high of 90.62 and a 20-bar score change of 53.75. A pending raw condition of PERSISTENT_LEADER is noted at 2/3 observations, supported by 20-bar relative strength of 6.53 percentage points and 63-bar relative strength of 1.08 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "EFA",
+          "EWD",
+          "EWL"
+        ]
+      }
+    ],
+    "pair_relationships": [
+      {
+        "ticker": "IWD",
+        "title": "U.S. Large Value Leading Large Growth",
+        "explanation": "IWD (paired with IWF) carries a confirmed EMERGING state with a score of 88.98. The direct pair signal confirms PAIR_LEADING, with a 20-bar spread of 14.22 percentage points and a 63-bar spread of 8.41 percentage points versus IWF. A raw pending state of PERSISTENT_LEADER is logged at 1/3 observations.",
+        "confidence": "high",
+        "related_tickers": [
+          "IWF"
+        ]
+      },
+      {
+        "ticker": "RSP",
+        "title": "Equal-Weight S&P 500 Outperforming Cap-Weight",
+        "explanation": "RSP (paired with SPY) displays a confirmed EMERGING state with a score high of 90.67. The direct pair signal is PAIR_LEADING with a 20-bar spread of 7.38 percentage points and a 63-bar spread of 2.54 percentage points versus SPY. A pending raw state of PERSISTENT_LEADER shows 1/3 observations.",
+        "confidence": "high",
+        "related_tickers": [
+          "SPY"
+        ]
+      }
+    ],
+    "cross_market_confirmations": [
+      "Health Care leadership is confirmed across global and U.S. sector levels, with IXJ (score 93.50) and IHI (score 91.76) both holding top ranks in their peer groups.",
+      "Developed international equity outperformance is confirmed across broad regions and single countries, evidenced by EFA (score 92.86), EPP (score 93.12), and EWD (score 90.98).",
+      "Technology weakness is aligned across global and sub-industry levels, demonstrated by SMH (score 14.44), XLK (score 20.91), and IXN (score 35.50)."
+    ],
+    "risks_or_conflicts": [
+      "A material sector divergence exists within Industrials: transportation theme IYT displays a 20-bar score improvement of 39.17 points (score 70.46), whereas parent sector XLI exhibits a 20-bar score deterioration of -19.55 points (score 31.82), producing a divergence spread of 58.71 points.",
+      "No confirmed pair_state_tensions are active in the dataset; however, several tickers present pending trend updates where the raw daily condition differs from the canonical 3-observation state (such as XLV confirmed WEAKENING with raw PERSISTENT_LEADER at 2/3 observations, and VGK confirmed EMERGING with raw PERSISTENT_LEADER at 2/3 observations).",
+      "Multiple securities display split relative-strength horizons: MDY exhibits positive 20-bar relative strength of 3.66 percentage points but negative 63-bar relative strength of -2.14 percentage points, while CIBR has negative 20-bar relative strength of -7.30 percentage points against positive 63-bar relative strength of 0.99 percentage points."
+    ],
+    "dashboard_focus_tickers": [
+      "IXJ",
+      "EFA",
+      "EPP",
+      "IWD",
+      "RSP",
+      "XLV",
+      "SMH",
+      "EWZ"
+    ],
+    "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
+  }
+}
