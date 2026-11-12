@@ -1,11 +1,184 @@
 {
   "provider": "gemini",
-  "status": "error",
-  "model": null,
-  "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+  "status": "success",
+  "model": "gemini-3.6-flash",
+  "error": null,
   "validation": {
-    "status": "not_run",
-    "validator_version": "v1.2.8"
+    "status": "passed",
+    "validator_version": "v1.2.8",
+    "checks": {
+      "ticker_grounding": true,
+      "confirmed_state_category_consistency": true,
+      "pair_semantics": true,
+      "language_guardrails": true,
+      "numeric_evidence": true,
+      "horizon_precision": true,
+      "mixed_horizon_disclosure": true,
+      "deterministic_conflict_coverage": true
+    },
+    "attempt_count": 1,
+    "retry_used": false
   },
-  "analysis": null
+  "analysis": {
+    "headline": "Sector and Geographic Re-Alignment: Value, Developed Europe, and Defensive Sectors Lead as Tech and Growth Deteriorate",
+    "market_regime": "Divergent Sector & Style Rotation",
+    "executive_summary": "Quantitative evidence confirms a distinct rotation toward U.S. Value, Developed International markets, Insurance, and Retail, alongside sustained relative deterioration in U.S. Growth, Semiconductors, and Technology. U.S. Large-Cap Value (IWD) maintains a confirmed PERSISTENT_LEADER state over Large-Cap Growth (IWF), with a 20-bar pair spread of +9.94 percentage points. Developed International equity (EFA) shows strong momentum with a 20-bar score increase of +50.71, whereas Emerging Markets ex-China (EMXC) and Semiconductors (SMH) exhibit significant negative 20-bar score changes.",
+    "emerging_rotations": [
+      {
+        "ticker": "EFA",
+        "title": "Broad Developed International Acceleration",
+        "explanation": "EFA holds a confirmed EMERGING state (with raw_state PERSISTENT_LEADER pending 2/3 daily observations) with a 20-bar score change of +50.71 to 87.14, supported by 20-bar relative strength of +1.86 percentage points and 63-bar relative strength of +0.89 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "VEA",
+          "VGK",
+          "ACWX"
+        ]
+      },
+      {
+        "ticker": "IWM",
+        "title": "U.S. Small-Cap Short-Term Improvement",
+        "explanation": "IWM exhibits a confirmed EMERGING state with a rotation score of 76.67 and a 20-bar score change of +40.00. Relative-strength horizons are mixed, as 20-bar relative strength is positive at +5.16 percentage points while 63-bar relative strength remains negative at -3.98 percentage points.",
+        "confidence": "medium",
+        "related_tickers": [
+          "MDY",
+          "ITOT",
+          "SPY"
+        ]
+      }
+    ],
+    "accelerating_rotations": [],
+    "persistent_leaders": [
+      {
+        "ticker": "KIE",
+        "title": "Insurance Leadership at 63-Bar Score High",
+        "explanation": "KIE maintains a confirmed PERSISTENT_LEADER state, reaching a 63-bar score high of 89.07 with a 5-bar score change of +21.85 and a 20-bar score change of +45.37. Relative strength is positive across timeframes at +9.14 percentage points over 20 bars and +5.11 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLF",
+          "IXG"
+        ]
+      },
+      {
+        "ticker": "XRT",
+        "title": "Retail Sector Relative Leadership",
+        "explanation": "XRT maintains a confirmed PERSISTENT_LEADER state with a score of 85.56 and a 20-bar score change of +23.70. Its 20-bar relative strength is +10.33 percentage points and its 63-bar relative strength is +5.75 percentage points, despite a modest 5-bar score change of -1.30.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLY",
+          "SPY"
+        ]
+      }
+    ],
+    "reaccelerating_rotations": [],
+    "weakening_rotations": [
+      {
+        "ticker": "XLK",
+        "title": "Information Technology Relative Weakening",
+        "explanation": "XLK holds a confirmed WEAKENING state with a rotation score of 31.36 following a 20-bar score decline of -54.55. Relative strength is negative across both horizons, standing at -7.17 percentage points over 20 bars and -6.41 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "SMH",
+          "IXN",
+          "SPY"
+        ]
+      },
+      {
+        "ticker": "IXC",
+        "title": "Global Energy Pullback to 63-Bar Score Low",
+        "explanation": "IXC is in a confirmed WEAKENING state at a 63-bar score low of 39.50, marked by a 5-bar score change of -24.50 and a 20-bar score change of -46.00. Horizons are divergent, as 20-bar relative strength is negative at -5.66 percentage points while 63-bar relative strength is positive at +6.81 percentage points.",
+        "confidence": "medium",
+        "related_tickers": [
+          "XLE",
+          "XOP"
+        ]
+      }
+    ],
+    "rotation_out": [
+      {
+        "ticker": "IWF",
+        "title": "Large-Cap Growth Touches 63-Bar Score Low",
+        "explanation": "IWF holds a confirmed ROTATION_OUT state, reaching its 63-bar score low of 6.64 with a 20-bar score change of -68.87. Versus paired ticker IWD, IWF exhibits a 20-bar pair spread of -9.94 percentage points and a 63-bar pair spread of -9.46 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "IWD",
+          "QQQ"
+        ]
+      },
+      {
+        "ticker": "SMH",
+        "title": "Semiconductor Score Decline",
+        "explanation": "SMH is in a confirmed ROTATION_OUT state with a score of 24.26 and a 20-bar score change of -55.56, despite a minor 5-bar score uptick of +9.81. Relative strength is negative on both horizons, at -8.96 percentage points over 20 bars and -11.87 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLK",
+          "IXN"
+        ]
+      }
+    ],
+    "geographic_rotations": [
+      {
+        "ticker": "EWG",
+        "title": "Germany Rotation Score Reaches 63-Bar High",
+        "explanation": "EWG holds a confirmed EMERGING state, attaining a 63-bar score high of 80.37 following a 20-bar score change of +29.39. Relative strength is positive on both timeframes at +5.08 percentage points over 20 bars and +2.46 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "FEZ",
+          "VGK",
+          "EFA"
+        ]
+      },
+      {
+        "ticker": "EIDO",
+        "title": "Indonesia Underperformance at Lowest Score",
+        "explanation": "EIDO is in a confirmed ROTATION_OUT state, ranking lowest in the country group with a score of 12.07 after a 20-bar score change of -21.71. Relative strength is negative across both 20-bar (-12.51 percentage points) and 63-bar (-13.59 percentage points) horizons.",
+        "confidence": "high",
+        "related_tickers": [
+          "EWY",
+          "ASEA",
+          "EEM"
+        ]
+      }
+    ],
+    "pair_relationships": [
+      {
+        "ticker": "IWD",
+        "title": "Value Outperforming Growth Across Horizons",
+        "explanation": "IWD holds a confirmed PERSISTENT_LEADER state with a rotation score of 79.28. Relative to paired ticker IWF, IWD shows a confirmed PAIR_LEADING signal with a 20-bar pair spread of +9.94 percentage points and a 63-bar pair spread of +9.46 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "IWF"
+        ]
+      },
+      {
+        "ticker": "RSP",
+        "title": "Equal-Weight S&P 500 Outperforming Cap-Weight",
+        "explanation": "RSP holds a confirmed PERSISTENT_LEADER state (raw_state EMERGING pending 1/3 daily observations) with a score of 72.21. Versus paired ticker SPY, RSP exhibits a confirmed PAIR_LEADING signal with a 20-bar pair spread of +6.25 percentage points and a 63-bar pair spread of +2.42 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "SPY"
+        ]
+      }
+    ],
+    "cross_market_confirmations": [
+      "European regional strength is confirmed across broad benchmarks (VGK score 85.00) and single-country components such as Germany (EWG score 80.37) and Switzerland (EWL score 84.88).",
+      "U.S. Value leadership is confirmed by pair performance in IWD vs IWF (+9.94% 20-bar spread) alongside sector strength in Financials (XLF score 72.27) and Insurance (KIE score 89.07)."
+    ],
+    "risks_or_conflicts": [
+      "Sector Divergence in Industrials: ITA registers a 20-bar score improvement of +18.52 with mixed relative strength (+8.85% over 20 bars vs -9.82% over 63 bars), while PAVE records a 20-bar score deterioration of -26.30 with mixed relative strength (+3.41% over 20 bars vs -5.40% over 63 bars), creating a 44.81 point intra-sector divergence.",
+      "Pair State Tension Status: Python calculated zero active pair_state_tensions in deterministic attention, confirming alignment between pair relationship signals and canonical trend states.",
+      "Pending Trend Changes: EFA holds a confirmed EMERGING trend state while its raw_state of PERSISTENT_LEADER is pending confirmation (2/3 observations); EWZ holds a confirmed ROTATION_OUT trend state while its raw_state of WEAKENING is pending confirmation (2/3 observations)."
+    ],
+    "dashboard_focus_tickers": [
+      "KIE",
+      "EFA",
+      "IWD",
+      "IWF",
+      "XLK",
+      "SMH",
+      "EWG",
+      "EIDO"
+    ],
+    "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
+  }
 }
