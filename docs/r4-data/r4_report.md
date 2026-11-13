@@ -2,7 +2,7 @@
 
 **This report contains only predictions issued after the R4 inception date.**
 
-- Latest market date: 2026-11-11
+- Latest market date: 2026-11-12
 - Latest completed prospective anchor: 2026-10-30
 - Immutable prediction rows: 2,004
 - Immutable matured outcome rows: 334
