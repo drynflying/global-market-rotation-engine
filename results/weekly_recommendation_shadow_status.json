@@ -5,7 +5,7 @@
   "dashboard_effect": "none",
   "capture": {
     "status": "not_due",
-    "recommendation_date": "2026-11-11",
+    "recommendation_date": "2026-11-12",
     "week_ending_date": "2026-11-13",
     "gate_reason": "not_weekly_capture_window",
     "action_count": 0,
@@ -14,7 +14,7 @@
   "outcomes": {
     "action_rows": 9,
     "matured_21": 9,
-    "matured_63": 0,
+    "matured_63": 1,
     "matured_84": 0,
     "matured_126": 0
   },
