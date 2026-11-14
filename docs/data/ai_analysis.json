@@ -1,57 +1,37 @@
 {
-  "headline": "Quantitative rotation dashboard",
-  "market_regime": "AI interpretation unavailable",
-  "executive_summary": "The quantitative dashboard remains available using deterministic rotation calculations. AI interpretation was withheld because no requested provider produced output that passed the required grounding checks. The underlying quantitative calculations are unaffected.",
+  "headline": "European Equity and Financials Lead as Technology and Energy Face Multi-Horizon Deterioration",
+  "market_regime": "Broadening Defensive and International Leadership Amid Technology Weakness",
+  "executive_summary": "Cross-sectional ETF rotation metrics reveal sustained leadership in international developed equities\u2014particularly Developed Europe (VGK, score 90.0) and India (INDA, score 89.09)\u2014alongside emerging strength in U.S. and Global Financials (XLF, IXG). In contrast, Information Technology (XLK) and Semiconductors (SMH) exhibit persistent relative weakening, with IXN reaching a 63-bar score low of 18.33. Pair analysis indicates U.S. Large-Cap Value (IWD) leading Large-Cap Growth (IWF) with a 20-bar spread of +8.37 percentage points and a 63-bar spread of +11.05 percentage points.",
   "emerging_rotations": [
     {
-      "ticker": "QAT",
-      "title": "Emerging: Qatar",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 59.63; 5-bar score change -11.95; 20-bar score change 50.61. Current raw condition NEUTRAL is pending 1/3 observations.",
-      "confidence": "medium",
+      "ticker": "XLF",
+      "title": "U.S. Financials Sector Scores 63-Bar High",
+      "explanation": "U.S. Financials (XLF) maintains a confirmed EMERGING state, attaining a 63-bar score high of 79.55. The ETF achieved a 5-bar score change of +21.82 and a 20-bar score change of +40.0, backed by 20-bar relative strength of +6.86 percentage points and 63-bar relative strength of +4.40 percentage points versus SPY.",
+      "confidence": "high",
       "related_tickers": [
-        "ACWX",
-        "EEM"
+        "IXG",
+        "KBE",
+        "KRE"
       ]
     },
     {
-      "ticker": "REZ",
-      "title": "Emerging: Residential & Multisector Real Estate",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 77.41; 5-bar score change 3.15; 20-bar score change 49.26. Current raw condition PERSISTENT_LEADER is pending 2/3 observations.",
+      "ticker": "MDY",
+      "title": "S&P MidCap 400 Relative Strength Diverges Across Horizons",
+      "explanation": "S&P MidCap 400 (MDY) holds a confirmed EMERGING state with a score of 85.0, ranking 1st in US Market Breadth. Its 20-bar score change is +21.67, with a 5-bar score change of +6.67. Relative strength metrics are mixed across horizons: 20-bar relative strength is positive at +2.88 percentage points, whereas 63-bar relative strength remains negative at -2.98 percentage points against ITOT.",
       "confidence": "medium",
       "related_tickers": [
-        "SPY",
-        "XLRE"
+        "IWM",
+        "ITOT"
       ]
     },
     {
-      "ticker": "VNQ",
-      "title": "Emerging: U.S. Real Estate / REITs",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 81.76; 5-bar score change 11.11; 20-bar score change 44.91. Current raw condition PERSISTENT_LEADER is pending 2/3 observations.",
+      "ticker": "UAE",
+      "title": "United Arab Emirates Displays Early Momentum",
+      "explanation": "United Arab Emirates (UAE) holds a confirmed EMERGING trend state with a score of 86.34, supported by a 5-bar score change of +14.88 and a 20-bar score change of +25.37. Relative strength stands at +7.93 percentage points over 20 bars and +12.86 percentage points over 63 bars versus ACWX. Python flags a pending raw condition of PERSISTENT_LEADER at 2 of 3 required observations.",
       "confidence": "medium",
       "related_tickers": [
-        "SPY",
-        "XLRE",
-        "REET"
-      ]
-    },
-    {
-      "ticker": "EWI",
-      "title": "Emerging: Italy",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 67.8; 5-bar score change 27.8; 20-bar score change 44.88.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "FEZ"
-      ]
-    },
-    {
-      "ticker": "XLRE",
-      "title": "Emerging: Real Estate",
-      "explanation": "Confirmed deterministic trend EMERGING; rotation score 65.68; 5-bar score change 6.82; 20-bar score change 42.5.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "REET"
+        "EEM",
+        "QAT"
       ]
     }
   ],
@@ -59,239 +39,851 @@
   "persistent_leaders": [
     {
       "ticker": "VGK",
-      "title": "Persistent leader: Developed Europe",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 92.5; 5-bar score change 4.38; 20-bar score change 41.25.",
-      "confidence": "medium",
+      "title": "Developed Europe Holds Top Regional Ranking",
+      "explanation": "Developed Europe (VGK) retains its confirmed PERSISTENT_LEADER state, ranking 1st in EXUS Region with a score of 90.0. It shows a 20-bar score change of +36.88 and a 5-bar score change of +6.25. Relative strength measures +2.76 percentage points over 20 bars and +2.60 percentage points over 63 bars compared to ACWX.",
+      "confidence": "high",
       "related_tickers": [
-        "ACWX",
-        "VEA"
+        "EFA",
+        "VEA",
+        "FEZ",
+        "EWG"
       ]
     },
     {
-      "ticker": "IXJ",
-      "title": "Persistent leader: Global Health Care",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 87.5; 5-bar score change -3.0; 20-bar score change -1.0.",
-      "confidence": "medium",
+      "ticker": "INDA",
+      "title": "India Reaches 63-Bar Rotation Score High",
+      "explanation": "India (INDA) is in a confirmed PERSISTENT_LEADER state with a score of 89.09, which represents its 63-bar score high. The ETF recorded a 20-bar score change of +31.28 and a 5-bar score change of +5.0, with positive relative strength on both horizons (+8.71 percentage points over 20 bars and +9.46 percentage points over 63 bars vs ACWX).",
+      "confidence": "high",
       "related_tickers": [
-        "ACWI",
-        "XLV"
+        "EWH",
+        "AAXJ"
       ]
     },
     {
-      "ticker": "KIE",
-      "title": "Persistent leader: Insurance",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 85.0; 5-bar score change 3.52; 20-bar score change 35.93.",
-      "confidence": "medium",
+      "ticker": "IHI",
+      "title": "Medical Devices Retains US Industry Leadership",
+      "explanation": "Medical Devices (IHI) maintains a confirmed PERSISTENT_LEADER state, ranking 1st in US Industry Theme with a score of 85.37. It exhibits a 20-bar score change of +11.85 and a 5-bar score change of +6.94, supported by 20-bar relative strength of +9.13 percentage points and 63-bar relative strength of +7.63 percentage points versus SPY.",
+      "confidence": "high",
       "related_tickers": [
-        "SPY",
-        "XLF"
+        "XLV",
+        "IXJ"
       ]
     },
     {
-      "ticker": "EWH",
-      "title": "Persistent leader: Hong Kong",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 84.45; 5-bar score change 2.93; 20-bar score change 29.21.",
-      "confidence": "medium",
+      "ticker": "IXG",
+      "title": "Global Financials Hits 63-Bar Rotation Score High",
+      "explanation": "Global Financials (IXG) holds a confirmed PERSISTENT_LEADER state with a score of 81.67, achieving a 63-bar score high. It displays a 20-bar score change of +36.17 and a 5-bar score change of +16.17. Relative strength vs ACWI is positive across horizons (+4.51 percentage points over 20 bars and +2.89 percentage points over 63 bars), while CMF20 reaches an extreme of +0.566.",
+      "confidence": "high",
       "related_tickers": [
-        "ACWX",
-        "VPL"
-      ]
-    },
-    {
-      "ticker": "EWL",
-      "title": "Persistent leader: Switzerland",
-      "explanation": "Confirmed deterministic trend PERSISTENT_LEADER; rotation score 83.29; 5-bar score change -3.9; 20-bar score change 11.59.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "VGK"
+        "XLF",
+        "KIE"
       ]
     }
   ],
   "reaccelerating_rotations": [],
   "weakening_rotations": [
     {
-      "ticker": "EWZ",
-      "title": "Weakening: Brazil",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 25.61; 5-bar score change 7.68; 20-bar score change -55.73.",
-      "confidence": "medium",
+      "ticker": "XLE",
+      "title": "U.S. Energy Sector Score Collapses to 63-Bar Low",
+      "explanation": "U.S. Energy (XLE) carries a confirmed WEAKENING state with a score of 40.45, hitting its 63-bar score low. It registers a 20-bar score change of -45.45 and a 5-bar score change of -5.45. Relative strength exhibits horizon divergence: 20-bar relative strength is negative at -3.64 percentage points, whereas 63-bar relative strength remains positive at +6.55 percentage points versus SPY.",
+      "confidence": "high",
       "related_tickers": [
-        "ACWX",
-        "ILF"
-      ]
-    },
-    {
-      "ticker": "EWT",
-      "title": "Weakening: Taiwan",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 28.9; 5-bar score change 0.37; 20-bar score change -50.61.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "AAXJ"
-      ]
-    },
-    {
-      "ticker": "VWO",
-      "title": "Weakening: Emerging markets, broad",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 34.29; 5-bar score change -6.43; 20-bar score change -50.0.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX"
+        "IXC",
+        "XOP"
       ]
     },
     {
       "ticker": "QQQ",
-      "title": "Weakening: Nasdaq-100",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 50.0; 5-bar score change 13.33; 20-bar score change -50.0.",
-      "confidence": "medium",
+      "title": "Nasdaq-100 Relative Leadership Decelerates",
+      "explanation": "Nasdaq-100 (QQQ) holds a confirmed WEAKENING state, ranking 3rd in US Market Breadth with a score of 45.0. Over 20 bars, its score dropped by -40.0, despite a minor 5-bar score change of +1.67. Relative strength vs SPY is negative across both horizons (-3.05 percentage points over 20 bars and -4.62 percentage points over 63 bars).",
+      "confidence": "high",
       "related_tickers": [
+        "XLK",
+        "IWF",
         "SPY"
       ]
     },
     {
-      "ticker": "SKYY",
-      "title": "Weakening: Cloud Computing",
-      "explanation": "Confirmed deterministic trend WEAKENING; rotation score 29.07; 5-bar score change -8.33; 20-bar score change -49.26.",
+      "ticker": "EWZ",
+      "title": "Brazil Deteriorates Over 20-Bar Horizon",
+      "explanation": "Brazil (EWZ) holds a confirmed WEAKENING state with a score of 32.56, ranking 32nd in EXUS Country after a 20-bar score drop of -50.12. Although its 5-bar score change rebounded by +11.10, relative strength is split between horizons, showing 20-bar relative strength of -22.22 percentage points against 63-bar relative strength of +0.53 percentage points versus ACWX.",
       "confidence": "medium",
       "related_tickers": [
-        "SPY",
-        "XLK"
+        "ILF",
+        "EPU"
       ]
     }
   ],
   "rotation_out": [
     {
-      "ticker": "EPU",
-      "title": "Rotation out: Peru",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 12.93; 5-bar score change -5.73; 20-bar score change -56.95.",
-      "confidence": "medium",
-      "related_tickers": [
-        "ACWX",
-        "ILF"
-      ]
-    },
-    {
       "ticker": "SMH",
-      "title": "Rotation out: Semiconductors",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 20.0; 5-bar score change -2.78; 20-bar score change -49.63.",
-      "confidence": "medium",
+      "title": "Semiconductors Score Retrenches into Bottom Tier",
+      "explanation": "Semiconductors (SMH) is in a confirmed ROTATION_OUT state, ranking 26th of 27 in US Industry Theme with a score of 22.04. Its score declined by -27.59 over 20 bars and -1.30 over 5 bars. Relative strength versus SPY is negative on both timeframes (-8.66 percentage points over 20 bars and -15.94 percentage points over 63 bars).",
+      "confidence": "high",
       "related_tickers": [
-        "SPY",
-        "XLK"
+        "XLK",
+        "IXN"
       ]
     },
     {
       "ticker": "IXN",
-      "title": "Rotation out: Global Technology",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 25.0; 5-bar score change -2.5; 20-bar score change -44.5.",
-      "confidence": "medium",
+      "title": "Global Technology Hits 63-Bar Score Low",
+      "explanation": "Global Technology (IXN) holds a confirmed ROTATION_OUT state, scoring 18.33 which marks its 63-bar score low. It experienced a 20-bar score change of -23.67 and a 5-bar score change of -5.17. Relative strength vs ACWI is negative at -5.70 percentage points over 20 bars and -7.51 percentage points over 63 bars.",
+      "confidence": "high",
       "related_tickers": [
-        "ACWI",
-        "XLK"
+        "XLK",
+        "SMH"
       ]
     },
     {
-      "ticker": "EMXC",
-      "title": "Rotation out: Emerging markets ex-China",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 37.86; 5-bar score change 11.43; 20-bar score change -25.0. Current raw condition WEAKENING is pending 2/3 observations.",
-      "confidence": "medium",
+      "ticker": "ARGT",
+      "title": "Argentina Ranks Lowest in Global Country Dataset",
+      "explanation": "Argentina (ARGT) carries a confirmed ROTATION_OUT state, holding the lowest score in the country dataset at 10.49 (rank 41 of 41). Its score fell by -17.07 over 20 bars and -15.24 over 5 bars. Relative strength versus ACWX is -15.44 percentage points over 20 bars and -13.56 percentage points over 63 bars.",
+      "confidence": "high",
       "related_tickers": [
-        "ACWX"
-      ]
-    },
-    {
-      "ticker": "XLC",
-      "title": "Rotation out: Communication Services",
-      "explanation": "Confirmed deterministic trend ROTATION_OUT; rotation score 16.82; 5-bar score change -1.82; 20-bar score change -19.09.",
-      "confidence": "medium",
-      "related_tickers": [
-        "SPY",
-        "IXP"
+        "ECH",
+        "EPU"
       ]
     }
   ],
-  "geographic_rotations": [],
+  "geographic_rotations": [
+    {
+      "ticker": "EWH",
+      "title": "Hong Kong Scores 63-Bar High",
+      "explanation": "Hong Kong (EWH) retains a confirmed PERSISTENT_LEADER state, ranking 2nd in EXUS Country with a score of 87.38 (a 63-bar score high). It improved by +42.26 points over 20 bars and +4.63 points over 5 bars, backed by 20-bar relative strength of +5.15 percentage points and 63-bar relative strength of +8.22 percentage points vs ACWX.",
+      "confidence": "high",
+      "related_tickers": [
+        "INDA",
+        "VGK"
+      ]
+    },
+    {
+      "ticker": "EWW",
+      "title": "Mexico Achieves 63-Bar Rotation Score High",
+      "explanation": "Mexico (EWW) holds a confirmed PERSISTENT_LEADER state with a score of 81.89, representing a 63-bar score high. It gained +17.13 points over 20 bars and +3.78 points over 5 bars, with 20-bar relative strength of +3.68 percentage points and 63-bar relative strength of +8.65 percentage points versus ACWX.",
+      "confidence": "high",
+      "related_tickers": [
+        "ILF",
+        "EWZ"
+      ]
+    },
+    {
+      "ticker": "EPU",
+      "title": "Peru Reaches Rotation-Out Conditions",
+      "explanation": "Peru (EPU) is in a confirmed ROTATION_OUT state, ranking 39th in EXUS Country with a score of 15.37 after a 20-bar score reduction of -51.95 and a 5-bar score change of -11.71. Relative strength vs ACWX is -8.99 percentage points over 20 bars and -3.72 percentage points over 63 bars.",
+      "confidence": "high",
+      "related_tickers": [
+        "ECH",
+        "ARGT"
+      ]
+    }
+  ],
   "pair_relationships": [
     {
       "ticker": "IWD",
-      "title": "Pair relationship: U.S. large-cap value",
-      "explanation": "Confirmed pair signal PAIR_LEADING versus IWF; 20-bar spread 9.06 percentage points; 63-bar spread 9.16 percentage points.",
-      "confidence": "medium",
+      "title": "Value Outperforms Growth Across Both Spreads",
+      "explanation": "U.S. Large-Cap Value (IWD) maintains a confirmed PERSISTENT_LEADER state and a PAIR_LEADING signal against paired ticker U.S. Large-Cap Growth (IWF). Direct pair spread versus IWF is +8.37 percentage points over 20 bars and +11.05 percentage points over 63 bars, with an overall score of 84.20.",
+      "confidence": "high",
       "related_tickers": [
         "IWF"
       ]
     },
     {
-      "ticker": "IWF",
-      "title": "Pair relationship: U.S. large-cap growth",
-      "explanation": "Confirmed pair signal PAIR_LAGGING versus IWD; 20-bar spread -9.06 percentage points; 63-bar spread -9.16 percentage points.",
-      "confidence": "medium",
-      "related_tickers": [
-        "IWD"
-      ]
-    },
-    {
-      "ticker": "REET",
-      "title": "Pair relationship: Global REITs",
-      "explanation": "Confirmed pair signal PAIR_LAGGING versus XLRE; 20-bar spread -1.05 percentage points; 63-bar spread -1.76 percentage points.",
-      "confidence": "medium",
-      "related_tickers": [
-        "XLRE"
-      ]
-    },
-    {
       "ticker": "RSP",
-      "title": "Pair relationship: S&P 500 equal weight",
-      "explanation": "Confirmed pair signal PAIR_LEADING versus SPY; 20-bar spread 4.56 percentage points; 63-bar spread 1.69 percentage points.",
+      "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted SPY",
+      "explanation": "S&P 500 Equal Weight (RSP) holds a confirmed PERSISTENT_LEADER state and a PAIR_LEADING signal versus paired ticker cap-weighted SPY. Direct pair spread versus SPY is +4.47 percentage points over 20 bars and +2.67 percentage points over 63 bars. Note that Python flags a pending trend change to raw_state NEUTRAL at 2 of 3 confirmation observations.",
       "confidence": "medium",
       "related_tickers": [
         "SPY"
       ]
     }
   ],
-  "cross_market_confirmations": [],
+  "cross_market_confirmations": [
+    "Financial sector relative strength is confirmed across domestic and international broad benchmarks, with U.S. Financials (XLF, score 79.55) and Global Financials (IXG, score 81.67) both holding 63-bar score highs.",
+    "Developed European equity strength is confirmed across regional hierarchy, as Developed Europe (VGK, score 90.0), Eurozone blue chips (FEZ, score 68.75), and Germany (EWG, score 78.05) all demonstrate high cross-sectional scores.",
+    "Information Technology weakness is confirmed across industry themes and market breadth, with Global Technology (IXN, score 18.33), Semiconductors (SMH, score 22.04), and Large-Cap Growth (IWF, score 12.39) all registering confirmed ROTATION_OUT states."
+  ],
   "risks_or_conflicts": [
-    "Rotation scores are comparative signals, not forecasts.",
-    "ETF trading volume is not the same as ETF net creations/redemptions."
+    "Material sector divergence in Health Care: Pharmaceuticals (XPH) improved by +36.48 score points over 20 bars, whereas Health Care Providers (IHF) deteriorated by -16.85 score points over 20 bars, resulting in a divergence spread of 53.33 points.",
+    "Material sector divergence in Industrials: Global Industrials (EXI) improved by +23.50 score points over 20 bars, whereas U.S. Infrastructure (PAVE) deteriorated by -17.78 score points over 20 bars, resulting in a divergence spread of 41.28 points.",
+    "Pending trend changes warn of potential short-term shifts: UAE (confirmed EMERGING, raw PERSISTENT_LEADER 2/3), PEJ (confirmed PERSISTENT_LEADER, raw WEAKENING 2/3), XLP (confirmed PERSISTENT_LEADER, raw WEAKENING 2/3), RSP (confirmed PERSISTENT_LEADER, raw NEUTRAL 2/3), and XLK (confirmed WEAKENING, raw ROTATION_OUT 1/3)."
   ],
   "dashboard_focus_tickers": [
-    "QAT",
-    "REZ",
-    "VNQ",
-    "EWI",
-    "XLRE",
     "VGK",
-    "IXJ",
-    "KIE"
+    "INDA",
+    "XLF",
+    "IXG",
+    "IWD",
+    "IWF",
+    "MDY",
+    "XLE",
+    "SMH",
+    "IXN",
+    "RSP",
+    "UAE"
   ],
-  "methodology_note": "Deterministic fallback summary; no AI API call was used.",
-  "as_of": "2026-11-12",
-  "provider_status": "fallback",
-  "primary_provider": "deterministic_fallback",
+  "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data.",
+  "as_of": "2026-11-13",
+  "provider_status": "ai",
+  "primary_provider": "gemini",
   "requested_providers": [
     "gemini"
   ],
-  "successful_providers": [],
-  "failed_providers": [
+  "successful_providers": [
     "gemini"
   ],
+  "failed_providers": [],
   "provider_results": {
     "gemini": {
       "provider": "gemini",
-      "status": "error",
-      "model": null,
-      "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "status": "success",
+      "model": "gemini-3.6-flash",
+      "error": null,
       "validation": {
-        "status": "not_run",
-        "validator_version": "v1.2.8"
+        "status": "passed",
+        "validator_version": "v1.2.8",
+        "checks": {
+          "ticker_grounding": true,
+          "confirmed_state_category_consistency": true,
+          "pair_semantics": true,
+          "language_guardrails": true,
+          "numeric_evidence": true,
+          "horizon_precision": true,
+          "mixed_horizon_disclosure": true,
+          "deterministic_conflict_coverage": true
+        },
+        "attempt_count": 1,
+        "retry_used": false
       },
-      "analysis": null
+      "analysis": {
+        "headline": "European Equity and Financials Lead as Technology and Energy Face Multi-Horizon Deterioration",
+        "market_regime": "Broadening Defensive and International Leadership Amid Technology Weakness",
+        "executive_summary": "Cross-sectional ETF rotation metrics reveal sustained leadership in international developed equities\u2014particularly Developed Europe (VGK, score 90.0) and India (INDA, score 89.09)\u2014alongside emerging strength in U.S. and Global Financials (XLF, IXG). In contrast, Information Technology (XLK) and Semiconductors (SMH) exhibit persistent relative weakening, with IXN reaching a 63-bar score low of 18.33. Pair analysis indicates U.S. Large-Cap Value (IWD) leading Large-Cap Growth (IWF) with a 20-bar spread of +8.37 percentage points and a 63-bar spread of +11.05 percentage points.",
+        "emerging_rotations": [
+          {
+            "ticker": "XLF",
+            "title": "U.S. Financials Sector Scores 63-Bar High",
+            "explanation": "U.S. Financials (XLF) maintains a confirmed EMERGING state, attaining a 63-bar score high of 79.55. The ETF achieved a 5-bar score change of +21.82 and a 20-bar score change of +40.0, backed by 20-bar relative strength of +6.86 percentage points and 63-bar relative strength of +4.40 percentage points versus SPY.",
+            "confidence": "high",
+            "related_tickers": [
+              "IXG",
+              "KBE",
+              "KRE"
+            ]
+          },
+          {
+            "ticker": "MDY",
+            "title": "S&P MidCap 400 Relative Strength Diverges Across Horizons",
+            "explanation": "S&P MidCap 400 (MDY) holds a confirmed EMERGING state with a score of 85.0, ranking 1st in US Market Breadth. Its 20-bar score change is +21.67, with a 5-bar score change of +6.67. Relative strength metrics are mixed across horizons: 20-bar relative strength is positive at +2.88 percentage points, whereas 63-bar relative strength remains negative at -2.98 percentage points against ITOT.",
+            "confidence": "medium",
+            "related_tickers": [
+              "IWM",
+              "ITOT"
+            ]
+          },
+          {
+            "ticker": "UAE",
+            "title": "United Arab Emirates Displays Early Momentum",
+            "explanation": "United Arab Emirates (UAE) holds a confirmed EMERGING trend state with a score of 86.34, supported by a 5-bar score change of +14.88 and a 20-bar score change of +25.37. Relative strength stands at +7.93 percentage points over 20 bars and +12.86 percentage points over 63 bars versus ACWX. Python flags a pending raw condition of PERSISTENT_LEADER at 2 of 3 required observations.",
+            "confidence": "medium",
+            "related_tickers": [
+              "EEM",
+              "QAT"
+            ]
+          }
+        ],
+        "accelerating_rotations": [],
+        "persistent_leaders": [
+          {
+            "ticker": "VGK",
+            "title": "Developed Europe Holds Top Regional Ranking",
+            "explanation": "Developed Europe (VGK) retains its confirmed PERSISTENT_LEADER state, ranking 1st in EXUS Region with a score of 90.0. It shows a 20-bar score change of +36.88 and a 5-bar score change of +6.25. Relative strength measures +2.76 percentage points over 20 bars and +2.60 percentage points over 63 bars compared to ACWX.",
+            "confidence": "high",
+            "related_tickers": [
+              "EFA",
+              "VEA",
+              "FEZ",
+              "EWG"
+            ]
+          },
+          {
+            "ticker": "INDA",
+            "title": "India Reaches 63-Bar Rotation Score High",
+            "explanation": "India (INDA) is in a confirmed PERSISTENT_LEADER state with a score of 89.09, which represents its 63-bar score high. The ETF recorded a 20-bar score change of +31.28 and a 5-bar score change of +5.0, with positive relative strength on both horizons (+8.71 percentage points over 20 bars and +9.46 percentage points over 63 bars vs ACWX).",
+            "confidence": "high",
+            "related_tickers": [
+              "EWH",
+              "AAXJ"
+            ]
+          },
+          {
+            "ticker": "IHI",
+            "title": "Medical Devices Retains US Industry Leadership",
+            "explanation": "Medical Devices (IHI) maintains a confirmed PERSISTENT_LEADER state, ranking 1st in US Industry Theme with a score of 85.37. It exhibits a 20-bar score change of +11.85 and a 5-bar score change of +6.94, supported by 20-bar relative strength of +9.13 percentage points and 63-bar relative strength of +7.63 percentage points versus SPY.",
+            "confidence": "high",
+            "related_tickers": [
+              "XLV",
+              "IXJ"
+            ]
+          },
+          {
+            "ticker": "IXG",
+            "title": "Global Financials Hits 63-Bar Rotation Score High",
+            "explanation": "Global Financials (IXG) holds a confirmed PERSISTENT_LEADER state with a score of 81.67, achieving a 63-bar score high. It displays a 20-bar score change of +36.17 and a 5-bar score change of +16.17. Relative strength vs ACWI is positive across horizons (+4.51 percentage points over 20 bars and +2.89 percentage points over 63 bars), while CMF20 reaches an extreme of +0.566.",
+            "confidence": "high",
+            "related_tickers": [
+              "XLF",
+              "KIE"
+            ]
+          }
+        ],
+        "reaccelerating_rotations": [],
+        "weakening_rotations": [
+          {
+            "ticker": "XLE",
+            "title": "U.S. Energy Sector Score Collapses to 63-Bar Low",
+            "explanation": "U.S. Energy (XLE) carries a confirmed WEAKENING state with a score of 40.45, hitting its 63-bar score low. It registers a 20-bar score change of -45.45 and a 5-bar score change of -5.45. Relative strength exhibits horizon divergence: 20-bar relative strength is negative at -3.64 percentage points, whereas 63-bar relative strength remains positive at +6.55 percentage points versus SPY.",
+            "confidence": "high",
+            "related_tickers": [
+              "IXC",
+              "XOP"
+            ]
+          },
+          {
+            "ticker": "QQQ",
+            "title": "Nasdaq-100 Relative Leadership Decelerates",
+            "explanation": "Nasdaq-100 (QQQ) holds a confirmed WEAKENING state, ranking 3rd in US Market Breadth with a score of 45.0. Over 20 bars, its score dropped by -40.0, despite a minor 5-bar score change of +1.67. Relative strength vs SPY is negative across both horizons (-3.05 percentage points over 20 bars and -4.62 percentage points over 63 bars).",
+            "confidence": "high",
+            "related_tickers": [
+              "XLK",
+              "IWF",
+              "SPY"
+            ]
+          },
+          {
+            "ticker": "EWZ",
+            "title": "Brazil Deteriorates Over 20-Bar Horizon",
+            "explanation": "Brazil (EWZ) holds a confirmed WEAKENING state with a score of 32.56, ranking 32nd in EXUS Country after a 20-bar score drop of -50.12. Although its 5-bar score change rebounded by +11.10, relative strength is split between horizons, showing 20-bar relative strength of -22.22 percentage points against 63-bar relative strength of +0.53 percentage points versus ACWX.",
+            "confidence": "medium",
+            "related_tickers": [
+              "ILF",
+              "EPU"
+            ]
+          }
+        ],
+        "rotation_out": [
+          {
+            "ticker": "SMH",
+            "title": "Semiconductors Score Retrenches into Bottom Tier",
+            "explanation": "Semiconductors (SMH) is in a confirmed ROTATION_OUT state, ranking 26th of 27 in US Industry Theme with a score of 22.04. Its score declined by -27.59 over 20 bars and -1.30 over 5 bars. Relative strength versus SPY is negative on both timeframes (-8.66 percentage points over 20 bars and -15.94 percentage points over 63 bars).",
+            "confidence": "high",
+            "related_tickers": [
+              "XLK",
+              "IXN"
+            ]
+          },
+          {
+            "ticker": "IXN",
+            "title": "Global Technology Hits 63-Bar Score Low",
+            "explanation": "Global Technology (IXN) holds a confirmed ROTATION_OUT state, scoring 18.33 which marks its 63-bar score low. It experienced a 20-bar score change of -23.67 and a 5-bar score change of -5.17. Relative strength vs ACWI is negative at -5.70 percentage points over 20 bars and -7.51 percentage points over 63 bars.",
+            "confidence": "high",
+            "related_tickers": [
+              "XLK",
+              "SMH"
+            ]
+          },
+          {
+            "ticker": "ARGT",
+            "title": "Argentina Ranks Lowest in Global Country Dataset",
+            "explanation": "Argentina (ARGT) carries a confirmed ROTATION_OUT state, holding the lowest score in the country dataset at 10.49 (rank 41 of 41). Its score fell by -17.07 over 20 bars and -15.24 over 5 bars. Relative strength versus ACWX is -15.44 percentage points over 20 bars and -13.56 percentage points over 63 bars.",
+            "confidence": "high",
+            "related_tickers": [
+              "ECH",
+              "EPU"
+            ]
+          }
+        ],
+        "geographic_rotations": [
+          {
+            "ticker": "EWH",
+            "title": "Hong Kong Scores 63-Bar High",
+            "explanation": "Hong Kong (EWH) retains a confirmed PERSISTENT_LEADER state, ranking 2nd in EXUS Country with a score of 87.38 (a 63-bar score high). It improved by +42.26 points over 20 bars and +4.63 points over 5 bars, backed by 20-bar relative strength of +5.15 percentage points and 63-bar relative strength of +8.22 percentage points vs ACWX.",
+            "confidence": "high",
+            "related_tickers": [
+              "INDA",
+              "VGK"
+            ]
+          },
+          {
+            "ticker": "EWW",
+            "title": "Mexico Achieves 63-Bar Rotation Score High",
+            "explanation": "Mexico (EWW) holds a confirmed PERSISTENT_LEADER state with a score of 81.89, representing a 63-bar score high. It gained +17.13 points over 20 bars and +3.78 points over 5 bars, with 20-bar relative strength of +3.68 percentage points and 63-bar relative strength of +8.65 percentage points versus ACWX.",
+            "confidence": "high",
+            "related_tickers": [
+              "ILF",
+              "EWZ"
+            ]
+          },
+          {
+            "ticker": "EPU",
+            "title": "Peru Reaches Rotation-Out Conditions",
+            "explanation": "Peru (EPU) is in a confirmed ROTATION_OUT state, ranking 39th in EXUS Country with a score of 15.37 after a 20-bar score reduction of -51.95 and a 5-bar score change of -11.71. Relative strength vs ACWX is -8.99 percentage points over 20 bars and -3.72 percentage points over 63 bars.",
+            "confidence": "high",
+            "related_tickers": [
+              "ECH",
+              "ARGT"
+            ]
+          }
+        ],
+        "pair_relationships": [
+          {
+            "ticker": "IWD",
+            "title": "Value Outperforms Growth Across Both Spreads",
+            "explanation": "U.S. Large-Cap Value (IWD) maintains a confirmed PERSISTENT_LEADER state and a PAIR_LEADING signal against paired ticker U.S. Large-Cap Growth (IWF). Direct pair spread versus IWF is +8.37 percentage points over 20 bars and +11.05 percentage points over 63 bars, with an overall score of 84.20.",
+            "confidence": "high",
+            "related_tickers": [
+              "IWF"
+            ]
+          },
+          {
+            "ticker": "RSP",
+            "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted SPY",
+            "explanation": "S&P 500 Equal Weight (RSP) holds a confirmed PERSISTENT_LEADER state and a PAIR_LEADING signal versus paired ticker cap-weighted SPY. Direct pair spread versus SPY is +4.47 percentage points over 20 bars and +2.67 percentage points over 63 bars. Note that Python flags a pending trend change to raw_state NEUTRAL at 2 of 3 confirmation observations.",
+            "confidence": "medium",
+            "related_tickers": [
+              "SPY"
+            ]
+          }
+        ],
+        "cross_market_confirmations": [
+          "Financial sector relative strength is confirmed across domestic and international broad benchmarks, with U.S. Financials (XLF, score 79.55) and Global Financials (IXG, score 81.67) both holding 63-bar score highs.",
+          "Developed European equity strength is confirmed across regional hierarchy, as Developed Europe (VGK, score 90.0), Eurozone blue chips (FEZ, score 68.75), and Germany (EWG, score 78.05) all demonstrate high cross-sectional scores.",
+          "Information Technology weakness is confirmed across industry themes and market breadth, with Global Technology (IXN, score 18.33), Semiconductors (SMH, score 22.04), and Large-Cap Growth (IWF, score 12.39) all registering confirmed ROTATION_OUT states."
+        ],
+        "risks_or_conflicts": [
+          "Material sector divergence in Health Care: Pharmaceuticals (XPH) improved by +36.48 score points over 20 bars, whereas Health Care Providers (IHF) deteriorated by -16.85 score points over 20 bars, resulting in a divergence spread of 53.33 points.",
+          "Material sector divergence in Industrials: Global Industrials (EXI) improved by +23.50 score points over 20 bars, whereas U.S. Infrastructure (PAVE) deteriorated by -17.78 score points over 20 bars, resulting in a divergence spread of 41.28 points.",
+          "Pending trend changes warn of potential short-term shifts: UAE (confirmed EMERGING, raw PERSISTENT_LEADER 2/3), PEJ (confirmed PERSISTENT_LEADER, raw WEAKENING 2/3), XLP (confirmed PERSISTENT_LEADER, raw WEAKENING 2/3), RSP (confirmed PERSISTENT_LEADER, raw NEUTRAL 2/3), and XLK (confirmed WEAKENING, raw ROTATION_OUT 1/3)."
+        ],
+        "dashboard_focus_tickers": [
+          "VGK",
+          "INDA",
+          "XLF",
+          "IXG",
+          "IWD",
+          "IWF",
+          "MDY",
+          "XLE",
+          "SMH",
+          "IXN",
+          "RSP",
+          "UAE"
+        ],
+        "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
+      }
     }
   },
   "consensus": {
-    "provider_count": 0,
+    "provider_count": 1,
     "mode": "single_provider",
-    "items": [],
+    "items": [
+      {
+        "ticker": "XLF",
+        "dominant_assessment": "EMERGING",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "EMERGING": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "EMERGING",
+            "title": "U.S. Financials Sector Scores 63-Bar High",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "XLE",
+        "dominant_assessment": "WEAKENING",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "WEAKENING": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "WEAKENING",
+            "title": "U.S. Energy Sector Score Collapses to 63-Bar Low",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "VGK",
+        "dominant_assessment": "PERSISTENT_LEADER",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "PERSISTENT_LEADER": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "PERSISTENT_LEADER",
+            "title": "Developed Europe Holds Top Regional Ranking",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "UAE",
+        "dominant_assessment": "EMERGING",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "EMERGING": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "EMERGING",
+            "title": "United Arab Emirates Displays Early Momentum",
+            "confidence": "medium"
+          }
+        ]
+      },
+      {
+        "ticker": "SMH",
+        "dominant_assessment": "ROTATION_OUT",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "ROTATION_OUT": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "ROTATION_OUT",
+            "title": "Semiconductors Score Retrenches into Bottom Tier",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "RSP",
+        "dominant_assessment": "PAIR",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "PAIR": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "PAIR",
+            "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted SPY",
+            "confidence": "medium"
+          }
+        ]
+      },
+      {
+        "ticker": "QQQ",
+        "dominant_assessment": "WEAKENING",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "WEAKENING": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "WEAKENING",
+            "title": "Nasdaq-100 Relative Leadership Decelerates",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "MDY",
+        "dominant_assessment": "EMERGING",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "EMERGING": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "EMERGING",
+            "title": "S&P MidCap 400 Relative Strength Diverges Across Horizons",
+            "confidence": "medium"
+          }
+        ]
+      },
+      {
+        "ticker": "IXN",
+        "dominant_assessment": "ROTATION_OUT",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "ROTATION_OUT": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "ROTATION_OUT",
+            "title": "Global Technology Hits 63-Bar Score Low",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "IXG",
+        "dominant_assessment": "PERSISTENT_LEADER",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "PERSISTENT_LEADER": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "PERSISTENT_LEADER",
+            "title": "Global Financials Hits 63-Bar Rotation Score High",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "IWD",
+        "dominant_assessment": "PAIR",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "PAIR": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "PAIR",
+            "title": "Value Outperforms Growth Across Both Spreads",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "INDA",
+        "dominant_assessment": "PERSISTENT_LEADER",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "PERSISTENT_LEADER": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "PERSISTENT_LEADER",
+            "title": "India Reaches 63-Bar Rotation Score High",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "IHI",
+        "dominant_assessment": "PERSISTENT_LEADER",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "PERSISTENT_LEADER": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "PERSISTENT_LEADER",
+            "title": "Medical Devices Retains US Industry Leadership",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "EWZ",
+        "dominant_assessment": "WEAKENING",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "WEAKENING": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "WEAKENING",
+            "title": "Brazil Deteriorates Over 20-Bar Horizon",
+            "confidence": "medium"
+          }
+        ]
+      },
+      {
+        "ticker": "EWW",
+        "dominant_assessment": "GEOGRAPHIC",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "GEOGRAPHIC": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "GEOGRAPHIC",
+            "title": "Mexico Achieves 63-Bar Rotation Score High",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "EWH",
+        "dominant_assessment": "GEOGRAPHIC",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "GEOGRAPHIC": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "GEOGRAPHIC",
+            "title": "Hong Kong Scores 63-Bar High",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "EPU",
+        "dominant_assessment": "GEOGRAPHIC",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "GEOGRAPHIC": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "GEOGRAPHIC",
+            "title": "Peru Reaches Rotation-Out Conditions",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "ticker": "ARGT",
+        "dominant_assessment": "ROTATION_OUT",
+        "agreement_count": 1,
+        "provider_count": 1,
+        "agreement_ratio": 1.0,
+        "providers_mentioning": [
+          "gemini"
+        ],
+        "assessment_counts": {
+          "ROTATION_OUT": 1
+        },
+        "conflict": false,
+        "votes": [
+          {
+            "provider": "gemini",
+            "assessment": "ROTATION_OUT",
+            "title": "Argentina Ranks Lowest in Global Country Dataset",
+            "confidence": "high"
+          }
+        ]
+      }
+    ],
     "strong_consensus": [],
     "disagreements": []
   }

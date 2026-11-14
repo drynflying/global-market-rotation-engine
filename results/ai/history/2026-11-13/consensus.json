@@ -1,0 +1,404 @@
+{
+  "provider_count": 1,
+  "mode": "single_provider",
+  "items": [
+    {
+      "ticker": "XLF",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "U.S. Financials Sector Scores 63-Bar High",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "XLE",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "U.S. Energy Sector Score Collapses to 63-Bar Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "VGK",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Developed Europe Holds Top Regional Ranking",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "UAE",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "United Arab Emirates Displays Early Momentum",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "SMH",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Semiconductors Score Retrenches into Bottom Tier",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "RSP",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Equal-Weight S&P 500 Outperforms Cap-Weighted SPY",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "QQQ",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Nasdaq-100 Relative Leadership Decelerates",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "MDY",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "S&P MidCap 400 Relative Strength Diverges Across Horizons",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "IXN",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Global Technology Hits 63-Bar Score Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IXG",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Global Financials Hits 63-Bar Rotation Score High",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IWD",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Value Outperforms Growth Across Both Spreads",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "INDA",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "India Reaches 63-Bar Rotation Score High",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IHI",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Medical Devices Retains US Industry Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWZ",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Brazil Deteriorates Over 20-Bar Horizon",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "EWW",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Mexico Achieves 63-Bar Rotation Score High",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EWH",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Hong Kong Scores 63-Bar High",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EPU",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Peru Reaches Rotation-Out Conditions",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "ARGT",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Argentina Ranks Lowest in Global Country Dataset",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "strong_consensus": [],
+  "disagreements": []
+}
