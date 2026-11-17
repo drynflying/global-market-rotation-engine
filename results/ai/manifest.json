@@ -1,34 +1,26 @@
 {
-  "as_of": "2026-11-13",
+  "as_of": "2026-11-16",
   "requested_providers": [
     "gemini"
   ],
-  "successful_providers": [
+  "successful_providers": [],
+  "failed_providers": [
     "gemini"
   ],
-  "failed_providers": [],
-  "primary_provider": "gemini",
-  "provider_status": "ai",
-  "provider_models": {
-    "gemini": "gemini-3.6-flash"
-  },
+  "primary_provider": "deterministic_fallback",
+  "provider_status": "fallback",
+  "provider_models": {},
   "ai_validator_version": "v1.2.8",
   "provider_validation": {
     "gemini": {
-      "status": "passed",
+      "status": "failed",
       "validator_version": "v1.2.8",
-      "checks": {
-        "ticker_grounding": true,
-        "confirmed_state_category_consistency": true,
-        "pair_semantics": true,
-        "language_guardrails": true,
-        "numeric_evidence": true,
-        "horizon_precision": true,
-        "mixed_horizon_disclosure": true,
-        "deterministic_conflict_coverage": true
-      },
-      "attempt_count": 1,
-      "retry_used": false
+      "attempt_count": 2,
+      "retry_used": true,
+      "errors": [
+        "mixed-horizon disclosure: risks_or_conflicts[1] for IXC must cite both supplied relative-strength values (-3.49 and 4.58 percentage points)",
+        "mixed-horizon disclosure: risks_or_conflicts[1] for XOP must cite both supplied relative-strength values (-6.31 and 0.83 percentage points)"
+      ]
     }
   }
 }
