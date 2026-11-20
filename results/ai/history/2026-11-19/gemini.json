@@ -1,0 +1,251 @@
+{
+  "provider": "gemini",
+  "status": "success",
+  "model": "gemini-3.6-flash",
+  "error": null,
+  "validation": {
+    "status": "passed",
+    "validator_version": "v1.2.8",
+    "checks": {
+      "ticker_grounding": true,
+      "confirmed_state_category_consistency": true,
+      "pair_semantics": true,
+      "language_guardrails": true,
+      "numeric_evidence": true,
+      "horizon_precision": true,
+      "mixed_horizon_disclosure": true,
+      "deterministic_conflict_coverage": true
+    },
+    "attempt_count": 2,
+    "retry_used": true,
+    "first_attempt_errors": [
+      "pair_relationships[3]: PAIR finding for REET uses generic benchmark language but paired ticker is XLRE"
+    ]
+  },
+  "analysis": {
+    "headline": "Multi-Horizon Rotation Analysis: Defensive and Regional Leadership Persists Amid Growth and Energy Score Compression",
+    "market_regime": "Defensive Sector Leadership and Regional Divergence",
+    "executive_summary": "Deterministic rotation monitoring confirms sustained relative leadership in defensive sectors such as Medical Devices (IHI, confirmed PERSISTENT_LEADER, score 87.8) and Consumer Staples (XLP, confirmed PERSISTENT_LEADER, score 81.11), alongside broad international developed markets like EAFE (EFA, score 85.0). Conversely, growth and cyclical themes face rotation out, exemplified by Semiconductors (SMH, confirmed ROTATION_OUT, score 16.6) and Large-Cap Growth (IWF, confirmed ROTATION_OUT, score 22.13). Real Estate (XLRE, score 72.5) and Global Utilities (JXI, score 74.5) show emerging relative momentum, while Energy E&P (XOP, confirmed WEAKENING, score 19.4) experiences a 63-bar score low. Highlighting key style dynamics, Value (IWD) continues leading Growth (IWF), and Equal-Weight S&P 500 (RSP) leads Cap-Weight S&P 500 (SPY).",
+    "emerging_rotations": [
+      {
+        "ticker": "JXI",
+        "title": "Emerging Momentum in Global Utilities",
+        "explanation": "Global Utilities (JXI) holds a confirmed EMERGING state with a rotation score of 74.5, supported by a 5-bar score change of 6.0 and a 20-bar score improvement of 35.5. Relative strength measures 8.05 percentage points over 20 bars and 5.76 percentage points over 63 bars versus ACWI. Versus paired ticker XLU, JXI exhibits a 20-bar pair spread of -1.2 percentage points and a 63-bar pair spread of -0.28 percentage points. JXI recently recorded a 63-bar score high.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLU"
+        ]
+      },
+      {
+        "ticker": "QAT",
+        "title": "Emerging Relative Performance in Qatar",
+        "explanation": "Qatar (QAT) holds a confirmed EMERGING state with a rotation score of 72.26, driven by a 20-bar score improvement of 58.35 despite a slight 5-bar score change of -0.12. Relative strength stands at 21.62 percentage points over 20 bars and 13.44 percentage points over 63 bars versus ACWX.",
+        "confidence": "high",
+        "related_tickers": [
+          "EEM"
+        ]
+      },
+      {
+        "ticker": "XLRE",
+        "title": "Real Estate Sector Gains Momentum",
+        "explanation": "Real Estate (XLRE) holds a confirmed EMERGING state with a rotation score of 72.5, demonstrating a 5-bar score change of 16.82 and a 20-bar score gain of 46.14. Relative strength is positive across both horizons, registering 9.26 percentage points over 20 bars and 1.59 percentage points over 63 bars versus SPY. Versus paired ticker REET, XLRE holds a leading pair spread of 0.12 percentage points over 20 bars and 1.17 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "REZ",
+          "VNQ",
+          "REET"
+        ]
+      }
+    ],
+    "accelerating_rotations": [],
+    "persistent_leaders": [
+      {
+        "ticker": "IHI",
+        "title": "Medical Devices Sustains Top-Ranked Leadership",
+        "explanation": "Medical Devices (IHI) holds a confirmed PERSISTENT_LEADER state with a group-leading rotation score of 87.8 (rank 1.0 of 25). It reflects a 5-bar score change of 5.39, a 20-bar score gain of 18.26, and positive relative strength of 8.41 percentage points over 20 bars and 6.18 percentage points over 63 bars versus SPY.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLV",
+          "IXJ"
+        ]
+      },
+      {
+        "ticker": "UAE",
+        "title": "UAE Maintains Strong Sovereign Leadership",
+        "explanation": "United Arab Emirates (UAE) holds a confirmed PERSISTENT_LEADER state with a rotation score of 85.37 (rank 2.0 of 41), reflecting a 5-bar score change of 2.07 and a 20-bar score improvement of 24.02. Relative strength is strong across both horizons at 13.19 percentage points over 20 bars and 17.21 percentage points over 63 bars versus ACWX.",
+        "confidence": "high",
+        "related_tickers": [
+          "INDA"
+        ]
+      },
+      {
+        "ticker": "XLP",
+        "title": "Consumer Staples Demonstrates Resilient Leadership",
+        "explanation": "Consumer Staples (XLP) holds a confirmed PERSISTENT_LEADER state with a sector-leading score of 81.11 (rank 1.0 of 9). It exhibits a 5-bar score change of 12.02 despite a 20-bar score change of -8.89. Relative strength is positive at 6.15 percentage points over 20 bars and 11.47 percentage points over 63 bars versus SPY. Versus paired ticker KXI, XLP leads with pair spreads of 1.3 percentage points over 20 bars and 1.5 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "KXI"
+        ]
+      }
+    ],
+    "reaccelerating_rotations": [],
+    "weakening_rotations": [
+      {
+        "ticker": "XOP",
+        "title": "Oil & Gas E&P Experiences Severe Deterioration",
+        "explanation": "Oil & Gas Exploration & Production (XOP) is in a confirmed WEAKENING state with a pending ROTATION_OUT raw condition (2/3 observations). Its score has dropped to a 63-bar score low of 19.4, marked by a 5-bar score change of -38.38 and a 20-bar score loss of -67.08. Relative strength is negative across both horizons at -7.38 percentage points over 20 bars and -3.71 percentage points over 63 bars versus SPY.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLE",
+          "IXC"
+        ]
+      },
+      {
+        "ticker": "ILF",
+        "title": "Latin America Large Caps Softening Rapidly",
+        "explanation": "Latin America Large Caps (ILF) holds a confirmed WEAKENING state with a pending ROTATION_OUT raw condition (1/3 observation). Its score fell to a 63-bar score low of 21.25, showing a 5-bar score change of -23.12 and a 20-bar score drop of -63.75. Relative strength measures -14.42 percentage points over 20 bars and -3.44 percentage points over 63 bars versus ACWX.",
+        "confidence": "high",
+        "related_tickers": [
+          "EWZ",
+          "ARGT"
+        ]
+      },
+      {
+        "ticker": "IHF",
+        "title": "Health Care Providers Exhibits Mixed Horizon Weakness",
+        "explanation": "Health Care Providers (IHF) holds a confirmed WEAKENING state with a score of 47.8, representing a 63-bar score low. It experienced a 5-bar score change of -13.31 and a 20-bar score deterioration of -37.39. Relative strength evidence is divergent across horizons: 20-bar relative strength is negative at -4.9 percentage points versus SPY, whereas 63-bar relative strength remains positive at 1.44 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "XPH",
+          "XLV"
+        ]
+      }
+    ],
+    "rotation_out": [
+      {
+        "ticker": "SMH",
+        "title": "Semiconductors Lags Across Both Horizons",
+        "explanation": "Semiconductors (SMH) holds a confirmed ROTATION_OUT state with a score of 16.6 (rank 25.0 of 25). It registered a 5-bar score change of -3.4 and a 20-bar score decline of -14.88. Relative strength is negative across both horizons at -8.2 percentage points over 20 bars and -13.87 percentage points over 63 bars versus SPY.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLK",
+          "IXN"
+        ]
+      },
+      {
+        "ticker": "ARGT",
+        "title": "Argentina Weakness Confirmed",
+        "explanation": "Argentina (ARGT) holds a confirmed ROTATION_OUT state with a score of 18.38 (rank 34.0 of 34). Despite a minor 5-bar score change of 4.36, its 20-bar score change is -17.23, and relative strength is deeply negative at -16.52 percentage points over 20 bars and -17.25 percentage points over 63 bars versus ACWX.",
+        "confidence": "high",
+        "related_tickers": [
+          "ILF"
+        ]
+      },
+      {
+        "ticker": "XME",
+        "title": "Metals & Mining Lags Broader Market",
+        "explanation": "Metals & Mining (XME) holds a confirmed ROTATION_OUT state with a rotation score of 19.6 (rank 23.0 of 25). It shows a 5-bar score change of -4.66 and a 20-bar score change of -8.36, with negative relative strength of -5.31 percentage points over 20 bars and -22.13 percentage points over 63 bars versus SPY.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLB"
+        ]
+      }
+    ],
+    "geographic_rotations": [
+      {
+        "ticker": "EFA",
+        "title": "EAFE Developed Markets Leads International Equities",
+        "explanation": "EAFE Developed Markets (EFA) holds a confirmed PERSISTENT_LEADER state with a top-ranked regional score of 85.0 (rank 1.0 of 6). It displays a 5-bar score change of 8.57, a 20-bar score gain of 18.57, and positive relative strength of 1.62 percentage points over 20 bars and 2.29 percentage points over 63 bars versus ACWX.",
+        "confidence": "high",
+        "related_tickers": [
+          "VGK",
+          "FEZ"
+        ]
+      },
+      {
+        "ticker": "INDA",
+        "title": "India Maintains Persistent Sovereign Strength",
+        "explanation": "India (INDA) holds a confirmed PERSISTENT_LEADER state with a rotation score of 84.45 (rank 3.0 of 41). It demonstrates a 5-bar score change of 5.98, a 20-bar score gain of 30.43, and relative strength of 14.55 percentage points over 20 bars and 12.63 percentage points over 63 bars versus ACWX.",
+        "confidence": "high",
+        "related_tickers": [
+          "AAXJ",
+          "EEM"
+        ]
+      },
+      {
+        "ticker": "EWH",
+        "title": "Hong Kong Demonstrates Relative Strength",
+        "explanation": "Hong Kong (EWH) holds a confirmed PERSISTENT_LEADER state with a rotation score of 78.53 (rank 1.0 of 34). Despite a 5-bar score change of -5.92, it maintains a 20-bar score improvement of 38.65, with relative strength of 8.97 percentage points over 20 bars and 7.27 percentage points over 63 bars versus ACWX.",
+        "confidence": "high",
+        "related_tickers": [
+          "MCHI",
+          "VPL"
+        ]
+      }
+    ],
+    "pair_relationships": [
+      {
+        "ticker": "IWD",
+        "title": "Value Outperforms Growth in Large-Cap Pair",
+        "explanation": "U.S. Large-Cap Value (IWD) holds a confirmed PERSISTENT_LEADER state with a rotation score of 73.95 (with a pending WEAKENING raw state at 1/3 observation). It shows a 5-bar score change of -7.26 and a 20-bar score change of -16.76. Leading versus paired ticker IWF, IWD posts positive pair spreads of 6.96 percentage points over 20 bars and 9.6 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "IWF"
+        ]
+      },
+      {
+        "ticker": "IWF",
+        "title": "Growth Lags Value in Large-Cap Pair Signal",
+        "explanation": "U.S. Large-Cap Growth (IWF) holds a confirmed ROTATION_OUT state with a rotation score of 22.13. It records a 5-bar score change of 9.66 and a 20-bar score change of -18.11. Lagging versus paired ticker IWD, IWF posts negative pair spreads of -6.96 percentage points over 20 bars and -9.6 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "IWD"
+        ]
+      },
+      {
+        "ticker": "RSP",
+        "title": "Equal Weight Leads Cap Weight in S&P 500 Pair",
+        "explanation": "S&P 500 Equal Weight (RSP) holds a confirmed PERSISTENT_LEADER state with a score of 64.52 (with a pending WEAKENING raw state at 1/3 observation). It records a 5-bar score change of -5.24 and a 20-bar score change of -19.24. Leading versus paired ticker SPY, RSP exhibits positive pair spreads of 3.27 percentage points over 20 bars and 2.11 percentage points over 63 bars.",
+        "confidence": "high",
+        "related_tickers": [
+          "SPY"
+        ]
+      },
+      {
+        "ticker": "REET",
+        "title": "Global REITs Lags Domestic Real Estate Pair",
+        "explanation": "Global REITs (REET) holds a confirmed NEUTRAL state with a rotation score of 56.22, showing a 5-bar score change of 12.48 and a 20-bar score gain of 22.24. Lagging versus paired ticker XLRE, REET registers a 20-bar pair spread of -0.12 percentage points and a 63-bar pair spread of -1.17 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLRE"
+        ]
+      }
+    ],
+    "cross_market_confirmations": [
+      "Utility sector strength is confirmed internationally, with Global Utilities (JXI, confirmed EMERGING, score 74.5) and U.S. Utilities (XLU, confirmed NEUTRAL with pending EMERGING raw state, score 74.44) both displaying robust 20-bar score gains of 35.5 and 27.17 respectively.",
+      "Real Estate strength is aligned across sub-industries and broad indexes, supported by Residential & Multisector Real Estate (REZ, confirmed PERSISTENT_LEADER, score 82.2), U.S. Real Estate (XLRE, confirmed EMERGING, score 72.5), and broad REITs (VNQ, confirmed PERSISTENT_LEADER, score 72.4)."
+    ],
+    "risks_or_conflicts": [
+      "A significant Health Care sector divergence exists: Pharmaceuticals (XPH, 20-bar score change of 26.72) is improving, whereas Health Care Providers (IHF, 20-bar score change of -37.39) is deteriorating, creating a divergence spread of 64.1 points.",
+      "No pair-state tensions are currently flagged by Python.",
+      "Divergent relative strength signals exist across short and long horizons for several ETFs: Health Care Providers (IHF) shows 20-bar relative strength of -4.9 percentage points versus 63-bar relative strength of 1.44 percentage points; Pharmaceuticals (XPH) exhibits 4.96 percentage points over 20 bars versus -6.55 percentage points over 63 bars; Energy (XLE) shows -3.59 percentage points over 20 bars versus 2.53 percentage points over 63 bars; Canada (EWC) shows -1.84 percentage points over 20 bars versus 1.24 percentage points over 63 bars; and Cyber Security (CIBR) shows -1.31 percentage points over 20 bars versus 6.81 percentage points over 63 bars.",
+      "Pending trend changes introduce early warnings for confirmed leaders and emerging funds: Switzerland (EWL, confirmed PERSISTENT_LEADER) and Mexico (EWW, confirmed PERSISTENT_LEADER) carry pending WEAKENING raw states at 2/3 observations; Oil & Gas E&P (XOP, confirmed WEAKENING) carries a pending ROTATION_OUT raw state at 2/3 observations; while Small Caps (IWM, confirmed EMERGING) and MidCap 400 (MDY, confirmed EMERGING) carry pending NEUTRAL raw states at 2/3 observations."
+    ],
+    "dashboard_focus_tickers": [
+      "IHI",
+      "KXI",
+      "UAE",
+      "EFA",
+      "JXI",
+      "XLRE",
+      "XOP",
+      "ILF",
+      "SMH",
+      "IWD",
+      "IWF",
+      "RSP",
+      "REET"
+    ],
+    "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
+  }
+}
