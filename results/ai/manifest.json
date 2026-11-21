@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-19",
+  "as_of": "2026-11-20",
   "requested_providers": [
     "gemini"
   ],
@@ -30,7 +30,9 @@
       "attempt_count": 2,
       "retry_used": true,
       "first_attempt_errors": [
-        "pair_relationships[3]: PAIR finding for REET uses generic benchmark language but paired ticker is XLRE"
+        "rotation_out[3]: PAIR finding for IWF must name paired ticker IWD",
+        "pair_relationships[0]: PAIR finding for IWD uses generic benchmark language but paired ticker is IWF",
+        "pair_relationships[1]: PAIR finding for IWF uses generic benchmark language but paired ticker is IWD"
       ]
     }
   }

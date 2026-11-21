@@ -19,30 +19,8 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Oil & Gas E&P Experiences Severe Deterioration",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "XME",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Metals & Mining Lags Broader Market",
-          "confidence": "high"
+          "title": "Oil & Gas Exploration Relative Strength Horizon Divergence",
+          "confidence": "medium"
         }
       ]
     },
@@ -63,7 +41,7 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Real Estate Sector Gains Momentum",
+          "title": "U.S. Real Estate Shows Emerging Improvement",
           "confidence": "high"
         }
       ]
@@ -85,7 +63,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Consumer Staples Demonstrates Resilient Leadership",
+          "title": "Consumer Staples Reaches 63-Bar Score High",
           "confidence": "high"
         }
       ]
@@ -107,29 +85,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "UAE Maintains Strong Sovereign Leadership",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "SMH",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Semiconductors Lags Across Both Horizons",
+          "title": "United Arab Emirates Sustains Country Leadership",
           "confidence": "high"
         }
       ]
@@ -151,29 +107,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal Weight Leads Cap Weight in S&P 500 Pair",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "REET",
-      "dominant_assessment": "PAIR",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PAIR": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "Global REITs Lags Domestic Real Estate Pair",
+          "title": "S&P 500 Equal Weight Leads Paired Cap-Weighted Ticker SPY",
           "confidence": "high"
         }
       ]
@@ -195,14 +129,14 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Emerging Relative Performance in Qatar",
+          "title": "Qatar Rotation Signal Strengthening",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "JXI",
-      "dominant_assessment": "EMERGING",
+      "ticker": "KIE",
+      "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -210,36 +144,14 @@
         "gemini"
       ],
       "assessment_counts": {
-        "EMERGING": 1
+        "PERSISTENT_LEADER": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "Emerging Momentum in Global Utilities",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IWF",
-      "dominant_assessment": "PAIR",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PAIR": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "Growth Lags Value in Large-Cap Pair Signal",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Insurance Industry Shows Sustained Leadership",
           "confidence": "high"
         }
       ]
@@ -261,7 +173,7 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Value Outperforms Growth in Large-Cap Pair",
+          "title": "U.S. Large-Cap Value Leads Paired Ticker IWF",
           "confidence": "high"
         }
       ]
@@ -283,7 +195,7 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "India Maintains Persistent Sovereign Strength",
+          "title": "India Maintains High Relative Strength",
           "confidence": "high"
         }
       ]
@@ -305,57 +217,13 @@
         {
           "provider": "gemini",
           "assessment": "WEAKENING",
-          "title": "Latin America Large Caps Softening Rapidly",
+          "title": "Latin America Large Caps Touch 63-Bar Score Low",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "IHI",
-      "dominant_assessment": "PERSISTENT_LEADER",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "PERSISTENT_LEADER": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Medical Devices Sustains Top-Ranked Leadership",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IHF",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Health Care Providers Exhibits Mixed Horizon Weakness",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "EWH",
+      "ticker": "FEZ",
       "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
@@ -371,35 +239,13 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "Hong Kong Demonstrates Relative Strength",
-          "confidence": "high"
+          "title": "Eurozone Blue Chips Exhibits Split Horizon RS",
+          "confidence": "medium"
         }
       ]
     },
     {
-      "ticker": "EFA",
-      "dominant_assessment": "GEOGRAPHIC",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "GEOGRAPHIC": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "EAFE Developed Markets Leads International Equities",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "ARGT",
+      "ticker": "EWZ",
       "dominant_assessment": "ROTATION_OUT",
       "agreement_count": 1,
       "provider_count": 1,
@@ -415,7 +261,58 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Argentina Weakness Confirmed",
+          "title": "Brazil Confirms Rotation Out Trend",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EMXC",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Emerging Markets Ex-China Lowest Broad Country Score",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IWF",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1,
+        "PAIR": 1
+      },
+      "conflict": true,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "U.S. Large-Cap Growth Lags Paired Ticker IWD",
+          "confidence": "high"
+        },
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "U.S. Large-Cap Growth Lags Paired Ticker IWD",
           "confidence": "high"
         }
       ]
