@@ -3,8 +3,8 @@
   "mode": "single_provider",
   "items": [
     {
-      "ticker": "XLY",
-      "dominant_assessment": "EMERGING",
+      "ticker": "XOP",
+      "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -12,20 +12,20 @@
         "gemini"
       ],
       "assessment_counts": {
-        "EMERGING": 1
+        "WEAKENING": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "EMERGING",
-          "title": "Consumer Discretionary Broad Sector Improvement",
-          "confidence": "medium"
+          "assessment": "WEAKENING",
+          "title": "Oil & Gas Exploration & Production Severe Deterioration",
+          "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "XLU",
+      "ticker": "XLRE",
       "dominant_assessment": "EMERGING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -41,7 +41,7 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Utilities Sector Leadership Emerging",
+          "title": "US Real Estate Sector Rotation Strengthening",
           "confidence": "high"
         }
       ]
@@ -63,51 +63,7 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Consumer Staples Sustains U.S. Sector Leadership",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "VGK",
-      "dominant_assessment": "GEOGRAPHIC",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "GEOGRAPHIC": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "Developed Europe Maintains Regional Leadership",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "UAE",
-      "dominant_assessment": "GEOGRAPHIC",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "GEOGRAPHIC": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "GEOGRAPHIC",
-          "title": "United Arab Emirates Sustains Middle East Leadership",
+          "title": "Consumer Staples Sustains Defensive Leadership",
           "confidence": "high"
         }
       ]
@@ -129,14 +85,14 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "S&P 500 Equal Weight Leading Cap-Weight Pair",
-          "confidence": "high"
+          "title": "Equal-Weight S&P 500 Outperforms Cap-Weight SPY",
+          "confidence": "medium"
         }
       ]
     },
     {
-      "ticker": "PEJ",
-      "dominant_assessment": "ACCELERATING",
+      "ticker": "REZ",
+      "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -144,14 +100,36 @@
         "gemini"
       ],
       "assessment_counts": {
-        "ACCELERATING": 1
+        "PERSISTENT_LEADER": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "ACCELERATING",
-          "title": "Leisure & Entertainment Accelerating Relative Leadership",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Residential Real Estate Reaches Group-Topping Score",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "QQQ",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Nasdaq-100 Benchmark Weakness Deepens",
           "confidence": "high"
         }
       ]
@@ -173,73 +151,7 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Oil Services Confirmed in Rotation Out State",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IYG",
-      "dominant_assessment": "ACCELERATING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ACCELERATING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ACCELERATING",
-          "title": "Financial Services Acceleration with Pending Warning",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "ticker": "IXC",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Global Energy Deteriorates to 63-Bar Score Low",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "IWF",
-      "dominant_assessment": "ROTATION_OUT",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "ROTATION_OUT": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "U.S. Large-Cap Growth Lagging Value Pair Relationship",
+          "title": "Oil Services Score Reaches Bottom Group Rank",
           "confidence": "high"
         }
       ]
@@ -261,14 +173,14 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "U.S. Large-Cap Value Leading Growth Pair",
+          "title": "Value Outperforms Growth in Direct Pair Comparison",
           "confidence": "high"
         }
       ]
     },
     {
       "ticker": "INDA",
-      "dominant_assessment": "PERSISTENT_LEADER",
+      "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -276,14 +188,14 @@
         "gemini"
       ],
       "assessment_counts": {
-        "PERSISTENT_LEADER": 1
+        "GEOGRAPHIC": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "India Dominates Global Rankings as Top Persistent Leader",
+          "assessment": "GEOGRAPHIC",
+          "title": "India Equities Maintain Long-Term Leadership",
           "confidence": "high"
         }
       ]
@@ -305,14 +217,14 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Medical Devices Maintains Persistent U.S. Theme Leadership",
+          "title": "Medical Devices Demonstrates Strong Health Care Leadership",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EWC",
-      "dominant_assessment": "WEAKENING",
+      "ticker": "FEZ",
+      "dominant_assessment": "EMERGING",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -320,20 +232,20 @@
         "gemini"
       ],
       "assessment_counts": {
-        "WEAKENING": 1
+        "EMERGING": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Canada Relative Strength Softens Across Horizons",
-          "confidence": "high"
+          "assessment": "EMERGING",
+          "title": "Eurozone Blue Chips Display Early Improvement",
+          "confidence": "medium"
         }
       ]
     },
     {
-      "ticker": "ARGT",
+      "ticker": "EPU",
       "dominant_assessment": "ROTATION_OUT",
       "agreement_count": 1,
       "provider_count": 1,
@@ -349,7 +261,102 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Argentina Registers Lowest Global Rotation Score",
+          "title": "Peru Equities Rotated Out Amid Negative Participation",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EMXC",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Emerging Markets Ex-China Score Touches 63-Bar Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EIDO",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Indonesia Displays Short-Term Momentum Jump",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "CIBR",
+      "dominant_assessment": "REACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "REACCELERATING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "REACCELERATING",
+          "title": "Cybersecurity Shows Score Reacceleration After Pullback",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "UAE",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1,
+        "GEOGRAPHIC": 1
+      },
+      "conflict": true,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "United Arab Emirates Leads International Country Benchmarks",
+          "confidence": "high"
+        },
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "UAE Leads Middle East Geographic Leadership",
           "confidence": "high"
         }
       ]

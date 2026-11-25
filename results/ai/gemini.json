@@ -20,213 +20,220 @@
     "retry_used": false
   },
   "analysis": {
-    "headline": "Defensive Sectors and Select Emerging Markets Lead as Energy and Technology Deteriorate",
-    "market_regime": "Selective Defensiveness with Value Leadership and Emerging Market Country Dispersion",
-    "executive_summary": "Quantitative rotation monitoring highlights strong leadership in defensive sectors and targeted international markets alongside sharp weakness in energy, technology, and Latin American equities. India (INDA, rotation score 92.99) and the United Arab Emirates (UAE, rotation score 90.24) hold top global rankings, complemented by Developed Europe (VGK, rotation score 90.00). Within U.S. markets, Consumer Staples (XLP, rotation score 88.64) and Medical Devices (IHI, rotation score 85.56) remain persistent leaders, while Utilities (XLU, rotation score 78.18) exhibits strong emerging momentum (+28.64 20-bar score change). In direct style pairs, Large-Cap Value (IWD) maintains pair leadership over Large-Cap Growth (IWF) with a 20-bar pair spread of +6.83 percentage points. Broad Energy (XLE score 28.64, IXC score 21.50) and Latin American country funds (ARGT score 8.78, EWZ score 18.78) reflect persistent relative weakness.",
+    "headline": "Defensive Real Estate and Consumer Staples Lead as Energy and Technology Deteriorate Across Global Equity Rotation",
+    "market_regime": "Defensive & Value Leadership with Cyclical and Tech Deterioration",
+    "executive_summary": "Quantitative rotation measurements indicate relative leadership shifting toward defensive sectors, real estate, and select international markets, while energy and technology experience significant relative momentum declines. Real estate benchmarks REZ (score 94.26) and US Consumer Staples XLP (score 92.27) reached 63-bar score highs, supported by positive 20-bar and 63-bar relative strength. Conversely, Oil Services OIH (score 10.74) and Nasdaq-100 QQQ (score 30.00) recorded 63-bar score lows. Direct pair signals highlight large-cap value IWD leading large-cap growth IWF with a +9.98 percentage point 20-bar spread. Multiple sectors exhibit mixed-horizon relative strength signals and pending raw trend changes that require ongoing confirmation.",
     "emerging_rotations": [
       {
-        "ticker": "XLU",
-        "title": "Utilities Sector Leadership Emerging",
-        "explanation": "XLU holds a confirmed EMERGING state with a current rotation score of 78.18, ranking 2.0/11 among U.S. sectors. The ETF recorded a 5-bar score change of +11.14 and a 20-bar score change of +28.64, reaching a 63-bar score high. Relative strength is positive across both horizons at +7.44 percentage points over 20 bars and +6.22 percentage points over 63 bars.",
+        "ticker": "XLRE",
+        "title": "US Real Estate Sector Rotation Strengthening",
+        "explanation": "XLRE holds a confirmed state of EMERGING with a score of 78.86 (rank 3 in US_SECTOR), driven by a 5-bar score change of +19.55 and a 20-bar score change of +52.05. It exhibits positive relative strength across both horizons with 20-bar RS at +9.01 percentage points and 63-bar RS at +3.14 percentage points, reaching a 63-bar score high of 78.86.",
         "confidence": "high",
         "related_tickers": [
-          "JXI",
-          "SPY"
+          "REZ",
+          "VNQ",
+          "REET"
         ]
       },
       {
-        "ticker": "XLY",
-        "title": "Consumer Discretionary Broad Sector Improvement",
-        "explanation": "XLY holds a confirmed EMERGING trend state with a rotation score of 73.41, supported by a 5-bar score change of +11.36 and a 20-bar score change of +12.50. Relative strength is positive on both horizons at +7.97 percentage points over 20 bars and +4.81 percentage points over 63 bars, although a pending raw state of ACCELERATING (1/3 daily observations) is noted.",
+        "ticker": "FEZ",
+        "title": "Eurozone Blue Chips Display Early Improvement",
+        "explanation": "FEZ maintains a confirmed state of EMERGING with a score of 67.50 (rank 2 in EXUS_REGION), supported by a 5-bar score change of +8.75 and a 20-bar score change of +18.75. Its relative strength exhibits a split, mixed horizon: 20-bar RS is positive at +2.92 percentage points while 63-bar RS is negative at -0.92 percentage points.",
         "confidence": "medium",
         "related_tickers": [
-          "RXI",
-          "XRT",
-          "SPY"
+          "VGK",
+          "EWA",
+          "EWQ"
         ]
       }
     ],
-    "accelerating_rotations": [
-      {
-        "ticker": "PEJ",
-        "title": "Leisure & Entertainment Accelerating Relative Leadership",
-        "explanation": "PEJ holds a confirmed ACCELERATING state with a rotation score of 74.81 (rank 5.0/27 in U.S. industry themes). It displays short-term momentum with a 5-bar score change of +12.78 and a 20-bar score change of +6.67, with 20-bar relative strength at +7.79 percentage points and 63-bar relative strength at +2.51 percentage points.",
-        "confidence": "high",
-        "related_tickers": [
-          "XLY",
-          "SPY"
-        ]
-      },
-      {
-        "ticker": "IYG",
-        "title": "Financial Services Acceleration with Pending Warning",
-        "explanation": "IYG is confirmed in an ACCELERATING state with a rotation score of 58.52 and a 20-bar score change of +6.67. Relative strength shows divergent horizons, with 20-bar relative strength positive at +4.13 percentage points while 63-bar relative strength is negative at -0.27 percentage points. A 5-bar score drop of -16.85 has triggered a pending raw state of NEUTRAL (2/3 observations).",
-        "confidence": "medium",
-        "related_tickers": [
-          "XLF",
-          "KIE",
-          "SPY"
-        ]
-      }
-    ],
+    "accelerating_rotations": [],
     "persistent_leaders": [
       {
-        "ticker": "INDA",
-        "title": "India Dominates Global Rankings as Top Persistent Leader",
-        "explanation": "INDA ranks 1.0/41 among single-country ETFs with a rotation score of 92.99 in a confirmed PERSISTENT_LEADER state (age 10 bars), reaching a 63-bar score high. The ETF exhibits a 5-bar score change of +7.93 and a 20-bar score change of +38.60, backed by 20-bar relative strength of +17.09 percentage points and 63-bar relative strength of +14.67 percentage points.",
+        "ticker": "REZ",
+        "title": "Residential Real Estate Reaches Group-Topping Score",
+        "explanation": "REZ holds a confirmed state of PERSISTENT_LEADER with a group-topping score of 94.26 (rank 1 in US_INDUSTRY_THEME), supported by a 5-bar score change of +7.04 and a 20-bar score change of +55.74. Its relative strength is positive across both horizons with 20-bar RS at +11.71 percentage points and 63-bar RS at +4.58 percentage points, setting a 63-bar score high of 94.26.",
         "confidence": "high",
         "related_tickers": [
-          "AAXJ",
-          "ACWX"
+          "VNQ",
+          "XLRE"
         ]
       },
       {
         "ticker": "XLP",
-        "title": "Consumer Staples Sustains U.S. Sector Leadership",
-        "explanation": "XLP leads the U.S. sector group (rank 1.0/11) with a rotation score of 88.64 in a confirmed PERSISTENT_LEADER state (age 23 bars). It generated a 5-bar score change of +12.27 and a 20-bar score change of +16.82, supported by positive relative strength of +8.38 percentage points over 20 bars and +10.61 percentage points over 63 bars.",
+        "title": "Consumer Staples Sustains Defensive Leadership",
+        "explanation": "XLP displays a confirmed state of PERSISTENT_LEADER with a score of 92.27 (rank 1 in US_SECTOR), advancing via a 5-bar score change of +9.09 and a 20-bar score change of +25.45. Relative strength is aligned positively at +12.04 percentage points over 20 bars and +13.14 percentage points over 63 bars, establishing a 63-bar score high of 92.27.",
         "confidence": "high",
         "related_tickers": [
           "KXI",
-          "SPY"
+          "XLV"
+        ]
+      },
+      {
+        "ticker": "UAE",
+        "title": "United Arab Emirates Leads International Country Benchmarks",
+        "explanation": "UAE retains a confirmed state of PERSISTENT_LEADER with a score of 93.90 (rank 1 in EXUS_COUNTRY), buoyed by a 5-bar score change of +4.76 and a 20-bar score change of +27.56. Relative strength confirms long-term strength with 20-bar RS at +16.48 percentage points and 63-bar RS at +21.77 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "INDA",
+          "QAT"
         ]
       },
       {
         "ticker": "IHI",
-        "title": "Medical Devices Maintains Persistent U.S. Theme Leadership",
-        "explanation": "IHI ranks 1.0/27 among U.S. industry themes with a rotation score of 85.56 in a confirmed PERSISTENT_LEADER state (age 12 bars). It recorded a 5-bar score change of +6.85 and a 20-bar score change of +13.06, with 20-bar relative strength at +8.30 percentage points and 63-bar relative strength at +7.06 percentage points.",
+        "title": "Medical Devices Demonstrates Strong Health Care Leadership",
+        "explanation": "IHI exhibits a confirmed state of PERSISTENT_LEADER with a score of 88.15 (rank 2 in US_INDUSTRY_THEME), backed by a 5-bar score change of +7.41 and a 20-bar score change of +35.09. Its relative strength is positive across both horizons at +12.02 percentage points over 20 bars and +9.88 percentage points over 63 bars.",
         "confidence": "high",
         "related_tickers": [
           "XLV",
-          "SPY"
+          "IXJ"
         ]
       }
     ],
-    "reaccelerating_rotations": [],
+    "reaccelerating_rotations": [
+      {
+        "ticker": "CIBR",
+        "title": "Cybersecurity Shows Score Reacceleration After Pullback",
+        "explanation": "CIBR holds a confirmed state of REACCELERATING with a score of 57.22 (rank 11 in US_INDUSTRY_THEME), demonstrating short-term reacceleration with a 5-bar score change of +12.41 despite a 20-bar score change of -18.33. Its relative strength exhibits mixed horizons: 20-bar RS is negative at -7.33 percentage points while 63-bar RS remains positive at +6.69 percentage points.",
+        "confidence": "medium",
+        "related_tickers": [
+          "XLK",
+          "IGV"
+        ]
+      }
+    ],
     "weakening_rotations": [
       {
-        "ticker": "IXC",
-        "title": "Global Energy Deteriorates to 63-Bar Score Low",
-        "explanation": "IXC holds a confirmed WEAKENING state with a rotation score of 21.50, marking a 63-bar score low. Relative strength horizons are divergent: 20-bar relative strength is negative at -8.75 percentage points while 63-bar relative strength remains positive at +3.33 percentage points, accompanied by a 20-bar score change of -69.50 and a 5-bar score change of -17.00.",
+        "ticker": "XOP",
+        "title": "Oil & Gas Exploration & Production Severe Deterioration",
+        "explanation": "XOP is in a confirmed state of WEAKENING with a score of 21.11 (rank 24 in US_INDUSTRY_THEME), following a 5-bar score change of -10.93 and a 20-bar score change of -68.89. Relative strength is negative across both horizons at -10.26 percentage points over 20 bars and -3.57 percentage points over 63 bars. A pending raw state change to ROTATION_OUT is noted (1/3 observations).",
         "confidence": "high",
         "related_tickers": [
+          "OIH",
           "XLE",
-          "XOP",
-          "OIH"
+          "IXC"
         ]
       },
       {
-        "ticker": "EWC",
-        "title": "Canada Relative Strength Softens Across Horizons",
-        "explanation": "EWC holds a confirmed WEAKENING state with a rotation score of 38.90 following a 20-bar score change of -45.24 and a 5-bar score change of -21.71. Relative strength indicators conflict across horizons, with 20-bar relative strength at -2.46 percentage points and 63-bar relative strength at +0.60 percentage points.",
+        "ticker": "QQQ",
+        "title": "Nasdaq-100 Benchmark Weakness Deepens",
+        "explanation": "QQQ holds a confirmed state of WEAKENING with a score of 30.00 (rank 3 in US_MARKET_BREADTH), driven down by a 5-bar score change of -15.00 and a 20-bar score change of -35.00. Relative strength is negative on both horizons at -4.92 percentage points over 20 bars and -4.27 percentage points over 63 bars, hitting a 63-bar score low of 30.00.",
         "confidence": "high",
         "related_tickers": [
-          "ACWX"
+          "XLK",
+          "SMH",
+          "IWF"
         ]
       }
     ],
     "rotation_out": [
       {
-        "ticker": "ARGT",
-        "title": "Argentina Registers Lowest Global Rotation Score",
-        "explanation": "ARGT is in a confirmed ROTATION_OUT state (age 14 bars) with the lowest rotation score in the dataset at 8.78 (rank 41.0/41). It displays a 20-bar score change of -28.78, 20-bar relative strength of -13.44 percentage points, and 63-bar relative strength of -18.59 percentage points.",
+        "ticker": "OIH",
+        "title": "Oil Services Score Reaches Bottom Group Rank",
+        "explanation": "OIH holds a confirmed state of ROTATION_OUT with a score of 10.74 (rank 27 in US_INDUSTRY_THEME), declining via a 5-bar score change of -19.26 and a 20-bar score change of -68.52. Relative strength is negative across both horizons at -10.79 percentage points over 20 bars and -10.65 percentage points over 63 bars, registering a 63-bar score low of 10.74.",
+        "confidence": "high",
+        "related_tickers": [
+          "XOP",
+          "XLE"
+        ]
+      },
+      {
+        "ticker": "EPU",
+        "title": "Peru Equities Rotated Out Amid Negative Participation",
+        "explanation": "EPU is in a confirmed state of ROTATION_OUT with a score of 14.15 (rank 41 in EXUS_COUNTRY), marked by a 5-bar score change of -9.51 and a 20-bar score change of -49.27. Relative strength is negative at -9.09 percentage points over 20 bars and -12.47 percentage points over 63 bars, alongside an extreme CMF20 reading of -0.515.",
         "confidence": "high",
         "related_tickers": [
           "ILF",
-          "EWZ",
-          "EPU"
+          "ARGT",
+          "ECH"
         ]
       },
       {
-        "ticker": "OIH",
-        "title": "Oil Services Confirmed in Rotation Out State",
-        "explanation": "OIH is confirmed in ROTATION_OUT with a score of 23.15, driven by a 20-bar score change of -45.00 and a 5-bar score change of -5.93. Relative strength is negative across both horizons at -10.70 percentage points over 20 bars and -11.55 percentage points over 63 bars.",
+        "ticker": "EMXC",
+        "title": "Emerging Markets Ex-China Score Touches 63-Bar Low",
+        "explanation": "EMXC holds a confirmed state of ROTATION_OUT with a score of 12.86 (rank 7 in EXUS_BROAD), reflecting a 5-bar score change of -24.29 and a 20-bar score change of -47.86. Relative strength is negative at -4.26 percentage points over 20 bars and -4.87 percentage points over 63 bars, reaching a 63-bar score low of 12.86.",
         "confidence": "high",
         "related_tickers": [
-          "XLE",
-          "XOP",
-          "SPY"
-        ]
-      },
-      {
-        "ticker": "IWF",
-        "title": "U.S. Large-Cap Growth Lagging Value Pair Relationship",
-        "explanation": "IWF holds a confirmed ROTATION_OUT state with a score of 22.70 and a 20-bar score change of -17.18. In its direct pair relationship versus paired_ticker IWD, IWF exhibits a PAIR_LAGGING signal with a 20-bar pair spread of -6.83 percentage points and a 63-bar pair spread of -7.84 percentage points.",
-        "confidence": "high",
-        "related_tickers": [
-          "IWD",
-          "SPY"
+          "EEM",
+          "VWO"
         ]
       }
     ],
     "geographic_rotations": [
       {
         "ticker": "UAE",
-        "title": "United Arab Emirates Sustains Middle East Leadership",
-        "explanation": "UAE ranks 2.0/41 among country ETFs with a score of 90.24 in a confirmed PERSISTENT_LEADER state, boasting a 20-bar score change of +42.32, 20-bar relative strength of +16.45 percentage points, and 63-bar relative strength of +20.82 percentage points.",
+        "title": "UAE Leads Middle East Geographic Leadership",
+        "explanation": "UAE (confirmed state PERSISTENT_LEADER) tops the EXUS_COUNTRY group with a score of 93.90, supported by a 20-bar score change of +27.56 and aligned relative strength of +16.48 percentage points over 20 bars and +21.77 percentage points over 63 bars.",
         "confidence": "high",
         "related_tickers": [
           "INDA",
           "QAT",
-          "EEM"
+          "KSA"
         ]
       },
       {
-        "ticker": "VGK",
-        "title": "Developed Europe Maintains Regional Leadership",
-        "explanation": "VGK ranks 1.0/8 among ex-US regional ETFs with a score of 90.00 in a confirmed PERSISTENT_LEADER state (age 13 bars). It reflects a 20-bar score change of +38.12, 20-bar relative strength of +2.87 percentage points, and 63-bar relative strength of +1.82 percentage points.",
+        "ticker": "INDA",
+        "title": "India Equities Maintain Long-Term Leadership",
+        "explanation": "INDA (confirmed state PERSISTENT_LEADER) holds a score of 85.30 (rank 2 in EXUS_COUNTRY) with a 20-bar score change of +41.04, showing strong relative strength of +19.24 percentage points over 20 bars and +16.92 percentage points over 63 bars.",
         "confidence": "high",
         "related_tickers": [
-          "FEZ",
-          "EFA",
-          "VEA"
+          "AAXJ",
+          "UAE"
+        ]
+      },
+      {
+        "ticker": "EIDO",
+        "title": "Indonesia Displays Short-Term Momentum Jump",
+        "explanation": "EIDO (confirmed state NEUTRAL) records a score of 64.88 (rank 7 in EXUS_COUNTRY) with a 5-bar score change of +14.02 and a 20-bar score change of +43.17. Its relative strength exhibits mixed horizons: 20-bar RS is positive at +9.02 percentage points while 63-bar RS is negative at -4.21 percentage points. Python signals a pending raw state of EMERGING (1/3 observations).",
+        "confidence": "medium",
+        "related_tickers": [
+          "ASEA",
+          "EWS"
         ]
       }
     ],
     "pair_relationships": [
       {
         "ticker": "IWD",
-        "title": "U.S. Large-Cap Value Leading Growth Pair",
-        "explanation": "IWD holds a confirmed PAIR_LEADING signal versus paired_ticker IWF (confirmed signal age 16 bars). It displays a 20-bar pair spread of +6.83 percentage points and a 63-bar pair spread of +7.84 percentage points versus IWF, with a rotation score of 77.44 in a confirmed PERSISTENT_LEADER state, though a 5-bar score change of -13.92 flags a pending raw WEAKENING condition (1/3 daily observations).",
+        "title": "Value Outperforms Growth in Direct Pair Comparison",
+        "explanation": "IWD (confirmed state PERSISTENT_LEADER) leads its paired ticker IWF (confirmed state ROTATION_OUT) with a score of 79.54 and a 5-bar score change of +1.12. The direct pair signal PAIR_LEADING is confirmed by positive relative spreads versus IWF of +9.98 percentage points over 20 bars and +9.92 percentage points over 63 bars. Note a pending raw state change for IWD to ACCELERATING (1/3 observations).",
         "confidence": "high",
         "related_tickers": [
-          "IWF",
-          "SPY"
+          "IWF"
         ]
       },
       {
         "ticker": "RSP",
-        "title": "S&P 500 Equal Weight Leading Cap-Weight Pair",
-        "explanation": "RSP holds a confirmed PAIR_LEADING signal versus paired_ticker SPY (confirmed signal age 15 bars), maintaining a 20-bar pair spread of +3.57 percentage points and a 63-bar pair spread of +1.79 percentage points versus SPY. Its confirmed trend state is WEAKENING with a rotation score of 60.53 and a 5-bar score change of -17.99.",
-        "confidence": "high",
+        "title": "Equal-Weight S&P 500 Outperforms Cap-Weight SPY",
+        "explanation": "RSP (confirmed state WEAKENING) exhibits a pair signal of PAIR_LEADING versus paired ticker SPY, despite a score of 62.77 and a 5-bar score change of -13.74. Direct pair spreads show leading relative performance versus SPY of +4.97 percentage points over 20 bars and +2.63 percentage points over 63 bars.",
+        "confidence": "medium",
         "related_tickers": [
-          "SPY"
+          "SPY",
+          "MDY"
         ]
       }
     ],
     "cross_market_confirmations": [
-      "Defensive rotation alignment across U.S. and Global benchmarks: Consumer Staples leadership is confirmed by both XLP (rotation score 88.64) and KXI (rotation score 77.00), while Utilities strength is reflected in XLU (rotation score 78.18) and JXI (rotation score 60.00).",
-      "European regional strength is confirmed across tiers, led by Developed Europe VGK (rotation score 90.00), Eurozone blue chips FEZ (rotation score 67.50), and country leaders Ireland EIRL (rotation score 80.61) and Switzerland EWL (rotation score 76.83).",
-      "Energy sector relative weakness is synchronized across U.S. and global exposures, as XLE (rotation score 28.64), IXC (rotation score 21.50), XOP (rotation score 26.67), and OIH (rotation score 23.15) all reside in WEAKENING or ROTATION_OUT states."
+      "Real Estate strength is confirmed across sub-industry ETF REZ (score 94.26, 63-bar score high), broad US REIT VNQ (score 82.13, 63-bar score high), and sector ETF XLRE (score 78.86, 63-bar score high).",
+      "Energy sector weakness is confirmed across US Exploration & Production XOP (score 21.11), US Oil Services OIH (score 10.74, 63-bar score low), US Energy XLE (score 31.36), and Global Energy IXC (score 42.00).",
+      "Health Care sub-industry divergence shows Medical Devices IHI (score 88.15, PERSISTENT_LEADER) leading while Health Care Providers IHF (score 47.41, WEAKENING) lags."
     ],
     "risks_or_conflicts": [
-      "Health Care exhibits significant within-sector divergence, where XPH shows a 20-bar score change of +32.78 while IHF deteriorates with a 20-bar score change of -35.93.",
-      "Communication Services shows sector divergence with IXP achieving a 20-bar score change of +31.00 while IYZ deteriorates with a 20-bar score change of -21.30.",
-      "RSP presents a pair-state tension: while its confirmed trend state is WEAKENING (5-bar score change of -17.99), it maintains a confirmed PAIR_LEADING signal versus paired_ticker SPY with a 20-bar pair spread of +3.57 percentage points and a 63-bar pair spread of +1.79 percentage points."
+      "Material sector divergence exists in Health Care between improver XPH (20-bar score change of +46.30) and deteriorator IHF (20-bar score change of -30.19), creating a 76.48 point divergence.",
+      "Material sector divergence exists in Communication Services between improver IXP (20-bar score change of +37.50) and deteriorator IYZ (20-bar score change of -25.19), creating a 62.69 point divergence.",
+      "Pair state tension is present for RSP, which holds a confirmed trend state of WEAKENING (score 62.77, 5-bar score change -13.74) while maintaining a confirmed PAIR_LEADING signal versus paired benchmark SPY based on positive relative performance spreads (+4.97 percentage points over 20 bars and +2.63 percentage points over 63 bars)."
     ],
     "dashboard_focus_tickers": [
-      "INDA",
-      "UAE",
-      "VGK",
+      "REZ",
       "XLP",
-      "XLU",
+      "UAE",
+      "XLRE",
       "IWD",
       "IWF",
-      "PEJ",
-      "IXC",
-      "ARGT",
+      "OIH",
+      "QQQ",
       "RSP",
-      "XPH",
-      "IHF"
+      "EIDO"
     ],
     "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
   }
