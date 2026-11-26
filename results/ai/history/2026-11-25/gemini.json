@@ -1,0 +1,190 @@
+{
+  "provider": "gemini",
+  "status": "success",
+  "model": "gemini-3.6-flash",
+  "error": null,
+  "validation": {
+    "status": "passed",
+    "validator_version": "v1.2.8",
+    "checks": {
+      "ticker_grounding": true,
+      "confirmed_state_category_consistency": true,
+      "pair_semantics": true,
+      "language_guardrails": true,
+      "numeric_evidence": true,
+      "horizon_precision": true,
+      "mixed_horizon_disclosure": true,
+      "deterministic_conflict_coverage": true
+    },
+    "attempt_count": 2,
+    "retry_used": true,
+    "first_attempt_errors": [
+      "pair_relationships[0]: PAIR finding for IWD uses generic benchmark language but paired ticker is IWF"
+    ]
+  },
+  "analysis": {
+    "headline": "Defensive Sectors and Select International Markets Lead Amid Broad Cyclical Weakening",
+    "market_regime": "Defensive Leadership and Value Outperformance",
+    "executive_summary": "Quantitative rotation signals demonstrate sustained relative leadership across defensive sectors, notably Medical Devices (IHI) and Consumer Staples (XLP, KXI), alongside U.S. Real Estate (XLRE, REZ) and select international equity markets including the UAE (UAE) and India (INDA). In contrast, broad technology themes such as Software (IGV), Cloud Computing (SKYY), and Semiconductors (SMH) reflect marked weakening or rotation out. Style factor pair metrics indicate that U.S. Large-Cap Value (IWD) maintains relative leadership versus U.S. Large-Cap Growth (IWF).",
+    "emerging_rotations": [
+      {
+        "ticker": "XLRE",
+        "title": "Real Estate Sector Emerging Strength",
+        "explanation": "XLRE holds a confirmed EMERGING state with a rotation score of 80.23 (a 63-bar score high), driven by a 5-bar score change of 7.73, a 20-bar relative strength of 11.31 percentage points, and a 63-bar relative strength of 5.86 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "REZ",
+          "VNQ"
+        ]
+      },
+      {
+        "ticker": "XHB",
+        "title": "Homebuilders Emerging Rotation Signal",
+        "explanation": "XHB displays a confirmed EMERGING state with a rotation score of 78.61 (a 63-bar score high), supported by a 5-bar score change of 15.65, 20-bar relative strength of 13.02 percentage points, and 63-bar relative strength of 6.57 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLY"
+        ]
+      }
+    ],
+    "accelerating_rotations": [],
+    "persistent_leaders": [
+      {
+        "ticker": "UAE",
+        "title": "United Arab Emirates Sustained Leadership",
+        "explanation": "UAE maintains a confirmed PERSISTENT_LEADER state with a rank 1 rotation score of 97.44 (a 63-bar score high), supported by a 5-bar score change of 12.07, 20-bar relative strength of 20.46 percentage points, and 63-bar relative strength of 23.71 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "INDA"
+        ]
+      },
+      {
+        "ticker": "IHI",
+        "title": "Medical Devices High Relative Leadership",
+        "explanation": "IHI retains a confirmed PERSISTENT_LEADER state with a rotation score of 94.81 (a 63-bar score high), featuring a 5-bar score change of 10.0 along with positive 20-bar relative strength of 13.02 percentage points and 63-bar relative strength of 12.85 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLV"
+        ]
+      }
+    ],
+    "reaccelerating_rotations": [
+      {
+        "ticker": "CIBR",
+        "title": "Cybersecurity Reaccelerating Under Mixed Horizon Evidence",
+        "explanation": "CIBR holds a confirmed REACCELERATING state with a score of 34.63 despite a 5-bar score change of -33.7. Relative strength metrics reflect divergent horizons: 20-bar relative strength is negative at -4.93 percentage points while 63-bar relative strength remains positive at 0.91 percentage points.",
+        "confidence": "medium",
+        "related_tickers": [
+          "XLK"
+        ]
+      }
+    ],
+    "weakening_rotations": [
+      {
+        "ticker": "SKYY",
+        "title": "Cloud Computing Score at Multi-Bar Low",
+        "explanation": "SKYY is in a confirmed WEAKENING state with a 63-bar score low of 22.59, experiencing a 5-bar score change of -28.7, 20-bar relative strength of -10.28 percentage points, and 63-bar relative strength of -7.83 percentage points, alongside a pending ROTATION_OUT condition (1/3 observations).",
+        "confidence": "high",
+        "related_tickers": [
+          "IGV",
+          "XLK"
+        ]
+      },
+      {
+        "ticker": "IGV",
+        "title": "Software Industry Trend Deterioration",
+        "explanation": "IGV exhibits a confirmed WEAKENING state with a 63-bar score low of 32.96, backed by a 5-bar score change of -13.33 and negative relative strength across both the 20-bar (-7.89 percentage points) and 63-bar (-7.04 percentage points) horizons.",
+        "confidence": "high",
+        "related_tickers": [
+          "SKYY",
+          "XLK"
+        ]
+      }
+    ],
+    "rotation_out": [
+      {
+        "ticker": "OIH",
+        "title": "Oil Services Sharp Score Deterioration",
+        "explanation": "OIH holds a confirmed ROTATION_OUT state with a score of 17.22, showing a 20-bar score decline of -73.15 points, a 5-bar score change of -2.96, 20-bar relative strength of -8.02 percentage points, and 63-bar relative strength of -9.59 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "XLE",
+          "XOP"
+        ]
+      },
+      {
+        "ticker": "EMXC",
+        "title": "Emerging Markets ex-China Score Extrema Low",
+        "explanation": "EMXC retains a confirmed ROTATION_OUT state with a 63-bar score low of 12.86, driven by a 5-bar score change of -27.14, 20-bar relative strength of -5.97 percentage points, and 63-bar relative strength of -6.06 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "EEM"
+        ]
+      }
+    ],
+    "geographic_rotations": [
+      {
+        "ticker": "INDA",
+        "title": "India Equity Outperformance",
+        "explanation": "INDA maintains a confirmed PERSISTENT_LEADER state with a rotation score of 94.57 (a 63-bar score high), demonstrating a 5-bar score change of 10.12, 20-bar relative strength of 20.63 percentage points, and 63-bar relative strength of 18.31 percentage points.",
+        "confidence": "high",
+        "related_tickers": [
+          "UAE",
+          "AAXJ"
+        ]
+      },
+      {
+        "ticker": "VGK",
+        "title": "Developed Europe Regional Leadership",
+        "explanation": "VGK is in a confirmed PERSISTENT_LEADER state with a rotation score of 90.0, backed by a 5-bar score change of 6.88 and positive relative strength over both 20 bars (4.22 percentage points) and 63 bars (3.19 percentage points).",
+        "confidence": "high",
+        "related_tickers": [
+          "FEZ",
+          "EFA"
+        ]
+      }
+    ],
+    "pair_relationships": [
+      {
+        "ticker": "IWD",
+        "title": "Value Factor Outperformance vs Growth",
+        "explanation": "IWD holds a confirmed PERSISTENT_LEADER state with a score of 73.59 and exhibits a confirmed PAIR_LEADING signal relative to its paired ticker IWF, posting a 20-bar pair spread of 11.48 percentage points and a 63-bar pair spread of 12.82 percentage points despite a 5-bar score change of -4.45.",
+        "confidence": "high",
+        "related_tickers": [
+          "IWF"
+        ]
+      },
+      {
+        "ticker": "IWF",
+        "title": "Growth Factor Underperformance vs Value",
+        "explanation": "IWF maintains a confirmed ROTATION_OUT state with a score of 18.02 and displays a confirmed PAIR_LAGGING signal relative to its paired ticker IWD, showing a 20-bar pair spread of -11.48 percentage points and a 63-bar pair spread of -12.82 percentage points despite a 5-bar score change of 5.24.",
+        "confidence": "high",
+        "related_tickers": [
+          "IWD"
+        ]
+      }
+    ],
+    "cross_market_confirmations": [
+      "U.S. Real Estate rotation strength in XLRE (score 80.23, 20-bar RS +11.31 percentage points) is confirmed by residential real estate ETF REZ (score 94.26, 20-bar RS +15.08 percentage points).",
+      "Consumer Staples strength in global ETF KXI (score 97.0, 20-bar RS +12.19 percentage points) is confirmed by U.S. domestic sector ETF XLP (score 86.82, 20-bar RS +13.49 percentage points)."
+    ],
+    "risks_or_conflicts": [
+      "Sector Divergence: Communication Services exhibits material within-sector divergence between improver IXP (20-bar score change +27.0) and deteriorator FDN (20-bar score change -35.93).",
+      "Pair-State Tension: RSP holds a confirmed WEAKENING state (score 75.42) with a pending NEUTRAL condition (1/3 observations), yet maintains a confirmed PAIR_LEADING signal versus paired ticker SPY with 20-bar and 63-bar pair spreads of 6.42 and 4.61 percentage points."
+    ],
+    "dashboard_focus_tickers": [
+      "UAE",
+      "INDA",
+      "REZ",
+      "XLRE",
+      "IHI",
+      "IWD",
+      "IWF",
+      "RSP",
+      "OIH",
+      "SKYY",
+      "CIBR"
+    ],
+    "methodology_note": "Interpretation uses Python-confirmed trend states that require 3 consecutive daily observations before a new raw condition becomes canonical. Raw conditions remain available as pending early warnings. Evidence also uses deterministic 5-bar score changes, 20- and 63-bar relative strength or pair spreads, persistence metrics, and Python-calculated attention flags including 63-bar rotation-score extrema and material cross-market conflicts. ETF volume and CMF are treated as market-participation indicators, not fund-flow data."
+  }
+}

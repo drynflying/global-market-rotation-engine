@@ -1,0 +1,37 @@
+{
+  "as_of": "2026-11-25",
+  "requested_providers": [
+    "gemini"
+  ],
+  "successful_providers": [
+    "gemini"
+  ],
+  "failed_providers": [],
+  "primary_provider": "gemini",
+  "provider_status": "ai",
+  "provider_models": {
+    "gemini": "gemini-3.6-flash"
+  },
+  "ai_validator_version": "v1.2.8",
+  "provider_validation": {
+    "gemini": {
+      "status": "passed",
+      "validator_version": "v1.2.8",
+      "checks": {
+        "ticker_grounding": true,
+        "confirmed_state_category_consistency": true,
+        "pair_semantics": true,
+        "language_guardrails": true,
+        "numeric_evidence": true,
+        "horizon_precision": true,
+        "mixed_horizon_disclosure": true,
+        "deterministic_conflict_coverage": true
+      },
+      "attempt_count": 2,
+      "retry_used": true,
+      "first_attempt_errors": [
+        "pair_relationships[0]: PAIR finding for IWD uses generic benchmark language but paired ticker is IWF"
+      ]
+    }
+  }
+}

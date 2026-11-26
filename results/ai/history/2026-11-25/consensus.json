@@ -1,0 +1,294 @@
+{
+  "provider_count": 1,
+  "mode": "single_provider",
+  "items": [
+    {
+      "ticker": "XLRE",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "Real Estate Sector Emerging Strength",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "XHB",
+      "dominant_assessment": "EMERGING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "EMERGING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "EMERGING",
+          "title": "Homebuilders Emerging Rotation Signal",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "VGK",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "Developed Europe Regional Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "UAE",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "United Arab Emirates Sustained Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "SKYY",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Cloud Computing Score at Multi-Bar Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "OIH",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Oil Services Sharp Score Deterioration",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IWF",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Growth Factor Underperformance vs Value",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IWD",
+      "dominant_assessment": "PAIR",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PAIR": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PAIR",
+          "title": "Value Factor Outperformance vs Growth",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "INDA",
+      "dominant_assessment": "GEOGRAPHIC",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "GEOGRAPHIC": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "GEOGRAPHIC",
+          "title": "India Equity Outperformance",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IHI",
+      "dominant_assessment": "PERSISTENT_LEADER",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "PERSISTENT_LEADER": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Medical Devices High Relative Leadership",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "IGV",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Software Industry Trend Deterioration",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "EMXC",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "Emerging Markets ex-China Score Extrema Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "CIBR",
+      "dominant_assessment": "REACCELERATING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "REACCELERATING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "REACCELERATING",
+          "title": "Cybersecurity Reaccelerating Under Mixed Horizon Evidence",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "strong_consensus": [],
+  "disagreements": []
+}
