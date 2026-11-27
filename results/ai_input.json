@@ -102,6 +102,25 @@
         "cmf20": 0.007
       },
       {
+        "ticker": "INDA",
+        "exposure": "India",
+        "sector": null,
+        "state": "PERSISTENT_LEADER",
+        "raw_state": "PERSISTENT_LEADER",
+        "confirmed_state_age": 12,
+        "pending_state": null,
+        "pending_state_days": 0,
+        "state_confirmation_bars": 3,
+        "score": 95.06,
+        "rank": 2.0,
+        "group_size": 41.0,
+        "score_change_5": 10.61,
+        "score_change_20": 50.18,
+        "signal_rs20_pct_points": 20.63,
+        "signal_rs63_pct_points": 18.31,
+        "cmf20": 0.173
+      },
+      {
         "ticker": "IHI",
         "exposure": "Medical Devices",
         "sector": "Health Care",
@@ -119,25 +138,6 @@
         "signal_rs20_pct_points": 13.02,
         "signal_rs63_pct_points": 12.85,
         "cmf20": 0.093
-      },
-      {
-        "ticker": "INDA",
-        "exposure": "India",
-        "sector": null,
-        "state": "PERSISTENT_LEADER",
-        "raw_state": "PERSISTENT_LEADER",
-        "confirmed_state_age": 12,
-        "pending_state": null,
-        "pending_state_days": 0,
-        "state_confirmation_bars": 3,
-        "score": 94.57,
-        "rank": 2.0,
-        "group_size": 41.0,
-        "score_change_5": 10.12,
-        "score_change_20": 49.7,
-        "signal_rs20_pct_points": 20.63,
-        "signal_rs63_pct_points": 18.31,
-        "cmf20": 0.166
       },
       {
         "ticker": "REZ",
@@ -398,14 +398,14 @@
         "pending_state": null,
         "pending_state_days": 0,
         "state_confirmation_bars": 3,
-        "score": 94.57,
+        "score": 95.06,
         "rank": 2.0,
         "group_size": 41.0,
-        "score_change_5": 10.12,
-        "score_change_20": 49.7,
+        "score_change_5": 10.61,
+        "score_change_20": 50.18,
         "signal_rs20_pct_points": 20.63,
         "signal_rs63_pct_points": 18.31,
-        "cmf20": 0.166
+        "cmf20": 0.173
       },
       {
         "ticker": "UAE",
@@ -676,25 +676,6 @@
         "cmf20": -0.204
       },
       {
-        "ticker": "XLE",
-        "exposure": "Energy",
-        "sector": "Energy",
-        "state": "WEAKENING",
-        "raw_state": "WEAKENING",
-        "confirmed_state_age": 18,
-        "pending_state": null,
-        "pending_state_days": 0,
-        "state_confirmation_bars": 3,
-        "score": 27.27,
-        "rank": 10.0,
-        "group_size": 11.0,
-        "score_change_5": -14.09,
-        "score_change_20": -59.09,
-        "signal_rs20_pct_points": -3.83,
-        "signal_rs63_pct_points": 5.17,
-        "cmf20": -0.274
-      },
-      {
         "ticker": "XOP",
         "exposure": "Oil & Gas Exploration & Production",
         "sector": "Energy",
@@ -731,6 +712,25 @@
         "signal_rs20_pct_points": -10.28,
         "signal_rs63_pct_points": -7.83,
         "cmf20": -0.09
+      },
+      {
+        "ticker": "XLE",
+        "exposure": "Energy",
+        "sector": "Energy",
+        "state": "WEAKENING",
+        "raw_state": "WEAKENING",
+        "confirmed_state_age": 18,
+        "pending_state": null,
+        "pending_state_days": 0,
+        "state_confirmation_bars": 3,
+        "score": 29.09,
+        "rank": 10.0,
+        "group_size": 11.0,
+        "score_change_5": -12.27,
+        "score_change_20": -57.27,
+        "signal_rs20_pct_points": -3.83,
+        "signal_rs63_pct_points": 5.17,
+        "cmf20": -0.274
       },
       {
         "ticker": "IGV",
@@ -858,14 +858,14 @@
         "pending_state": "ROTATION_OUT",
         "pending_state_days": 2,
         "state_confirmation_bars": 3,
-        "score": 14.63,
+        "score": 15.0,
         "rank": 41.0,
         "group_size": 41.0,
-        "score_change_5": -5.98,
-        "score_change_20": -38.41,
+        "score_change_5": -5.61,
+        "score_change_20": -38.05,
         "signal_rs20_pct_points": -15.2,
         "signal_rs63_pct_points": -18.17,
-        "cmf20": -0.264
+        "cmf20": -0.263
       },
       {
         "ticker": "EPU",
@@ -1052,14 +1052,14 @@
         "pending_state": "ROTATION_OUT",
         "pending_state_days": 2,
         "state_confirmation_bars": 3,
-        "score": 14.63,
+        "score": 15.0,
         "rank": 41.0,
         "group_size": 41.0,
-        "score_change_5": -5.98,
-        "score_change_20": -38.41,
+        "score_change_5": -5.61,
+        "score_change_20": -38.05,
         "signal_rs20_pct_points": -15.2,
         "signal_rs63_pct_points": -18.17,
-        "cmf20": -0.264
+        "cmf20": -0.263
       },
       {
         "ticker": "EPU",
@@ -1213,18 +1213,18 @@
         "high_score": 97.0
       },
       {
+        "ticker": "INDA",
+        "kind": "HIGH",
+        "latest_score": 95.06,
+        "low_score": 19.76,
+        "high_score": 95.06
+      },
+      {
         "ticker": "IHI",
         "kind": "HIGH",
         "latest_score": 94.81,
         "low_score": 27.04,
         "high_score": 94.81
-      },
-      {
-        "ticker": "INDA",
-        "kind": "HIGH",
-        "latest_score": 94.57,
-        "low_score": 19.76,
-        "high_score": 94.57
       },
       {
         "ticker": "REZ",
@@ -1285,13 +1285,6 @@
         "high_score": 94.38
       },
       {
-        "ticker": "XLE",
-        "kind": "LOW",
-        "latest_score": 27.27,
-        "low_score": 27.27,
-        "high_score": 100.0
-      },
-      {
         "ticker": "MXI",
         "kind": "LOW",
         "latest_score": 29.5,
@@ -1311,6 +1304,13 @@
         "latest_score": 36.71,
         "low_score": 36.71,
         "high_score": 92.68
+      },
+      {
+        "ticker": "VPL",
+        "kind": "LOW",
+        "latest_score": 36.88,
+        "low_score": 36.88,
+        "high_score": 81.88
       }
     ],
     "sector_divergences": [
@@ -1335,11 +1335,11 @@
         "pending_state": "NEUTRAL",
         "pending_state_days": 1,
         "state_confirmation_bars": 3,
-        "score": 75.42,
+        "score": 75.45,
         "rank": null,
         "group_size": null,
-        "score_change_5": -0.16,
-        "score_change_20": 7.38,
+        "score_change_5": -0.13,
+        "score_change_20": 7.41,
         "signal_rs20_pct_points": 6.42,
         "signal_rs63_pct_points": 4.61,
         "cmf20": -0.075,
@@ -1481,11 +1481,11 @@
         "pending_state": null,
         "pending_state_days": 0,
         "state_confirmation_bars": 3,
-        "score": 27.27,
+        "score": 29.09,
         "rank": 10.0,
         "group_size": 11.0,
-        "score_change_5": -14.09,
-        "score_change_20": -59.09,
+        "score_change_5": -12.27,
+        "score_change_20": -57.27,
         "signal_rs20_pct_points": -3.83,
         "signal_rs63_pct_points": 5.17,
         "cmf20": -0.274
@@ -1997,9 +1997,9 @@
         "pending_state": "ROTATION_OUT",
         "pending_days": 2,
         "confirmation_bars": 3,
-        "score": 14.63,
-        "score_change_5": -5.98,
-        "score_change_20": -38.41
+        "score": 15.0,
+        "score_change_5": -5.61,
+        "score_change_20": -38.05
       },
       {
         "ticker": "EDEN",
@@ -2693,17 +2693,17 @@
           "pending_state": null,
           "pending_state_days": 0,
           "state_confirmation_bars": 3,
-          "score": 94.57,
+          "score": 95.06,
           "rank": 2.0,
           "group_size": 41.0,
-          "score_change_5": 10.12,
-          "score_change_20": 49.7,
+          "score_change_5": 10.61,
+          "score_change_20": 50.18,
           "rank_change_5": 1.0,
           "rank_change_20": 23.0,
           "signal_rs20_pct_points": 20.63,
           "signal_rs63_pct_points": 18.31,
-          "relative_dollar_volume": 1.33,
-          "cmf20": 0.166,
+          "relative_dollar_volume": 1.51,
+          "cmf20": 0.173,
           "trend_score": 0.75,
           "leader_zone_streak": 18,
           "days_leader_zone_20": 18,
@@ -2855,17 +2855,17 @@
           "pending_state": null,
           "pending_state_days": 0,
           "state_confirmation_bars": 3,
-          "score": 94.57,
+          "score": 95.06,
           "rank": 2.0,
           "group_size": 41.0,
-          "score_change_5": 10.12,
-          "score_change_20": 49.7,
+          "score_change_5": 10.61,
+          "score_change_20": 50.18,
           "rank_change_5": 1.0,
           "rank_change_20": 23.0,
           "signal_rs20_pct_points": 20.63,
           "signal_rs63_pct_points": 18.31,
-          "relative_dollar_volume": 1.33,
-          "cmf20": 0.166,
+          "relative_dollar_volume": 1.51,
+          "cmf20": 0.173,
           "trend_score": 0.75,
           "leader_zone_streak": 18,
           "days_leader_zone_20": 18,
@@ -3146,7 +3146,7 @@
           "rank_change_20": -27.0,
           "signal_rs20_pct_points": -16.44,
           "signal_rs63_pct_points": -12.25,
-          "relative_dollar_volume": 1.21,
+          "relative_dollar_volume": 1.22,
           "cmf20": -0.237,
           "trend_score": 0.0,
           "leader_zone_streak": 0,
@@ -3177,17 +3177,17 @@
           "pending_state": "ROTATION_OUT",
           "pending_state_days": 2,
           "state_confirmation_bars": 3,
-          "score": 14.63,
+          "score": 15.0,
           "rank": 41.0,
           "group_size": 41.0,
-          "score_change_5": -5.98,
-          "score_change_20": -38.41,
+          "score_change_5": -5.61,
+          "score_change_20": -38.05,
           "rank_change_5": -3.0,
           "rank_change_20": -23.0,
           "signal_rs20_pct_points": -15.2,
           "signal_rs63_pct_points": -18.17,
-          "relative_dollar_volume": 0.81,
-          "cmf20": -0.264,
+          "relative_dollar_volume": 0.83,
+          "cmf20": -0.263,
           "trend_score": 0.0,
           "leader_zone_streak": 0,
           "days_leader_zone_20": 0,
@@ -4043,7 +4043,7 @@
           "signal_rs20_pct_points": 8.82,
           "signal_rs63_pct_points": 9.78,
           "relative_dollar_volume": 0.29,
-          "cmf20": -0.121,
+          "cmf20": -0.117,
           "trend_score": 0.0,
           "leader_zone_streak": 0,
           "days_leader_zone_20": 5,
@@ -4447,7 +4447,7 @@
           "signal_rs20_pct_points": 8.82,
           "signal_rs63_pct_points": 9.78,
           "relative_dollar_volume": 0.29,
-          "cmf20": -0.121,
+          "cmf20": -0.117,
           "trend_score": 0.0,
           "leader_zone_streak": 0,
           "days_leader_zone_20": 5,
@@ -5182,7 +5182,7 @@
           "rank_change_20": -1.0,
           "signal_rs20_pct_points": -5.43,
           "signal_rs63_pct_points": -5.17,
-          "relative_dollar_volume": 1.23,
+          "relative_dollar_volume": 1.24,
           "cmf20": -0.251,
           "trend_score": 0.0,
           "leader_zone_streak": 0,
@@ -5304,7 +5304,7 @@
           "rank_change_20": -1.0,
           "signal_rs20_pct_points": -5.43,
           "signal_rs63_pct_points": -5.17,
-          "relative_dollar_volume": 1.23,
+          "relative_dollar_volume": 1.24,
           "cmf20": -0.251,
           "trend_score": 0.0,
           "leader_zone_streak": 0,
@@ -5346,7 +5346,7 @@
           "rank_change_20": -1.0,
           "signal_rs20_pct_points": -5.43,
           "signal_rs63_pct_points": -5.17,
-          "relative_dollar_volume": 1.23,
+          "relative_dollar_volume": 1.24,
           "cmf20": -0.251,
           "trend_score": 0.0,
           "leader_zone_streak": 0,
@@ -5785,11 +5785,11 @@
           "pending_state": null,
           "pending_state_days": 0,
           "state_confirmation_bars": 3,
-          "score": 39.09,
+          "score": 37.27,
           "rank": 9.0,
           "group_size": 11.0,
-          "score_change_5": 18.18,
-          "score_change_20": 5.91,
+          "score_change_5": 16.36,
+          "score_change_20": 4.09,
           "rank_change_5": 1.0,
           "rank_change_20": 2.0,
           "signal_rs20_pct_points": 9.37,
@@ -5867,11 +5867,11 @@
           "pending_state": null,
           "pending_state_days": 0,
           "state_confirmation_bars": 3,
-          "score": 27.27,
+          "score": 29.09,
           "rank": 10.0,
           "group_size": 11.0,
-          "score_change_5": -14.09,
-          "score_change_20": -59.09,
+          "score_change_5": -12.27,
+          "score_change_20": -57.27,
           "rank_change_5": -3.0,
           "rank_change_20": -9.0,
           "signal_rs20_pct_points": -3.83,
@@ -5916,7 +5916,7 @@
           "rank_change_20": -3.0,
           "signal_rs20_pct_points": -11.23,
           "signal_rs63_pct_points": -10.48,
-          "relative_dollar_volume": 1.08,
+          "relative_dollar_volume": 1.09,
           "cmf20": -0.231,
           "trend_score": 0.0,
           "leader_zone_streak": 0,
@@ -6191,11 +6191,11 @@
       "pending_state": "NEUTRAL",
       "pending_state_days": 1,
       "state_confirmation_bars": 3,
-      "score": 75.42,
+      "score": 75.45,
       "rank": null,
       "group_size": null,
-      "score_change_5": -0.16,
-      "score_change_20": 7.38,
+      "score_change_5": -0.13,
+      "score_change_20": 7.41,
       "rank_change_5": null,
       "rank_change_20": null,
       "signal_rs20_pct_points": 6.42,
@@ -6313,17 +6313,17 @@
         "pending_state": "ROTATION_OUT",
         "pending_state_days": 2,
         "state_confirmation_bars": 3,
-        "score": 14.63,
+        "score": 15.0,
         "rank": 41.0,
         "group_size": 41.0,
-        "score_change_5": -5.98,
-        "score_change_20": -38.41,
+        "score_change_5": -5.61,
+        "score_change_20": -38.05,
         "rank_change_5": -3.0,
         "rank_change_20": -23.0,
         "signal_rs20_pct_points": -15.2,
         "signal_rs63_pct_points": -18.17,
-        "relative_dollar_volume": 0.81,
-        "cmf20": -0.264,
+        "relative_dollar_volume": 0.83,
+        "cmf20": -0.263,
         "trend_score": 0.0,
         "leader_zone_streak": 0,
         "days_leader_zone_20": 0,
@@ -6344,7 +6344,7 @@
       "snapshots_bars_ago": {
         "0": {
           "date": "2026-11-25",
-          "score": 14.63,
+          "score": 15.0,
           "rank": 41.0,
           "signal_rs20_pct_points": -15.2,
           "signal_rs63_pct_points": -18.17
@@ -7011,6 +7011,85 @@
         }
       }
     },
+    "INDA": {
+      "current": {
+        "ticker": "INDA",
+        "score_mode": "CROSS_SECTIONAL",
+        "rotation_group": "EXUS_COUNTRY",
+        "exposure": "India",
+        "sector": null,
+        "state": "PERSISTENT_LEADER",
+        "raw_state": "PERSISTENT_LEADER",
+        "confirmed_state_age": 12,
+        "pending_state": null,
+        "pending_state_days": 0,
+        "state_confirmation_bars": 3,
+        "score": 95.06,
+        "rank": 2.0,
+        "group_size": 41.0,
+        "score_change_5": 10.61,
+        "score_change_20": 50.18,
+        "rank_change_5": 1.0,
+        "rank_change_20": 23.0,
+        "signal_rs20_pct_points": 20.63,
+        "signal_rs63_pct_points": 18.31,
+        "relative_dollar_volume": 1.51,
+        "cmf20": 0.173,
+        "trend_score": 0.75,
+        "leader_zone_streak": 18,
+        "days_leader_zone_20": 18,
+        "primary_benchmark": "ACWX",
+        "parent_benchmark": "AAXJ",
+        "parent_rs20_pct_points": 25.63,
+        "paired_ticker": null,
+        "pair_type": null,
+        "pair_signal": null,
+        "pair_signal_raw": null,
+        "confirmed_pair_signal_age": 0,
+        "pending_pair_signal": null,
+        "pending_pair_signal_days": 0,
+        "pair_confirmation_bars": 3,
+        "pair_spread_20_pct_points": null,
+        "pair_spread_63_pct_points": null
+      },
+      "snapshots_bars_ago": {
+        "0": {
+          "date": "2026-11-25",
+          "score": 95.06,
+          "rank": 2.0,
+          "signal_rs20_pct_points": 20.63,
+          "signal_rs63_pct_points": 18.31
+        },
+        "5": {
+          "date": "2026-11-18",
+          "score": 84.45,
+          "rank": 3.0,
+          "signal_rs20_pct_points": 14.55,
+          "signal_rs63_pct_points": 12.63
+        },
+        "10": {
+          "date": "2026-11-11",
+          "score": 78.48,
+          "rank": 5.0,
+          "signal_rs20_pct_points": 9.67,
+          "signal_rs63_pct_points": 7.82
+        },
+        "20": {
+          "date": "2026-10-28",
+          "score": 44.88,
+          "rank": 25.0,
+          "signal_rs20_pct_points": 1.54,
+          "signal_rs63_pct_points": -4.86
+        },
+        "63": {
+          "date": "2026-08-27",
+          "score": 30.12,
+          "rank": 38.0,
+          "signal_rs20_pct_points": -3.76,
+          "signal_rs63_pct_points": -1.4
+        }
+      }
+    },
     "IHI": {
       "current": {
         "ticker": "IHI",
@@ -7087,85 +7166,6 @@
           "rank": 9.0,
           "signal_rs20_pct_points": -0.4,
           "signal_rs63_pct_points": 8.4
-        }
-      }
-    },
-    "INDA": {
-      "current": {
-        "ticker": "INDA",
-        "score_mode": "CROSS_SECTIONAL",
-        "rotation_group": "EXUS_COUNTRY",
-        "exposure": "India",
-        "sector": null,
-        "state": "PERSISTENT_LEADER",
-        "raw_state": "PERSISTENT_LEADER",
-        "confirmed_state_age": 12,
-        "pending_state": null,
-        "pending_state_days": 0,
-        "state_confirmation_bars": 3,
-        "score": 94.57,
-        "rank": 2.0,
-        "group_size": 41.0,
-        "score_change_5": 10.12,
-        "score_change_20": 49.7,
-        "rank_change_5": 1.0,
-        "rank_change_20": 23.0,
-        "signal_rs20_pct_points": 20.63,
-        "signal_rs63_pct_points": 18.31,
-        "relative_dollar_volume": 1.33,
-        "cmf20": 0.166,
-        "trend_score": 0.75,
-        "leader_zone_streak": 18,
-        "days_leader_zone_20": 18,
-        "primary_benchmark": "ACWX",
-        "parent_benchmark": "AAXJ",
-        "parent_rs20_pct_points": 25.63,
-        "paired_ticker": null,
-        "pair_type": null,
-        "pair_signal": null,
-        "pair_signal_raw": null,
-        "confirmed_pair_signal_age": 0,
-        "pending_pair_signal": null,
-        "pending_pair_signal_days": 0,
-        "pair_confirmation_bars": 3,
-        "pair_spread_20_pct_points": null,
-        "pair_spread_63_pct_points": null
-      },
-      "snapshots_bars_ago": {
-        "0": {
-          "date": "2026-11-25",
-          "score": 94.57,
-          "rank": 2.0,
-          "signal_rs20_pct_points": 20.63,
-          "signal_rs63_pct_points": 18.31
-        },
-        "5": {
-          "date": "2026-11-18",
-          "score": 84.45,
-          "rank": 3.0,
-          "signal_rs20_pct_points": 14.55,
-          "signal_rs63_pct_points": 12.63
-        },
-        "10": {
-          "date": "2026-11-11",
-          "score": 78.48,
-          "rank": 5.0,
-          "signal_rs20_pct_points": 9.67,
-          "signal_rs63_pct_points": 7.82
-        },
-        "20": {
-          "date": "2026-10-28",
-          "score": 44.88,
-          "rank": 25.0,
-          "signal_rs20_pct_points": 1.54,
-          "signal_rs63_pct_points": -4.86
-        },
-        "63": {
-          "date": "2026-08-27",
-          "score": 30.12,
-          "rank": 38.0,
-          "signal_rs20_pct_points": -3.76,
-          "signal_rs63_pct_points": -1.4
         }
       }
     },
@@ -7643,85 +7643,6 @@
         }
       }
     },
-    "XLE": {
-      "current": {
-        "ticker": "XLE",
-        "score_mode": "CROSS_SECTIONAL",
-        "rotation_group": "US_SECTOR",
-        "exposure": "Energy",
-        "sector": "Energy",
-        "state": "WEAKENING",
-        "raw_state": "WEAKENING",
-        "confirmed_state_age": 18,
-        "pending_state": null,
-        "pending_state_days": 0,
-        "state_confirmation_bars": 3,
-        "score": 27.27,
-        "rank": 10.0,
-        "group_size": 11.0,
-        "score_change_5": -14.09,
-        "score_change_20": -59.09,
-        "rank_change_5": -3.0,
-        "rank_change_20": -9.0,
-        "signal_rs20_pct_points": -3.83,
-        "signal_rs63_pct_points": 5.17,
-        "relative_dollar_volume": 0.69,
-        "cmf20": -0.274,
-        "trend_score": 0.5,
-        "leader_zone_streak": 0,
-        "days_leader_zone_20": 1,
-        "primary_benchmark": "SPY",
-        "parent_benchmark": null,
-        "parent_rs20_pct_points": null,
-        "paired_ticker": "IXC",
-        "pair_type": "US_VS_GLOBAL_SECTOR",
-        "pair_signal": null,
-        "pair_signal_raw": null,
-        "confirmed_pair_signal_age": 0,
-        "pending_pair_signal": null,
-        "pending_pair_signal_days": 0,
-        "pair_confirmation_bars": 3,
-        "pair_spread_20_pct_points": 0.37,
-        "pair_spread_63_pct_points": 0.84
-      },
-      "snapshots_bars_ago": {
-        "0": {
-          "date": "2026-11-25",
-          "score": 27.27,
-          "rank": 10.0,
-          "signal_rs20_pct_points": -3.83,
-          "signal_rs63_pct_points": 5.17
-        },
-        "5": {
-          "date": "2026-11-18",
-          "score": 41.36,
-          "rank": 7.0,
-          "signal_rs20_pct_points": -4.53,
-          "signal_rs63_pct_points": 0.72
-        },
-        "10": {
-          "date": "2026-11-11",
-          "score": 40.91,
-          "rank": 9.0,
-          "signal_rs20_pct_points": -5.03,
-          "signal_rs63_pct_points": 6.48
-        },
-        "20": {
-          "date": "2026-10-28",
-          "score": 86.36,
-          "rank": 1.0,
-          "signal_rs20_pct_points": 10.03,
-          "signal_rs63_pct_points": 12.4
-        },
-        "63": {
-          "date": "2026-08-27",
-          "score": 90.91,
-          "rank": 1.0,
-          "signal_rs20_pct_points": 1.68,
-          "signal_rs63_pct_points": 7.72
-        }
-      }
-    },
     "MXI": {
       "current": {
         "ticker": "MXI",
@@ -7959,6 +7880,85 @@
         }
       }
     },
+    "VPL": {
+      "current": {
+        "ticker": "VPL",
+        "score_mode": "CROSS_SECTIONAL",
+        "rotation_group": "EXUS_REGION",
+        "exposure": "Developed Pacific incl. Japan",
+        "sector": null,
+        "state": "NEUTRAL",
+        "raw_state": "WEAKENING",
+        "confirmed_state_age": 3,
+        "pending_state": "WEAKENING",
+        "pending_state_days": 2,
+        "state_confirmation_bars": 3,
+        "score": 36.88,
+        "rank": 5.0,
+        "group_size": 8.0,
+        "score_change_5": -18.13,
+        "score_change_20": -45.0,
+        "rank_change_5": -2.0,
+        "rank_change_20": -3.0,
+        "signal_rs20_pct_points": -4.0,
+        "signal_rs63_pct_points": -2.94,
+        "relative_dollar_volume": 0.72,
+        "cmf20": -0.186,
+        "trend_score": 0.0,
+        "leader_zone_streak": 0,
+        "days_leader_zone_20": 7,
+        "primary_benchmark": "ACWX",
+        "parent_benchmark": "VEA",
+        "parent_rs20_pct_points": -4.29,
+        "paired_ticker": null,
+        "pair_type": null,
+        "pair_signal": null,
+        "pair_signal_raw": null,
+        "confirmed_pair_signal_age": 0,
+        "pending_pair_signal": null,
+        "pending_pair_signal_days": 0,
+        "pair_confirmation_bars": 3,
+        "pair_spread_20_pct_points": null,
+        "pair_spread_63_pct_points": null
+      },
+      "snapshots_bars_ago": {
+        "0": {
+          "date": "2026-11-25",
+          "score": 36.88,
+          "rank": 5.0,
+          "signal_rs20_pct_points": -4.0,
+          "signal_rs63_pct_points": -2.94
+        },
+        "5": {
+          "date": "2026-11-18",
+          "score": 55.0,
+          "rank": 3.0,
+          "signal_rs20_pct_points": -2.06,
+          "signal_rs63_pct_points": -1.7
+        },
+        "10": {
+          "date": "2026-11-11",
+          "score": 50.62,
+          "rank": 4.0,
+          "signal_rs20_pct_points": -3.1,
+          "signal_rs63_pct_points": -2.97
+        },
+        "20": {
+          "date": "2026-10-28",
+          "score": 81.88,
+          "rank": 2.0,
+          "signal_rs20_pct_points": -2.0,
+          "signal_rs63_pct_points": 2.67
+        },
+        "63": {
+          "date": "2026-08-27",
+          "score": 47.5,
+          "rank": 6.0,
+          "signal_rs20_pct_points": 1.69,
+          "signal_rs63_pct_points": -3.17
+        }
+      }
+    },
     "IXP": {
       "current": {
         "ticker": "IXP",
@@ -8130,11 +8130,11 @@
         "pending_state": "NEUTRAL",
         "pending_state_days": 1,
         "state_confirmation_bars": 3,
-        "score": 75.42,
+        "score": 75.45,
         "rank": null,
         "group_size": null,
-        "score_change_5": -0.16,
-        "score_change_20": 7.38,
+        "score_change_5": -0.13,
+        "score_change_20": 7.41,
         "rank_change_5": null,
         "rank_change_20": null,
         "signal_rs20_pct_points": 6.42,
@@ -8161,7 +8161,7 @@
       "snapshots_bars_ago": {
         "0": {
           "date": "2026-11-25",
-          "score": 75.42,
+          "score": 75.45,
           "rank": null,
           "signal_rs20_pct_points": 6.42,
           "signal_rs63_pct_points": 4.61
@@ -8430,85 +8430,6 @@
           "rank": 7.0,
           "signal_rs20_pct_points": 0.19,
           "signal_rs63_pct_points": -0.16
-        }
-      }
-    },
-    "VPL": {
-      "current": {
-        "ticker": "VPL",
-        "score_mode": "CROSS_SECTIONAL",
-        "rotation_group": "EXUS_REGION",
-        "exposure": "Developed Pacific incl. Japan",
-        "sector": null,
-        "state": "NEUTRAL",
-        "raw_state": "WEAKENING",
-        "confirmed_state_age": 3,
-        "pending_state": "WEAKENING",
-        "pending_state_days": 2,
-        "state_confirmation_bars": 3,
-        "score": 36.88,
-        "rank": 5.0,
-        "group_size": 8.0,
-        "score_change_5": -18.13,
-        "score_change_20": -45.0,
-        "rank_change_5": -2.0,
-        "rank_change_20": -3.0,
-        "signal_rs20_pct_points": -4.0,
-        "signal_rs63_pct_points": -2.94,
-        "relative_dollar_volume": 0.72,
-        "cmf20": -0.186,
-        "trend_score": 0.0,
-        "leader_zone_streak": 0,
-        "days_leader_zone_20": 7,
-        "primary_benchmark": "ACWX",
-        "parent_benchmark": "VEA",
-        "parent_rs20_pct_points": -4.29,
-        "paired_ticker": null,
-        "pair_type": null,
-        "pair_signal": null,
-        "pair_signal_raw": null,
-        "confirmed_pair_signal_age": 0,
-        "pending_pair_signal": null,
-        "pending_pair_signal_days": 0,
-        "pair_confirmation_bars": 3,
-        "pair_spread_20_pct_points": null,
-        "pair_spread_63_pct_points": null
-      },
-      "snapshots_bars_ago": {
-        "0": {
-          "date": "2026-11-25",
-          "score": 36.88,
-          "rank": 5.0,
-          "signal_rs20_pct_points": -4.0,
-          "signal_rs63_pct_points": -2.94
-        },
-        "5": {
-          "date": "2026-11-18",
-          "score": 55.0,
-          "rank": 3.0,
-          "signal_rs20_pct_points": -2.06,
-          "signal_rs63_pct_points": -1.7
-        },
-        "10": {
-          "date": "2026-11-11",
-          "score": 50.62,
-          "rank": 4.0,
-          "signal_rs20_pct_points": -3.1,
-          "signal_rs63_pct_points": -2.97
-        },
-        "20": {
-          "date": "2026-10-28",
-          "score": 81.88,
-          "rank": 2.0,
-          "signal_rs20_pct_points": -2.0,
-          "signal_rs63_pct_points": 2.67
-        },
-        "63": {
-          "date": "2026-08-27",
-          "score": 47.5,
-          "rank": 6.0,
-          "signal_rs20_pct_points": 1.69,
-          "signal_rs63_pct_points": -3.17
         }
       }
     },
@@ -9934,6 +9855,85 @@
         }
       }
     },
+    "XLE": {
+      "current": {
+        "ticker": "XLE",
+        "score_mode": "CROSS_SECTIONAL",
+        "rotation_group": "US_SECTOR",
+        "exposure": "Energy",
+        "sector": "Energy",
+        "state": "WEAKENING",
+        "raw_state": "WEAKENING",
+        "confirmed_state_age": 18,
+        "pending_state": null,
+        "pending_state_days": 0,
+        "state_confirmation_bars": 3,
+        "score": 29.09,
+        "rank": 10.0,
+        "group_size": 11.0,
+        "score_change_5": -12.27,
+        "score_change_20": -57.27,
+        "rank_change_5": -3.0,
+        "rank_change_20": -9.0,
+        "signal_rs20_pct_points": -3.83,
+        "signal_rs63_pct_points": 5.17,
+        "relative_dollar_volume": 0.69,
+        "cmf20": -0.274,
+        "trend_score": 0.5,
+        "leader_zone_streak": 0,
+        "days_leader_zone_20": 1,
+        "primary_benchmark": "SPY",
+        "parent_benchmark": null,
+        "parent_rs20_pct_points": null,
+        "paired_ticker": "IXC",
+        "pair_type": "US_VS_GLOBAL_SECTOR",
+        "pair_signal": null,
+        "pair_signal_raw": null,
+        "confirmed_pair_signal_age": 0,
+        "pending_pair_signal": null,
+        "pending_pair_signal_days": 0,
+        "pair_confirmation_bars": 3,
+        "pair_spread_20_pct_points": 0.37,
+        "pair_spread_63_pct_points": 0.84
+      },
+      "snapshots_bars_ago": {
+        "0": {
+          "date": "2026-11-25",
+          "score": 29.09,
+          "rank": 10.0,
+          "signal_rs20_pct_points": -3.83,
+          "signal_rs63_pct_points": 5.17
+        },
+        "5": {
+          "date": "2026-11-18",
+          "score": 41.36,
+          "rank": 7.0,
+          "signal_rs20_pct_points": -4.53,
+          "signal_rs63_pct_points": 0.72
+        },
+        "10": {
+          "date": "2026-11-11",
+          "score": 40.91,
+          "rank": 9.0,
+          "signal_rs20_pct_points": -5.03,
+          "signal_rs63_pct_points": 6.48
+        },
+        "20": {
+          "date": "2026-10-28",
+          "score": 86.36,
+          "rank": 1.0,
+          "signal_rs20_pct_points": 10.03,
+          "signal_rs63_pct_points": 12.4
+        },
+        "63": {
+          "date": "2026-08-27",
+          "score": 90.91,
+          "rank": 1.0,
+          "signal_rs20_pct_points": 1.68,
+          "signal_rs63_pct_points": 7.72
+        }
+      }
+    },
     "EWT": {
       "current": {
         "ticker": "EWT",
@@ -9956,7 +9956,7 @@
         "rank_change_20": -27.0,
         "signal_rs20_pct_points": -16.44,
         "signal_rs63_pct_points": -12.25,
-        "relative_dollar_volume": 1.21,
+        "relative_dollar_volume": 1.22,
         "cmf20": -0.237,
         "trend_score": 0.0,
         "leader_zone_streak": 0,
@@ -11458,7 +11458,7 @@
         "signal_rs20_pct_points": 8.82,
         "signal_rs63_pct_points": 9.78,
         "relative_dollar_volume": 0.29,
-        "cmf20": -0.121,
+        "cmf20": -0.117,
         "trend_score": 0.0,
         "leader_zone_streak": 0,
         "days_leader_zone_20": 5,
@@ -11773,7 +11773,7 @@
         "rank_change_20": -1.0,
         "signal_rs20_pct_points": -5.43,
         "signal_rs63_pct_points": -5.17,
-        "relative_dollar_volume": 1.23,
+        "relative_dollar_volume": 1.24,
         "cmf20": -0.251,
         "trend_score": 0.0,
         "leader_zone_streak": 0,
@@ -12001,11 +12001,11 @@
         "pending_state": null,
         "pending_state_days": 0,
         "state_confirmation_bars": 3,
-        "score": 39.09,
+        "score": 37.27,
         "rank": 9.0,
         "group_size": 11.0,
-        "score_change_5": 18.18,
-        "score_change_20": 5.91,
+        "score_change_5": 16.36,
+        "score_change_20": 4.09,
         "rank_change_5": 1.0,
         "rank_change_20": 2.0,
         "signal_rs20_pct_points": 9.37,
@@ -12032,7 +12032,7 @@
       "snapshots_bars_ago": {
         "0": {
           "date": "2026-11-25",
-          "score": 39.09,
+          "score": 37.27,
           "rank": 9.0,
           "signal_rs20_pct_points": 9.37,
           "signal_rs63_pct_points": 1.72
@@ -12168,7 +12168,7 @@
         "rank_change_20": -3.0,
         "signal_rs20_pct_points": -11.23,
         "signal_rs63_pct_points": -10.48,
-        "relative_dollar_volume": 1.08,
+        "relative_dollar_volume": 1.09,
         "cmf20": -0.231,
         "trend_score": 0.0,
         "leader_zone_streak": 0,
