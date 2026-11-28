@@ -3,7 +3,7 @@
   "mode": "single_provider",
   "items": [
     {
-      "ticker": "XLU",
+      "ticker": "XPH",
       "dominant_assessment": "EMERGING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -19,8 +19,30 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Utilities Sector Emerging Leadership",
+          "title": "Pharmaceuticals Outpaces Broader Health Care Parent",
           "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "XLV",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Broad Health Care Sector Relative Strength Weakens",
+          "confidence": "high"
         }
       ]
     },
@@ -41,14 +63,14 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Real Estate Sector Emerging Strength",
+          "title": "U.S. Real Estate Shows Emerging Relative Leadership",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "XLE",
-      "dominant_assessment": "WEAKENING",
+      "ticker": "XLP",
+      "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -56,20 +78,42 @@
         "gemini"
       ],
       "assessment_counts": {
-        "WEAKENING": 1
+        "PERSISTENT_LEADER": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "US Energy Sector Mixed-Horizon Weakening",
-          "confidence": "medium"
+          "assessment": "PERSISTENT_LEADER",
+          "title": "Consumer Staples Retains Top U.S. Sector Leadership",
+          "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "XHB",
+      "ticker": "XLK",
+      "dominant_assessment": "ROTATION_OUT",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "ROTATION_OUT": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "ROTATION_OUT",
+          "title": "U.S. Information Technology Touches 63-Bar Score Low",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "ticker": "XBI",
       "dominant_assessment": "EMERGING",
       "agreement_count": 1,
       "provider_count": 1,
@@ -85,7 +129,7 @@
         {
           "provider": "gemini",
           "assessment": "EMERGING",
-          "title": "Homebuilders Sector Emerging Momentum",
+          "title": "Biotechnology Displays Strong Short-Term Rotation Signal",
           "confidence": "high"
         }
       ]
@@ -107,14 +151,14 @@
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "Developed Europe Leadership",
+          "title": "Developed Europe Outperforms Broad International Benchmark",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "SMH",
-      "dominant_assessment": "ROTATION_OUT",
+      "ticker": "UAE",
+      "dominant_assessment": "GEOGRAPHIC",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -122,36 +166,14 @@
         "gemini"
       ],
       "assessment_counts": {
-        "ROTATION_OUT": 1
+        "GEOGRAPHIC": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "ROTATION_OUT",
-          "title": "Semiconductors Broad Rotation Out",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "ticker": "SKYY",
-      "dominant_assessment": "WEAKENING",
-      "agreement_count": 1,
-      "provider_count": 1,
-      "agreement_ratio": 1.0,
-      "providers_mentioning": [
-        "gemini"
-      ],
-      "assessment_counts": {
-        "WEAKENING": 1
-      },
-      "conflict": false,
-      "votes": [
-        {
-          "provider": "gemini",
-          "assessment": "WEAKENING",
-          "title": "Cloud Computing Severe Score Weakening",
+          "assessment": "GEOGRAPHIC",
+          "title": "United Arab Emirates Sustains High Relative Leadership",
           "confidence": "high"
         }
       ]
@@ -173,14 +195,14 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Equal Weight Leading Cap Weight S&P 500",
-          "confidence": "medium"
+          "title": "Equal Weight S&P 500 Outperforms Cap-Weighted Parent",
+          "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "REZ",
-      "dominant_assessment": "PERSISTENT_LEADER",
+      "ticker": "PEJ",
+      "dominant_assessment": "ACCELERATING",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -188,15 +210,15 @@
         "gemini"
       ],
       "assessment_counts": {
-        "PERSISTENT_LEADER": 1
+        "ACCELERATING": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "PERSISTENT_LEADER",
-          "title": "Residential Real Estate Leadership",
-          "confidence": "high"
+          "assessment": "ACCELERATING",
+          "title": "Leisure & Entertainment Holds Confirmed Accelerating Trend",
+          "confidence": "medium"
         }
       ]
     },
@@ -217,13 +239,13 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Oil Services Sharp Rotation Out",
+          "title": "Oil Services Experiences Severe Multi-Week Deterioration",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "KXI",
+      "ticker": "KIE",
       "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
@@ -239,14 +261,14 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "Global Consumer Staples Leadership",
+          "title": "Insurance Industry Reaches 63-Bar Score High",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "IWF",
-      "dominant_assessment": "PAIR",
+      "ticker": "IXC",
+      "dominant_assessment": "WEAKENING",
       "agreement_count": 1,
       "provider_count": 1,
       "agreement_ratio": 1.0,
@@ -254,15 +276,15 @@
         "gemini"
       ],
       "assessment_counts": {
-        "PAIR": 1
+        "WEAKENING": 1
       },
       "conflict": false,
       "votes": [
         {
           "provider": "gemini",
-          "assessment": "PAIR",
-          "title": "Large-Cap Growth Lagging Value",
-          "confidence": "high"
+          "assessment": "WEAKENING",
+          "title": "Global Energy Relative Momentum Deteriorates",
+          "confidence": "medium"
         }
       ]
     },
@@ -283,13 +305,13 @@
         {
           "provider": "gemini",
           "assessment": "PAIR",
-          "title": "Large-Cap Value Leading Large-Cap Growth",
+          "title": "U.S. Large Cap Value Holds Confirmed Pair Leadership Over Growth",
           "confidence": "high"
         }
       ]
     },
     {
-      "ticker": "EMXC",
+      "ticker": "EWZ",
       "dominant_assessment": "ROTATION_OUT",
       "agreement_count": 1,
       "provider_count": 1,
@@ -305,7 +327,29 @@
         {
           "provider": "gemini",
           "assessment": "ROTATION_OUT",
-          "title": "Emerging Markets Ex-China At Extrema Lows",
+          "title": "Brazil Remains Confirmed Rotation-Out Despite Pending Early Bounce",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "ticker": "EWT",
+      "dominant_assessment": "WEAKENING",
+      "agreement_count": 1,
+      "provider_count": 1,
+      "agreement_ratio": 1.0,
+      "providers_mentioning": [
+        "gemini"
+      ],
+      "assessment_counts": {
+        "WEAKENING": 1
+      },
+      "conflict": false,
+      "votes": [
+        {
+          "provider": "gemini",
+          "assessment": "WEAKENING",
+          "title": "Taiwan Shows Severe Weakening with Pending Rotation-Out Warning",
           "confidence": "high"
         }
       ]
@@ -327,13 +371,13 @@
         {
           "provider": "gemini",
           "assessment": "REACCELERATING",
-          "title": "Cybersecurity Mixed-Horizon Reacceleration",
-          "confidence": "low"
+          "title": "Cybersecurity Holds Confirmed Reacceleration Despite Pending Warning",
+          "confidence": "medium"
         }
       ]
     },
     {
-      "ticker": "UAE",
+      "ticker": "INDA",
       "dominant_assessment": "PERSISTENT_LEADER",
       "agreement_count": 1,
       "provider_count": 1,
@@ -350,13 +394,13 @@
         {
           "provider": "gemini",
           "assessment": "PERSISTENT_LEADER",
-          "title": "United Arab Emirates Sustained Leadership",
+          "title": "India Equity Maintains Outstanding Sustained Leadership",
           "confidence": "high"
         },
         {
           "provider": "gemini",
           "assessment": "GEOGRAPHIC",
-          "title": "United Arab Emirates Outperforms Global Benchmarks",
+          "title": "India Leads Ex-U.S. Country Universe",
           "confidence": "high"
         }
       ]
